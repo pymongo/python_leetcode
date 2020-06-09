@@ -229,6 +229,10 @@ def shell_sort(numbers: List[int]) -> List[int]:
 
 
 def merge_sort(numbers: List[int]) -> List[int]:
+    """
+    leetcode上耗时 444ms
+    官方解答中有一种很巧妙的，借助额外存储空间，直接在原数组上挪位置的解法
+    """
     length: int = len(numbers)
     # 递归结束条件
     if length <= 1:
@@ -255,7 +259,26 @@ def merge_sort(numbers: List[int]) -> List[int]:
     return result
 
 
+def quick_sort(nums):
+    """
+    应对面试时手写快排的背诵版本，所以变量名都用缩写
+    """
+    size: int = len(nums)
+    if size <= 1:
+        return nums
+    pivot = nums[0]
+    left = [nums[i] for i in range(1, size) if nums[i] <= pivot]
+    right = [nums[i] for i in range(1, size) if nums[i] > pivot]
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+
 def quick_sort_simple(numbers: List[int]) -> List[int]:
+    """
+    leetcode上耗时 44ms
+    即便是简单版本的快排，速度也是归并排序的10倍，所以同样是nlogn的时间复杂度，差距也会很大
+    快排的优化算法(分区)看别人博客
+    https://www.jianshu.com/p/bbbab7fa77a2
+    """
     length: int = len(numbers)
     # 递归结束条件
     if length <= 1:
