@@ -6,7 +6,7 @@
 
 ## typing问题
 
-牛客网(截止20年6月)的python3版本是3.5，刚开始支持typehint，但在函数入参和返回值中支持
+牛客网的python3版本是3.5，刚开始支持typehint，但在函数入参和返回值中支持
 
 [variable annotations](https://docs.python.org/3/whatsnew/3.6.html)
 
@@ -23,3 +23,5 @@ class Starship:
 ```
 
 牛客网上写代码要注意！typehint/variable annotations只能用于函数的入参和返回值
+
+(截止20年6月)lintcode上的python版本是3.6，而leetcode上的python版本是3.8(leetcode牛逼)
