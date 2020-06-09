@@ -278,6 +278,9 @@ def quick_sort_simple(numbers: List[int]) -> List[int]:
     即便是简单版本的快排，速度也是归并排序的10倍，所以同样是nlogn的时间复杂度，差距也会很大
     快排的优化算法(分区)看别人博客
     https://www.jianshu.com/p/bbbab7fa77a2
+    ## Q: 如果面试官问代码如何进一步优化
+    1. 可以在一次遍历(1次for循环)内生成left_part和right_part
+    2. 基准值的取法(不懂的话不要乱回答)
     """
     length: int = len(numbers)
     # 递归结束条件
