@@ -47,7 +47,7 @@ def binary_search(nums: List[int], target: int) -> int:
     right: int = len(nums) - 1
     middle: int
     while left < right and right > 1:
-        # 如果middle是(left+right)//2
+        # 如果middle是(left+right) // 2
         # 遇到([1, 2, 3], 4)的测试用例时会陷入死循环(left, right = 1, 2)
         middle = (left + right + 1) // 2
         print(f"left, right = {left}, {right}")
@@ -62,7 +62,12 @@ def binary_search(nums: List[int], target: int) -> int:
             print("nums[middle] < target")
             left = middle
     print(f"left, right = {left}, {right}")
-    return left
+    # 一般的二分查找找不到是返回return -1
+    # 这里我想模仿Rust的二分查找，无论找不找得到，都返回一个应当插入位置的索引
+    if nums[left] > target:
+        return left
+    else:
+        return right
 
 
 def insertion_sort(nums: List[int]) -> List[int]:
@@ -85,7 +90,7 @@ def insertion_sort(nums: List[int]) -> List[int]:
             current_num = nums[i]
             # 将比nums[i]更大的元素往右移一格
             for j in range(i, binary_search_index, -1):
-                nums[j], nums[j-1] = nums[j-1], nums[j]
+                nums[j], nums[j - 1] = nums[j - 1], nums[j]
             nums[binary_search_index] = current_num
         # List[int]不需要pretty print
         p(nums)
@@ -96,7 +101,8 @@ def insertion_sort(nums: List[int]) -> List[int]:
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([3, 2, 1, 4, 5], [1, 2, 3, 4, 5])
+        ([3, 2, 1, 4, 5], [1, 2, 3, 4, 5]),
+        ([5, 3, 4, 2], [2, 3, 4, 5])
     ]
     BINARY_SEARCH_CASES = [
         {
