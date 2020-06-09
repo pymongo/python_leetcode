@@ -36,10 +36,10 @@ def selection_sort(nums: List[int]) -> List[int]:
     min_index: int
     for i in range(length - 1):
         min_index = i
-        for j in range(i, length):
-            if nums[i] > nums[j]:
+        for j in range(i+1, length):
+            if nums[j] < nums[min_index]:
                 min_index = j
-            nums[i], nums[min_index] = nums[min_index], nums[i]
+        nums[i], nums[min_index] = nums[min_index], nums[i]
     return nums
 
 
@@ -119,8 +119,8 @@ def insertion_sort(nums: List[int]) -> List[int]:
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([3, 2, 1, 4, 5], [1, 2, 3, 4, 5]),
         ([5, 3, 4, 2], [2, 3, 4, 5]),
+        ([3, 2, 1, 4, 5], [1, 2, 3, 4, 5]),
         ([4, 10, 3, 5, 1, 2], [1, 2, 3, 4, 5, 10])
     ]
     BINARY_SEARCH_CASES = [
