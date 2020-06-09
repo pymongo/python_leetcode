@@ -12,70 +12,94 @@ from typing import List
 from pprint import pprint as p
 
 
-def bubble_sort(nums: List[int]) -> List[int]:
+def bubble_sort(numbers: List[int]) -> List[int]:
     """
     平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
     Worst Case: 入参是反序的
     """
-    length: int = len(nums)
+    length: int = len(numbers)
     for i in range(length - 1):
         for j in range(i + 1, length):
-            if nums[i] > nums[j]:
-                nums[i], nums[j] = nums[j], nums[i]
-    return nums
+            if numbers[i] > numbers[j]:
+                numbers[i], numbers[j] = numbers[j], numbers[i]
+    return numbers
 
 
-def selection_sort(nums: List[int]) -> List[int]:
+def selection_sort(numbers: List[int]) -> List[int]:
     """
     遍历n-1次，第一次遍历找到最小值与索引0进行互换，第二次遍历找到次小值......
     选择排序比冒泡蠢在，当前遍历没有利用上次遍历的结果，而冒泡排序遍历时不断将更大的数换到后面，所以冒泡排序最后的几次遍历耗时很短
     平均/最好/最坏都是O(n^2)；不稳定排序
     「堆排序」是选择排序的更高效算法
     """
-    length: int = len(nums)
+    length: int = len(numbers)
     min_index: int
     for i in range(length - 1):
         min_index = i
         for j in range(i+1, length):
-            if nums[j] < nums[min_index]:
+            if numbers[j] < numbers[min_index]:
                 min_index = j
-        nums[i], nums[min_index] = nums[min_index], nums[i]
-    return nums
+        numbers[i], numbers[min_index] = numbers[min_index], numbers[i]
+    return numbers
 
 
-def heap_sort_dfs(nums: List[int], length: int, i: int):
+def heap_sort(input_numbers: List[int]) -> List[int]:
     """
-    【完全二叉树】从上到下，从左到右生成的二叉树
-    【数据结构-堆】1. 是个完全二叉树 2. 父节点的数值比子节点大
-    【heapify】将一个完全二叉树按堆的规则进行重排
+    ## 堆排序的几个概念
+    - 完全二叉树: 从上到下，从左到右生成的二叉树
+    - 堆的规则/特征: 1. 是个完全二叉树 2. 父节点的数值比子节点大
+    - heapify: 将一个完全二叉树的某个节点按堆的规则进行重排，常用于堆的数据发生变化时，需要对变化的节点进行重排
+
+    ## 用数组模拟堆(完全二叉树)
     1. 用数组模拟完全二叉树，从上到下从左到右地编号，假设节点的索引为i，有如下规律
     1.1 i的父节点索引parent=(i-1)/2
     1.2 i的左子节点索引c1=2*i+1
     1.3 i的右子节点索引c2=2*i+2
-    2. 如何进行heapify
-    从左到右开始遍历倒数第二层(k-1)层的子节点，每个子节点做一次3数最大值的运算，再把当前节点和当前节点的子节点的最大值做交换
+
+    ## 时间复杂度分析
     对O(n)级别个非叶子节点进行堆调整操作O(logn)，时间复杂度O(nlogn)；
     之后每一次堆调整操作确定一个数的次序，时间复杂度O(nlogn)。合起来时间复杂度O(nlogn)
     平均/最好/最坏都是O(nlogn)；不稳定排序
     """
-    def heapify(nums: List[int], length: int, i: int):
+    def heapify(nums: List[int], length: int, index: int):
         """
         调整完全二叉树，使二叉树满足堆的第二个条件(父节点的数值比子节点大)
         """
-        last_node: int = length-1
-        last_node_parent: int = (last_node-1)//2
-        for i in range(last_node_parent, -1, -1):
-            children_left: int = 2*i+1
-            children_right: int = 2*i+1
-            max_index: int = i
-            if children_left < length and nums[children_left] > nums[max_index]:
-                max_index = children_left
-            if children_right < length and nums[children_right] > nums[max_index]:
-                max_index = children_right
-            if max_index != i:
-                nums[i], nums[max_index] = nums[max_index], nums[i]
-                # min_index节点发生了值变动，重新/再次检查下min_index作为的父节点是否满足堆的条件
-                heapify(nums, length, max_index)
+        children_left: int = 2 * index + 1
+        children_right: int = 2 * index + 2
+        max_index: int = index
+        if children_left < length and nums[children_left] > nums[max_index]:
+            max_index = children_left
+        if children_right < length and nums[children_right] > nums[max_index]:
+            max_index = children_right
+        if max_index != index:
+            nums[index], nums[max_index] = nums[max_index], nums[index]
+            # max_index 节点发生了值变动，重新/再次检查下 max_index 作为的父节点是否满足堆的条件
+            heapify(nums, length, max_index)
+
+    size = len(input_numbers)
+
+    # Step.1 build_heap，如果在C语言里，这一步最好抽取成方法，还有交换变量也要抽取成方法
+    last_node: int = size - 1
+    last_node_parent: int = (last_node - 1) // 2
+    # 从倒数第一个非叶子结点开始遍历(从右到左，从下到上)，建立大根堆，会遍历所有非叶子节点
+    # 从左到右开始遍历倒数第二层(k-1)层的子节点，再把 当前节点 和 当前节点的子节点的最大值 做交换
+    for i in range(last_node_parent, -1, -1):
+        heapify(input_numbers, size, i)
+    # p(input_numbers)
+
+    # Step.2 开始真正的堆排序
+    # 过程是先将根节点(最大值)与最后的叶节点交换，
+    # 然后"剔除"最后的子叶节点，重新heapify根节点(因为发生变化)
+    # 由于每次大的都会放到后面，因此最后的input_numbers是从小到大排
+    for i in range(size-1):
+        # 根节点(最大值)与最后的叶节点交换
+        input_numbers[0], input_numbers[size-1-i] = input_numbers[size-1-i], input_numbers[0]
+        # 由于根节点发生变化，需要重新heapify，注意重新heapify时不要包括已剔除的叶节点
+        heapify(input_numbers, size-1-i, 0)
+
+    # p(input_numbers)
+    return input_numbers
 
 
 def binary_search(nums: List[int], target: int) -> int:
@@ -175,10 +199,10 @@ class Testing(unittest.TestCase):
         for case in self.TEST_CASES[:]:
             self.assertEqual(case[1], selection_sort(case[0]))
 
-    def test_heap_sort_dfs(self):
+    def test_heap_sort(self):
         for case in self.TEST_CASES[:]:
             nums = case[0][:]
-            heap_sort_dfs(nums, len(nums), 0)
+            heap_sort(nums)
             self.assertEqual(case[1], nums)
 
     def test_binary_search(self):
