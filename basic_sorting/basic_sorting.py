@@ -30,11 +30,14 @@ def selection_sort(nums: List[int]):
     选择排序比冒泡蠢在，当前遍历没有利用上次遍历的结果，而冒泡排序遍历时不断将更大的数换到后面，所以冒泡排序最后的几次遍历耗时很短
     平均/最好/最坏都是O(n^2)；不稳定排序
     """
-    # length: int = len(nums)
-    # for i in range(length-1):
-    #     for j in range(i, length):
-    #         if nums[i] > nums[j]:
-    #             nums[i], nums[j] = nums[j], nums[i]
+    length: int = len(nums)
+    min_index: int
+    for i in range(length-1):
+        min_index = i
+        for j in range(i, length):
+            if nums[i] > nums[j]:
+                min_index = j
+            nums[i], nums[min_index] = nums[min_index], nums[i]
     return nums
 
 
@@ -45,8 +48,13 @@ class Testing(unittest.TestCase):
 
     def test_bubble_sort(self):
         for case in self.TEST_CASES[:]:
-            self.assertEqual(bubble_sort(case[0]), case[1])
+            # assertEqual(Expected, Actual)
+            # rust的assert_eq!比较直观，不限定左边还是右边放期待值，assert_eq!(Left, Right)
+            self.assertEqual(case[1], bubble_sort(case[0]))
 
+    def test_selection_sort(self):
+        for case in self.TEST_CASES[:]:
+            self.assertEqual(case[1], selection_sort(case[0]))
 
 
 
