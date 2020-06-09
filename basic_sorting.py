@@ -6,6 +6,16 @@
 
 ## Reference:
 https://www.jianshu.com/p/bbbab7fa77a2
+
+## 算法的稳定性概念
+稳定排序，如果a原本在b前面，而a=b，排序之后a仍然在b的前面；而不稳定排序可能出现在b之后
+
+## 十大排序算法的空间复杂度
+除了三大桶排序和归并排序需要额外的空间，其余排序算法都是O(1)而且能在数组内直接排序(in-place)
+
+## 为什么不看桶排序
+桶排序平均时间复杂度O(n+k)看似很美，在leetcode上桶排序的速度不如快速排序
+计数排序和基数排序的思想跟桶排序类似，可以归为桶排序一类
 """
 import unittest
 from typing import List
@@ -36,7 +46,7 @@ def selection_sort(numbers: List[int]) -> List[int]:
     min_index: int
     for i in range(length - 1):
         min_index = i
-        for j in range(i+1, length):
+        for j in range(i + 1, length):
             if numbers[j] < numbers[min_index]:
                 min_index = j
         numbers[i], numbers[min_index] = numbers[min_index], numbers[i]
@@ -45,6 +55,16 @@ def selection_sort(numbers: List[int]) -> List[int]:
 
 def heap_sort(input_numbers: List[int]) -> List[int]:
     """
+    ## 堆排序学习资料
+    https://www.youtube.com/watch?v=j-DqQcNPGbE
+
+    ## heapq
+    有人把上述视频中的build_heap 叫做heapify
+    Python heapq 的heapify就是把整个array变成heap
+    视频中的heapify 有人喜欢叫成bubble down，因为是value从parent往children走
+    然后视频没有cover bubble up。heappop的时候用bubble down
+    如果implement heappush的话是需要bubble up
+
     ## 堆排序的几个概念
     - 完全二叉树: 从上到下，从左到右生成的二叉树
     - 堆的规则/特征: 1. 是个完全二叉树 2. 父节点的数值比子节点大
@@ -57,10 +77,12 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
     1.3 i的右子节点索引c2=2*i+2
 
     ## 时间复杂度分析
-    对O(n)级别个非叶子节点进行堆调整操作O(logn)，时间复杂度O(nlogn)；
-    之后每一次堆调整操作确定一个数的次序，时间复杂度O(nlogn)。合起来时间复杂度O(nlogn)
+    时间复杂度：O(nlog n)O(nlogn)。初始化建堆的时间复杂度为 O(n)O(n)，建完堆以后需要进行 n-1n−1 次调整，
+    一次调整（即 maxHeapify）的时间复杂度为 O(logn)O(logn)，
+    那么 n-1n−1 次调整即需要 O(nlog n)O(nlogn) 的时间复杂度。因此，总时间复杂度为 O(n+nlog n)=O(nlog n)O(n+nlogn)=O(nlogn)。
     平均/最好/最坏都是O(nlogn)；不稳定排序
     """
+
     def heapify(nums: List[int], length: int, index: int):
         """
         调整完全二叉树，使二叉树满足堆的第二个条件(父节点的数值比子节点大)
@@ -75,6 +97,7 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
         if max_index != index:
             nums[index], nums[max_index] = nums[max_index], nums[index]
             # max_index 节点发生了值变动，重新/再次检查下 max_index 作为的父节点是否满足堆的条件
+            # TODO 补充不用递归的写法
             heapify(nums, length, max_index)
 
     size = len(input_numbers)
@@ -92,11 +115,11 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
     # 过程是先将根节点(最大值)与最后的叶节点交换，
     # 然后"剔除"最后的子叶节点，重新heapify根节点(因为发生变化)
     # 由于每次大的都会放到后面，因此最后的input_numbers是从小到大排
-    for i in range(size-1):
+    for i in range(size - 1):
         # 根节点(最大值)与最后的叶节点交换
-        input_numbers[0], input_numbers[size-1-i] = input_numbers[size-1-i], input_numbers[0]
+        input_numbers[0], input_numbers[size - 1 - i] = input_numbers[size - 1 - i], input_numbers[0]
         # 由于根节点发生变化，需要重新heapify，注意重新heapify时不要包括已剔除的叶节点
-        heapify(input_numbers, size-1-i, 0)
+        heapify(input_numbers, size - 1 - i, 0)
 
     # p(input_numbers)
     return input_numbers
@@ -117,10 +140,10 @@ def binary_search(nums: List[int], target: int) -> int:
             return middle
         elif nums[middle] > target:
             print("nums[middle] > target")
-            right = min(middle, right-1)
+            right = min(middle, right - 1)
         else:
             print("nums[middle] < target")
-            left = max(middle, left+1)
+            left = max(middle, left + 1)
     print(f"left, right = {left}, {right}")
     # 一般的二分查找找不到是返回return -1
     # 这里我想模仿Rust的二分查找，无论找不找得到，都返回一个应当插入位置的索引
@@ -158,6 +181,50 @@ def insertion_sort(nums: List[int]) -> List[int]:
         p('==' * 10)
         print()
     return nums
+
+
+def shell_sort(numbers: List[int]) -> List[int]:
+    """
+    理解希尔排序的话看图
+    https://www.cnblogs.com/chengxiao/p/6104371.html
+    基本思路在于先将间距较大元素进行排序，先保证整体有序
+    gap迭代的算法有很多种，这里仅介绍折半式迭代gap
+    动态gap的参考代码
+    ```python
+    def shell_sort(nums):
+        lens = len(nums)
+        gap = 1  
+        while gap < lens // 3:
+            gap = gap * 3 + 1  # 动态定义间隔序列
+        while gap > 0:
+            for i in range(gap, lens):
+                cur_num, pre_index = nums[i], i - gap  # cur_num 保存当前待插入的数
+                while pre_index >= 0 and cur_num < nums[pre_index]:
+                    nums[pre_index + gap] = nums[pre_index] # 将比 cur_num 大的元素向后移动
+                    pre_index -= gap
+                nums[pre_index + gap] = cur_num  # 待插入的数的正确位置
+            gap //= 3  # 下一个动态间隔
+        return nums
+    ```
+    """
+    length: int = len(numbers)
+    if length < 2:
+        return numbers
+
+    gap: int = length // 2
+
+    while gap > 0:
+        for i in range(gap, length):
+            current_number, left = numbers[i], i - gap
+            while left >= 0 and current_number < numbers[left]:
+                # 将比current_number大的元素往后移动
+                numbers[left+gap] = numbers[left]
+                left -= gap
+            # 将current_number插入到正确位置
+            numbers[left + gap] = current_number
+        gap //= 2
+
+    return numbers
 
 
 class Testing(unittest.TestCase):
@@ -212,3 +279,8 @@ class Testing(unittest.TestCase):
     def test_insertion_sort(self):
         for case in self.TEST_CASES[:]:
             self.assertEqual(case[1], insertion_sort(case[0]))
+
+    def test_shell_sort(self):
+        for case in self.TEST_CASES[:]:
+            self.assertEqual(case[1], shell_sort(case[0]))
+
