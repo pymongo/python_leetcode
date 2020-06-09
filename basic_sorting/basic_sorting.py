@@ -17,8 +17,8 @@ def bubble_sort(nums: List[int]):
     Worst Case: 入参是反序的
     """
     length: int = len(nums)
-    for i in range(length-1):
-        for j in range(i+1, length):
+    for i in range(length - 1):
+        for j in range(i + 1, length):
             if nums[i] > nums[j]:
                 nums[i], nums[j] = nums[j], nums[i]
     return nums
@@ -32,7 +32,7 @@ def selection_sort(nums: List[int]):
     """
     length: int = len(nums)
     min_index: int
-    for i in range(length-1):
+    for i in range(length - 1):
         min_index = i
         for j in range(i, length):
             if nums[i] > nums[j]:
@@ -41,9 +41,61 @@ def selection_sort(nums: List[int]):
     return nums
 
 
+def insertion_sort(nums: List[int]):
+    """
+    插入排序类型斗地主发牌时，将新的牌插入到已经有序的手牌中
+    优化算法是通过binary_search找到插入的索引
+    由于二分/折半查找只是减少了比较的次数，插入元素时元素的移动也耗费O(n)的时间，所以时间复杂度跟冒泡排序一样
+    平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
+    Worst Case: 入参是反序的
+    """
+    return nums
+
+
+def binary_search(nums: List[int], target: int) -> int:
+    left: int = 0
+    right: int = len(nums) - 1
+    middle: int
+    while left < right and right > 1:
+        # 如果middle是(left+right)//2
+        # 遇到([1, 2, 3], 4)的测试用例时会陷入死循环(left, right = 1, 2)
+        middle = (left + right + 1) // 2
+        print(f"left, right = {left}, {right}")
+        print(f"middle = {middle}")
+        if nums[middle] == target:
+            print("nums[middle] == target")
+            return middle
+        elif nums[middle] > target:
+            print("nums[middle] > target")
+            right = middle
+        else:
+            print("nums[middle] < target")
+            left = middle
+    print(f"left, right = {left}, {right}")
+    return left
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([3, 2, 1, 4, 5], [1, 2, 3, 4, 5])
+    ]
+    BINARY_SEARCH_CASES = [
+        {
+            "input": ([1, 2, 3], 1),
+            "expected": 0
+        },
+        {
+            "input": ([1, 2, 3], 2),
+            "expected": 1
+        },
+        {
+            "input": ([1, 2, 3], 3),
+            "expected": 2
+        },
+        {
+            "input": ([1, 2, 3], 4),
+            "expected": 2
+        },
     ]
 
     def test_bubble_sort(self):
@@ -56,5 +108,10 @@ class Testing(unittest.TestCase):
         for case in self.TEST_CASES[:]:
             self.assertEqual(case[1], selection_sort(case[0]))
 
+    def test_binary_search(self):
+        for case in self.BINARY_SEARCH_CASES[:]:
+            self.assertEqual(case["expected"], binary_search(*case["input"]))
 
-
+    def test_insertion_sort(self):
+        for case in self.TEST_CASES[:]:
+            self.assertEqual(case[1], insertion_sort(case[0]))
