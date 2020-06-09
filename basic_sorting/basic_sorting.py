@@ -30,6 +30,7 @@ def selection_sort(nums: List[int]) -> List[int]:
     遍历n-1次，第一次遍历找到最小值与索引0进行互换，第二次遍历找到次小值......
     选择排序比冒泡蠢在，当前遍历没有利用上次遍历的结果，而冒泡排序遍历时不断将更大的数换到后面，所以冒泡排序最后的几次遍历耗时很短
     平均/最好/最坏都是O(n^2)；不稳定排序
+    「堆排序」是选择排序的更高效算法
     """
     length: int = len(nums)
     min_index: int
@@ -42,6 +43,22 @@ def selection_sort(nums: List[int]) -> List[int]:
     return nums
 
 
+def heap_sort_dfs(nums: List[int]) -> List[int]:
+    """
+    【完全二叉树】从上到下，从左到右生成的二叉树
+    【数据结构-堆】1. 是个完全二叉树 2. 父节点的数值比子节点大
+    【heapify】将一个完全二叉树按堆的规则进行重排
+    1. 用数组模拟完全二叉树，从上到下从左到右地编号，假设节点的索引为i，有如下规律
+    1.1 i的父节点索引parent=(i-1)/2
+    1.2 i的左子节点索引c1=(i-1)/2
+    1.3 i的右子节点索引c2=(i-1)/2
+    2. 如何进行heapify
+    从左到右开始遍历倒数第二层(k-1)层的子节点，每个子节点做一次3数最大值的运算，再把当前节点和当前节点的子节点的最大值做交换
+    """
+
+    return []
+
+
 def binary_search(nums: List[int], target: int) -> int:
     left: int = 0
     right: int = len(nums) - 1
@@ -49,7 +66,7 @@ def binary_search(nums: List[int], target: int) -> int:
     while left < right and right > 1:
         # 如果middle是(left+right) // 2
         # 遇到([1, 2, 3], 4)的测试用例时会陷入死循环(left, right = 1, 2)
-        middle = (left + right + 1) // 2
+        middle = (left + right) // 2
         print(f"left, right = {left}, {right}")
         print(f"middle = {middle}")
         if nums[middle] == target:
@@ -57,10 +74,10 @@ def binary_search(nums: List[int], target: int) -> int:
             return middle
         elif nums[middle] > target:
             print("nums[middle] > target")
-            right = middle
+            right = min(middle, right-1)
         else:
             print("nums[middle] < target")
-            left = middle
+            left = max(middle, left+1)
     print(f"left, right = {left}, {right}")
     # 一般的二分查找找不到是返回return -1
     # 这里我想模仿Rust的二分查找，无论找不找得到，都返回一个应当插入位置的索引
@@ -74,6 +91,7 @@ def insertion_sort(nums: List[int]) -> List[int]:
     """
     插入排序类型斗地主发牌时，将新的牌插入到已经有序的手牌中
     优化算法是通过binary_search找到插入的索引
+    「希尔排序」是插入排序的更高效算法
     由于二分/折半查找只是减少了比较的次数，插入元素时元素的移动也耗费O(n)的时间，所以时间复杂度跟冒泡排序一样
     平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
     Worst Case: 入参是反序的
@@ -102,7 +120,8 @@ def insertion_sort(nums: List[int]) -> List[int]:
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([3, 2, 1, 4, 5], [1, 2, 3, 4, 5]),
-        ([5, 3, 4, 2], [2, 3, 4, 5])
+        ([5, 3, 4, 2], [2, 3, 4, 5]),
+        ([4, 10, 3, 5, 1, 2], [1, 2, 3, 4, 5, 10])
     ]
     BINARY_SEARCH_CASES = [
         {
