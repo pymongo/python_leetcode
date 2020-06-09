@@ -41,17 +41,6 @@ def selection_sort(nums: List[int]):
     return nums
 
 
-def insertion_sort(nums: List[int]):
-    """
-    插入排序类型斗地主发牌时，将新的牌插入到已经有序的手牌中
-    优化算法是通过binary_search找到插入的索引
-    由于二分/折半查找只是减少了比较的次数，插入元素时元素的移动也耗费O(n)的时间，所以时间复杂度跟冒泡排序一样
-    平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
-    Worst Case: 入参是反序的
-    """
-    return nums
-
-
 def binary_search(nums: List[int], target: int) -> int:
     left: int = 0
     right: int = len(nums) - 1
@@ -75,11 +64,36 @@ def binary_search(nums: List[int], target: int) -> int:
     return left
 
 
+def insertion_sort(nums: List[int]):
+    """
+    插入排序类型斗地主发牌时，将新的牌插入到已经有序的手牌中
+    优化算法是通过binary_search找到插入的索引
+    由于二分/折半查找只是减少了比较的次数，插入元素时元素的移动也耗费O(n)的时间，所以时间复杂度跟冒泡排序一样
+    平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
+    Worst Case: 入参是反序的
+    """
+    length: int = len(nums)
+    current_num: int
+    for i in range(1, length-1):
+        bsearch_index = binary_search(nums[:i], nums[i])
+        if bsearch_index < i:
+            current_num = nums[i]
+            # 将比nums[i]更大的元素往右移一格
+            for j in range(i, bsearch_index, -1):
+                nums[j], nums[j-1] = nums[j-1], nums[j]
+            nums[bsearch_index] = current_num
+    return nums
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([3, 2, 1, 4, 5], [1, 2, 3, 4, 5])
     ]
     BINARY_SEARCH_CASES = [
+        {
+            "input": ([1, 2, 3], 0),
+            "expected": 0
+        },
         {
             "input": ([1, 2, 3], 1),
             "expected": 0
