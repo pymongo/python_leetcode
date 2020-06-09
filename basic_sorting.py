@@ -228,8 +228,31 @@ def shell_sort(numbers: List[int]) -> List[int]:
     return numbers
 
 
-def merge_sort(numbers: List[int], left: int, right: int):
-    return []
+def merge_sort(numbers: List[int]) -> List[int]:
+    length: int = len(numbers)
+    # 递归结束条件
+    if length <= 1:
+        return numbers
+
+    middle = length // 2
+    left_arr = merge_sort(numbers[:middle])
+    right_arr = merge_sort(numbers[middle:])
+
+    # 通过双指针合并左右两半的有序数组
+    left_ptr, right_ptr = 0, 0
+    left_len, right_len = len(left_arr), len(right_arr)
+    result: List[int] = []
+    while left_ptr < left_len and right_ptr < right_len:
+        if left_arr[left_ptr] < right_arr[right_ptr]:
+            result.append(left_arr[left_ptr])
+            left_ptr += 1
+        else:
+            result.append(right_arr[right_ptr])
+            right_ptr += 1
+    # 剩余的元素直接添加到末尾
+    result = result + left_arr[left_ptr:] + right_arr[right_ptr:]
+
+    return result
 
 
 class Testing(unittest.TestCase):
@@ -291,5 +314,4 @@ class Testing(unittest.TestCase):
 
     def test_merge_sort(self):
         for case in self.TEST_CASES[:]:
-            result = merge_sort(case[0][:], 0, len(case[0]) - 1)
-            self.assertEqual(case[1], result)
+            self.assertEqual(case[1], merge_sort(case[0]))
