@@ -1,13 +1,20 @@
+"""
+Relative Problems
+- https://lintcode.com/problem/sort-integers
+- https://lintcode.com/problem/sort-integers-ii
+- https://leetcode.com/problems/sort-an-array/
+"""
 import unittest
 from typing import List
 
 
-def bubble_sort(A: List[int]):
-    length: int = len(A)
-    for i in range(length):
-        for j in (i, length):
-            if A[i] > A[j]:
-                A[i], A[j] = A[j], A[i]
+def bubble_sort(nums: List[int]):
+    length: int = len(nums)
+    for i in range(length-1):
+        for j in range(i, length):
+            if nums[i] > nums[j]:
+                nums[i], nums[j] = nums[j], nums[i]
+    return nums
 
 
 class Testing(unittest.TestCase):
