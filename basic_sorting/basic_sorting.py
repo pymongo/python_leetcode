@@ -9,9 +9,10 @@ https://www.jianshu.com/p/bbbab7fa77a2
 """
 import unittest
 from typing import List
+from pprint import pprint as p
 
 
-def bubble_sort(nums: List[int]):
+def bubble_sort(nums: List[int]) -> List[int]:
     """
     平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
     Worst Case: 入参是反序的
@@ -24,7 +25,7 @@ def bubble_sort(nums: List[int]):
     return nums
 
 
-def selection_sort(nums: List[int]):
+def selection_sort(nums: List[int]) -> List[int]:
     """
     遍历n-1次，第一次遍历找到最小值与索引0进行互换，第二次遍历找到次小值......
     选择排序比冒泡蠢在，当前遍历没有利用上次遍历的结果，而冒泡排序遍历时不断将更大的数换到后面，所以冒泡排序最后的几次遍历耗时很短
@@ -64,7 +65,7 @@ def binary_search(nums: List[int], target: int) -> int:
     return left
 
 
-def insertion_sort(nums: List[int]):
+def insertion_sort(nums: List[int]) -> List[int]:
     """
     插入排序类型斗地主发牌时，将新的牌插入到已经有序的手牌中
     优化算法是通过binary_search找到插入的索引
@@ -74,14 +75,22 @@ def insertion_sort(nums: List[int]):
     """
     length: int = len(nums)
     current_num: int
-    for i in range(1, length-1):
-        bsearch_index = binary_search(nums[:i], nums[i])
-        if bsearch_index < i:
+    for i in range(1, length):
+        print()
+        p('==' * 10)
+        p((nums[:i], nums[i]))
+        binary_search_index = binary_search(nums[:i], nums[i])
+        p(f"binary_search_index, i = {binary_search_index}, {i}")
+        if binary_search_index < i and nums[binary_search_index] > nums[i]:
             current_num = nums[i]
             # 将比nums[i]更大的元素往右移一格
-            for j in range(i, bsearch_index, -1):
+            for j in range(i, binary_search_index, -1):
                 nums[j], nums[j-1] = nums[j-1], nums[j]
-            nums[bsearch_index] = current_num
+            nums[binary_search_index] = current_num
+        # List[int]不需要pretty print
+        p(nums)
+        p('==' * 10)
+        print()
     return nums
 
 
