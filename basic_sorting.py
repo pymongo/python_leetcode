@@ -262,8 +262,8 @@ def quick_sort_simple(numbers: List[int]) -> List[int]:
         return numbers
     # 基准值
     pivot: int = numbers[0]
-    left_part = [numbers[i] for i in range(length) if numbers[i] <= pivot]
-    right_part = [numbers[i] for i in range(length) if numbers[i] > pivot]
+    left_part = [numbers[i] for i in range(1, length) if numbers[i] <= pivot]
+    right_part = [numbers[i] for i in range(1, length) if numbers[i] > pivot]
     return quick_sort_simple(left_part) + [pivot] + quick_sort_simple(right_part)
 
 
