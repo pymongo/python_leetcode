@@ -1,19 +1,40 @@
 """
-Relative Problems
-- https://lintcode.com/problem/sort-integers
+## Relative Problems
+- [冒泡/选择/插入](https://lintcode.com/problem/sort-integers)
 - https://lintcode.com/problem/sort-integers-ii
 - https://leetcode.com/problems/sort-an-array/
+
+## Reference:
+https://www.jianshu.com/p/bbbab7fa77a2
 """
 import unittest
 from typing import List
 
 
 def bubble_sort(nums: List[int]):
+    """
+    平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
+    Worst Case: 入参是反序的
+    """
     length: int = len(nums)
     for i in range(length-1):
-        for j in range(i, length):
+        for j in range(i+1, length):
             if nums[i] > nums[j]:
                 nums[i], nums[j] = nums[j], nums[i]
+    return nums
+
+
+def selection_sort(nums: List[int]):
+    """
+    遍历n-1次，第一次遍历找到最小值与索引0进行互换，第二次遍历找到次小值......
+    选择排序比冒泡蠢在，当前遍历没有利用上次遍历的结果，而冒泡排序遍历时不断将更大的数换到后面，所以冒泡排序最后的几次遍历耗时很短
+    平均/最好/最坏都是O(n^2)；不稳定排序
+    """
+    # length: int = len(nums)
+    # for i in range(length-1):
+    #     for j in range(i, length):
+    #         if nums[i] > nums[j]:
+    #             nums[i], nums[j] = nums[j], nums[i]
     return nums
 
 
