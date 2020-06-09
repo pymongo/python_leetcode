@@ -3,6 +3,7 @@
 - [冒泡/选择/插入](https://lintcode.com/problem/sort-integers)
 - https://lintcode.com/problem/sort-integers-ii
 - https://leetcode.com/problems/sort-an-array/
+- https://leetcode-cn.com/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/
 
 ## Reference:
 https://www.jianshu.com/p/bbbab7fa77a2
@@ -218,13 +219,17 @@ def shell_sort(numbers: List[int]) -> List[int]:
             current_number, left = numbers[i], i - gap
             while left >= 0 and current_number < numbers[left]:
                 # 将比current_number大的元素往后移动
-                numbers[left+gap] = numbers[left]
+                numbers[left + gap] = numbers[left]
                 left -= gap
             # 将current_number插入到正确位置
             numbers[left + gap] = current_number
         gap //= 2
 
     return numbers
+
+
+def merge_sort(numbers: List[int], left: int, right: int):
+    return []
 
 
 class Testing(unittest.TestCase):
@@ -284,3 +289,7 @@ class Testing(unittest.TestCase):
         for case in self.TEST_CASES[:]:
             self.assertEqual(case[1], shell_sort(case[0]))
 
+    def test_merge_sort(self):
+        for case in self.TEST_CASES[:]:
+            result = merge_sort(case[0][:], 0, len(case[0]) - 1)
+            self.assertEqual(case[1], result)
