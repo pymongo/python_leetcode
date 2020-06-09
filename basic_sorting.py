@@ -255,8 +255,21 @@ def merge_sort(numbers: List[int]) -> List[int]:
     return result
 
 
+def quick_sort_simple(numbers: List[int]) -> List[int]:
+    length: int = len(numbers)
+    # 递归结束条件
+    if length <= 1:
+        return numbers
+    # 基准值
+    pivot: int = numbers[0]
+    left_part = [numbers[i] for i in range(length) if numbers[i] <= pivot]
+    right_part = [numbers[i] for i in range(length) if numbers[i] > pivot]
+    return quick_sort_simple(left_part) + [pivot] + quick_sort_simple(right_part)
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
+        ([5, 2, 3, 1], [1, 2, 3, 5]),
         ([5, 3, 4, 2], [2, 3, 4, 5]),
         ([3, 2, 1, 4, 5], [1, 2, 3, 4, 5]),
         ([4, 10, 3, 5, 1, 2], [1, 2, 3, 4, 5, 10])
@@ -315,3 +328,7 @@ class Testing(unittest.TestCase):
     def test_merge_sort(self):
         for case in self.TEST_CASES[:]:
             self.assertEqual(case[1], merge_sort(case[0]))
+
+    def test_quick_sort_simple(self):
+        for case in self.TEST_CASES[:]:
+            self.assertEqual(case[1], quick_sort_simple(case[0]))
