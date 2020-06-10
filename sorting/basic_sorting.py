@@ -247,6 +247,8 @@ def merge_sort(numbers: List[int]) -> List[int]:
     right_arr = merge_sort(numbers[middle:])
 
     # 通过双指针合并左右两半的有序数组
+    # 合并两个有序数组的算法可以参考leetcode上merge-sorted-array这题
+    # https://leetcode.com/problems/merge-sorted-array/
     left_ptr, right_ptr = 0, 0
     left_len, right_len = len(left_arr), len(right_arr)
     result: List[int] = []
