@@ -17,7 +17,7 @@ LeetCode
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
-|887_TODO|[Super Egg Drop](https://leetcode.com/problems/super-egg-drop)||dynamic_programming|
+|887_TODO|[Super Egg Drop](https://leetcode.com/problems/super-egg-drop)||dp|
 |912|[Sort An Array](https://leetcode.com/problems/sort-an-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/quick_sort.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
 
 ---
@@ -32,7 +32,7 @@ LintCode
 |254|[Drop Eggs](https://www.lintcode.com/problem/drop-eggs/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs.py)|sqrt_n|
 |463|[Sort Integers](https://www.lintcode.com/problem/sort-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
 |464|[Sort Integers II](https://www.lintcode.com/problem/sort-integers-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
-|584_TODO|[Sort Integers II](https://www.lintcode.com/problem/drop-eggs-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
+|584_TODO|[Drop Eggs II](https://www.lintcode.com/problem/drop-eggs-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|dp|
 
 ---
 
