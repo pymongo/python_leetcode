@@ -1,7 +1,7 @@
 LeetCode
 ========
 
-| # | Title | Solution | Category |
+| # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
 |1|[Two Sum](https://leetcode.com/problems/two-sum/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/btree_map_two_sum.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/two_sum_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/HashMapTwoSum.java)|btree_map, bitwise, two_s_complement|
 |2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/traverse_two_list_node.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/traverse_two_list_node_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/TraverseTwoListNode.java)|no_0ms_solution, create/traverse_list_node|
@@ -17,16 +17,19 @@ LeetCode
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
-|912|[Sort An Array](https://leetcode.com/problems/sort-an-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/quick_sort.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/basic_sorting.py)|basic_sorting|
+|912|[Sort An Array](https://leetcode.com/problems/sort-an-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/quick_sort.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
 
 ---
 
 LintCode
 ========
 
-| # | Title | Solution | Category |
+| # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
+|200|[Longest Palindromic Substring](https://www.lintcode.com/problem/longest-palindromic-substring/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/longest_palindromic_substr.rs)|multi_solutions|
 |254|[Drop Eggs](https://www.lintcode.com/problem/drop-eggs/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs.rs)|sqrt_n|
+|463|[Sort Integers](https://www.lintcode.com/problem/sort-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
+|464|[Sort Integers II](https://www.lintcode.com/problem/sort-integers-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
 
 ---
 

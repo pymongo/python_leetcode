@@ -21,6 +21,10 @@ https://www.jianshu.com/p/bbbab7fa77a2
 import unittest
 from typing import List
 from pprint import pprint as p
+# parent folder的py文件都能被导入... 我还是喜欢Rust的跟文件结构保持一致的包管理
+# 我理解为import的root在项目文件夹，所以mydbg能被找到
+from mydbg import dbg
+# from pydbg import dbg as pydbg
 
 
 def bubble_sort(numbers: List[int]) -> List[int]:
@@ -134,8 +138,7 @@ def binary_search(nums: List[int], target: int) -> int:
         # 如果middle是(left+right) // 2
         # 遇到([1, 2, 3], 4)的测试用例时会陷入死循环(left, right = 1, 2)
         middle = (left + right) // 2
-        print(f"left, right = {left}, {right}")
-        print(f"middle = {middle}")
+        dbg((left, middle, right))
         if nums[middle] == target:
             print("nums[middle] == target")
             return middle
@@ -341,6 +344,7 @@ class Testing(unittest.TestCase):
 
     def test_binary_search(self):
         for case in self.BINARY_SEARCH_CASES[:]:
+            dbg(case)
             self.assertEqual(case["expected"], binary_search(*case["input"]))
 
     def test_insertion_sort(self):
