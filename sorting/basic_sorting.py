@@ -165,6 +165,7 @@ def insertion_sort(nums: List[int]) -> List[int]:
     由于二分/折半查找只是减少了比较的次数，插入元素时元素的移动也耗费O(n)的时间，所以时间复杂度跟冒泡排序一样
     平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
     Worst Case: 入参是反序的
+    FIXME 我写的二分插入有点问题，还是用不加二分查找的原始插入排序更好
     """
     length: int = len(nums)
     current_num: int

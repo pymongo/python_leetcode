@@ -1,13 +1,16 @@
 import unittest
 from typing import List, Tuple
-from pydbg import dbg
+from mydbg import dbg
 
 
 def expand_center(s: str, size: int, left: int, right: int) -> int:
+    # FIXME 测试用例 babad left,right=2,2时会错误地返回长度5
+    dbg((left, right))
     while s[left] == s[right] and left > 0 and right < size:
         left -= 1
         right += 1
     # 如果左边和右边不相等，例如ab，它也是个回文串，应该返回2
+    dbg(right - left + 1)
     return right - left + 1
 
 
@@ -31,6 +34,7 @@ def longest_palindromic_substr(s: str) -> str:
         if temp_max_len > max_len:
             max_len = temp_max_len
             max_len_start_index = i-max_len//2
+            dbg((max_len, max_len_start_index))
 
     dbg(max_len_start_index)
     return s[max_len_start_index:(max_len_start_index+max_len)]

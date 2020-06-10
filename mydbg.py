@@ -1,5 +1,6 @@
 """
-
+https://github.com/tylerwince/pydbg
+Rust dbg! macro alternative in Python3
 """
 import inspect
 import sys
@@ -11,6 +12,7 @@ _ExpType = typing.TypeVar('_ExpType')
 
 def dbg(exp: _ExpType) -> _ExpType:
     """
+    改写pydbg的dbg方法，原方法文件名打印的是绝对路径，太长了影响阅读
     """
     for frame in inspect.stack():
         line = frame.code_context[0]
@@ -19,10 +21,9 @@ def dbg(exp: _ExpType) -> _ExpType:
             end = line.rfind(')')
             if end == -1:
                 end = len(line)
-            # print(f"class={frame.filename.__class__}, type{frame.filename.__class__}")
-            # dir(frame.filename)
+            # os.path.basename(frame.filename)
             print(
-                f"[{os.path.basename(frame.filename)}:{frame.lineno}] {line[start:end]} = {exp!r}",
+                f"[line:{frame.lineno}] {line[start:end]} = {exp!r}",
                 file=sys.stderr,
             )
             break
