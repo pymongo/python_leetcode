@@ -9,3 +9,13 @@
 对于长度为n的字符串的子序列，每个字符都有选或不选两种可能。 
 
 因此其子序列的数量是指数级别O(2^n)的
+
+## Java和Python刷题要对入参作校验
+
+这个是给面试官的加分项
+
+对于非基本类型的入参，例如String
+
+Java的第一行要写上 if s==null
+
+Python则写上 if not isinstance(s, str)
