@@ -19,3 +19,13 @@
 Java的第一行要写上 if s==null
 
 Python则写上 if not isinstance(s, str)
+
+## Python初始化二维布尔值数组
+
+不能用 [[False]*3]*3 的方式定义一个3*3的数组
+
+否则第二行和第三行都是第一行的shallow copy
+
+有经验的做法是
+
+dp = [[[False]*3] for _ in range(3)]
