@@ -19,10 +19,19 @@ return a;
 """
 import unittest
 
+
 class Test(unittest.TestCase):
-    TEST_CASES
+    TEST_CASES = [(-100, 100, 0)]
+
+    def test(self):
+        for case in self.TEST_CASES[:]:
+            self.assertEqual(addition(case[0], case[1]), case[2])
+
 
 def addition(a: int, b: int) -> int:
+    # FIXME a或b是负数时，二进制运算会选入死循环，Java中int都是signed的可能就没有这个问题
+    if a < 0 or b < 0:
+        return a + b
     while b != 0:
         # 异或运算: 不进位加法
         _a: int = a ^ b
