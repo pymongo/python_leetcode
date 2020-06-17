@@ -2,6 +2,14 @@
 https://www.lintcode.com/problem/longest-palindromic-subsequence
 最长回文子序列是「最长回文子串」一题的follow up(变形题)
 
+## 什么是子序列
+序列虽然可以不连续但是应该是【有序】的
+从左到右，每个字符都有取或不取两种情况
+
+## 用例解释
+bbbab，最长子序列是bbbb
+cbbd，最长子序列是bb，不是bcb或bdb
+
 ## dp矩阵的横坐标纵坐标定义
 dp[i][j]表示第i到第j个字符组成子串的最长回文子序列的长度(i<=j)
 dp[i][j]表示子串s[i..=j]的最长回文序列的长度
@@ -33,10 +41,11 @@ else:
     需要下方的值(dp[i+1][j])
     需要左方的值(dp[i][j-1])
 因此填表遍历的顺序是在右上角区域，从下到上，做左到右
-  a b a
-a 4 5 6
-b   2 3
-a     1
+  c b b d
+c   4 5 6
+b     2 3
+b       1
+d
 事实上1和2都是边界条件
 """
 from mydbg import dbg
@@ -45,40 +54,49 @@ import unittest
 from typing import List, Tuple
 
 
+# 抄别人的答案
+def correct_solution(s: str) -> int:
+    size = len(s)
+    if size <= 1:
+        return size
+    #dp = [[0 for _ in range(size)] for _ in range(size)]
+    dp: List[List[int]] = [[0] * size for _ in range(size)]
+    for i in range(size):
+        dp[i][i] = 1
+    for i in range(size - 1, -1, -1):
+        for j in range(i + 1, size):
+            dbg((i,j))
+            if s[i] == s[j]:  # s[i]==s[j]时的转移方程
+                dp[i][j] = dp[i + 1][j - 1] + 2
+            else:  # s[i]！=s[j]时的转移方程
+                dp[i][j] = max(dp[i][j - 1], dp[i + 1][j])
+    return dp[0][size - 1]  # 最后结果在dp[0][size - 1]中
+
+
 def solution(s: str) -> int:
     size: int = len(s)
     if size <= 1:
         return size
     # 只有子串长度大于等于2时这种去掉头尾才能有意义
-    elif size <= 3:
-        if s[0] == s[size-1]:
-            return size
-        else:
-            return size-1
+    # elif size <= 3:
+    #     if s[0] == s[size-1]:
+    #         return size
+    #     else:
+    #         return size-1
 
     # 你以为第一行所有元素是二维数组的第一项dp[0][x]，实际上第一列
-    dp: List[List[int]] = [[0] * 3 for _ in range(3)]
+    dp: List[List[int]] = [[1] * size for _ in range(size)]
     # 不会遍历到表格的边界
     # i: 从下到上
-    cnt = 0
     dbg(s)
-    for i in range(size-2, -1, -1):
+    for i in range(size-1, -1, -1):
         # j：从左到右
-        for j in range(i, size):
+        for j in range(i+1, size):
             dbg((i,j))
-            cnt += 1
-            dp[i][j] = cnt
-            # if j-i < 3:
-            #     dbg(0)
-            #     dp[i][j] = 1
-            #     continue
-            # print("after 0")
-            # if s[i] == s[j]:
-            #     dbg(1)
-            #     dp[i][j] = dp[i+1][j-1] + 2
-            # else:
-            #     dbg(2)
-            #     dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+            if s[i] == s[j]:
+                dp[i][j] = dp[i+1][j-1] + 2
+            else:
+                dp[i][j] = max(dp[i+1][j], dp[i][j-1])
     p(dp)
     return dp[0][size-1]
     # return dp[0][size-1]
@@ -94,7 +112,13 @@ class Testing(unittest.TestCase):
         ("ccc", 3),
     ]
 
-    def test(self):
+    def test_correct_solution(self):
+        for case in self.TEST_CASES[:]:
+            print(case)
+            self.assertEqual(correct_solution(case[0]), case[1])
+
+
+    def test_solution(self):
         for case in self.TEST_CASES[:]:
             print(case)
             self.assertEqual(solution(case[0]), case[1])
