@@ -28,7 +28,7 @@ Python则写上 if not isinstance(s, str)
 
 有经验的做法是
 
-dp = [[[False]*3] for _ in range(3)]
+dp = [[False]*3 for _ in range(3)]
 
 ## 除了manacher，后缀数组也是O(n)
 
