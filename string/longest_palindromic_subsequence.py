@@ -29,7 +29,7 @@ j-1 - (i+1) + 1 > 2
 整理得j-i<3
 
 ## 初始条件
-第一行和第一列以及对角线的值为1
+对角线的值为1，其余为0，必须这么初始化，否则cbbd用例不会得到0+2的正确结果
 
 ## 填表遍历方向
 由于表格的纵坐标i(i是二维数组外层索引，所以表示行是纵坐标)
@@ -59,13 +59,12 @@ def correct_solution(s: str) -> int:
     size = len(s)
     if size <= 1:
         return size
-    #dp = [[0 for _ in range(size)] for _ in range(size)]
     dp: List[List[int]] = [[0] * size for _ in range(size)]
     for i in range(size):
         dp[i][i] = 1
     for i in range(size - 1, -1, -1):
         for j in range(i + 1, size):
-            dbg((i,j))
+            dbg((i, j))
             if s[i] == s[j]:  # s[i]==s[j]时的转移方程
                 dp[i][j] = dp[i + 1][j - 1] + 2
             else:  # s[i]！=s[j]时的转移方程
@@ -77,28 +76,24 @@ def solution(s: str) -> int:
     size: int = len(s)
     if size <= 1:
         return size
-    # 只有子串长度大于等于2时这种去掉头尾才能有意义
-    # elif size <= 3:
-    #     if s[0] == s[size-1]:
-    #         return size
-    #     else:
-    #         return size-1
 
-    # 你以为第一行所有元素是二维数组的第一项dp[0][x]，实际上第一列
-    dp: List[List[int]] = [[1] * size for _ in range(size)]
+    # 初始值必须是这样，不能偷懒，否则会出错
+    dp: List[List[int]] = [[0] * size for _ in range(size)]
+    for i in range(size):
+        dp[i][i] = 1
     # 不会遍历到表格的边界
     # i: 从下到上
     dbg(s)
-    for i in range(size-1, -1, -1):
+    for i in range(size - 1, -1, -1):
         # j：从左到右
-        for j in range(i+1, size):
-            dbg((i,j))
+        for j in range(i + 1, size):
+            dbg((i, j))
             if s[i] == s[j]:
-                dp[i][j] = dp[i+1][j-1] + 2
+                dp[i][j] = dp[i + 1][j - 1] + 2
             else:
-                dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+                dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
     p(dp)
-    return dp[0][size-1]
+    return dp[0][size - 1]
     # return dp[0][size-1]
 
 
@@ -116,7 +111,6 @@ class Testing(unittest.TestCase):
         for case in self.TEST_CASES[:]:
             print(case)
             self.assertEqual(correct_solution(case[0]), case[1])
-
 
     def test_solution(self):
         for case in self.TEST_CASES[:]:
