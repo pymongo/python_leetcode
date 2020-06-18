@@ -13,8 +13,12 @@ FIXME 更正下奇数次出现次数的情况：
 写法1：设一个is_odd_occur的布尔值，if-else语句的奇数分支中将is_odd_occur设为true，返回值时根据is_odo_occur决定结果是否+1
 写法2：如果result是偶数而且出现次数是奇数，那么ans+1
 这就是贪心算法，自己先假定一种数学公式/规律能获得最大值，贪心算法最怕自己的想法是错的，就像我最初版本的贪心奇数次情况完全错的
+
+## collections.Counter
+统计每个元素出现次数的可以用python的Counter数据结构
 """
 import unittest
+import collections
 
 
 def solution(s: str) -> int:
@@ -39,15 +43,31 @@ def solution(s: str) -> int:
     return result
 
 
+def other_solution(s):
+    # cnt统计字符串s中每种字母出现次数的计数数组
+    # OddCount为是否有奇数次字符，1表示有，0表示无
+    # ans为最终答案
+    ans = 0
+    counter = collections.Counter(s)
+    print(counter)
+    print(counter.values())
+    # 每种字符可使用cnt/2*2次
+    # 如果遇到出现奇数次的字符并且中心位置空着，那么答案加1
+    for i in counter.values():
+        # 这里比较妙，直接整合了奇数和偶数次情况
+        ans += i // 2 * 2
+        if ans % 2 == 0 and i % 2 == 1:
+            ans += 1
+    return ans
 
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ("abccccdd", 7),  # dccaccd
         ("cbbd", 3),  # bcb/bdb
-        ("NTrQdQGgwtxqRTSBOitAXUkwGLgUHtQOmYMwZlUxqZysKpZxRoehgirdMUgy", 39)
+        #("NTrQdQGgwtxqRTSBOitAXUkwGLgUHtQOmYMwZlUxqZysKpZxRoehgirdMUgy", 39)
     ]
 
     def test(self):
         for case in self.TEST_CASES[:]:
-            self.assertEqual(case[1], solution(case[0]))
+            self.assertEqual(case[1], other_solution(case[0]))
