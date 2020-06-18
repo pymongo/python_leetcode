@@ -47,20 +47,19 @@ def rabin_karp(source: str, target: str) -> int:
     # base value for hash rolling hash function
     BASE: int = 31
     # modules value for rolling hash function to avoid overflow
-    MODULES: int = 10 ** 6
+    MODULES: int = 10 ** 5
 
     # compute the hash of target
+    # and init the hash of source
     target_hash: int = 0
+    source_hash: int = 0
     for i in range(target_len):
         # 一边乘一边取模，保证不会越界
         # 过程类似取出整数每位的逆过程
         # 结果是target[0]的指数为31的(target_len-1)次方
         target_hash = (target_hash * BASE + ord(target[i])) % MODULES
-
-    # init the hash of source
-    source_hash: int = 0
-    for i in range(target_len):
         source_hash = (source_hash * BASE + ord(source[i])) % MODULES
+
     if source_hash == target_hash:
         return 0
 
