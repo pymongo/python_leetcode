@@ -35,6 +35,7 @@ def rabin_karp(source: str, target: str) -> int:
         为什么基数选用31呢？这是业界的经验之谈，效率和性能较好
         避免整数溢出：将hash的计算结果%(10^12)，存在冲突的可能性几乎为0
     按照上述思路，在source中往右移动比较字符串窗口时，例如abcd从abc移到bcd，只需将a的权重减掉，再加上d的权重
+    TODO 这个算法在leetcode上Runtime: 32 ms, faster than 61.09%，但是在lintcode上有两个测试用例(长度超过20万)时会超时
     """
     if source is None or target is None:
         return -1
