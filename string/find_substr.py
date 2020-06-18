@@ -26,6 +26,7 @@ def kmp_compute_longest_prefix_suffix(target: str) -> List[int]:
 def kmp_search(source: str, target: str) -> int:
     return -1
 
+
 def rabin_karp(source: str, target: str) -> int:
     """
     优化思路1：通过将字符串转换为整数，使字符串的比较相等从O(n)时间复杂度降低到O(1)
@@ -47,21 +48,25 @@ def rabin_karp(source: str, target: str) -> int:
 
     # compute the hash of target
     target_hash: int = 0
-    for i in range(target_len):
-       pass
-
-
+    for i in range(source_len - target_len + 1):
+        print(source[i:i + target_len])
     return -1
 
 
 class Testing(unittest.TestCase):
-    TEST_CASE: List[Tuple[str, int]] = [
-        ("", 0),
+    TEST_CASE: List[Tuple[str, str, int]] = [
+        ("abcdef", "bcd", 1),
+        ("abcde", "e", 4),
+        ("any", "", 0),
+    ]
+    def test_rabin_karp(self):
+        for case in self.TEST_CASE[:]:
+            self.assertEqual(case[2], rabin_karp(case[0], case[1]))
 
-    ]
     KMP_LPS_TEST_CASES: List[Tuple[str, List[str]]] = [
-        ("ABCDABD", [0,0,0,0,1,2,0])
+        ("ABCDABD", [0, 0, 0, 0, 1, 2, 0])
     ]
+
     def test_kmp_lps(self):
         for case in self.KMP_LPS_TEST_CASES[:]:
             self.assertEqual(case[1], kmp_compute_longest_prefix_suffix(case[0]))
