@@ -1,5 +1,6 @@
 """
 https://www.lintcode.com/problem/longest-palindrome
+最长回文组合
 输入一个字符串，通过组合字符串的每个字符，求出这些组合中最长回文串的长度
 例如: cbbd的组合中，最长是3(bcb或bdb)
 
@@ -12,6 +13,7 @@ FIXME 更正下奇数次出现次数的情况：
 所以奇数次出现时，有一个奇数是全取，剩余奇数次都是-1后变成偶数并记入最长回文组合中
 写法1：设一个is_odd_occur的布尔值，if-else语句的奇数分支中将is_odd_occur设为true，返回值时根据is_odo_occur决定结果是否+1
 写法2：如果result是偶数而且出现次数是奇数，那么ans+1
+写法1击败97%，写法2击败85%，所以用布尔值FLAG的算法性能更好
 这就是贪心算法，自己先假定一种数学公式/规律能获得最大值，贪心算法最怕自己的想法是错的，就像我最初版本的贪心奇数次情况完全错的
 
 ## collections.Counter
@@ -24,23 +26,20 @@ import collections
 
 # Your submission beats 97.00% Submissions!
 def solution(s: str) -> int:
-    size = len(s)
-    if size <= 1:
-        return size
     ascii_range_last = ord('z') + 1
     ascii_table = [0 for _ in range(ascii_range_last)]
-    for i in range(size):
-        ascii_table[ord(s[i])] += 1
+    for char in s:
+        ascii_table[ord(char)] += 1
     result = 0
     is_odd_occur = False
     for i in range(ord('A'), ascii_range_last):
-        if ascii_table[i] == 0:
-            continue
         if ascii_table[i] % 2 == 0:
             result += ascii_table[i]
         else:
             is_odd_occur = True
             result += ascii_table[i] - 1
+            # if result % 2 == 0:
+            #     result += 1
     if is_odd_occur:
         result += 1
     return result
