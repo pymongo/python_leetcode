@@ -29,25 +29,29 @@ def kmp_search(source: str, target: str) -> int:
 
 def rabin_karp(source: str, target: str) -> int:
     """
-    优化思路1：通过将字符串转换为整数，使字符串的比较相等从O(n)时间复杂度降低到O(1)
+    优化思路：通过将字符串转换为整数，使字符串的比较相等从O(n)时间复杂度降低到O(1)
         怎么才能将字符串转换为整数呢？其中一个思路就是计算哈希值
         例如hash("abc") = ord('a')*31^0 + ord('b')*31^1 + ord('c')*31^2
         为什么基数选用31呢？这是业界的经验之谈，效率和性能较好
         避免整数溢出：将hash的计算结果%(10^12)，存在冲突的可能性几乎为0
     按照上述思路，在source中往右移动比较字符串窗口时，例如abcd从abc移到bcd，只需将a的权重减掉，再加上d的权重
     """
-    if not (isinstance(source, str) and isinstance(target, str)):
+    if source is None or target is None:
         return -1
     target_len: int = len(target)
+    source_len: int = len(source)
     if target_len == 0:
         return 0
-    source_len: int = len(source)
     if target_len > source_len:
         return -1
+    # if source == 199999 and source[999] == 'a':
     # base value for hash rolling hash function
+    # BASE取26或31都行，只要保证BASE和MODULES的组合不会出现hash crash现象就行
     BASE: int = 26
     # modules value for rolling hash function to avoid overflow
     MODULES: int = 10 ** 5
+    # 假设字符串中没有大写字母，所以ord(x)-ord('a')不会是负数
+    ORD_A: int = ord('a')
 
     # compute the hash of target
     # and init the hash of source
@@ -57,8 +61,8 @@ def rabin_karp(source: str, target: str) -> int:
         # 一边乘一边取模，保证不会越界
         # 过程类似取出整数每位的逆过程
         # 结果是target[0]的指数为31的(target_len-1)次方
-        target_hash = (target_hash * BASE + ord(target[i])) % MODULES
-        source_hash = (source_hash * BASE + ord(source[i])) % MODULES
+        target_hash = (target_hash * BASE + ord(target[i]) - ORD_A) % MODULES
+        source_hash = (source_hash * BASE + ord(source[i]) - ORD_A) % MODULES
 
     if source_hash == target_hash:
         return 0
@@ -66,9 +70,9 @@ def rabin_karp(source: str, target: str) -> int:
     # sliding window traverse source
     for i in range(1, source_len - target_len + 1):
         # abc + d
-        source_hash = (source_hash * BASE + ord(source[i+target_len-1])) % MODULES
+        source_hash = (source_hash * BASE + ord(source[i + target_len - 1]) - ORD_A) % MODULES
         # abcd - a，经过上面一次移位，a的系数应该是BASE ** (target_len-1)+1
-        source_hash = source_hash - ord(source[i-1])*(BASE**target_len) % MODULES
+        source_hash = source_hash - (ord(source[i - 1]) - ORD_A) * (BASE ** target_len) % MODULES
         if source_hash < 0:
             source_hash += MODULES
         if source_hash == target_hash:
@@ -83,6 +87,7 @@ class Testing(unittest.TestCase):
         ("abcde", "e", 4),
         ("any", "", 0),
     ]
+
     def test_rabin_karp(self):
         for case in self.TEST_CASE[:]:
             self.assertEqual(case[2], rabin_karp(case[0], case[1]))
