@@ -36,6 +36,8 @@ def rabin_karp(source: str, target: str) -> int:
         避免整数溢出：将hash的计算结果%(10^12)，存在冲突的可能性几乎为0
     按照上述思路，在source中往右移动比较字符串窗口时，例如abcd从abc移到bcd，只需将a的权重减掉，再加上d的权重
     """
+    if not (isinstance(source, str) and isinstance(target, str)):
+        return -1
     target_len: int = len(target)
     if target_len == 0:
         return 0
@@ -50,13 +52,29 @@ def rabin_karp(source: str, target: str) -> int:
     # compute the hash of target
     target_hash: int = 0
     for i in range(target_len):
-        # 一边乘一边取模，保证不会越界。过程类似取出整数每位的逆过程，结果是target[0]的指数最大
-        target_hash = (target_len * BASE + ord(target[i])) % MODULES
+        # 一边乘一边取模，保证不会越界
+        # 过程类似取出整数每位的逆过程
+        # 结果是target[0]的指数为31的(target_len-1)次方
+        target_hash = (target_hash * BASE + ord(target[i])) % MODULES
+
+    # init the hash of source
+    source_hash: int = 0
+    for i in range(target_len):
+        source_hash = (source_hash * BASE + ord(source[i])) % MODULES
+    if source_hash == target_hash:
+        return 0
 
     # sliding window traverse source
-    source_hash: int = 0
-    for i in range(source_len - target_len + 1):
-        print(source[i:i + target_len])
+    for i in range(1, source_len - target_len + 1):
+        # abc + d
+        source_hash = (source_hash * BASE + ord(source[i+target_len-1])) % MODULES
+        # abcd - a，经过上面一次移位，a的系数应该是31 ** (target_len-1)+1
+        source_hash = source_hash - ord(source[i-1])*(31**target_len) % MODULES
+        if source_hash < 0:
+            source_hash += MODULES
+        if source_hash == target_hash:
+            # TODO double check substr
+            return i
     return -1
 
 
