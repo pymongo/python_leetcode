@@ -16,30 +16,33 @@ FIXME 更正下奇数次出现次数的情况：
 
 ## collections.Counter
 统计每个元素出现次数的可以用python的Counter数据结构
+但是性能远不如直接操作索引值表示ASCII值的数组
 """
 import unittest
 import collections
 
 
+# Your submission beats 97.00% Submissions!
 def solution(s: str) -> int:
     size = len(s)
     if size <= 1:
         return size
-    ascii_table = [0 for _ in range(ord('z')+1)]
+    ascii_range_last = ord('z') + 1
+    ascii_table = [0 for _ in range(ascii_range_last)]
     for i in range(size):
         ascii_table[ord(s[i])] += 1
-    # 奇数次出现次数的最大值
-    max_odd = 0
     result = 0
-    for i in range(ord('A'), ord('z')+1):
+    is_odd_occur = False
+    for i in range(ord('A'), ascii_range_last):
         if ascii_table[i] == 0:
             continue
         if ascii_table[i] % 2 == 0:
             result += ascii_table[i]
         else:
-            if ascii_table[i] > max_odd:
-                max_odd = ascii_table[i]
-    result += max_odd
+            is_odd_occur = True
+            result += ascii_table[i] - 1
+    if is_odd_occur:
+        result += 1
     return result
 
 
@@ -65,9 +68,9 @@ class Testing(unittest.TestCase):
     TEST_CASES = [
         ("abccccdd", 7),  # dccaccd
         ("cbbd", 3),  # bcb/bdb
-        #("NTrQdQGgwtxqRTSBOitAXUkwGLgUHtQOmYMwZlUxqZysKpZxRoehgirdMUgy", 39)
+        ("NTrQdQGgwtxqRTSBOitAXUkwGLgUHtQOmYMwZlUxqZysKpZxRoehgirdMUgy", 39)
     ]
 
     def test(self):
         for case in self.TEST_CASES[:]:
-            self.assertEqual(case[1], other_solution(case[0]))
+            self.assertEqual(case[1], solution(case[0]))
