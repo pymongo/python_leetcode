@@ -384,6 +384,10 @@ class Testing(unittest.TestCase):
             self.assertEqual(case[1], merge_sort(case[0]))
 
     def test_quick_sort_simple(self):
+        import sys
+        print('python import paths:')
+        for path in sys.path:
+            print(path)
         for case in self.TEST_CASES[:]:
             self.assertEqual(case[1], quick_sort_simple(case[0]))
 
