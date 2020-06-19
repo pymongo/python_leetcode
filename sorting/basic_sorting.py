@@ -111,10 +111,10 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
 
     # Step.1 build_heap，如果在C语言里，这一步最好抽取成方法，还有交换变量也要抽取成方法
     last_node: int = size - 1
-    last_node_parent: int = (last_node - 1) // 2
+    last_node_not_leaf: int = (last_node - 1) // 2
     # 从倒数第一个非叶子结点开始遍历(从右到左，从下到上)，建立大根堆，会遍历所有非叶子节点
     # 从左到右开始遍历倒数第二层(k-1)层的子节点，再把 当前节点 和 当前节点的子节点的最大值 做交换
-    for i in range(last_node_parent, -1, -1):
+    for i in range(last_node_not_leaf, -1, -1):
         heapify(input_numbers, size, i)
     # p(input_numbers)
 
@@ -238,6 +238,7 @@ def merge_sort(numbers: List[int]) -> List[int]:
     """
     leetcode上耗时 444ms
     官方解答中有一种很巧妙的，借助额外存储空间，直接在原数组上挪位置的解法
+    Meger Sort的后半部分(归并)又是leetcode上merge two sorted array这题
     """
     length: int = len(numbers)
     # 递归结束条件
@@ -299,17 +300,6 @@ def quick_sort_simple(numbers: List[int]) -> List[int]:
     left_part = [numbers[i] for i in range(1, length) if numbers[i] <= pivot]
     right_part = [numbers[i] for i in range(1, length) if numbers[i] > pivot]
     return quick_sort_simple(left_part) + [pivot] + quick_sort_simple(right_part)
-
-
-def heap_sort_recipe_heapify(nums: List[int]):
-    pass
-
-
-def heap_sort_recipe(nums: List[int]):
-    size = len(nums)
-    # 从倒数一个非叶子节点开始往跟逐个进行heapify
-
-
 
 def quick_sort_recipe(nums: List[int]) -> List[int]:
     size = len(nums)
@@ -375,10 +365,6 @@ class Testing(unittest.TestCase):
             nums = case[0][:]
             heap_sort(nums)
             self.assertEqual(case[1], nums)
-
-    def test_heap_sort_recipe(self):
-        for case in self.TEST_CASES[:]:
-            self.assertEqual(case[1], quick_sort_simple(case[0]))
 
     def test_binary_search(self):
         for case in self.BINARY_SEARCH_CASES[:]:
