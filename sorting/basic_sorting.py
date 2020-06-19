@@ -327,7 +327,7 @@ def quick_sort_recipe(nums: List[int]) -> List[int]:
             right.append(nums[i])
         else:
             left.append(nums[i])
-    return quick_sort_recipe(left) + [pivot] + quick_sort_recipe(right)
+    return quick_sort_recipe(left) + [pivot] + quick_sort_recipe(right[1:])
 
 
 class Testing(unittest.TestCase):
