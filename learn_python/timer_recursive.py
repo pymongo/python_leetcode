@@ -5,33 +5,38 @@ python的threading.Timer更像是js的setTimeout
 定时器的句柄定义成全局变量，创建的定时器进程和实例不会因为递归调用而堆积
 """
 from threading import Timer
-import os
 
 
-def print_aaaa():
-    print('aaaa')
-    global timer_a
-    timer_a = Timer(1, print_aaaa)
-    timer_a.start()
+class SetInterval:
+    timer_1: Timer
+    timer_2: Timer
+    stop_timer_flag: bool = False
 
+    @staticmethod
+    def fn_1():
+        print('Call fn_1')
+        # threading.Timer约等于JS的setTimeout
+        # 递归调用setTimeout可以实现setInterval
+        SetInterval.timer_1 = Timer(interval=1, function=SetInterval.fn_1)
+        SetInterval.timer_1.start()
 
-def print_bbbb():
-    print('bbbb')
-    global timer_b
-    timer_b = Timer(1, print_bbbb)
-    timer_b.start()
+    @staticmethod
+    def fn_2():
+        print('Call fn_2')
+        SetInterval.timer_2 = Timer(interval=1, function=SetInterval.fn_2)
+        SetInterval.timer_2.start()
 
-
-def stop():
-    timer_a.cancel()
-    timer_b.cancel()
-    os._exit(1)
+    @staticmethod
+    def stop_all():
+        assert SetInterval.timer_1 is not None
+        assert SetInterval.timer_2 is not None
+        print("stop_all")
+        # 在setTimeout的回调没被执行时，把timer关掉停掉递归调用setTimeout
+        SetInterval.timer_1.cancel()
+        SetInterval.timer_2.cancel()
 
 
 if __name__ == '__main__':
-    timer_a: Timer = Timer(interval=1, function=print_aaaa)
-    timer_b: Timer = Timer(interval=1, function=print_bbbb)
-    print_aaaa()
-    print_bbbb()
-    t = Timer(4, stop)
-    t.start()
+    SetInterval.fn_1()
+    SetInterval.fn_2()
+    Timer(interval=4, function=SetInterval.stop_all).start()
