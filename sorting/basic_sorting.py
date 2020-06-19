@@ -24,6 +24,8 @@ from pprint import pprint as p
 # parent folder的py文件都能被导入... 我还是喜欢Rust的跟文件结构保持一致的包管理
 # 我理解为import的root在项目文件夹，所以mydbg能被找到
 from mydbg import dbg
+
+
 # from pydbg import dbg as pydbg
 
 
@@ -299,6 +301,35 @@ def quick_sort_simple(numbers: List[int]) -> List[int]:
     return quick_sort_simple(left_part) + [pivot] + quick_sort_simple(right_part)
 
 
+def heap_sort_recipe_heapify(nums: List[int]):
+    pass
+
+
+def heap_sort_recipe(nums: List[int]):
+    size = len(nums)
+    # 从倒数一个非叶子节点开始往跟逐个进行heapify
+
+
+
+def quick_sort_recipe(nums: List[int]) -> List[int]:
+    size = len(nums)
+    # 递归结束条件
+    if size <= 1:
+        return nums
+    pivot = nums[0]
+    left = []
+    right = []
+
+    for i in range(size):
+        # 注意right多会放入pivot
+        if nums[i] >= pivot:
+            # 如果是Rust，clippy会提示这里用enumerate性能更好
+            right.append(nums[i])
+        else:
+            left.append(nums[i])
+    return quick_sort_recipe(left) + [pivot] + quick_sort_recipe(right)
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([5, 2, 3, 1], [1, 2, 3, 5]),
@@ -345,6 +376,10 @@ class Testing(unittest.TestCase):
             heap_sort(nums)
             self.assertEqual(case[1], nums)
 
+    def test_heap_sort_recipe(self):
+        for case in self.TEST_CASES[:]:
+            self.assertEqual(case[1], quick_sort_simple(case[0]))
+
     def test_binary_search(self):
         for case in self.BINARY_SEARCH_CASES[:]:
             dbg(case)
@@ -365,3 +400,7 @@ class Testing(unittest.TestCase):
     def test_quick_sort_simple(self):
         for case in self.TEST_CASES[:]:
             self.assertEqual(case[1], quick_sort_simple(case[0]))
+
+    def test_quick_sort_recipe(self):
+        for case in self.TEST_CASES[:]:
+            self.assertEqual(case[1], quick_sort_recipe(case[0]))
