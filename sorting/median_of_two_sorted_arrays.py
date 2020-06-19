@@ -2,8 +2,13 @@ import unittest
 from typing import List
 
 
-def solution(nums1: List[int], nums2: List[int]) -> float:
-    pass
+def solution(A: List[int], B: List[int]) -> float:
+    len_a, len_b = len(A), len(B)
+    if len_a > len_b:
+        return solution(B, A)
+    if len_a == 0:
+        pass
+    return -1
 
 
 class Test(unittest.TestCase):
