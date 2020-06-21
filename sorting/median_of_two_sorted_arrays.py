@@ -2,12 +2,19 @@ import unittest
 from typing import List
 
 
-def solution(A: List[int], B: List[int]) -> float:
-    len_a, len_b = len(A), len(B)
+def solution(a: List[int], b: List[int]) -> float:
+    len_a, len_b = len(a), len(B)
+    # 确保A
     if len_a > len_b:
-        return solution(B, A)
+        return solution(b, a)
     if len_a == 0:
-        pass
+        if len_b % 2 == 0:
+            return (b[len_b // 2 - 1] + b[len_b // 2]) / 2.0
+        else:
+            return b[len_b // 2]
+    a_left, a_right = 0, len_a-1
+    while a_left < a_right:
+        a_mid = (a_left + a_right) // 2
     return -1
 
 
