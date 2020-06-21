@@ -1,6 +1,6 @@
 import unittest
 from typing import List
-
+from mydbg import dbg
 
 def solution(a: List[int], b: List[int]) -> float:
     len_a, len_b = len(a), len(b)
@@ -15,12 +15,13 @@ def solution(a: List[int], b: List[int]) -> float:
     total_len = len_a + len_b
     half_len = (total_len + 1) // 2
 
-    a_left, a_right = 0, len_a - 1
+    a_left, a_right = 0, len_a
     a_mid_right_index: int
     b_mid_right_index: int
     while a_left < a_right:
         # 如果数组a是奇数个，a_mid_right会是数组a正中间的元素
-        a_mid_right_index = (a_left + a_right + 1) // 2
+        # a_mid_right_index = (a_left + a_right + 1) // 2 #  会陷入死循环的二分法
+        a_mid_right_index = a_left + (a_right - a_left) // 2
         b_mid_right_index = half_len - a_mid_right_index
         # 如果a分隔线右边的元素比b分隔线左边的元素小
         if a[a_mid_right_index] < b[b_mid_right_index - 1]:
@@ -29,10 +30,13 @@ def solution(a: List[int], b: List[int]) -> float:
         else:
             # a分隔线左边元素太大了，a的分隔线需要左移
             a_right = a_mid_right_index
+    # 跳出二分法的循环后需要再次更新分隔线的位置
     a_mid_right_index = a_left
     b_mid_right_index = half_len - a_mid_right_index
+
     a_mid_left = (a[a_mid_right_index - 1] if a_mid_right_index >= 1 else float("-inf"))
     b_mid_left = (b[b_mid_right_index - 1] if b_mid_right_index >= 1 else float("-inf"))
+    dbg((a_mid_left, b_mid_left))
     if total_len % 2 == 1:
         return max(a_mid_left, b_mid_left)
     a_mid_right = (a[a_mid_right_index] if a_mid_right_index < len_a else float("inf"))
@@ -63,4 +67,5 @@ class Test(unittest.TestCase):
 
     def test(self):
         for case in self.TEST_CASES[:]:
+            print(case)
             self.assertEqual(case[2], solution(case[0], case[1]))
