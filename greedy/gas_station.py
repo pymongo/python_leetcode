@@ -1,9 +1,40 @@
 """
 https://leetcode.com/problems/gas-station/
+几个必须“背诵”的贪心算法题
+- [ ] http://www.lintcode.com/problem/majority-number/
+- [ ] http://www.lintcode.com/problem/create-maximum-number/
+- [ ] http://www.lintcode.com/problem/jump-game-ii/
+- [ ] http://www.lintcode.com/problem/jump-game/
+- [x] http://www.lintcode.com/problem/gas-station/
+- [ ] http://www.lintcode.com/problem/delete-digits/
+- [ ] http://www.lintcode.com/problem/task-scheduler/
 """
 
 import unittest
 from typing import List, Tuple
+
+
+def greedy(gas: List[int], cost: List[int]) -> int:
+    stations_count = len(gas)
+    # 出发点
+    start_station: int = 0
+    start_station_total_cost: int = 0
+    all_stations_total_cost: int = 0
+
+    for station in range(stations_count):
+        temp_cost = cost[station] - gas[station]
+        start_station_total_cost += temp_cost
+        all_stations_total_cost += temp_cost
+        # 如果从当前出发点出发汽油不够用，则需要更换出发点
+        if start_station_total_cost > 0:
+            start_station = station + 1
+            # 由于出发点变更，需要重置start_station_total_cost
+            start_station_total_cost = 0
+
+    if all_stations_total_cost > 0:
+        return -1
+    else:
+        return start_station
 
 
 def brute_force(gas: List[int], cost: List[int]) -> int:
