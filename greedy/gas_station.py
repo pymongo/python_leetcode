@@ -11,18 +11,25 @@ def brute_force(gas: List[int], cost: List[int]) -> int:
     next_station: int
     stations_count = len(gas)
     for i in range(stations_count):
-        gas_volume = 0
-        for j in range(stations_count):
-            station = (i+j) % stations_count
-            next_station = (i+j+1) % stations_count
-            gas_volume += gas[station]
+        # 给油箱加上出发点的油量
+        gas_volume = gas[i]
+        # 内层循环遍历len-1次，遍历的是线段而不是端点
+        for j in range(1, stations_count):
+            next_station = (i+j) % stations_count
+            print(next_station)
+            # 遍历到最后一个(也就是出发点)时，不能重复加两次出发点的油量
+            # if next_station == i:
+            #     gas_volume -= cost[next_station]
+            # else:
+            #     gas_volume += gas[next_station] - cost[next_station]
             gas_volume -= cost[next_station]
             if gas_volume < 0:
                 break
+            gas_volume += gas[next_station]
         else:
             # will run only if the inner loop is exited normally
             # return if inner loop no break
-            return i+1
+            return i
     return -1
 
 
