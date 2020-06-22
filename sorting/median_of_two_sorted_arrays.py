@@ -2,16 +2,12 @@ import unittest
 from typing import List
 from mydbg import dbg
 
+# Runtime: 92 ms, faster than 83.80%
 def solution(a: List[int], b: List[int]) -> float:
     len_a, len_b = len(a), len(b)
-    # 确保A
+    # 确保a是较短的数组
     if len_a > len_b:
         return solution(b, a)
-    # if len_a == 0:
-    #     if len_b % 2 == 0:
-    #         return (b[len_b // 2 - 1] + b[len_b // 2]) / 2.0
-    #     else:
-    #         return b[len_b // 2]
     total_len = len_a + len_b
     half_len = (total_len + 1) // 2
 
@@ -36,7 +32,6 @@ def solution(a: List[int], b: List[int]) -> float:
 
     a_mid_left = (a[a_mid_right_index - 1] if a_mid_right_index >= 1 else float("-inf"))
     b_mid_left = (b[b_mid_right_index - 1] if b_mid_right_index >= 1 else float("-inf"))
-    dbg((a_mid_left, b_mid_left))
     if total_len % 2 == 1:
         return max(a_mid_left, b_mid_left)
     a_mid_right = (a[a_mid_right_index] if a_mid_right_index < len_a else float("inf"))

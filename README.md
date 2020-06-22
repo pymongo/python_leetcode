@@ -16,6 +16,7 @@ LeetCode
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/merge_two_sorted_arrays.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/sorting/merge_two_sorted_arrays_test.go), [Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/merge_two_sorted_arrays.py)|merge_sort|
 |125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome.py)||
 |134_DOING|[Gas Station](https://leetcode.com/problems/gas-station/)||greedy|
+|266|[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|greedy|
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
@@ -42,12 +43,14 @@ LintCode
 |200|[Longest Palindromic Substring](https://www.lintcode.com/problem/longest-palindromic-substring/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_substr.py)|multi_solutions|
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_subsequence.py)|dp|
 |627|[Longest Palindromic Combination](https://www.lintcode.com/problem/longest-palindrome)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|greedy|
+|916|[Palindrome Permutation](https://www.lintcode.com/problem/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
 |254|[Drop Eggs](https://www.lintcode.com/problem/drop-eggs/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs.py)|sqrt_n|
 |584_TODO|[Drop Eggs II](https://www.lintcode.com/problem/drop-eggs-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs_dp.py)|dp|
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/merge_two_sorted_arrays.py)|merge_sort|
 |463|[Sort Integers](https://www.lintcode.com/problem/sort-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
 |464|[Sort Integers II](https://www.lintcode.com/problem/sort-integers-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
 |187_DOING|[Gas Station](https://www.lintcode.com/problem/gas-station/)||greedy|
+|1535|[To Lower Case](https://www.lintcode.com/problem/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 
 ---
 
