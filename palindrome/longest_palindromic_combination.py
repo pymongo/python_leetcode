@@ -1,5 +1,7 @@
 """
-https://www.lintcode.com/problem/longest-palindrome
+以下两题都可以用同一个贪心算法解决
+- https://leetcode.com/problems/longest-palindrome/
+- https://leetcode.com/problems/palindrome-permutation/
 最长回文组合
 输入一个字符串，通过组合字符串的每个字符，求出这些组合中最长回文串的长度
 例如: cbbd的组合中，最长是3(bcb或bdb)

@@ -1,11 +1,11 @@
 """
-https://www.lintcode.com/problem/palindrome-permutation/
-https://www.lintcode.com/problem/longest-palindrome
+以下两题都可以用同一个贪心算法解决
+- https://leetcode.com/problems/longest-palindrome/
+- https://leetcode.com/problems/palindrome-permutation/
 这题的解法跟最长回文子串组合完全一样
 只需要将返回值改为最长回文子串组合长度是否等于原字符串
 """
 import unittest
-import collections
 
 
 def solution(s: str) -> bool:
