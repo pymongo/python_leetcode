@@ -51,6 +51,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for case in self.TEST_CASES[:]:
-            print(case)
-            self.assertEqual(case[1], Solution.valid_palindrome(case[0]))
+        for s, expected in self.TEST_CASES[:]:
+            self.assertEqual(expected, Solution.valid_palindrome(s))

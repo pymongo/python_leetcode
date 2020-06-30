@@ -31,5 +31,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for case in self.TEST_CASES:
-            self.assertEqual(merge_two_sorted_arrays(case[0], case[1]), case[2])
+        for nums1, nums2, expected in self.TEST_CASES[:]:
+            self.assertEqual(expected, merge_two_sorted_arrays(nums1, nums2))

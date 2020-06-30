@@ -23,8 +23,8 @@ def kmp_compute_longest_prefix_suffix(target: str) -> List[int]:
     return lps
 
 
-def kmp_search(source: str, target: str) -> int:
-    return -1
+# def kmp_search(source: str, target: str) -> int:
+#     return -1
 
 
 def rabin_karp(source: str, target: str) -> int:
@@ -90,13 +90,13 @@ class Testing(unittest.TestCase):
     ]
 
     def test_rabin_karp(self):
-        for case in self.TEST_CASE[:]:
-            self.assertEqual(case[2], rabin_karp(case[0], case[1]))
+        for source, target, expected in self.TEST_CASE[:]:
+            self.assertEqual(expected, rabin_karp(source, target))
 
     KMP_LPS_TEST_CASES: List[Tuple[str, List[str]]] = [
         ("ABCDABD", [0, 0, 0, 0, 1, 2, 0])
     ]
 
     def test_kmp_lps(self):
-        for case in self.KMP_LPS_TEST_CASES[:]:
-            self.assertEqual(case[1], kmp_compute_longest_prefix_suffix(case[0]))
+        for pattern, expected in self.KMP_LPS_TEST_CASES[:]:
+            self.assertEqual(expected, kmp_compute_longest_prefix_suffix(pattern))

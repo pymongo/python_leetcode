@@ -1,6 +1,8 @@
 import unittest
 from typing import List
-from mydbg import dbg
+
+
+# from mydbg import dbg
 
 # Runtime: 92 ms, faster than 83.80%
 def solution(a: List[int], b: List[int]) -> float:
@@ -61,6 +63,5 @@ class Test(unittest.TestCase):
     ]
 
     def test(self):
-        for case in self.TEST_CASES[:]:
-            print(case)
-            self.assertEqual(case[2], solution(case[0], case[1]))
+        for nums1, nums2, expected in self.TEST_CASES[:]:
+            self.assertEqual(expected, solution(nums1, nums2))

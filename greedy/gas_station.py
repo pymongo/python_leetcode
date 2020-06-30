@@ -107,5 +107,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test_brute_force(self):
-        for case in self.TEST_CASES[:]:
-            self.assertEqual(case[2], brute_force(case[0], case[1]))
+        for gas, cost, expected in self.TEST_CASES[:]:
+            self.assertEqual(expected, brute_force(gas, cost))

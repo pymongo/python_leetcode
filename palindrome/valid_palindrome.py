@@ -26,5 +26,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for case in self.TEST_CASES[:]:
-            self.assertEqual(case[1], solution(case[0]))
+        for input, expected in self.TEST_CASES[:]:
+            self.assertEqual(expected, solution(input))

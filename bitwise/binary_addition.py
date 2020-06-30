@@ -24,8 +24,8 @@ class Test(unittest.TestCase):
     TEST_CASES = [(-100, 100, 0)]
 
     def test(self):
-        for case in self.TEST_CASES[:]:
-            self.assertEqual(addition(case[0], case[1]), case[2])
+        for a, b, expected in self.TEST_CASES[:]:
+            self.assertEqual(addition(a, b), expected)
 
 
 def addition(a: int, b: int) -> int:

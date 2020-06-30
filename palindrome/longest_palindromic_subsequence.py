@@ -108,11 +108,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test_correct_solution(self):
-        for case in self.TEST_CASES[:]:
-            print(case)
-            self.assertEqual(correct_solution(case[0]), case[1])
+        for s, expected in self.TEST_CASES[:]:
+            self.assertEqual(expected, correct_solution(s))
 
     def test_solution(self):
-        for case in self.TEST_CASES[:]:
-            print(case)
-            self.assertEqual(solution(case[0]), case[1])
+        for s, expected in self.TEST_CASES[:]:
+            self.assertEqual(expected, solution(s))

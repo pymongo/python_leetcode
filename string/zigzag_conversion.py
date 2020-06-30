@@ -2,7 +2,7 @@
 https://leetcode.com/problems/zigzag-conversion/
 """
 from typing import List, Tuple
-from mydbg import dbg
+# from mydbg import dbg
 import unittest
 
 
@@ -17,5 +17,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for case in self.TEST_CASES[:]:
-            self.assertEqual(case[2], solution(case[0], case[1]))
+        for s, rows, expected in self.TEST_CASES[:]:
+            self.assertEqual(expected, solution(s, rows))

@@ -272,12 +272,14 @@ def merge_sort(numbers: List[int]) -> List[int]:
 def quick_sort(nums):
     """
     应对面试时手写快排的背诵版本，所以变量名都用缩写
+    平均时间复杂度O(nlogn)，实际上比merge_sort快得多，最坏情况是数组完全逆序O(n^2)
     """
     size: int = len(nums)
     if size <= 1:
         return nums
     pivot = nums[0]
     left = [nums[i] for i in range(1, size) if nums[i] <= pivot]
+    # 注意分区时要考虑[1,1,1,1,1,2]这样的极端情况，左半部分一定要 <= pivot才能避免这种极端情况，避免左边分区和右边分区没有交集
     right = [nums[i] for i in range(1, size) if nums[i] > pivot]
     return quick_sort(left) + [pivot] + quick_sort(right)
 

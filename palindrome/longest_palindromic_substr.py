@@ -53,5 +53,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for case in self.TEST_CASES[:]:
-            self.assertIn(longest_palindromic_substr(case[0]), [case[1], case[2]])
+        for input_str, expected1, expected2 in self.TEST_CASES[:]:
+            self.assertIn(longest_palindromic_substr(input_str), [expected1, expected2])
