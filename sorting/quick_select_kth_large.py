@@ -15,30 +15,42 @@ import unittest
 from typing import List
 
 
-def quick_select(nums: List[int], k: int) -> int:
-    size = len(nums)
-    quick_sort_in_place(nums, 0, size - 1)
-    print("after sort", nums)
-    return -1
+# Runtime: 96 ms, faster than 32.09%
+def quick_select(nums: List[int], left: int, right: int, k: int) -> int:
+    if left == right:
+        return nums[left]
 
+    # 使用i, j的目的是让第二步比较第k大的元素会落在哪个区间，而比较区间需要用到初始的left,right值
+    i, j = left, right
+    pivot = nums[(left + right) // 2]
 
-def quick_sort_in_place(nums: List[int], left, right):
-    if left >= right:
-        return
-    middle = (left + right) // 2
-    pivot = nums[middle]
-    while left <= right:
-        while left <= right and nums[left] <= pivot:
-            left += 1
-        while left <= right and nums[right] > pivot:
-            right += 1
-        if left < right:
-            nums[left], nums[right] = nums[right], nums[left]
-            left += 1
-            right -= 1
-    quick_sort_in_place(nums, left, middle-1)
-    quick_sort_in_place(nums, middle+1, right)
+    while i <= j:
+        # 倒序排列，让大的元素在前面，方便找第k大
+        while i <= j and nums[i] > pivot:
+            i += 1
+        # 倒序排列，让大的元素在前面，方便找第k大
+        while i <= j and nums[j] < pivot:
+            j -= 1
 
+        if i <= j:
+            # [1, 3, 4, 2] 测试用例
+            # 第一遍快速排序后变成 [4, 3, 1, 2]，此时left=left=0, right=j=1
+            # nums=[4],left=0,right=1时，这里会额外地交换一次
+            nums[i], nums[j] = nums[j], nums[i]
+            i += 1
+            j -= 1
+    # 如果i==j时跳出循环，则j和i中间会有一个元素
+    # 此时从左到右分别是 left j [some] i right
+
+    if left + k - 1 <= j:
+        # 第k大元素落在了pivot的左边区间(因为是倒序排列，所以是较大区间)
+        return quick_select(nums, left, j, k)
+    elif left + k - 1 >= i:
+        # 第k大元素落在了pivot的右边区间，较大值中被排除了i-left项
+        return quick_select(nums, i, right, k - (i - left))
+    else:
+        # 第k大元素恰好是j和i中间的元素
+        return nums[j + 1]
 
 
 class Test(unittest.TestCase):
@@ -51,4 +63,4 @@ class Test(unittest.TestCase):
     def test_quick_select(self):
         for nums, k, expected in self.TEST_CASES[:]:
             print(nums)
-            self.assertEqual(expected, quick_select(nums, k))
+            self.assertEqual(expected, quick_select(nums, 0, len(nums) - 1, k))
