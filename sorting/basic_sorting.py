@@ -23,7 +23,8 @@ from typing import List, Tuple
 from pprint import pprint as p
 # parent folder的py文件都能被导入... 我还是喜欢Rust的跟文件结构保持一致的包管理
 # 我理解为import的root在项目文件夹，所以mydbg能被找到
-from mydbg import dbg
+# from mydbg import dbg
+from copy import deepcopy
 
 
 # from pydbg import dbg as pydbg
@@ -141,7 +142,7 @@ def binary_search(nums: List[int], target: int) -> int:
         # 如果middle是(left+right) // 2
         # 遇到([1, 2, 3], 4)的测试用例时会陷入死循环(left, right = 1, 2)
         middle = (left + right) // 2
-        dbg((left, middle, right))
+        # dbg((left, middle, right))
         if nums[middle] == target:
             print("nums[middle] == target")
             return middle
@@ -324,6 +325,26 @@ def quick_sort_recipe(nums: List[int]) -> List[int]:
     return quick_sort_recipe(left) + [pivot] + quick_sort_recipe(right[1:])
 
 
+# 在数组内部进行排序，不需要额外开辟存储空间
+def quick_sort_in_place(nums: List[int], start, end):
+    if start >= end:
+        return
+    left, right = start, end
+    pivot = nums[(left + right) // 2]
+    while left <= right:
+        while left <= right and nums[left] < pivot:
+            left += 1
+        while left <= right and nums[right] > pivot:
+            right -= 1
+        if left <= right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+    print(start, end, left, right)
+    quick_sort_in_place(nums, start, right)
+    quick_sort_in_place(nums, left, end)
+
+
 class Testing(unittest.TestCase):
     TEST_CASES: List[Tuple[List[int], List[int]]] = [
         ([5, 2, 3, 1], [1, 2, 3, 5]),
@@ -340,35 +361,35 @@ class Testing(unittest.TestCase):
     ]
 
     def test_bubble_sort(self):
-        for nums, expected in self.TEST_CASES[:]:
+        for nums, expected in deepcopy(self.TEST_CASES):
             # assertEqual(Expected, Actual)
             # rust的assert_eq!比较直观，不限定左边还是右边放期待值，assert_eq!(Left, Right)
             self.assertEqual(expected, bubble_sort(nums))
 
     def test_selection_sort(self):
-        for nums, expected in self.TEST_CASES[:]:
+        for nums, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, selection_sort(nums))
 
     def test_heap_sort(self):
-        for nums, expected in self.TEST_CASES[:]:
+        for nums, expected in deepcopy(self.TEST_CASES):
             heap_sort(nums)
             self.assertEqual(expected, nums)
 
     @unittest.skip("跟Rust的binary_search的行为不一致")
     def test_binary_search(self):
-        for nums, target, expected in self.BINARY_SEARCH_CASES[:]:
+        for nums, target, expected in deepcopy(self.BINARY_SEARCH_CASES):
             self.assertEqual(expected, binary_search(nums, target))
 
     def test_insertion_sort(self):
-        for nums, expected in self.TEST_CASES[:]:
+        for nums, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, insertion_sort(nums))
 
     def test_shell_sort(self):
-        for nums, expected in self.TEST_CASES[:]:
+        for nums, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, shell_sort(nums))
 
     def test_merge_sort(self):
-        for nums, expected in self.TEST_CASES[:]:
+        for nums, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, merge_sort(nums))
 
     def test_quick_sort_simple(self):
@@ -376,9 +397,26 @@ class Testing(unittest.TestCase):
         print('python import paths:')
         for path in sys.path:
             print(path)
-        for nums, expected in self.TEST_CASES[:]:
+        for nums, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, quick_sort_simple(nums))
 
     def test_quick_sort_recipe(self):
-        for nums, expected in self.TEST_CASES[:]:
+        for nums, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, quick_sort_recipe(nums))
+
+    def test_quick_sort_in_place(self):
+        """
+        不要在遍历list的时候 插入或删除元素
+        哪怕用 nums.copy() 或 nums[:] 也不能安全地删除元素
+        >>> nums = [1, 2, 4, 4, 5]
+        >>> for index, value in enumerate(nums):
+        ...     if value == 4:
+        ...         del nums[index]
+        ...
+        >>> print(nums)
+        [1, 2, 4, 5]
+        >>> # 数组的4并没有被删干净
+        """
+        for nums, expected in deepcopy(self.TEST_CASES):
+            quick_sort_in_place(nums, 0, len(nums) - 1)
+            self.assertEqual(expected, nums)
