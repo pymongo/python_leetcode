@@ -2,23 +2,26 @@ import unittest
 from copy import deepcopy
 from typing import List
 
+
 # 思路，把所有2挪到右边，把所有0挪到左边，那么剩余的1就刚好在中间了
 # 需要三根指针，左右以及curr
 # 若nums[curr] = 0 则将其与 nums[p0]互换；
 # 若nums[curr] = 2 则与 nums[p2]互换。
 def partition(nums: List[int]):
     size = len(nums)
-    left, right, current = 0, size-1, 0
+    left, right, current = 0, size - 1, 0
 
     while current <= right:
         if nums[current] == 0:
             nums[left], nums[current] = nums[current], nums[left]
             left += 1
+            current += 1
         elif nums[current] == 2:
+            # 与右指针交换值之后current不要动，需要再次判断右边换过来的值是不是0
             nums[right], nums[current] = nums[current], nums[right]
             right -= 1
-        current += 1
-
+        else:
+            current += 1
 
 
 class UnitTest(unittest.TestCase):
