@@ -22,7 +22,9 @@ LeetCode
 |266|[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|dp(greedy)|
+|509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome_2.py)|two_pointers, greedy|
+|704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/binary_search.py)|binary_search|
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
 |887_TODO|[Super Egg Drop](https://leetcode.com/problems/super-egg-drop)||dp|
@@ -47,8 +49,10 @@ LintCode
 |187|[Gas Station](https://www.lintcode.com/problem/gas-station/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/greddy/gas_station.py)|greedy|
 |200|[Longest Palindromic Substring](https://www.lintcode.com/problem/longest-palindromic-substring/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_substr.py)|multi_solutions|
 |254|[Drop Eggs](https://www.lintcode.com/problem/drop-eggs/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs.py)|sqrt_n|
+|366|[Fibonacci](https://www.lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |384|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_non_repeated_substr.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/string/longest_non_repeated_substr.py)|sliding_window|
 |415|[Valid Palindrome](https://www.lintcode.com/problem/valid-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome.py)|two_pointers|
+|457|[Classical Binary Search](https://www.lintcode.com/problem/classical-binary-search/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/binary_search.py)|binary_search|
 |463|[Sort Integers](https://www.lintcode.com/problem/sort-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
 |464|[Sort Integers II](https://www.lintcode.com/problem/sort-integers-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting/basic_sorting.py)|multi_solutions|
 |491|[Palindromic Number](https://www.lintcode.com/problem/palindrome-number/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_substr.py)||
