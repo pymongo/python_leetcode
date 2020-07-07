@@ -31,6 +31,25 @@ def binary_search_first_and_last(nums: List[int], target: int) -> List[int]:
     return [-1, -1]
 
 
+def binary_search_last(nums: List[int], target: int) -> int:
+    if not nums:
+        return -1
+    start, end = 0, len(nums) - 1
+    while start + 1 < end:
+        middle = start + (end - start) // 2
+        if nums[middle] > target:
+            end = middle - 1
+        elif nums[middle] < target:
+            start = middle + 1
+        else:
+            start = middle
+    if nums[end] == target:
+        return end
+    if nums[start] == target:
+        return start
+    return -1
+
+
 class UnitTest(unittest.TestCase):
     TEST_CASES = [
         ([5, 7, 7, 8, 8, 10], 8, [3, 4]),
