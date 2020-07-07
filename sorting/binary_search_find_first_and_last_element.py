@@ -7,20 +7,25 @@ import unittest
 from typing import List
 
 
-def bsearch(nums: List[int], target: int) -> List[int]:
-    length = len(nums)
-    start, end = 0, length - 1
+# 主要有三种思路
+# 1. 写两个函数，一个二分地找第一个，一个二分地找最后一个
+# 2. 像我这样的笨方法，找到以后逐个「中心扩散」
+# 3. 仿照步骤2，但是中心扩散时使用二分
+def binary_search_first_and_last(nums: List[int], target: int) -> List[int]:
+    size = len(nums) - 1
+    start, end = 0, size
 
     while start <= end:
         middle = start + (end - start) // 2
-        print(start, middle, end)
         if nums[middle] > target:
             end = middle - 1
         elif nums[middle] < target:
             start = middle + 1
         else:
             start, end = middle, middle
-            while end < length-1 and nums[end+1] == nums[start]:
+            while start > 0 and nums[start - 1] == target:
+                start -= 1
+            while end < size and nums[end + 1] == target:
                 end += 1
             return [start, end]
     return [-1, -1]
@@ -30,8 +35,10 @@ class UnitTest(unittest.TestCase):
     TEST_CASES = [
         ([5, 7, 7, 8, 8, 10], 8, [3, 4]),
         ([5, 7, 7, 8, 8, 10], 6, [-1, -1]),
+        ([2, 2, 2], 2, [0, 2]),
     ]
 
     def test(self):
         for nums, target, expected in self.TEST_CASES:
-            self.assertEqual(expected, bsearch(nums, target))
+            print(nums, target)
+            self.assertEqual(expected, binary_search_first_and_last(nums, target))
