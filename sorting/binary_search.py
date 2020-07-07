@@ -6,7 +6,10 @@ def solution(nums, target):
     size = len(nums)
     left, right = 0, size-1
     while left <= right:
-        middle = (left+right) // 2
+        # FIXME 面试官可能会问，(left+right)//2会有什么问题
+        # left+right可能会i32/u32溢出，解决办法是写成 middle = start + (end - start) / 2
+        # 实际上i32数组如果有2**31个元素，那么要占用4*4G的内存
+        middle = (left + right) // 2
         if nums[middle] > target:
             right = middle-1
         elif nums[middle] < target:
