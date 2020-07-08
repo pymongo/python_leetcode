@@ -33,7 +33,8 @@ LeetCode
 |852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/mountain_array_max.py)|mountain_array, binary_search|
 |887_TODO|[Super Egg Drop](https://leetcode.com/problems/super-egg-drop)||dp|
 |912|[Sort An Array](https://leetcode.com/problems/sort-an-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/quick_sort.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/basic_sorting.py)|multi_solutions|
-|1095_DOING|[Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/mountain_array_find.py)|binary_search|
+|941|[Valid Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/mountain_array_valid.py)|mountain_array|
+|1095|[Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/mountain_array_find.py)|binary_search, mountain_array|
 
 ---
 
