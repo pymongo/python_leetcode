@@ -24,11 +24,58 @@ class MountainArray:
         return len(self.nums)
 
 
-def findInMountainArray(self, target: int, mountain_arr: 'MountainArray') -> int:
-    nums: List[int] = []
-    for i in range(0, mountain_arr.length()):
-        nums.append(mountain_arr.get(i))
-    return find_in_mountain_array(nums, target)
+def find_peak_index(nums: 'MountainArray', last_index: int) -> int:
+    start, end = 0, last_index
+    while start < end:
+        middle = start + (end - start) // 2
+        if nums.get(middle) < nums.get(middle + 1):
+            start = middle + 1
+        else:
+            end = middle
+    return start
+
+
+def find_in_left_part(nums: 'MountainArray', peak_index: int, target: int) -> int:
+    start, end = 0, peak_index
+    while start <= end:
+        middle = start + (end - start) // 2
+        if nums.get(middle) > target:
+            end = middle - 1
+        elif nums.get(middle) < target:
+            start = middle + 1
+        else:
+            return middle
+    return -1
+
+
+def find_in_right_part(nums: 'MountainArray', peak_index: int, last_index: int, target: int) -> int:
+    start, end = peak_index, last_index
+    # 逆序的二分搜索
+    while start <= end:
+        middle = start + (end - start) // 2
+        if nums.get(middle) > target:
+            start = middle + 1
+        elif nums.get(middle) < target:
+            end = middle - 1
+        else:
+            return middle
+    return -1
+
+
+def find(target: int, nums: 'MountainArray') -> int:
+    size = nums.length()
+    last_index = size - 1
+
+    peak_index = find_peak_index(nums, last_index)
+
+    bsearch_left = find_in_left_part(nums, peak_index, target)
+    if bsearch_left != -1:
+        return bsearch_left
+    bsearch_right = find_in_right_part(nums, peak_index, last_index, target)
+    if bsearch_right != -1:
+        return bsearch_right
+
+    return -1
 
 
 def get_peak_index(nums: List[int]) -> int:
@@ -76,6 +123,11 @@ class UnitTest(unittest.TestCase):
         ([1, 2, 3, 4, 5, 3, 1], 3, 2),
         ([0, 1, 2, 4, 2, 1], 3, -1),
     ]
+
+    def test_find(self):
+        for nums, target, expected in self.TEST_CASES:
+            mountain_array: 'MountainArray' = MountainArray(nums)
+            self.assertEqual(expected, find(target, mountain_array))
 
     def test_find_in_mountain_array(self):
         for nums, target, expected in self.TEST_CASES:
