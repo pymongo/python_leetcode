@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/gas-station/
-几个必须“背诵”的贪心算法题
+TODO 几个必须“背诵”的贪心算法题
 - [ ] http://www.lintcode.com/problem/majority-number/
 - [ ] http://www.lintcode.com/problem/create-maximum-number/
 - [ ] http://www.lintcode.com/problem/jump-game-ii/

@@ -35,6 +35,7 @@ def binary_search_last(nums: List[int], target: int) -> int:
     if not nums:
         return -1
     start, end = 0, len(nums) - 1
+    # 搜索first和last不会死循环的二分模板
     while start + 1 < end:
         middle = start + (end - start) // 2
         if nums[middle] > target:
@@ -42,6 +43,9 @@ def binary_search_last(nums: List[int], target: int) -> int:
         elif nums[middle] < target:
             start = middle + 1
         else:
+            # 如果是二分搜索相同值的第一个(first)，只需要两处改动
+            # 1. start=middle => end=middle
+            # 2. if nums[start] 放在 if nums[end]的上面
             start = middle
     if nums[end] == target:
         return end
