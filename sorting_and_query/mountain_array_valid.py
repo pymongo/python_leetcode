@@ -6,7 +6,27 @@ from typing import List
 
 
 def valid(nums: List[int]) -> bool:
-    return False
+    length = len(nums)
+    if length < 3:
+        return False
+    # 是否单调递增
+    last_item_is_increasing = nums[0] < nums[1]
+    if not last_item_is_increasing:
+        return False
+    for i in range(2, length):
+        if nums[i-1] > nums[i]:
+            last_item_is_increasing = False
+        elif nums[i-1] < nums[i]:
+            # 山脉数组不允许先递减(False)后递增(True)
+            if not last_item_is_increasing:
+                return False
+            last_item_is_increasing = True
+        else:
+            return False
+    if not last_item_is_increasing:
+        return True
+    else:
+        return False
 
 
 class UnitTest(unittest.TestCase):
