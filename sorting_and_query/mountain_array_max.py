@@ -16,15 +16,14 @@ def peak_index_brute_force(nums: List[int]) -> int:
 
 def peak_index(nums: List[int]) -> int:
     start, end = 0, len(nums) - 1
-    while start <= end:
+    while start < end:
         middle = start + (end - start) // 2
-        print(start, middle, end)
-        if nums[middle] > nums[start]:
-            # 山峰在[middle,end]之间，包含middle
-            start = middle
+        if nums[middle] < nums[middle+1]:
+            # middle满足递增(上山坡)条件，所以山顶会在[middle+1,end]之间
+            start = middle + 1
         else:
-            # 山峰在[start,middle)
-            end = middle - 1
+            # middle不满足递增条件，所以山顶会在[start,middle]之间
+            end = middle
     return start
 
 
