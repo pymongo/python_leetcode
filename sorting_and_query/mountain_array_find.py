@@ -54,12 +54,14 @@ def find_in_mountain_array(nums: List[int], target: int) -> int:
         return bsearch_left
     bsearch_right = binary_search(nums[peak_index+1:length][::-1], target)
     if bsearch_right > -1:
-        return bsearch_right
+        # 注意要加上原数组middle索引值作为偏移量
+        return peak_index + 1 + bsearch_right
     return -1
 
 
 class UnitTest(unittest.TestCase):
     TEST_CASES = [
+        ([1, 5, 2], 2, 2),
         ([1, 2, 3, 4, 5, 3, 1], 3, 2),
         ([0, 1, 2, 4, 2, 1], 3, -1),
     ]
