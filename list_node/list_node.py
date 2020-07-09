@@ -11,8 +11,8 @@ class ListNode:
         list_node_to_string: str = str(self.val)
         curr_node = self
         while curr_node.next is not None:
-            list_node_to_string += f"->{curr_node.val}"
             curr_node = curr_node.next
+            list_node_to_string += f"->{curr_node.val}"
         return list_node_to_string
 
     def to_list(self) -> List[int]:
@@ -41,4 +41,5 @@ class _TestListNode(unittest.TestCase):
         self.assertEqual(2, list_node.next.val)
 
     def test_to_string(self):
-        pass
+        list_node = ListNode.from_list([1, 2, 3])
+        self.assertEqual("1->2->3", str(list_node))
