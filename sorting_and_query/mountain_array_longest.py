@@ -3,43 +3,34 @@ https://leetcode.com/problems/longest-mountain-in-array/solution/shu-zu-zhong-de
 """
 import unittest
 from typing import List
-import enum
-
-
-# 单调性
-class Monotonic(enum.Enum):
-    DECREASING = 0
-    INCREASING = 1
-    NONE = 2
-
 
 # 先从左到右找到第一个山脉数组的上山点，然后再往后搜索
 def longest_mountain_in_array(nums: List[int]) -> int:
     length = len(nums)
-    monotonic: 'Monotonic' = Monotonic.NONE
     max_len = 0
-    # 初始状态
-    start = -1  # 左边的山脚(上山点)
-    for i in range(1, len(nums)):
-        if nums[i] > nums[i - 1]:
-            if monotonic == Monotonic.DECREASING:
-                # 如果是从单调递减变为单调递增
-                max_len = max(max_len, i - start + 1)
-                if length - i < max_len:
-                    break
-            start = i - 1
-            monotonic = Monotonic.INCREASING
-        elif nums[i] < nums[i - 1]:
-            monotonic = Monotonic.DECREASING
-        else:
-            # 遇到前后两个值相等的情况，需要重新搜索上山点
-            start = -1
-            monotonic = Monotonic.NONE
+    i = 1
+    while i < length:
+        if nums[i] <= nums[i-1]:
+            i += 1
+            continue
+        # 下面这种写法也行，不过效率不如continue
+        # while i < length and nums[i] <= nums[i - 1]:
+        #     i += 1
+
+        start = i - 1
+        while i < length and nums[i] > nums[i-1]:
+            i += 1
+        while i < length and nums[i] < nums[i-1]:
+            i += 1
+            # 由于不知道何时到达边界，所以下坡时每遍历一次就计算一下最大值
+            max_len = max(max_len, i - start)
     return max_len
 
 
 class UnitTest(unittest.TestCase):
     TEST_CASES = [
+        ([7, 4, 8], 0),
+        ([5, 4, 3, 2, 1], 0),
         ([0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0], 11),
         ([2, 2, 2], 0),
         ([2, 1, 4, 7, 3, 2, 5], 5),
