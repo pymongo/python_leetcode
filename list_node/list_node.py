@@ -19,8 +19,8 @@ class ListNode:
         nums = [self.val]
         curr_node = self
         while curr_node.next is not None:
-            nums.append(curr_node.val)
             curr_node = curr_node.next
+            nums.append(curr_node.val)
         return nums
 
     @staticmethod
@@ -39,6 +39,13 @@ class _TestListNode(unittest.TestCase):
         list_node = ListNode.from_list([1, 2])
         self.assertEqual(1, list_node.val)
         self.assertEqual(2, list_node.next.val)
+
+    def test_to_list(self):
+        nums1 = [1, 2, 3]
+        list_node = ListNode.from_list(nums1)
+        print(list_node)
+        nums2 = list_node.to_list()
+        self.assertEqual(nums1, nums2)
 
     def test_to_string(self):
         list_node = ListNode.from_list([1, 2, 3])
