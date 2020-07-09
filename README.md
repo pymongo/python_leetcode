@@ -24,6 +24,7 @@ LeetCode
 |212|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
 |266|[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
+|344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |413|[Reverse Integer](https://www.lintcode.com/problem/reverse-integer/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/unclassified/reverse_integer.py)||
 |509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
@@ -75,6 +76,7 @@ LintCode
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |916|[Palindrome Permutation](https://www.lintcode.com/problem/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
+|1283|[Reverse Array](https://lintcode.com/problem/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
 |1334|[Rotate Array](https://www.lintcode.com/problem/rotate-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |1424|[Longest Mountain in Array](https://www.lintcode.com/problem/longest-mountain-in-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/mountain_array_longest.py)|mountain_array|
 |1535|[To Lower Case](https://www.lintcode.com/problem/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
