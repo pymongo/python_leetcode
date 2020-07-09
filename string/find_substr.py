@@ -27,6 +27,7 @@ def kmp_compute_longest_prefix_suffix(target: str) -> List[int]:
 #     return -1
 
 
+# 我更喜欢将rabin_karp称为: rolling hash
 def rabin_karp(source: str, target: str) -> int:
     """
     优化思路：通过将字符串转换为整数，使字符串的比较相等从O(n)时间复杂度降低到O(1)
