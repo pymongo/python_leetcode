@@ -1,5 +1,6 @@
 """
 https://www.lintcode.com/problem/rotate-string-ii/description?_from=ladder&&fromId=161
+https://www.jiuzhang.com/solution/rotate-string-ii/
 给定left、right的循环移位量
 如果left>right则将字符串循环向左移left-right位
 
@@ -16,18 +17,33 @@ https://www.lintcode.com/problem/rotate-string-ii/description?_from=ladder&&from
 解释：左偏移量为1，右偏移量为2，总的偏移量为向右1，故原字符串向右移动，变为"g" + "abcdef"。
 """
 import unittest
+from typing import List
+
+
+def reverse(s: List[int], start, end):
+    while start < end:
+        s[start], s[end] = s[end], s[start]
+        start += 1
+        end -= 1
 
 
 def cycle_shift(s: str, left: int, right: int) -> str:
     chars = list(s)
-    return ""
+    length = len(chars)
+    last_index = length - 1
+    # k表示循环右移位数
+    k = (right - left) % length
+    reverse(chars, 0, last_index)
+    reverse(chars, 0, k - 1)
+    reverse(chars, k, last_index)
+    return "".join(chars)
 
 
 class UnitTest(unittest.TestCase):
     TEST_CASES = [
-        ("abcdeft", 3, 1, "cdefgab"),
-        ("abcdeft", 0, 0, "abcdefg"),
-        ("abcdeft", 1, 2, "gabcdef"),
+        ("abcdefg", 3, 1, "cdefgab"),
+        ("abcdefg", 0, 0, "abcdefg"),
+        ("abcdefg", 1, 2, "gabcdef"),
     ]
 
     def test(self):
