@@ -15,7 +15,14 @@ def middle_of_the_linked_list(list_node: ListNode) -> ListNode:
 
 # 返回链表的左中位数
 def middle_of_linked_list(list_node: ListNode) -> int:
-    return -1
+    nums = [list_node.val]
+    length = 1
+    curr_node = list_node
+    while curr_node.next is not None:
+        curr_node = curr_node.next
+        nums.append(curr_node.val)
+        length += 1
+    return nums[(length-1) // 2]
 
 
 class UnitTest(unittest.TestCase):
