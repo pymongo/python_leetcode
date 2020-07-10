@@ -31,7 +31,6 @@ def add_two_numbers(ln1: ListNode, ln2: ListNode) -> ListNode:
             ln2 = ln2.next
     if sum_or_carry > 0:
         curr_node.next = ListNode(sum_or_carry)
-        curr_node = curr_node.next
     return dummy_head.next
 
 
