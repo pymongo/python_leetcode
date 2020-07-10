@@ -1,6 +1,25 @@
 """
+## 牛客网Python刷题stdin问题
 牛客网上面大部分题都不是像leetcode那样将解答写在Solution类的实例方法上
 而是 从stdin读取测试用例，再通过stdout输出返回值
+
+## 牛客网的Python版本不完全支持typehint
+
+牛客网的python3版本是3.5，刚开始支持typehint，但仅在函数入参和返回值中支持typehint
+不支持Python 3.6的typehint/variable annotations
+[variable annotations](https://docs.python.org/3/whatsnew/3.6.html)
+
+```
+PEP 526: Syntax for variable annotations
+PEP 484 introduced the standard for type annotations of function parameters, a.k.a. type hints. This PEP adds syntax to Python for annotating the types of variables including class variables and instance variables:
+
+primes: List[int] = []
+
+captain: str  # Note: no initial value!
+
+class Starship:
+    stats: Dict[str, int] = {}
+```
 """
 import sys
 
