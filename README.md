@@ -75,6 +75,7 @@ LintCode
 |463|[Sort Integers](https://www.lintcode.com/problem/sort-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/basic_sorting.py)|multi_solutions|
 |464|[Sort Integers II](https://www.lintcode.com/problem/sort-integers-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/basic_sorting.py)|multi_solutions|
 |491|[Palindromic Number](https://www.lintcode.com/problem/palindrome-number/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_substr.py)||
+|492|[Implement Queue by Linked List](https://www.lintcode.com/problem/implement-queue-by-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/impl_queue_by_linked_list.py)||
 |584_TODO|[Drop Eggs II](https://www.lintcode.com/problem/drop-eggs-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs_dp.py)|dp|
 |585|[Maximum Number in Mountain Sequence](https://www.lintcode.com/problem/maximum-number-in-mountain-sequence/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/mountain_array_max.py)|mountain_array, binary_search|
 |594|[Implement strStr() II](https://www.lintcode.com/problem/strstr-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/find_substr.py)|kmp, rabin_karp|
