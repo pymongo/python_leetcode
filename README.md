@@ -23,7 +23,8 @@ LeetCode
 |134|[Gas Station](https://leetcode.com/problems/gas-station/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/greedy/gas_station.py)|greedy|
 |167|[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/two_sum/two_sum_2_input_is_sorted.py)|two_pointers|
 |189|[Rotate Array](http://leetcode.com/problems/rotate-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
-|212|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
+|206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/reverse_linked_list.py)|list_node|
+|215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
 |266_LOCK|[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
@@ -54,6 +55,7 @@ LintCode
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
 |13|[Implement strStr()](https://www.lintcode.com/problem/implement-strstr/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/find_substr.py)|kmp, rabin_karp|
 |14|[First Position of Target](https://www.lintcode.com/problem/first-position-of-target/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/binary_search_first_and_last.py)|binary_search|
+|35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/reverse_linked_list.py)|list_node|
 |41|[Maximum Subarray](https://www.lintcode.com/problem/maximum-subarray/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/greedy/maximum_subarray.py)|greedy, dp|
 |56|[Two Sum](https://www.lintcode.com/problem/two-sum/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/btree_map_two_sum.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/two_sum_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/HashMapTwoSum.java)|btree_map, bitwise(two_s_complement)|
 |57|[3Sum](https://www.lintcode.com/problem/3sum/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/two_sum/three_sum.rs)|two_pointers, two_sum|
