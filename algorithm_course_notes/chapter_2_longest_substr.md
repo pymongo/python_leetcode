@@ -18,7 +18,7 @@
 
 Java的第一行要写上 if s==null
 
-Python则写上 if not isinstance(s, str)
+Python则写上 if not s 或 if not isinstance(s, str)
 
 ## Python初始化二维布尔值数组
 
