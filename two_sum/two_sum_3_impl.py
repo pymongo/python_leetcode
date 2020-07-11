@@ -10,16 +10,21 @@ class TwoSum:
         self.length = 0
 
     def add(self, num: int):
+        # 这里用插入排序可能性能更好
         bisect.insort(self.nums, num)
         self.length += 1
 
-    """
-    @param value: An integer
-    @return: Find if there exists any pair of numbers which sum is equal to the value.
-    """
-
     def find(self, target: int) -> bool:
-        pass
+        start, end = 0, self.length - 1
+        while start < end:
+            temp_sum = self.nums[start] + self.nums[end]
+            if temp_sum > target:
+                end -= 1
+            elif temp_sum < target:
+                start += 1
+            else:
+                return True
+        return False
 
 
 class TestTwoSum(unittest.TestCase):
