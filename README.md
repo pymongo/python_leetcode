@@ -27,7 +27,7 @@ LeetCode
 |206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/reverse_linked_list.py)|list_node|
 |215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
 |266_LOCK|[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
-|283|[Move Zeros](https://leetcode.com/problems/move-zeroes/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/move_zeros.py)|partition_array|
+|283|[Move Zeros](https://leetcode.com/problems/move-zeroes/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/move_zeros.py)|partition_array, 快慢双指针|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|dp(greedy)|
@@ -79,7 +79,8 @@ LintCode
 |464|[Sort Integers II](https://www.lintcode.com/problem/sort-integers-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/basic_sorting.py)|multi_solutions|
 |491|[Palindromic Number](https://www.lintcode.com/problem/palindrome-number/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_substr.py)||
 |492|[Implement Queue by Linked List](https://www.lintcode.com/problem/implement-queue-by-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/impl_queue_by_linked_list.py)||
-|539|[Move Zeros](https://lintcode.com/problem/move-zeroes/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/move_zeros.py)|partition_array|
+|521_LOCK|[Remove Duplicate Numbers in Array](https://www.lintcode.com/problem/remove-duplicate-numbers-in-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/remove_duplicate_numbers_in_array.py)|partition_array|
+|539|[Move Zeros](https://lintcode.com/problem/move-zeroes/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/move_zeros.py)|partition_array, 快慢双指针|
 |584_TODO|[Drop Eggs II](https://www.lintcode.com/problem/drop-eggs-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs_dp.py)|dp|
 |585|[Maximum Number in Mountain Sequence](https://www.lintcode.com/problem/maximum-number-in-mountain-sequence/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |594|[Implement strStr() II](https://www.lintcode.com/problem/strstr-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/find_substr.py)|kmp, rabin_karp|
