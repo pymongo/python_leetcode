@@ -1,5 +1,6 @@
 """
 [lintcode only](https://www.lintcode.com/problem/remove-duplicate-numbers-in-array/description?_from=ladder&&fromId=161)
+https://www.jiuzhang.com/solution/remove-duplicate-numbers-in-array/
 
 Example 1:
 Input:
@@ -18,11 +19,6 @@ nums = [1,2,3]
 Output:
 [1,2,3]
 3
-
-Challenge
-Do it in O(n) time complexity.
-Do it in O(nlogn) time without extra space.
-很自然地想到快慢双指针解法，暂未想到nlogn的解法
 """
 
 import unittest
@@ -30,20 +26,19 @@ from typing import List
 
 
 def move_duplicate(nums: List[int]) -> int:
-    if not nums:
-        return -1
     length = len(nums)
+    if length <= 1:
+        return length
+    # 指针停在最后一个无重复元素
+    last_non_duplicate = 1
     seen = set()
     seen.add(nums[0])
-    # 慢指针停在最后一个无重复元素中
-    slow = 1
-    fast = 1
-    while fast < length:
-        if nums[fast] not in seen:
-            seen.add(nums[fast])
-            slow += 1
-        fast += 1
-    return slow
+    for i in range(1, length):
+        if nums[i] not in seen:
+            seen.add(nums[i])
+            nums[last_non_duplicate] = nums[i]
+            last_non_duplicate += 1
+    return last_non_duplicate
 
 
 class Testing(unittest.TestCase):
