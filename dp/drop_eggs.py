@@ -1,11 +1,12 @@
 import sys
 import math
 
+
 class Solution:
+    # 尝试次数=n, height = n(n+1)/2，然后用求根公式
     @staticmethod
     def try_times(height: int) -> int:
         return math.ceil((-1 + math.sqrt(1 + 8 * height)) / 2)
-
 
     @staticmethod
     def newcoder_paypal_2019_1(k: int, h: int) -> int:
