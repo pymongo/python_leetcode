@@ -1,5 +1,6 @@
 """
 https://leetcode.com/problems/peak-index-in-a-mountain-array/
+https://www.lintcode.com/problem/maximum-number-in-mountain-sequence/description?_from=ladder&&fromId=161
 给n个整数的山脉数组，即先增后减的序列，找到山顶(最大值)
 具有「单调性」特征的数据结构可以考虑使用二分法
 TODO 二分法解决的几类问题
