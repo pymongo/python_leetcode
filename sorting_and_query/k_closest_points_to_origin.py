@@ -14,9 +14,41 @@ def k_closest(points: List[List[int]], k: int) -> List[List[int]]:
     points.sort(key=lambda point: point[0] ** 2 + point[1] ** 2)
     return points[:k]
 
+
+def distance(point: List[int]) -> int:
+    return point[0] ** 2 + point[1] ** 2
+
+
+# FIXME 以下快速选择算法是错的，快速选择算法难以背诵而且递归条件边界讨论难以背诵，所以我还是记住最简单的排序后取前k项好了
+def quick_select_sort(points: List[List[int]], start, end: int, k: int) -> None:
+    if start >= end:
+        return
+    pivot: int = distance(points[(start + end) // 2])
+    left, right = start, end
+    while left < right:
+        while left < right and distance(points[left]) <= pivot:
+            left += 1
+        while left < right and distance(points[right]) > pivot:
+            right -= 1
+        if left <= right:
+            points[left], points[right] = points[right], points[left]
+            left += 1
+            right -= 1
+    # 如果left==right时跳出循环，则j和i中间会有一个元素
+    if start + k - 1 <= right:
+        # 第k小元素落在了pivot的左边区间
+        return
+    elif start + k - 1 >= left:
+        # 第k大元素落在了pivot的右边区间，较大值中被排除了i-left项
+        return quick_select_sort(points, left, right, k - (left - start))
+    else:
+        return
+
+
 # leetcode没有要求前k项目有序，所以可以使用快速选择算法
-# def k_closest_quick_select(points: List[List[int]], k: int) -> List[List[int]]:
-#     return []
+def k_closest_quick_select(points: List[List[int]], k: int) -> List[List[int]]:
+    quick_select_sort(points, 0, len(points) - 1, k)
+    return points[:k]
 
 
 class Point:
@@ -45,3 +77,7 @@ class Testing(unittest.TestCase):
     def test_k_closest(self):
         for points, k, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, k_closest(points, k))
+
+    def test_k_closest_quick_select(self):
+        for points, k, expected in deepcopy(self.TEST_CASES):
+            self.assertEqual(expected, k_closest_quick_select(points, k))
