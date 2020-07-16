@@ -51,38 +51,45 @@ def solution(nums: List[int], target: int, k: int) -> List[int]:
     if position == length:
         return nums[length - k:]
     result = []
-    left: int
-    right: int
-    if nums[position] == target:
-        result.append(nums[position])
-        left = position - 1
-        right = position + 1
-    else:
-        left = position
-        right = position + 1
-    while right - left + 1 <= k:
-        if left == -1 and right < length:
-            result += nums[right:k]
-            return result
-        elif right == length and left > 0:
-            result += nums[:left]
-            return result
-            # result.append(nums[left])
-            # left -= 1
-            # if right - left + 1 == k:
-            #     return result
-            # result.append(nums[left])
-            # left -= 1
-        else:
-            if abs(nums[left]-target) < abs(nums[right]-target):
-                result.append(nums[left])
-                result.append(nums[right])
-            else:
-                result.append(nums[right])
-                result.append(nums[left])
-            left -= 1
+    left = position - 1
+    right = position + 1
+    while right - left < k:
+        if left <= 0:
             right += 1
-    return result
+            continue
+        elif right >= length:
+            left -= 1
+            continue
+        else:
+            if abs(nums[left] - target) < abs(nums[right] - target):
+                left -= 1
+            else:
+                right += 1
+    return nums[left:right]
+
+
+def leetcode_best(nums: List[int], target: int, k: int):
+    size = len(nums)
+    left = 0
+    right = size - k
+
+    while left < right:
+        # mid = left + (right - left) // 2
+        mid = (left + right) >> 1
+        # 尝试从长度为 k + 1 的连续子区间删除一个元素
+        # 从而定位左区间端点的边界值
+        if target - nums[mid] > nums[mid + k] - target:
+            left = mid + 1
+        else:
+            right = mid
+    return nums[left:left + k]
+
+
+# 先二分找到target在数组中的位置，然后左右双指针往外扩散
+# 上述方法太难背诵了，所以还是用排序搞定吧
+def lintcode(nums: List[int], target: int, k: int) -> List[int]:
+    nums.sort(key=(lambda x: abs(x - target)))
+    return nums[:k]
 
 
 class Testing(unittest.TestCase):
