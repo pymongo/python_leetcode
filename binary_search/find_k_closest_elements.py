@@ -88,7 +88,7 @@ def leetcode_best(nums: List[int], target: int, k: int):
 # 先二分找到target在数组中的位置，然后左右双指针往外扩散
 # 上述方法太难背诵了，所以还是用排序搞定吧
 def lintcode(nums: List[int], target: int, k: int) -> List[int]:
-    nums.sort(key=(lambda x: abs(x - target)))
+    nums.sort(key=lambda x: abs(x - target))
     return nums[:k]
 
 
