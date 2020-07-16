@@ -39,7 +39,7 @@ LeetCode
 |658|[Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/find_k_closest_elements.py)|binary_search|
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |702_LOCK|[Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
-|704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/binary_search.py)|binary_search|
+|704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/binary_search.py)|binary_search|
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
 |845|[Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/mountain_array_longest.py)|mountain_array|
@@ -62,7 +62,7 @@ LintCode
 |5|[Kth Largest Element](https://www.lintcode.com/problem/kth-largest-element/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
 |13|[Implement strStr()](https://www.lintcode.com/problem/implement-strstr/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/find_substr.py)|kmp, rabin_karp|
-|14|[First Position of Target](https://www.lintcode.com/problem/first-position-of-target/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/binary_search_first_and_last.py)|binary_search|
+|14|[First Position of Target](https://www.lintcode.com/problem/first-position-of-target/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/binary_search_first_and_last.py)|binary_search|
 |31|[Partition Array](https://www.lintcode.com/problem/partition-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/partition_array.py)|two_pointers|
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/reverse_linked_list.py)|list_node|
 |41|[Maximum Subarray](https://www.lintcode.com/problem/maximum-subarray/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/greedy/maximum_subarray.py)|greedy, dp|
@@ -85,8 +85,8 @@ LintCode
 |415|[Valid Palindrome](https://www.lintcode.com/problem/valid-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome.py)|two_pointers|
 |428|[Pow(x, n)](https://lintcode.com/problem/powx-n/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/math/pow.py)|binary_search, 快速幂运算|
 |447_LOCK|[Search in a Big Sorted Array](https://www.lintcode.com/problem/search-in-a-big-sorted-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
-|457|[Classical Binary Search](https://www.lintcode.com/problem/classical-binary-search/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/binary_search.py)|binary_search|
-|458|[Last Position of Target](https://www.lintcode.com/problem/last-position-of-target/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/binary_search_first_and_last.py)|binary_search|
+|457|[Classical Binary Search](https://www.lintcode.com/problem/classical-binary-search/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/binary_search.py)|binary_search|
+|458|[Last Position of Target](https://www.lintcode.com/problem/last-position-of-target/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/binary_search_first_and_last.py)|binary_search|
 |460|[Find K Closest Elements](https://lintcode.com/problem/find-k-closest-elements/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/find_k_closest_elements.py)|binary_search|
 |463|[Sort Integers](https://www.lintcode.com/problem/sort-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/basic_sorting.py)|multi_solutions|
 |464|[Sort Integers II](https://www.lintcode.com/problem/sort-integers-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/basic_sorting.py)|multi_solutions|
