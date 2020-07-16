@@ -18,20 +18,27 @@ class ArrayReader:
 
 
 def search_in_unknown_size(nums: ArrayReader, target: int) -> int:
-    end, last_end = 1, 0
-    # 用倍增法找到右边界
+    first = nums.get(0)
+    if first == target:
+        return 0
+    if first > target:
+        return -1
+    end = 1
+    # 用倍增法找到右边界，这里其实隐含地用到了get(end)越界时，会返回2147483647的特性
     while nums.get(end) < target:
-        last_end = end
         end *= 2
-    start = last_end
+    start = end // 2
     while start <= end:
         mid = start + (end - start) // 2
         mid_val = nums.get(mid)
         if mid_val > target:
             end = mid - 1
         elif mid_val < target:
+            # 隐含地用到了get(end)越界时，会返回2147483647的特性
             start = mid + 1
         else:
+            while nums.get(mid - 1) == target:
+                mid -= 1
             return mid
     return -1
 
