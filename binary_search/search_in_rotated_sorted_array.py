@@ -34,6 +34,29 @@ def search_in_rotated_sorted_array(nums: List[int], target: int) -> int:
     return -1
 
 
+def find_peak_index(nums: List[int], size: int) -> int:
+    start, end = 0, size - 1
+    if nums[start] <= nums[end]:
+        return end
+    while start <= end:
+        middle = start + (end - start) // 2
+        if nums[middle] > nums[middle + 1]:
+            return middle
+        elif nums[start] <= nums[middle]:
+            start = middle + 1
+        else:
+            end = middle - 1
+    return 0
+
+
+def my_solution(nums: List[int], target: int) -> int:
+    size = len(nums)
+    if size == 0:
+        return -1
+    peak_index = find_peak_index(nums, size)
+    return -1
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([4, 5, 1, 2, 3], 1, 2),
@@ -41,6 +64,10 @@ class Testing(unittest.TestCase):
         ([4, 5, 6, 7, 0, 1, 2], 0, 4),
     ]
 
-    def test(self):
+    def test_best_solution(self):
         for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, search_in_rotated_sorted_array(nums, target))
+
+    def test_my_solution(self):
+        for nums, target, expected in self.TEST_CASES:
+            self.assertEqual(expected, my_solution(nums, target))
