@@ -12,12 +12,28 @@ class ArrayReader:
         self.nums = nums
 
     def get(self, index: int):
+        if index >= len(self.nums):
+            return 2147483647
         return self.nums[index]
 
 
 def search_in_unknown_size(nums: ArrayReader, target: int) -> int:
+    end, last_end = 1, 0
+    # 用倍增法找到右边界
+    while nums.get(end) < target:
+        last_end = end
+        end *= 2
+    start = last_end
+    while start <= end:
+        mid = start + (end - start) // 2
+        mid_val = nums.get(mid)
+        if mid_val > target:
+            end = mid - 1
+        elif mid_val < target:
+            start = mid + 1
+        else:
+            return mid
     return -1
-
 
 I32_MAX = 2 ** 31 - 1
 
