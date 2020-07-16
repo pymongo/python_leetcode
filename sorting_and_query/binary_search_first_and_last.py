@@ -23,6 +23,7 @@ def binary_search_first_and_last(nums: List[int], target: int) -> List[int]:
             start = middle + 1
         else:
             start, end = middle, middle
+            # FIXME 这里不是正统(orthodox)的二分法
             while start > 0 and nums[start - 1] == target:
                 start -= 1
             while end < size and nums[end + 1] == target:

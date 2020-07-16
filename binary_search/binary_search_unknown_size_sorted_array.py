@@ -1,5 +1,6 @@
 """
 https://www.lintcode.com/problem/search-in-a-big-sorted-array/description?_from=ladder&&fromId=161
+https://www.jiuzhang.com/solution/search-in-a-big-sorted-array/
 """
 
 import unittest
@@ -37,10 +38,54 @@ def search_in_unknown_size(nums: ArrayReader, target: int) -> int:
             # 隐含地用到了get(end)越界时，会返回2147483647的特性
             start = mid + 1
         else:
+            # FIXME 这里不是正统(orthodox)的二分法
             while nums.get(mid - 1) == target:
                 mid -= 1
             return mid
     return -1
+
+
+def binary_search_first_of_target_solution(nums: ArrayReader, target: int) -> int:
+    first = nums.get(0)
+    if first == target:
+        return 0
+    if first > target:
+        return -1
+    end = 1
+    # 用倍增法找到右边界，这里其实隐含地用到了get(end)越界时，会返回2147483647的特性
+    while nums.get(end) < target:
+        end *= 2
+    start = end // 2
+    # find first_position的二分的while条件是 start + 1 < end
+    while start + 1 < end:
+        mid = start + (end - start) // 2
+        if nums.get(mid) < target:
+            start = mid
+        else:
+            end = mid
+    if nums.get(start) == target:
+        return start
+    if nums.get(end) == target:
+        return end
+    return -1
+
+
+def binary_search_first_of_target_template(nums: List[int], target: int):
+    start, end = 0, len(nums) - 1
+
+    while start + 1 < end:
+        middle = start + (end - start) // 2
+        if nums[middle] < target:
+            start = middle
+        else:
+            end = middle
+
+    if nums[start] == target:
+        return start
+    if nums[end] == target:
+        return end
+    return -1
+
 
 I32_MAX = 2 ** 31 - 1
 
