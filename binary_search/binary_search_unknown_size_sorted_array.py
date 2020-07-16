@@ -79,7 +79,14 @@ def binary_search_first_of_target_template(nums: List[int], target: int):
             start = middle
         else:
             end = middle
+        # 如果是二分搜索最后一个，除了start和end的赋值语句互换，if语句也要颠倒
+        # if nums[middle] > target:
+        #     end = middle
+        # else:
+        #     start = middle
 
+    # 如果是二分搜索最后一个
+    # if nums[end] == target要写在前面
     if nums[start] == target:
         return start
     if nums[end] == target:

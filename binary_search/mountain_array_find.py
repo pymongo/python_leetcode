@@ -78,6 +78,7 @@ def find(target: int, nums: 'MountainArray') -> int:
     return -1
 
 
+# @deprecated
 def get_peak_index(nums: List[int]) -> int:
     start, end = 0, len(nums) - 1
     while start < end:
@@ -89,6 +90,7 @@ def get_peak_index(nums: List[int]) -> int:
     return start
 
 
+# @deprecated
 def binary_search(nums: List[int], target: int) -> int:
     start, end = 0, len(nums) - 1
     while start <= end:
@@ -101,7 +103,7 @@ def binary_search(nums: List[int], target: int) -> int:
             return middle
     return -1
 
-
+# @deprecated
 def find_in_mountain_array(nums: List[int], target: int) -> int:
     length = len(nums)
     peak_index = get_peak_index(nums)
