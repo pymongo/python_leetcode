@@ -6,8 +6,11 @@ return target in nums
 在lintcode上都有Your submission beats 91.00% Submissions!的性能
 """
 from typing import List
+import unittest
 
 
+# 我还是喜欢这种解法，官方解答分了好多种情况讨论，不太好背诵
+# 不求甚解，慢慢领悟这种隐含的边界条件(为什么end一定要等于len(nums))
 def leetcode_best(nums: List[int], target: int) -> bool:
     size = len(nums)
     if size == 0:
@@ -38,3 +41,14 @@ def leetcode_best(nums: List[int], target: int) -> bool:
             else:
                 end = mid
     return False
+
+
+class Testing(unittest.TestCase):
+    TEST_CASES = [
+        ([2, 5, 6, 0, 0, 1, 2], 0, True),
+        ([2, 5, 6, 0, 0, 1, 2], 3, False),
+    ]
+
+    def test_best_solution(self):
+        for nums, target, expected in self.TEST_CASES:
+            self.assertEqual(expected, leetcode_best(nums, target))
