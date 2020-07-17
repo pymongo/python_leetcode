@@ -10,6 +10,7 @@
 #         while start < end:
 #             mid = start + (end - start) // 2
 #             if isBadVersion(mid):
+#                 # 如果出错了，不能排除掉mid，错误可能在[mid,end]
 #                 end = mid
 #             else:
 #                 start = mid + 1
