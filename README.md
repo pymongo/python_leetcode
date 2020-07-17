@@ -12,7 +12,7 @@ LeetCode
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/unclassified/reverse_integer.py)||
 |9|[Palindromic Number](https://leetcode.com/problems/palindrome-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/i32_is_palindromic.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_substr.py)|half_traverse_i32|
 |15|[3Sum](https://leetcode.com/problems/3sum/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/two_sum/three_sum.py)|two_pointers, two_sum|
-|26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/remove_duplicates_from_sorted_array.py)|exclusive_or|
+|26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/remove_duplicates_from_sorted_array.py)|exclusive_or|
 |28|[Implement strStr()](https://leetcode.com/problems/implement-strstr/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/contains_substr_kmp.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/string/find_substr.py)|kmp, dfa, multi_solutions|
 |33|[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/search_in_rotated_sorted_array.py)|binary_search|
 |34|[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/binary_search_first_and_last.py)|binary_search|
@@ -37,8 +37,9 @@ LeetCode
 |266_LOCK|[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
 |278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/first_bad_version.py)|partition_array|
 |283|[Move Zeros](https://leetcode.com/problems/move-zeroes/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/move_zeros.py)|partition_array, 快慢双指针|
-|292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)|nim_game|
-|342|[Power of Four](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/is_power_of_4.rs)|bitwise, nim_game|
+|292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
+|326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/is_power_of_3.py)|bitwise|
+|342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/bitwise/is_power_of_4.py)|bitwise|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |413|[Reverse Integer](https://www.lintcode.com/problem/reverse-integer/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/unclassified/reverse_integer.py)||
@@ -122,8 +123,8 @@ LintCode
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |916|[Palindrome Permutation](https://www.lintcode.com/problem/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
 |1283|[Reverse Array](https://lintcode.com/problem/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
-|1285|[Power of Four](https://lintcode.com/problem/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/is_power_of_4.rs)|bitwise, nim_game|
-|1300|[Bash Game(Nim Game)](https://www.lintcode.com/problem/bash-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)|nim_game|
+|1285|[Power of Four](https://lintcode.com/problem/power-of-four/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/is_power_of_4.py)|bitwise|
+|1300|[Bash Game(Nim Game)](https://www.lintcode.com/problem/bash-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |1334|[Rotate Array](https://www.lintcode.com/problem/rotate-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |1424|[Longest Mountain in Array](https://www.lintcode.com/problem/longest-mountain-in-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/mountain_array_longest.py)|mountain_array|
 |1499|[Reordered Power of 2](https://lintcode.com/problem/reordered-power-of-2/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/permutation/reordered_power_of_2.py)|permutation|
