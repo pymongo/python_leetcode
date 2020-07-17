@@ -12,10 +12,15 @@ def check_reordered_power_of_2(n: int) -> bool:
         digits.append(n % 10)
         n //= 10
     size = len(digits)
-    for nums in itertools.permutations(digits):
+    # 使用迭代器逐个计算排列组合，避免一次性计算344353235这种大数据会超时
+    all_digits = iter(itertools.permutations(digits))
+    nums = (-1)
+    # for nums in itertools.permutations(digits):
+    while nums is not None:
+        nums = next(all_digits, None)
         if nums[0] == 0:
             continue
-        num = sum(digit * (10 ** (size-1-i)) for i, digit in enumerate(nums))
+        num = sum(digit * (10 ** (size - 1 - i)) for i, digit in enumerate(nums))
         if (num & -num) == num:
             return True
     return False
