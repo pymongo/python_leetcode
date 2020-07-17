@@ -16,6 +16,7 @@ import random
 import math
 
 
+# 另一种解法: return num > 0 and log2(num) % 2 == 0
 def my_bitwise(n: int) -> bool:
     if n == 0:
         return False
@@ -29,29 +30,24 @@ def my_bitwise(n: int) -> bool:
     if one_place != 4 and one_place != 6:
         return False
     return True
+    # 不需要判断能否被4整除
     # return (n & -n) == n and (n & 3) == 0
 
 
-# 理论根据: 如果一个数是2的幂，那么它的二进制表示中有且只有一位是1
-def bitwise_solution_1(n: int) -> bool:
-    """
-    (n & -n): 只获取n的二进制的从左到右第一个1，其余位置0，如果n的二进制中只有一个1，那么(n & -n) == n
-    Example1:
-     3 = 0011
-    -3 = 1101
-    3 & -3 = 1
-    Example2:
-     4 = 0100
-    -4 = 1100
-    4 & -4 = 0100
-    """
-    if n == 0:
-        return False
-    return (n & -n) == n
-
-
 def bitwise_solution_2(n: int) -> bool:
-    pass
+    """
+    4=0100的幂只可能在奇数位上有1
+    如果n是2的幂同时只有奇数位上是1(n & 0xaaaaaaaa == 0)，那么n是4的幂
+    """
+    return n > 0 and (n & -n) == n and n & 0xaaaaaaaa == 0
+
+
+def bitwise_solution_3(n: int) -> bool:
+    """
+    若 xx 为 2 的幂且 x%3 == 1，则 xx 为 4 的幂
+    证明方法: 4^k % 3 = (3+1)^k % 3 = ...(二项式展开) = 1
+    """
+    return 0 < n == (n & -n) and n % 3 == 1
 
 
 class Testing(unittest.TestCase):

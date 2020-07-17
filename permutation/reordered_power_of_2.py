@@ -53,6 +53,7 @@ from collections import Counter
 
 # Java实现Counter类型: 长度为10的数组，索引表示0-9每位，值表示出现次数
 # Java可以在static块中初始化2**1到2**31的Counter
+# 参考power_of_4的官方解答，可读性更好的做法是定义另外一个数据类去初始化POSSIBLE_VALUES
 class Solution:
     # 不用Counter仅比较字符串的最快解答以及数据结构
     # TODO return ''.join(sorted(str(N))) in {''.join(sorted(str(1<<i))) for i in range(30)}
