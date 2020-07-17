@@ -32,6 +32,21 @@ def my_pow(x: float, n: int) -> float:
         return result
 
 
+# https://www.lintcode.com/problem/fast-power/
+# Calculate the a**n % b
+def fast_pow(a: int, b: int, n: int) -> int:
+    # if n == 0:
+    #     return a % b
+    result = 1
+    base = a
+    while n != 0:
+        if n % 2 == 1:
+            # 随时可以 % b 避免 overflow 其不影响结果，这是 % 运算的特性
+            result = (result * base) % b
+        base = (base * base) % b
+    return result % b
+
+
 class Testing(unittest.TestCase):
     def test_my_pow(self):
         base = random.uniform(1, 10)
