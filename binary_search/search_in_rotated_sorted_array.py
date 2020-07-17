@@ -1,5 +1,7 @@
 """
 本题类似find_in_mountain_array，不过山脉数组就一种先递增后递减的情况，而旋转排序数组复杂不少
+可以画柱状图或散点图去理解
+rotated sorted array其实就两段斜率为正的线段，值较高的线段会出现在前面
 """
 
 from typing import List
@@ -33,6 +35,7 @@ def search_in_rotated_sorted_array(nums: List[int], target: int) -> int:
                 end = middle - 1
     return -1
 
+
 # 不知道为什么find_peak_index之后二分查找[1, 3]中的3容易越界(因为第二个二分区间是3)
 def find_peak_index(nums: List[int], size: int) -> int:
     start, end = 0, size - 1
@@ -51,6 +54,7 @@ def find_peak_index(nums: List[int], size: int) -> int:
 
 
 def binary_search(nums: List[int], start: int, end: int, target: int) -> int:
+    # peak_index的解法不能用start + 1 < end的二分模板，因为很可能peak_index=last, start=peak_index+1 最后判断nums[start]==target时会越界
     while start <= end:
         middle = start + (end - start) // 2
         if nums[middle] < target:
@@ -60,17 +64,6 @@ def binary_search(nums: List[int], start: int, end: int, target: int) -> int:
         else:
             return middle
     return -1
-    # while start + 1 < end:
-    #     middle = start + (end - start) // 2
-    #     if nums[middle] < target:
-    #         start = middle
-    #     else:
-    #         end = middle
-    # if nums[start] == target:
-    #     return start
-    # if nums[end] == target:
-    #     return end
-    # return -1
 
 
 def peak_index_solution(nums: List[int], target: int) -> int:
@@ -88,9 +81,26 @@ def peak_index_solution(nums: List[int], target: int) -> int:
         return binary_search(nums, peak_index + 1, last, target)
 
 
+# 153. Find Minimum in Rotated Sorted Array 一题的解法
+# Your submission beats 98.00% Submissions!
+def find_minimum_value_in_rotated_sorted_array(nums: List[int]) -> int:
+    start, end = 0, len(nums) - 1
+    while start < end:
+        middle = start + (end - start) // 2
+        # 比较中间和右边
+        if nums[middle] < nums[end]:
+            end = middle
+        else:
+            # [3,4,5,1,2], nums[middle]=5, start需要前移, nums[middle]已经是最大值了，所以要start前移到middle+1的位置
+            # 如果不知道二分的边界变化，找一个例子代入进去试试就好
+            # 大于等于或小于等于的二分分支可以start=middle+1或end=middle-1
+            start = middle + 1
+    return nums[start]
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([1,3], 0, -1),
+        ([1, 3], 0, -1),
         ([4, 5, 1, 2, 3], 1, 2),
         ([4, 5, 1, 2, 3], 0, -1),
         ([4, 5, 6, 7, 0, 1, 2], 0, 4),
