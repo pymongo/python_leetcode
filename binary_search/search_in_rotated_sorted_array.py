@@ -36,6 +36,19 @@ def search_in_rotated_sorted_array(nums: List[int], target: int) -> int:
     return -1
 
 
+def binary_search(nums: List[int], start: int, end: int, target: int) -> int:
+    # peak_index的解法不能用start + 1 < end的二分模板，因为很可能peak_index=last, start=peak_index+1 最后判断nums[start]==target时会越界
+    while start <= end:
+        middle = start + (end - start) // 2
+        if nums[middle] < target:
+            start = middle + 1
+        elif nums[middle] > target:
+            end = middle - 1
+        else:
+            return middle
+    return -1
+
+
 # 不知道为什么find_peak_index之后二分查找[1, 3]中的3容易越界(因为第二个二分区间是3)
 def find_peak_index(nums: List[int], size: int) -> int:
     start, end = 0, size - 1
@@ -51,19 +64,6 @@ def find_peak_index(nums: List[int], size: int) -> int:
             end = middle - 1
     # 如果数组内没找到山峰，那么山峰只可能是第一个元素
     return 0
-
-
-def binary_search(nums: List[int], start: int, end: int, target: int) -> int:
-    # peak_index的解法不能用start + 1 < end的二分模板，因为很可能peak_index=last, start=peak_index+1 最后判断nums[start]==target时会越界
-    while start <= end:
-        middle = start + (end - start) // 2
-        if nums[middle] < target:
-            start = middle + 1
-        elif nums[middle] > target:
-            end = middle - 1
-        else:
-            return middle
-    return -1
 
 
 def peak_index_solution(nums: List[int], target: int) -> int:
@@ -98,8 +98,34 @@ def find_minimum_value_in_rotated_sorted_array(nums: List[int]) -> int:
     return nums[start]
 
 
+def get_min_index(nums: List[int]) -> int:
+    start, end = 0, len(nums) - 1
+    while start < end:
+        middle = start + (end - start) // 2
+        if nums[middle] < nums[end]:
+            end = middle
+        else:
+            start = middle + 1
+    return start
+
+
+def min_index_solution(nums: List[int], target: int) -> int:
+    size = len(nums)
+    if size == 0:
+        return -1
+    min_index = get_min_index(nums)
+    # 与peak_index解法相反，min_index解法要先搜索右半部分
+    # TODO 总结来说，要优先搜索min_index不会减1 或 peak_index不会加1 的区域
+    if nums[min_index] <= target <= nums[-1]:
+        # 如果先搜索[0, min_index-1]区域，遇上[1],1的输入用例会min_index-1=-1
+        return binary_search(nums, min_index, size - 1, target)
+    else:
+        return binary_search(nums, 0, min_index - 1, target)
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
+        ([1], 1, 0),
         ([1, 3], 0, -1),
         ([4, 5, 1, 2, 3], 1, 2),
         ([4, 5, 1, 2, 3], 0, -1),
@@ -113,3 +139,7 @@ class Testing(unittest.TestCase):
     def test_peak_index_solution(self):
         for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, peak_index_solution(nums, target))
+
+    def test_min_index_solution(self):
+        for nums, target, expected in self.TEST_CASES:
+            self.assertEqual(expected, min_index_solution(nums, target))
