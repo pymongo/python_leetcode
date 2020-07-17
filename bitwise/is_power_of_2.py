@@ -71,5 +71,5 @@ class Testing(unittest.TestCase):
     def test_my_solution(self):
         for _ in range(10 ** 3):
             n = random.randint(0, 10 ** 6)
-            expected: bool = math.log2(n) % 2 == 0
+            expected: bool = math.log2(n).is_integer()
             self.assertEqual(expected, my_solution(n))
