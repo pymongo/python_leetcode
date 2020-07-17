@@ -48,6 +48,27 @@ def better_permutation_solution(n: int) -> bool:
             return True
 
 
+from collections import Counter
+
+
+# Java实现Counter类型: 长度为10的数组，索引表示0-9每位，值表示出现次数
+# Java可以在static块中初始化2**1到2**31的Counter
+class Solution:
+    # 不用Counter仅比较字符串的最快解答以及数据结构
+    # TODO return ''.join(sorted(str(N))) in {''.join(sorted(str(1<<i))) for i in range(30)}
+    POSSIBLE_VALUES = [Counter(str(2 ** power)) for power in range(31)]
+
+    # 查询入参范围内的每一个2的幂的每位组成(Counter)，如果Counter(n)等于其中一个，则返回True
+    def check_reordered_power_of_2(self, n):
+        if n == 0:
+            return False
+        counter = Counter(str(n))
+        for value in self.POSSIBLE_VALUES:
+            if counter == value:
+                return True
+        return False
+
+
 class Testing(unittest.TestCase):
     TEST_CASE = [
         (1, True),
@@ -55,10 +76,8 @@ class Testing(unittest.TestCase):
         (16, True),
         (24, False),
         (46, True),
-        # 214806876
     ]
 
     def test(self):
         for n, expected in self.TEST_CASE:
-            print(n)
             self.assertEqual(expected, check_reordered_power_of_2(n))
