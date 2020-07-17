@@ -33,7 +33,7 @@ def search_in_rotated_sorted_array(nums: List[int], target: int) -> int:
                 end = middle - 1
     return -1
 
-
+# 不知道为什么find_peak_index之后二分查找[1, 3]中的3容易越界(因为第二个二分区间是3)
 def find_peak_index(nums: List[int], size: int) -> int:
     start, end = 0, size - 1
     if nums[start] <= nums[end]:
@@ -46,19 +46,51 @@ def find_peak_index(nums: List[int], size: int) -> int:
             start = middle + 1
         else:
             end = middle - 1
+    # 如果数组内没找到山峰，那么山峰只可能是第一个元素
     return 0
 
 
-def my_solution(nums: List[int], target: int) -> int:
+def binary_search(nums: List[int], start: int, end: int, target: int) -> int:
+    while start <= end:
+        middle = start + (end - start) // 2
+        if nums[middle] < target:
+            start = middle + 1
+        elif nums[middle] > target:
+            end = middle - 1
+        else:
+            return middle
+    return -1
+    # while start + 1 < end:
+    #     middle = start + (end - start) // 2
+    #     if nums[middle] < target:
+    #         start = middle
+    #     else:
+    #         end = middle
+    # if nums[start] == target:
+    #     return start
+    # if nums[end] == target:
+    #     return end
+    # return -1
+
+
+def peak_index_solution(nums: List[int], target: int) -> int:
     size = len(nums)
     if size == 0:
         return -1
     peak_index = find_peak_index(nums, size)
-    return -1
+    last = size - 1
+    if nums[0] <= target <= nums[peak_index]:
+        return binary_search(nums, 0, peak_index, target)
+    # elif nums[peak_index+1] <= target <= nums[last]:
+    else:
+        # if peak_index == last:
+        #     return -1
+        return binary_search(nums, peak_index + 1, last, target)
 
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
+        ([1,3], 0, -1),
         ([4, 5, 1, 2, 3], 1, 2),
         ([4, 5, 1, 2, 3], 0, -1),
         ([4, 5, 6, 7, 0, 1, 2], 0, 4),
@@ -68,6 +100,6 @@ class Testing(unittest.TestCase):
         for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, search_in_rotated_sorted_array(nums, target))
 
-    def test_my_solution(self):
+    def test_peak_index_solution(self):
         for nums, target, expected in self.TEST_CASES:
-            self.assertEqual(expected, my_solution(nums, target))
+            self.assertEqual(expected, peak_index_solution(nums, target))
