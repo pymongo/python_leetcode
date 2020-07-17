@@ -2,6 +2,7 @@
 本题类似find_in_mountain_array，不过山脉数组就一种先递增后递减的情况，而旋转排序数组复杂不少
 可以画柱状图或散点图去理解
 rotated sorted array其实就两段斜率为正的线段，值较高的线段会出现在前面
+注意这题不会出现重复元素，而本题的follow up可能会有重复元素
 """
 
 from typing import List
@@ -143,3 +144,6 @@ class Testing(unittest.TestCase):
     def test_min_index_solution(self):
         for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, min_index_solution(nums, target))
+
+    def test_binary_search(self):
+        print(binary_search([3,1,1],0,2,3))
