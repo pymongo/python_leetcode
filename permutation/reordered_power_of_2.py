@@ -2,6 +2,7 @@ import unittest
 import itertools
 
 
+# 耗时8s的排列组合解法
 def check_reordered_power_of_2(n: int) -> bool:
     if n == 0:
         return False
@@ -24,6 +25,25 @@ def check_reordered_power_of_2(n: int) -> bool:
         if nums[last] % 2 != 0:
             continue
         num = sum(digit * (10 ** (last - i)) for i, digit in enumerate(nums))
+        if (num & -num) == num:
+            return True
+
+
+# 耗费3秒，更优化的排列组合解法
+def better_permutation_solution(n: int) -> bool:
+    if n == 0:
+        return False
+    if (n & -n) == n:
+        return True
+    str_n = str(n)
+    all_possibles = iter(itertools.permutations(str_n))
+    while True:
+        nums = next(all_possibles, None)
+        if nums is None:
+            return False
+        if nums[0] == '0':
+            continue
+        num = int("".join(nums))
         if (num & -num) == num:
             return True
 
