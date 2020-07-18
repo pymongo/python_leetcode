@@ -66,6 +66,8 @@ class Testing(unittest.TestCase):
     def test_my_solution(self):
         self.assertEqual(True, my_bitwise(27))
         for _ in range(500):
+            # >>> math.log(243, 3)
+            # 4.999999999999999
             n = random.randint(0, 10 ** 9)
             print(n)
             expected: bool = math.log(n, 3).is_integer()
