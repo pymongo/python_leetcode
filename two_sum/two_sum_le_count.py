@@ -52,6 +52,20 @@ def second_two_sum_le(nums: List[int], target: int) -> int:
     return count
 
 
+# https://www.lintcode.com/problem/two-sum-greater-than-target/description?_from=ladder&&fromId=161
+def two_sum_gt(nums: List[int], target: int) -> int:
+    nums = sorted(nums)
+    left, right = 0, len(nums) - 1
+    count = 0
+    while left < right:
+        if nums[left] + nums[right] > target:
+            count += right - left
+            right -= 1
+        else:
+            left += 1
+    return count
+
+
 class Test(unittest.TestCase):
     TEST_CASES = [
         ([2, 7, 11, 15], 24, 5)
