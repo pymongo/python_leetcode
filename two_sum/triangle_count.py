@@ -10,6 +10,10 @@ import unittest
 from typing import List
 
 
+# 根据排列组合C(n,3), 本题正常遍历需要O(n^3)的时间复杂度
+# 由于求的是方案总数，而不是具体方案，所以时间复杂度降低到O(n^2)
+# 在数方案总数的问题上，一定要批量批量的数，否则会超时
+# 字节跳动有一题是数大矩阵中0和1随机分布，问3x3全是1的矩阵有几个，也是要批量数
 def triangle_count(nums: List[int]) -> int:
     nums = sorted(nums)
     size = len(nums)
@@ -18,7 +22,7 @@ def triangle_count(nums: List[int]) -> int:
     count = 0
     # target就是最长边c，固定等式右边的不变
     for c in range(2, size):
-        a, b = 0, c-1
+        a, b = 0, c - 1
         while a < b:
             if nums[a] + nums[b] > nums[c]:
                 # [3,4,6,7]中如果a(3) + b(6) > c(7)，那么a右移一位的解4,6,7也满足条件
