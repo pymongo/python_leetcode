@@ -9,20 +9,20 @@ from typing import List
 
 # beats 93.60% Submissions
 def my_solution(nums: List[int], target: int) -> int:
-    diff = sys.maxsize
+    min_diff = sys.maxsize
     nums = sorted(nums)
     left, right = 0, len(nums) - 1
     while left < right:
         two_sum = nums[left] + nums[right]
         new_diff = abs(two_sum - target)
-        diff = min(diff, new_diff)
+        min_diff = min(min_diff, new_diff)
         if two_sum > target:
             right -= 1
         elif two_sum < target:
             left += 1
         else:
             return 0
-    return diff
+    return min_diff
 
 
 class Testing(unittest.TestCase):
