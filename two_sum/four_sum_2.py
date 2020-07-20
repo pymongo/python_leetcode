@@ -8,10 +8,10 @@ def four_sum_eq_0(A: List[int], B: List[int], C: List[int], D: List[int]) -> int
     count = 0
     for a in A:
         for b in B:
-            pairs[a+b] = pairs.get(a+b, 0) + 1
+            pairs[a + b] = pairs.get(a + b, 0) + 1
     for c in C:
         for d in D:
-            count += pairs.get(c+d, 0)
+            count += pairs.get(-(c + d), 0)
     return count
 
 
