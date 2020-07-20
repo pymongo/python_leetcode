@@ -11,7 +11,8 @@ LeetCode
 |6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/zigzag_conversion.py)||
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/unclassified/reverse_integer.py)||
 |9|[Palindromic Number](https://leetcode.com/problems/palindrome-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/i32_is_palindromic.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_substr.py)|half_traverse_i32|
-|15|[3Sum](https://leetcode.com/problems/3sum/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/two_sum/three_sum.py)|two_pointers, two_sum|
+|15|[3Sum](https://leetcode.com/problems/3sum/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/two_sum/three_sum.py)|two_pointers, two_sum|
+|18|[4Sum](https://www.lintcode.com/problem/4sum/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/two_sum/four_sum.py)|two_pointers, two_sum|
 |26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/remove_duplicates_from_sorted_array.py)|exclusive_or|
 |28|[Implement strStr()](https://leetcode.com/problems/implement-strstr/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/contains_substr_kmp.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/string/find_substr.py)|kmp, dfa, multi_solutions|
 |33|[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/search_in_rotated_sorted_array.py)|binary_search|
@@ -82,7 +83,8 @@ LintCode
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/reverse_linked_list.py)|list_node|
 |41|[Maximum Subarray](https://www.lintcode.com/problem/maximum-subarray/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/greedy/maximum_subarray.py)|greedy, dp|
 |56|[Two Sum](https://www.lintcode.com/problem/two-sum/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/btree_map_two_sum.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/two_sum_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/HashMapTwoSum.java)|btree_map, bitwise(two_s_complement)|
-|57|[3Sum](https://www.lintcode.com/problem/3sum/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/two_sum/three_sum.py)|two_pointers, two_sum|
+|57|[3Sum](https://www.lintcode.com/problem/3sum/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/two_sum/three_sum.py)|two_pointers, two_sum|
+|58|[4Sum](https://www.lintcode.com/problem/4sum/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/two_sum/four_sum.py)|two_pointers, two_sum|
 |59|[3Sum Closest](https://www.lintcode.com/problem/3sum-closest/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/two_sum/three_sum_closest.py)|two_sum|
 |62|[Search in Rotated Sorted Array](https://lintcode.com/problem/search-in-rotated-sorted-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/search_in_rotated_sorted_array.py)|binary_search|
 |63|[Search in Rotated Sorted Array II](https://lintcode.com/problem/search-in-rotated-sorted-array-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/search_in_rotated_sorted_2_with_duplicate_elements.py)|binary_search|
