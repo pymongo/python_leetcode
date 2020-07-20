@@ -6,7 +6,7 @@ https://www.lintcode.com/problem/two-sum-unique-pairs/description?_from=ladder&&
 import unittest
 from typing import List
 
-
+# 面试问题: 是否可以先去重? -> 不可以
 def solution(nums: List[int], target: int) -> int:
     # shadowing outer scope nums
     nums = sorted(nums)

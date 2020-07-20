@@ -7,6 +7,7 @@ https://leetcode.com/problems/3sum/
 
 import unittest
 from typing import List
+from copy import deepcopy
 
 
 def three_sum_equal_zero(nums: List[int]) -> List[List[int]]:
@@ -17,12 +18,12 @@ def three_sum_equal_zero(nums: List[int]) -> List[List[int]]:
     last_index = length - 1
     for i in range(length):
         # 从小到大搜索，跳过重复值
-        if i > 0 and nums[i] == nums[i-1]:
+        if i > 0 and nums[i] == nums[i - 1]:
             continue
         right = last_index
         target = -nums[i]
-        for left in range(i+1, length):
-            if left > i+1 and nums[left] == nums[left-1]:
+        for left in range(i + 1, length):
+            if left > i + 1 and nums[left] == nums[left - 1]:
                 continue
             # 因为数组是有序的，如果两数之和大于目标值，右指针需要往左移动，而左指针不能动(在外层for left in range时进行枚举)
             while left < right and nums[left] + nums[right] > target:
@@ -35,6 +36,36 @@ def three_sum_equal_zero(nums: List[int]) -> List[List[int]]:
     return result
 
 
+# Your submission beats 98.20% Submissions!
+def three_sum_second_try(nums: List[int]) -> List[List[int]]:
+    if not nums:
+        return []
+    nums = sorted(nums)
+    size = len(nums)
+    result = []
+
+    for i in range(size - 2):
+        # i的去重不能依赖于two_sum==target的分支内
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
+        left, right = i + 1, size - 1
+        while left < right:
+            three_sum = nums[i] + nums[left] + nums[right]
+            if three_sum == 0:
+                result.append([nums[i], nums[left], nums[right]])
+                left += 1
+                right -= 1
+                while left < right and nums[left] == nums[left - 1]:
+                    left += 1
+                while left < right and nums[right] == nums[right + 1]:
+                    right -= 1
+            elif three_sum < 0:
+                left += 1
+            else:
+                right -= 1
+    return result
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([2, 7, 11, 15], []),
@@ -42,5 +73,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for nums, expected in self.TEST_CASES:
+        for nums, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, three_sum_equal_zero(nums))
+
+    def test_three_second_try(self):
+        for nums, expected in deepcopy(self.TEST_CASES):
+            self.assertEqual(expected, three_sum_second_try(nums))
