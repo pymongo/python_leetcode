@@ -3,6 +3,7 @@ https://www.lintcode.com/problem/triangle-count/description?_from=ladder&&fromId
 输入一个排序数组，请问从数组中取3个值能组成多少个不同的三角形
 由于数组是有序的，满足nums[a] + nums[b] > nums[c]即可，转换成两数之和大于类型问题
 这题有点像three sum，和三数之和类似，遍历时可变的双指针要在等式的左边，而固定不变的target放等式右边
+如果本题固定a，双指针是b和c，那么一定会出现漏掉解的情况，所以等式右边的target不能是可变的
 """
 
 import unittest
@@ -10,20 +11,24 @@ from typing import List
 
 
 def triangle_count(nums: List[int]) -> int:
+    nums = sorted(nums)
     size = len(nums)
-    last = size - 1
     if size < 3:
-        return -1
+        return 0
     count = 0
-    for a in range(size - 2):
-        c = last
-        for b in range(a+1, size-1):
+    # target就是最长边c，固定等式右边的不变
+    for c in range(2, size):
+        a, b = 0, c-1
+        while a < b:
             if nums[a] + nums[b] > nums[c]:
-                print(a,b,c)
-                count += 1
-            while nums[a] + nums[b] > nums[c-1]:
-                c -= 1
-                count += 1
+                # [3,4,6,7]中如果a(3) + b(6) > c(7)，那么a右移一位的解4,6,7也满足条件
+                # 这步是不会漏掉解的关键，参考two-sum-less-than-or-equal-to-target
+                # 既然nums[left]+nums[right]>target，那么[left..right-1, right]的解都满足条件
+                count = count + (b - a)
+                b -= 1
+            else:
+                # 不会重复计算4,6,7这个解两次，因为4,6,7被记入时，b左移一位，已经退出循环，可以代入一些很小的用例去推敲
+                a += 1
     return count
 
 
