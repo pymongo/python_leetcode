@@ -2,10 +2,10 @@ import unittest
 from typing import List
 
 
-def deal_three_sum(nums: List[int], target: int, start: int, result: List[List[int]]):
-    size = len(nums)
+def deal_three_sum(nums: List[int], target: int, start: int, size: int, result: List[List[int]]):
     for i in range(start, size - 2):
         # 核心代码: i > start 注意去重的前提是i在第二次遍历时才比较
+        # https://leetcode-cn.com/problems/4sum/solution/python-shuang-zhi-zhen-fa-zhu-yi-jian-zhi-yi-ji-pa/
         if i > start and nums[i] == nums[i-1]:
             continue
         left, right = i + 1, size - 1
@@ -29,15 +29,20 @@ def deal_three_sum(nums: List[int], target: int, start: int, result: List[List[i
 
 
 def four_sum(nums: List[int], target: int) -> List[List[int]]:
-    if not nums:
-        return []
     nums = sorted(nums)
     size = len(nums)
     result = []
+    # 如果数组中的最小4项大于target，则往后的只会更大
+    if sum(nums[:4]) > target:
+        return []
+    sum_of_last_3 = sum(nums[size-3:])
     for i in range(size - 3):
         if i > 0 and nums[i] == nums[i - 1]:
             continue
-        deal_three_sum(nums, target - nums[i], i + 1, result)
+        # 如果固定数+最大的后三项都小于target，则以固定数开头的组合不可能有候选项
+        if nums[i] + sum_of_last_3 < target:
+            continue
+        deal_three_sum(nums, target - nums[i], i + 1, size, result)
     return result
 
 
