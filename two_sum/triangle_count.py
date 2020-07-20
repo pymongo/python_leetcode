@@ -24,6 +24,7 @@ def triangle_count(nums: List[int]) -> int:
                 # [3,4,6,7]中如果a(3) + b(6) > c(7)，那么a右移一位的解4,6,7也满足条件
                 # 这步是不会漏掉解的关键，参考two-sum-less-than-or-equal-to-target
                 # 既然nums[left]+nums[right]>target，那么[left..right-1, right]的解都满足条件
+                # count会算上固定b之后[a..b-1, b]的所有解，然后b-=1; 而two_sum_le一题是固定a之后[a,a+1..b]所有解，所以a+=1
                 count = count + (b - a)
                 b -= 1
             else:
