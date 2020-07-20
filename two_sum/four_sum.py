@@ -5,16 +5,16 @@ from typing import List
 def deal_three_sum(nums: List[int], target: int, start: int, result: List[List[int]]):
     size = len(nums)
     for i in range(start, size - 2):
-        # 这里去重会漏掉解惑重复解
-        # if nums[i] == nums[i+1]:
-        #     continue
+        # 核心代码: i > start 注意去重的前提是i在第二次遍历时才比较
+        if i > start and nums[i] == nums[i-1]:
+            continue
         left, right = i + 1, size - 1
         while left < right:
             three_sum = nums[i] + nums[left] + nums[right]
             if three_sum == target:
-                # 暂时先用这种笨方法去重
-                if [nums[start - 1], nums[i], nums[left], nums[right]] not in result:
-                    result.append([nums[start - 1], nums[i], nums[left], nums[right]])
+                # if [nums[start - 1], nums[i], nums[left], nums[right]] not in result:
+                #     result.append([nums[start - 1], nums[i], nums[left], nums[right]])
+                result.append([nums[start - 1], nums[i], nums[left], nums[right]])
                 left += 1
                 right -= 1
                 while left < right and nums[left] == nums[left - 1]:
