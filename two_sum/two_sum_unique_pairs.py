@@ -13,12 +13,20 @@ def solution(nums: List[int], target: int) -> int:
     size = len(nums)
     last = size - 1
     left, right = 0, last
+    # 应对11+11=22情况
+    is_count_two_equals = False
     count = 0
     while left < right:
         # 不用set去重，因为太慢了
-        while left < last and nums[left] == nums[left + 1]:
+        while left < right and nums[left] == nums[left + 1]:
+            # if not is_count_two_equals and nums[left] * 2 == target:
+            #     count += 1
+            #     is_count_two_equals = True
             left += 1
-        while right > 0 and nums[right] == nums[right - 1]:
+        while left < right and nums[right] == nums[right - 1]:
+            # if not is_count_two_equals and nums[right] * 2 == target:
+            #     count += 1
+            #     is_count_two_equals = True
             right -= 1
         two_sum = nums[left] + nums[right]
         if two_sum == target:
