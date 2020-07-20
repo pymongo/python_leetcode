@@ -99,6 +99,7 @@ LintCode
 |187|[Gas Station](https://www.lintcode.com/problem/gas-station/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/greedy/gas_station.py)|greedy|
 |200|[Longest Palindromic Substring](https://www.lintcode.com/problem/longest-palindromic-substring/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_substr.py)|multi_solutions|
 |228_LOCK|[Middle of the Linked List](https://www.lintcode.com/problem/middle-of-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/middle_of_linked_list.py)|list_node, 快慢指针|
+|235|[Longest Palindromic Substring](https://www.lintcode.com/problem/prime-factorization/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/math/prime_factorization.py)|分解质因数|
 |254|[Drop Eggs](https://www.lintcode.com/problem/drop-eggs/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs.py)|sqrt_n|
 |366|[Fibonacci](https://www.lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |382_LOCK|[Triangle Count](https://www.lintcode.com/problem/triangle-count/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/two_sum/triangle_count.py)|two_sum, 双指针|

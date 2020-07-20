@@ -2,15 +2,13 @@
 这题输入用例是二叉树，需要构思一种创建二叉树的方式才能构建单元测试
 TODO 先不写单元测试，等leetcode做到pretty print二叉树以及创建二叉树的相关题目时再补充单元测试
 """
+import collections
 
 
 class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left, self.right = None, None
-
-
-import collections
 
 
 # 那么二叉树的经典遍历pre-order, in-order, after-order就只能用递归吗?
@@ -25,10 +23,11 @@ def binary_tree_level_order(root: TreeNode):
     while q:
         current_level_values = []
         # 每次都要重新去队列长度
-        for i in range(len(q)):
+        for _ in range(len(q)):
+            # pop是最右边的出队，用于标准队列FIFO
             node = q.popleft()
             current_level_values.append(node.val)
-            # 将遍历当层二叉树节点的所有子树移到队尾，留给下一轮遍历
+            # 将遍历当层二叉树节点的所有子树移到队尾，留给下一轮遍历(拓展成下一层的节点)
             if node.left:
                 q.append(node.left)
             if node.right:
