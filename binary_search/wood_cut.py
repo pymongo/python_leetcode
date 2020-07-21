@@ -4,6 +4,8 @@ from typing import List
 
 # 按指定长度去切，最多能切成几份
 def get_max_cut_quantity(nums: List[int], wood_len: int) -> int:
+    if wood_len == 0:
+        return 0
     cut_count = 0
     for wood in nums:
         cut_count += wood // wood_len
@@ -32,7 +34,12 @@ def solution(nums: List[int], k: int) -> int:
             end = mid - 1
         else:
             start = mid
-    return end
+
+    if get_max_cut_quantity(nums, end) >= k:
+        return end
+    if get_max_cut_quantity(nums, start) >= k:
+        return start
+    return 0
 
 
 class Testing(unittest.TestCase):
