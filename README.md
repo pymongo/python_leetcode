@@ -44,6 +44,7 @@ LeetCode
 |326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/is_power_of_3.py)|bitwise|
 |342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/bitwise/is_power_of_4.py)|bitwise|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
+|371|[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/bitwise/binary_addition.py)|binary_addition|
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |413|[Reverse Integer](https://www.leetcode.com/problem/reverse-integer/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/unclassified/reverse_integer.py)||
 |454|[4Sum II](https://www.lintcode.com/problem/4sum-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/two_sum/four_sum_2.py)|two_sum|
@@ -144,6 +145,7 @@ LintCode
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |916|[Palindrome Permutation](https://www.lintcode.com/problem/palindrome-permutation/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/palindrome_permutation.py)|greedy|
 |976|[4Sum II](https://www.lintcode.com/problem/4sum-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/two_sum/four_sum_2.py)|two_sum|
+|1276|[Sum of Two Integers](https://lintcode.com/problem/sum-of-two-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/bitwise/binary_addition.py)|binary_addition|
 |1283|[Reverse Array](https://lintcode.com/problem/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
 |1285|[Power of Four](https://lintcode.com/problem/power-of-four/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/is_power_of_4.py)|bitwise|
 |1300|[Bash Game(Nim Game)](https://www.lintcode.com/problem/bash-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||

@@ -1,23 +1,29 @@
 """
-// 主要利用异或运算来完成
-// 异或运算有一个别名叫做：不进位加法
-// 那么a ^ b就是a和b相加之后，该进位的地方不进位的结果
-// 然后下面考虑哪些地方要进位，自然是a和b里都是1的地方
-// a & b就是a和b里都是1的那些位置，a & b << 1 就是进位
-// 之后的结果。所以：a + b = (a ^ b) + (a & b << 1)
-// 令a' = a ^ b, b' = (a & b) << 1
-// 可以知道，这个过程是在模拟加法的运算过程，进位不可能
-// 一直持续，所以b最终会变为0。因此重复做上述操作就可以
-// 求得a + b的值。
-while (b != 0) {
-    int _a = a ^ b;
-    int _b = (a & b) << 1;
-    a = _a;
-    b = _b;
-}
-return a;
+https://leetcode.com/problems/sum-of-two-integers/
 """
 import unittest
+
+
+# https://leetcode-cn.com/problems/sum-of-two-integers/solution/wei-yun-suan-xiang-jie-yi-ji-zai-python-zhong-xu-y/
+# noinspection PyPep8Naming
+def addition(a: int, b: int) -> int:
+    """
+    可以将加法拆分为两部分:
+    1. 无进位加法-异或: a ^ b
+    2. a & b << 1 获取进位
+    """
+    # 2^32
+    MASK = 0x100000000
+    # 整型最大值
+    MAX_INT = 0x7FFFFFFF
+    MIN_INT = MAX_INT + 1
+    while b != 0:
+        # 计算进位
+        carry = (a & b) << 1
+        # 取余范围限制在 [0, 2^32-1] 范围内
+        a = (a ^ b) % MASK
+        b = carry % MASK
+    return a if a <= MAX_INT else ~((a % MIN_INT) ^ MAX_INT)
 
 
 class Test(unittest.TestCase):
@@ -26,16 +32,3 @@ class Test(unittest.TestCase):
     def test(self):
         for a, b, expected in self.TEST_CASES[:]:
             self.assertEqual(addition(a, b), expected)
-
-
-def addition(a: int, b: int) -> int:
-    # FIXME a或b是负数时，二进制运算会选入死循环，Java中int都是signed的可能就没有这个问题
-    if a < 0 or b < 0:
-        return a + b
-    while b != 0:
-        # 异或运算: 不进位加法
-        _a: int = a ^ b
-        # 获取刚刚运算中的进位
-        _b: int = (a & b) << 1
-        a, b = _a, _b
-    return a
