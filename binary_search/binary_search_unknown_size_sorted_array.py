@@ -25,6 +25,7 @@ def search_in_unknown_size(nums: ArrayReader, target: int) -> int:
     if first > target:
         return -1
     end = 1
+    # 还能用到倍增法的情况: Exponential Backoff网络请求失败, x秒后重连(第一次重连在2秒，第二次4秒...)
     # 用倍增法找到右边界，这里其实隐含地用到了get(end)越界时，会返回2147483647的特性
     while nums.get(end) < target:
         end *= 2
@@ -44,7 +45,7 @@ def search_in_unknown_size(nums: ArrayReader, target: int) -> int:
             return mid
     return -1
 
-
+# 一定要搞清楚题目要求的是二分法找出第一个位置、最后位置、还是任意位置(classic binary search)，这三种找到目标的「代码是不一样的」
 def binary_search_first_of_target_solution(nums: ArrayReader, target: int) -> int:
     first = nums.get(0)
     if first == target:

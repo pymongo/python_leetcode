@@ -11,7 +11,7 @@ from copy import deepcopy
 
 
 def three_sum_equal_zero(nums: List[int]) -> List[List[int]]:
-    result = []
+    results = []
     # 通过shadowing重新赋值的好处是排序时不会修改掉原来的nums数组
     nums = sorted(nums)
     length = len(nums)
@@ -32,8 +32,8 @@ def three_sum_equal_zero(nums: List[int]) -> List[List[int]]:
             if left == right:
                 break
             if nums[left] + nums[right] == target:
-                result.append([nums[i], nums[left], nums[right]])
-    return result
+                results.append([nums[i], nums[left], nums[right]])
+    return results
 
 
 # Your submission beats 98.20% Submissions!
@@ -42,7 +42,7 @@ def three_sum_second_try(nums: List[int]) -> List[List[int]]:
         return []
     nums = sorted(nums)
     size = len(nums)
-    result = []
+    results = []
 
     for i in range(size - 2):
         # i的去重不能依赖于two_sum==target的分支内
@@ -52,7 +52,7 @@ def three_sum_second_try(nums: List[int]) -> List[List[int]]:
         while left < right:
             three_sum = nums[i] + nums[left] + nums[right]
             if three_sum == 0:
-                result.append([nums[i], nums[left], nums[right]])
+                results.append([nums[i], nums[left], nums[right]])
                 left += 1
                 right -= 1
                 while left < right and nums[left] == nums[left - 1]:
@@ -63,7 +63,7 @@ def three_sum_second_try(nums: List[int]) -> List[List[int]]:
                 left += 1
             else:
                 right -= 1
-    return result
+    return results
 
 
 class Testing(unittest.TestCase):

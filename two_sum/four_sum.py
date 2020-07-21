@@ -31,7 +31,7 @@ def deal_three_sum(nums: List[int], target: int, start: int, size: int, result: 
 def four_sum(nums: List[int], target: int) -> List[List[int]]:
     nums = sorted(nums)
     size = len(nums)
-    result = []
+    results = []
     # 如果数组中的最小4项大于target，则往后的只会更大
     if sum(nums[:4]) > target:
         return []
@@ -42,8 +42,8 @@ def four_sum(nums: List[int], target: int) -> List[List[int]]:
         # 如果固定数+最大的后三项都小于target，则以固定数开头的组合不可能有候选项
         if nums[i] + sum_of_last_3 < target:
             continue
-        deal_three_sum(nums, target - nums[i], i + 1, size, result)
-    return result
+        deal_three_sum(nums, target - nums[i], i + 1, size, results)
+    return results
 
 
 class Testing(unittest.TestCase):

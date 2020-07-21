@@ -50,7 +50,6 @@ def solution(nums: List[int], target: int, k: int) -> List[int]:
         return nums[:k]
     if position == length:
         return nums[length - k:]
-    result = []
     left = position - 1
     right = position + 1
     while right - left < k:
