@@ -50,7 +50,8 @@ def my_bfs(M: List[List[int]]) -> int:
                     continue
                 if neighbourhood not in visited:
                     q.append(neighbourhood)
-            circles_count += 1
+        # 队列为空时，一个节点以及它所有的邻居都被访问过，然后朋友圈+1
+        circles_count += 1
     return circles_count
 
 
