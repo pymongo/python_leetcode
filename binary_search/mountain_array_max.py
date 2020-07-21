@@ -25,6 +25,7 @@ def peak_index_brute_force(nums: List[int]) -> int:
     return i
 
 
+# 二分目标: find_last递增，退出时start就是最后一个递增
 def peak_index(nums: List[int]) -> int:
     start, end = 0, len(nums) - 1
     while start < end:
@@ -35,6 +36,42 @@ def peak_index(nums: List[int]) -> int:
         else:
             # middle不满足递增条件，所以山顶会在[start,middle]之间
             end = middle
+    return start
+
+
+# 另一种思路，找到第一个开始递减的元素，也就是山峰
+# 为什么没有三分、四分法？判断答案落入哪一个区间耗费更多时间
+def find_first_desc(nums: List[int]) -> int:
+    """
+    Round 1:
+    1 2 4 8 6 3
+    ^         ^
+    mid=nums[(0+5)//2]=4
+    4 > 8 False => start=mid+1
+
+    Round 2:
+    1 2 4 8 6 3
+          ^   ^
+    6 > 3 True => end=mid
+
+    Round 3:
+    1 2 4 8 6 3
+          ^ ^
+    6 > 3 True => end=mid
+
+    Round 4:
+    1 2 4 8 6 3
+          ^
+    8 > 6 True => end=mid => start==end => break
+    """
+    start, end = 0, len(nums) - 1
+    while start < end:
+        mid = start + (end - start) // 2
+        if nums[mid] > nums[mid + 1]:
+            # mid已经递减了，往左边区间继续搜索
+            end = mid
+        else:
+            start = mid + 1
     return start
 
 
