@@ -39,6 +39,23 @@ def partition(nums: List[int], k: int) -> int:
     return start
 
 
+def partition_template_2(nums: List[int], k: int) -> int:
+    left, right = 0, len(nums) - 1
+    # 类似某个二分或快速排序的模板，仅供partition，不容易获取题目要求的边界
+    while left <= right:
+        while left <= right and nums[left] <= k:
+            left += 1
+        while left <= right and nums[right] > k:
+            right -= 1
+        if left <= right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+    print(nums)
+    print("left", left, "right", right)
+    return right-1
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([], 9, 0, []),
@@ -51,3 +68,9 @@ class Testing(unittest.TestCase):
             partition_output = partition(nums, k)
             self.assertEqual(output, partition_output)
             self.assertEqual(nums_after_partition, nums)
+
+    # def test_partition_template_2(self):
+    #     for nums, k, output, nums_after_partition in self.TEST_CASES:
+    #         partition_output = partition_template_2(nums, k)
+    #         self.assertEqual(output, partition_output)
+    #         self.assertEqual(nums_after_partition, nums)
