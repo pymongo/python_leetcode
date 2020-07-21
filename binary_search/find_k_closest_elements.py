@@ -67,17 +67,18 @@ def solution(nums: List[int], target: int, k: int) -> List[int]:
     return nums[left:right]
 
 
-def leetcode_best(nums: List[int], target: int, k: int):
+def leetcode_best(nums: List[int], target: int, k: int) -> List[int]:
     size = len(nums)
     left = 0
     right = size - k
 
     while left < right:
-        # mid = left + (right - left) // 2
-        mid = (left + right) >> 1
-        # 尝试从长度为 k + 1 的连续子区间删除一个元素
-        # 从而定位左区间端点的边界值
+        mid = left + (right - left) // 2
+        # 假设正序数组nums的图像是一条向上的斜线
+        # 那么target相当于「一条横线」穿过nums的斜线
+        # target横线与nums的交点是固定的，我们要做的是不断收缩左右边界，使得交点刚好是左右边界的中点，而且左右边界固定宽度为k(window)
         if target - nums[mid] > nums[mid + k] - target:
+            # 在当前左右边界情况下，target交点要比nums斜线的中点「要高」，此时左边界要前进，
             left = mid + 1
         else:
             right = mid
