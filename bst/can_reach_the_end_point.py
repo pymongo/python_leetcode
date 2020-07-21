@@ -9,68 +9,69 @@ class MyPoint:
         # 表示某个决策的出发点
         self.x = x
         self.y = y
-        # (dx, dy)的组合表示方向向量, 上下左右分别是(0,1),(0,-1),(-1,0),(1,0)
+        # (dx, dy)的组合表示方向向量, 上下左右分别是(0,-1),(0,1),(-1,0),(1,0)
         self.dx = dx
         self.dy = dy
 
 
 # noinspection PyShadowingBuiltins
 def backtrace_solution(map: List[List[int]]) -> bool:
-    # temp = []
-    # if map[0][1] == 1:
-    #     temp.append(MyPoint(x=0, y=0, dx=1, dy=0))
-    # if map[1][0] == 1:
-    #     pass
-    # if not temp:
-    #     return False
-    q = collections.deque([
+    decisions = collections.deque([
         MyPoint(x=0, y=0, dx=1, dy=0),
         MyPoint(x=0, y=0, dx=0, dy=1)
     ])
     max_x = len(map[0]) - 1
     max_y = len(map) - 1
-    while q:
-        curr_point = q.popleft()
-        next_point = MyPoint(x=curr_point.x + curr_point.dx, y=curr_point.y + curr_point.dy)
+    seen = {(0, 0)}
+    while decisions:
+        decision = decisions.popleft()
+        next_point = MyPoint(x=decision.x + decision.dx, y=decision.y + decision.dy)
+        # print("From", (decision.x, decision.y), "To", (next_point.x, next_point.y))
+        if (next_point.x, next_point.y) in seen:
+            continue
         # 如果遇到障碍物(next_point的值为0)
         if map[next_point.x][next_point.y] == 0:
+            # 通过seen记忆已经访问过的节点，防止走环形导致死循环
+            seen.add((next_point.x, next_point.y))
             continue
         if map[next_point.x][next_point.y] == 9:
             return True
 
-        last_direction = (curr_point.dx, curr_point.dy)
         directions = []
         if next_point.x == 0:
-            # 不能走回头路
-            if last_direction != (-1, 0):
-                directions.append((1, 0))
-        if 0 < next_point.x < max_x:
-            if last_direction != (-1, 0):
-                directions.append((1, 0))
-            if last_direction != (1, 0):
-                directions.append((-1, 0))
-        if next_point.x == max_x:
-            if last_direction != (1, 0):
-                directions.append((-1, 0))
+            directions.append((1, 0))
+        elif 0 < next_point.x < max_x:
+            directions.append((1, 0))
+            directions.append((-1, 0))
+        else:
+            directions.append((-1, 0))
 
         if next_point.y == 0:
-            if last_direction != (0, -1):
-                directions.append((0, 1))
-        if 0 < next_point.y < max_y:
-            if last_direction != (0, -1):
-                directions.append((0, 1))
-            if last_direction != (0, 1):
-                directions.append((0, -1))
-        if next_point.y == max_y:
-            if last_direction != (0, 1):
-                directions.append((0, -1))
+            directions.append((0, 1))
+        elif 0 < next_point.y < max_y:
+            directions.append((0, 1))
+            directions.append((0, -1))
+        else:
+            directions.append((0, -1))
+        # 不能走回头路，但是不排除有环形走死循环的可能，所以还是要seen存储已访问的节点
+        directions.remove((-decision.dx, -decision.dy))
         for dx, dy in directions:
-            q.append(MyPoint(next_point.x, next_point.y, dx, dy))
+            decisions.append(MyPoint(next_point.x, next_point.y, dx, dy))
+        # 通过seen记忆已经访问过的节点，防止走环形导致死循环
+        seen.add((next_point.x, next_point.y))
     return False
 
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
+        ([
+             [1, 0, 1, 1, 0, 0],
+             [1, 1, 0, 0, 0, 0],
+             [1, 1, 0, 1, 1, 0],
+             [0, 0, 1, 0, 0, 0],
+             [0, 1, 0, 1, 1, 0],
+             [0, 1, 1, 0, 1, 9]
+         ], False),
         ([
              [1, 1, 0, 0],
              [0, 1, 1, 0],
