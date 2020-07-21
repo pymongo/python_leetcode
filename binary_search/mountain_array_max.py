@@ -31,7 +31,7 @@ def peak_index(nums: List[int]) -> int:
     while start < end:
         middle = start + (end - start) // 2
         if nums[middle] < nums[middle + 1]:
-            # middle满足递增(上山坡)条件，所以山顶会在[middle+1,end]之间
+            # middle满足递增(上山坡)条件，所以山顶会在[middle+1,end]之间(右半区间一定有解)
             start = middle + 1
         else:
             # middle不满足递增条件，所以山顶会在[start,middle]之间
