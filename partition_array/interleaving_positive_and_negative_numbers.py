@@ -6,6 +6,7 @@ import unittest
 from typing import List
 
 
+# |144|[interleaving_positive_and_negative_numbers]
 def partition_positive_and_negative(nums):
     positive_count = 0
     negative_count = 0
@@ -37,7 +38,8 @@ def divide_positive_and_negative(nums, size, first_positive):
 def interleave(nums, size, positive_and_negative_same_len):
     left, right = 1, size - 1
     if positive_and_negative_same_len:
-        right = len(nums) - 2
+        # 如果正负数量相同，则负数的指针指向倒数第二个
+        right = size - 2
     while left < right:
         nums[left], nums[right] = nums[right], nums[left]
         left += 2

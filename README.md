@@ -83,6 +83,7 @@ LintCode
 |31|[Partition Array](https://www.lintcode.com/problem/partition-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/partition_array.py)|two_pointers|
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/list_node/reverse_linked_list.py)|list_node|
 |41|[Maximum Subarray](https://www.lintcode.com/problem/maximum-subarray/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/greedy/maximum_subarray.py)|greedy, dp|
+|49|[Sort Letters by Case](https://www.lintcode.com/problem/sort-letters-by-case/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/partition_array_by_odd_and_even.py)||
 |56|[Two Sum](https://www.lintcode.com/problem/two-sum/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/btree_map_two_sum.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/two_sum_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/HashMapTwoSum.java)|btree_map, bitwise(two_s_complement)|
 |57|[3Sum](https://www.lintcode.com/problem/3sum/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/two_sum/three_sum.py)|two_pointers, two_sum|
 |58|[4Sum](https://www.lintcode.com/problem/4sum/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/two_sum/four_sum.py)|two_pointers, two_sum|
@@ -111,6 +112,7 @@ LintCode
 |235|[Longest Palindromic Substring](https://www.lintcode.com/problem/prime-factorization/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/math/prime_factorization.py)|分解质因数|
 |254|[Drop Eggs](https://www.lintcode.com/problem/drop-eggs/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/dp/drop_eggs.py)|sqrt_n|
 |366|[Fibonacci](https://www.lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
+|373|[Partition Array by Odd and Even](https://www.lintcode.com/problem/partition-array-by-odd-and-even/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/partition_array_by_odd_and_even.py)||
 |382_LOCK|[Triangle Count](https://www.lintcode.com/problem/triangle-count/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/two_sum/triangle_count.py)|two_sum, 双指针|
 |384|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_non_repeated_substr.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/string/longest_non_repeated_substr.py)|sliding_window|
 |415|[Valid Palindrome](https://www.lintcode.com/problem/valid-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome.py)|two_pointers|
