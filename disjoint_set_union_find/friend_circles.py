@@ -24,7 +24,7 @@ from copy import deepcopy
 def union_find():
     pass
 
-
+# 临摹(照抄)了leetcode上BFS的解答
 # noinspection PyPep8Naming
 def my_bfs(M: List[List[int]]) -> int:
     """

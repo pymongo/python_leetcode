@@ -142,6 +142,7 @@ LintCode
 |609|[Two Sum - Less than or equal to target](https://www.lintcode.com/problem/two-sum-less-than-or-equal-to-target/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/two_sum/two_sum_le_count.py)|two_pointers|
 |612|[K Closest Points](https://www.lintcode.com/problem/k-closest-points/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/k_closest_points_to_origin.py)|quick_select, sort_by_multi_keys|
 |627|[Longest Palindromic Combination](https://www.lintcode.com/problem/longest-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|greedy|
+|630|[Knight Shortest Path II](https://www.lintcode.com/problem/knight-shortest-path-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/backtracking/knight_shortest_path_2.py)|bfs, backtracking|
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |871|[Minimum Factorization](https://www.lintcode.com/problem/minimum-factorization/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/unclassified/minimum_factorization.py)|greedy|
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/valid_palindrome_2.py)|two_pointers, greedy|
@@ -155,7 +156,7 @@ LintCode
 |1334|[Rotate Array](https://www.lintcode.com/problem/rotate-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |1363|[ZigZag Conversion](https://lintcode.com/problem/zigzag-conversion/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/zigzag_conversion.py)||
 |1424|[Longest Mountain in Array](https://www.lintcode.com/problem/longest-mountain-in-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/mountain_array_longest.py)|mountain_array|
-|1479|[Can Reach The Endpoint](https://www.lintcode.com/problem/can-reach-the-endpoint/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/bfs/can_reach_the_end_point.py)|bfs|
+|1479|[Can Reach The Endpoint](https://www.lintcode.com/problem/can-reach-the-endpoint/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/backtracking/can_reach_the_end_point.py)|bfs, backtracking|
 |1499|[Reordered Power of 2](https://lintcode.com/problem/reordered-power-of-2/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/permutation/reordered_power_of_2.py)|permutation|
 |1535|[To Lower Case](https://www.lintcode.com/problem/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |1536|[Find First and Last Position of Element in Sorted Array](https://www.lintcode.com/problem/find-first-and-last-position-of-element-in-sorted-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/binary_search_first_and_last.py)|binary_search|

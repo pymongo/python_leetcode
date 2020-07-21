@@ -13,9 +13,8 @@ class MyPoint:
         self.dx = dx
         self.dy = dy
 
-
-# noinspection PyShadowingBuiltins
-def backtrace_solution(map: List[List[int]]) -> bool:
+# 其实也是BFS，从一个起点开始，访问起点的邻居节点，再将邻居的邻居扔到队尾...
+def backtrace_solution(grid: List[List[int]]) -> bool:
     """
     类似N皇后问题的「决策+回溯」算法
     1. 不能走回头路
@@ -26,8 +25,8 @@ def backtrace_solution(map: List[List[int]]) -> bool:
         MyPoint(x=0, y=0, dx=1, dy=0),
         MyPoint(x=0, y=0, dx=0, dy=1)
     ])
-    max_x = len(map[0]) - 1
-    max_y = len(map) - 1
+    max_x = len(grid[0]) - 1
+    max_y = len(grid) - 1
     seen = {(0, 0)}
     while decisions:
         decision = decisions.popleft()
@@ -36,11 +35,11 @@ def backtrace_solution(map: List[List[int]]) -> bool:
         if (next_point.x, next_point.y) in seen:
             continue
         # 如果遇到障碍物(next_point的值为0)
-        if map[next_point.x][next_point.y] == 0:
+        if grid[next_point.x][next_point.y] == 0:
             # 通过seen记忆已经访问过的节点，防止走环形导致死循环
             seen.add((next_point.x, next_point.y))
             continue
-        if map[next_point.x][next_point.y] == 9:
+        if grid[next_point.x][next_point.y] == 9:
             return True
 
         directions = []
