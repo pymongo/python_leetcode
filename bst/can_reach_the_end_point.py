@@ -16,6 +16,12 @@ class MyPoint:
 
 # noinspection PyShadowingBuiltins
 def backtrace_solution(map: List[List[int]]) -> bool:
+    """
+    类似N皇后问题的「决策+回溯」算法
+    1. 不能走回头路
+    2. 避免陷入环形路径的死循环(原地转圈圈)
+    通过seen = {(0, 0)}记录已访问过的节点，同时解决1和2
+    """
     decisions = collections.deque([
         MyPoint(x=0, y=0, dx=1, dy=0),
         MyPoint(x=0, y=0, dx=0, dy=1)
@@ -54,10 +60,10 @@ def backtrace_solution(map: List[List[int]]) -> bool:
         else:
             directions.append((0, -1))
         # 不能走回头路，但是不排除有环形走死循环的可能，所以还是要seen存储已访问的节点
-        directions.remove((-decision.dx, -decision.dy))
         for dx, dy in directions:
             decisions.append(MyPoint(next_point.x, next_point.y, dx, dy))
         # 通过seen记忆已经访问过的节点，防止走环形导致死循环
+        # directions.remove((-decision.dx, -decision.dy))
         seen.add((next_point.x, next_point.y))
     return False
 
