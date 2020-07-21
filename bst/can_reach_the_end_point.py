@@ -16,9 +16,16 @@ class MyPoint:
 
 # noinspection PyShadowingBuiltins
 def backtrace_solution(map: List[List[int]]) -> bool:
+    # temp = []
+    # if map[0][1] == 1:
+    #     temp.append(MyPoint(x=0, y=0, dx=1, dy=0))
+    # if map[1][0] == 1:
+    #     pass
+    # if not temp:
+    #     return False
     q = collections.deque([
         MyPoint(x=0, y=0, dx=1, dy=0),
-        MyPoint(x=0, y=0, dx=0, dy=-1)
+        MyPoint(x=0, y=0, dx=0, dy=1)
     ])
     max_x = len(map[0]) - 1
     max_y = len(map) - 1
@@ -64,6 +71,12 @@ def backtrace_solution(map: List[List[int]]) -> bool:
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
+        ([
+             [1, 1, 0, 0],
+             [0, 1, 1, 0],
+             [0, 1, 0, 0],
+             [1, 1, 1, 9]
+         ], True),
         ([
              [1, 1, 1],
              [1, 1, 1],
