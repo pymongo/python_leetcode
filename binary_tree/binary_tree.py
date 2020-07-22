@@ -1,8 +1,23 @@
-import unittest
-import math
 import collections
-import pickle
+import inspect
+import math
+import unittest
+import os
+# import pickle
 from typing import List, Optional
+
+
+def dbg(expression):
+    for frame in inspect.stack():
+        line = frame.code_context[0]
+        if "dbg" in line:
+            start = line.find('(') + 1
+            end = line.rfind(')')
+            if end == -1:
+                end = len(line)
+            print(f"[{os.path.basename(frame.filename)}:{frame.lineno}] {line[start:end]} = {expression!r}")
+            break
+    return expression
 
 
 class TreeNode:
@@ -22,15 +37,26 @@ class TreeNode:
         """
         # arr = pickle.loads(self.serialize())
         binary_tree_arr = self.to_list()
+        # dbg(binary_tree_arr)
         size = len(binary_tree_arr)
-        arr = []
+        arr: List[str] = []
         for i in range(size):
-            if arr[i] is None:
-                arr[i] = 'N'
+            if binary_tree_arr[i] is None:
+                arr.append('N')
             else:
-                arr[i] = str(arr[i])
+                arr.append(str(binary_tree_arr[i]))
         # 例如[1,2,3,N,N,N,N]只有两层，但是长度+1取2的对数得到的是3
-        level = int(math.log2(size + 1)) - 1
+        log2_result = math.log2(size + 1)
+        # level = 0
+        if log2_result.is_integer():
+            level = int(log2_result) - 1
+        else:
+            # 如果对数不能被整除，去掉尾巴的一对None
+            # 例如: [3, 9, 20, None, None, 15, 7] 转为二叉树后再转为list，尾巴会多4个None
+            new_len = size + 1 - 2
+            while not math.log2(new_len).is_integer():
+                new_len -= 2
+            level = int(math.log2(new_len)) - 1
         output = " " * (level + 1) + arr[0] + '\n'
         for i in range(1, level + 1):
             padding_left = " " * (level - i)
@@ -148,6 +174,10 @@ class TestTreeNode(unittest.TestCase):
         self.assertEqual(node_str, root_str)
 
     def test_serialize_deserialize_pre_order(self):
-        root = TreeNode.from_list([1, 2, 3, None, None, None, None])
+        root = TreeNode(3)
+        root.left = TreeNode(9)
+        root.right = TreeNode(20)
+        root.right.left = TreeNode(15)
+        root.right.right = TreeNode(7)
         node = deserialize_pre_order(serialize_pre_order_helper(root))
         self.assertEqual(root.__str__(), node.__str__())
