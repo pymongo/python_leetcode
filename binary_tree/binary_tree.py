@@ -66,8 +66,10 @@ class TreeNode:
             # 最后的叶子节点也会往下扩展成两个None才会结束
             queue.append(node.left)
             queue.append(node.right)
+        print(binary_tree_arr)
         return pickle.dumps(binary_tree_arr)
 
+    # Runtime: 112 ms, faster than 95.43%
     @staticmethod
     def deserialize(data: bytes) -> Optional['TreeNode']:
         arr: List[Optional[int]] = pickle.loads(data)
@@ -78,22 +80,22 @@ class TreeNode:
         queue = collections.deque()
         queue.append(root)
 
-        cursor: int = 1
         size = len(arr)
+        cursor: int = 1
         while cursor < size:
             # 考察node的左右子树
             node: TreeNode = queue.popleft()
             left_val = arr[cursor]
             right_val = arr[cursor + 1]
-            if left_val:
+            # 不能用`if left_val:`，否则val是0的情况下这个分支不会被执行
+            if left_val is not None:
                 left_node = TreeNode(left_val)
                 node.left = left_node
                 # 尚不清楚left_node有没有子树
                 queue.append(left_node)
-            if right_val:
+            if right_val is not None:
                 right_node = TreeNode(right_val)
                 node.right = right_node
-                # 尚不清楚right_node有没有子树
                 queue.append(right_node)
             cursor += 2
         return root
@@ -106,6 +108,14 @@ class TestTreeNode(unittest.TestCase):
         root.right = TreeNode(3)
         root.left.left = TreeNode(4)
         root.left.right = TreeNode(5)
+        a: bytes = TreeNode.static_serialize(root)
+        b = TreeNode.deserialize(a)
+        print(b.val)
+
+    def test2(self):
+        root = TreeNode(-1)
+        root.left = TreeNode(0)
+        root.right = TreeNode(1)
         a: bytes = TreeNode.static_serialize(root)
         b = TreeNode.deserialize(a)
         print(b.val)
