@@ -60,26 +60,6 @@ class TreeNode:
             queue.append(node.right)
         return pickle.dumps(binary_tree_arr)
 
-    # noinspection DuplicatedCode
-    @staticmethod
-    def static_serialize(root: 'TreeNode') -> bytes:
-        if root is None:
-            return pickle.dumps([None])
-        queue = collections.deque()
-        queue.append(root)
-        binary_tree_arr: List[Optional[int]] = []
-        while queue:
-            node = queue.popleft()
-            if node is None:
-                binary_tree_arr.append(None)
-                continue
-            binary_tree_arr.append(node.val)
-            # 最后的叶子节点也会往下扩展成两个None才会结束，所以两层的二叉树{1,2,3}会生成[1,2,3,None,None,None,None]的数组
-            queue.append(node.left)
-            queue.append(node.right)
-        print(binary_tree_arr)
-        return pickle.dumps(binary_tree_arr)
-
     # Runtime: 112 ms, faster than 95.43%
     @staticmethod
     def deserialize(data: bytes) -> Optional['TreeNode']:
@@ -111,6 +91,10 @@ class TreeNode:
             cursor += 2
         return root
 
+    @staticmethod
+    def from_list(arr: List[Optional[int]]) -> Optional['TreeNode']:
+        return TreeNode.deserialize(pickle.dumps(arr))
+
 
 class TestTreeNode(unittest.TestCase):
     def test_to_string(self):
@@ -121,10 +105,10 @@ class TestTreeNode(unittest.TestCase):
         root.left.right = TreeNode(5)
         print(root)
 
-    def test2(self):
-        root = TreeNode(-1)
-        root.left = TreeNode(0)
-        root.right = TreeNode(1)
-        a: bytes = TreeNode.static_serialize(root)
-        b = TreeNode.deserialize(a)
-        print(b.val)
+    def test_serialize_deserialize(self):
+        arr = [1, 2, 3, None, None, None, None]
+        root = TreeNode.from_list(arr)
+        root_str = root.__str__()
+        node = TreeNode.deserialize(root.serialize())
+        node_str = node.__str__()
+        self.assertEqual(node_str, root_str)
