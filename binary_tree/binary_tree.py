@@ -29,7 +29,6 @@ class TreeNode:
                 arr[i] = str(arr[i])
         # 例如[1,2,3,N,N,N,N]只有两层，但是长度+1取2的对数得到的是3
         level = int(math.log2(size + 1)) - 1
-        # print("level", level)
         output = " " * (level + 1) + arr[0] + '\n'
         for i in range(1, level + 1):
             padding_left = " " * (level - i)
@@ -60,7 +59,8 @@ class TreeNode:
             queue.append(node.right)
         return pickle.dumps(binary_tree_arr)
 
-    # Runtime: 112 ms, faster than 95.43%
+    # binary-tree-level-order-traversal: 112ms, 95.43%
+    # serialize-and-deserialize-bst:     76ms , 99.12%
     @staticmethod
     def deserialize(data: bytes) -> Optional['TreeNode']:
         arr: List[Optional[int]] = pickle.loads(data)
@@ -96,6 +96,35 @@ class TreeNode:
         return TreeNode.deserialize(pickle.dumps(arr))
 
 
+# https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/solution/shou-hui-tu-jie-gei-chu-dfshe-bfsliang-chong-jie-f/
+def serialize_pre_order_helper(root: 'TreeNode') -> List[Optional[int]]:
+    result = []
+    serialize_pre_order(root, result)
+    return result
+
+
+def serialize_pre_order(root: 'TreeNode', result: List[Optional[int]]):
+    if root is None:
+        result.append(None)
+        return
+    result.append(root.val)
+    # 不要在递归中拼接字符串，字符串拼接耗时开辟额外空间后拼接耗时O(n)
+    # 每层递归字符串拼接的时间复杂度之和是n+n-1+...+1=n**2
+    serialize_pre_order(root.left, result)
+    serialize_pre_order(root.right, result)
+
+
+def deserialize_pre_order(arr: List[Optional[int]]) -> Optional[TreeNode]:
+    # shift list first element
+    node_val = arr.pop(0)
+    if node_val is None:
+        return None
+    node = TreeNode(node_val)
+    node.left = deserialize_pre_order(arr)
+    node.right = deserialize_pre_order(arr)
+    return node
+
+
 class TestTreeNode(unittest.TestCase):
     def test_to_string(self):
         root = TreeNode(1)
@@ -106,9 +135,13 @@ class TestTreeNode(unittest.TestCase):
         print(root)
 
     def test_serialize_deserialize(self):
-        arr = [1, 2, 3, None, None, None, None]
-        root = TreeNode.from_list(arr)
+        root = TreeNode.from_list([1, 2, 3, None, None, None, None])
         root_str = root.__str__()
         node = TreeNode.deserialize(root.serialize())
         node_str = node.__str__()
         self.assertEqual(node_str, root_str)
+
+    def test_serialize_deserialize_pre_order(self):
+        root = TreeNode.from_list([1, 2, 3, None, None, None, None])
+        node = deserialize_pre_order(serialize_pre_order_helper(root))
+        print(node)
