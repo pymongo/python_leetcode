@@ -29,7 +29,7 @@ class TreeNode:
     def __str__(self):
         """
         功能: 将二叉树打印成一个漂亮的「杨辉三角」
-        实现思路: 将二叉树序列化为"满"二叉树的一维数组，数组第2-3项表示第二层，数组第3-6项表示第三层，以此类推
+        实现思路: 将二叉树序列化为一维数组，数组第2-3项表示第二层，数组第3-6项表示第三层，以此类推
         level index     explain
         0     0         None
         1     [1,2]     [2**1-1, 2**2-2]
@@ -78,7 +78,6 @@ class TreeNode:
             # return pickle.dumps([None])
         queue = collections.deque()
         queue.append(self)
-        # 最后的arr一定会是个"满"二叉树，而且最后一层全是None
         binary_tree_arr: List[Optional[int]] = []
         while queue:
             node = queue.popleft()
