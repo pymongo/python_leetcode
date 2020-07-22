@@ -48,15 +48,14 @@ def my_solution(
     in_order_map: Dict[int, int]
 ) -> Optional[TreeNode]:
     # 递归结束条件
-    if pre_order_start == pre_order_end or in_order_start == in_order_end:
-        return TreeNode(pre_order_start)
+    if pre_order_start > pre_order_end or in_order_start > in_order_end:
+        return None
     # 找到根节点在in_order_map中的索引`in_order_root_index`
     # 以便将in_order、pre_order数组划分为:
     # in_order_左子树:  [in_order_start, in_order_root_index)
     # in_order_右子树:  [in_order_root_index+1, in_order_end]
     # pre_order_左子树: [pre_order_start+1, pre_order_start+1+len(in_order_左子树)-1]
     # pre_order_右子树: ...
-    print(pre_order_start, pre_order_end)
     root_val = pre_order[pre_order_start]
 
     in_order_root = in_order_map[root_val]
@@ -69,7 +68,7 @@ def my_solution(
         pre_order_end=pre_order_start + left_subtree_size,
         in_order=in_order,
         in_order_start=in_order_start,
-        in_order_end=in_order_root-1,
+        in_order_end=in_order_root - 1,
         in_order_map=in_order_map
     )
     root.right = my_solution(
@@ -83,9 +82,10 @@ def my_solution(
     )
     return root
 
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([3, 9, 20, 15, 7], [9, 3, 15, 20, 7], [3, 9, 20, None, None, 15, 7])
+        ([3, 9, 20, 15, 7], [9, 3, 15, 20, 7], [3, 9, 20, None, None, 15, 7, None, None, None, None])
     ]
 
     def test_my_solution(self):
