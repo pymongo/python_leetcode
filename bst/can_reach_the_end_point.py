@@ -13,7 +13,9 @@ class MyPoint:
         self.dx = dx
         self.dy = dy
 
+
 # 其实也是BFS，从一个起点开始，访问起点的邻居节点，再将邻居的邻居扔到队尾...
+# 没有涉及状态回退[递归或栈](例如N皇后发现错误决策，棋盘状态回退)，严格来说不算回溯算法，DFS中才有回溯
 def backtrace_solution(grid: List[List[int]]) -> bool:
     """
     类似N皇后问题的「决策+回溯」算法

@@ -28,6 +28,7 @@ class MyPoint:
         return f"({'%2s' % self.x},{'%2s' % self.y}), steps={self.steps}"
 
 
+# 没有涉及状态回退[递归或栈](例如N皇后发现错误决策，棋盘状态回退)，严格来说不算回溯算法，DFS中才有回溯
 def solution(grid: List[List[int]]) -> int:
     """
     马从矩阵左上角跳到右下角的最少跳跃次数，马只能往特定4个方向跳，而且地图中的1表示障碍物
