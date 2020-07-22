@@ -17,21 +17,17 @@ BFS的三种辅助数据结构: 3. DummyNode(哨兵节点)
 2.邻接表
 而邻接矩阵因为耗费空间过大，我们通常在工程中都是使用邻接表作为图的存储结构
 """
-from typing import List
+import unittest
 import collections
-
-
-class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.left, self.right = None, None
+from .binary_tree import TreeNode
+from typing import List
 
 
 # 那么二叉树的经典遍历pre-order, in-order, after-order就只能用递归吗?
 # 这题还能用双队列遍历，一个是curr_queue，一个是next_queue，有点像不断往前拓展滚动的感觉，老的queue就会被垃圾回收掉
 # 双队列 1. new一个next_queue，将当前queue中能展开的子树扔到新的next_queue
 # 双队列 2. 遍历完curr_quque后，curr_queue指向next_queue
-def binary_tree_level_order(root: TreeNode):
+def level_order(root: TreeNode):
     if not root:
         return []
     # Queue内部有锁，性能不如deque
@@ -55,7 +51,7 @@ def binary_tree_level_order(root: TreeNode):
     return result
 
 
-def binary_tree_level_order_dummy_head_queue(root: TreeNode) -> List[List[int]]:
+def level_order_dummy_head_queue(root: TreeNode) -> List[List[int]]:
     if not root:
         return []
     result = []
@@ -79,3 +75,15 @@ def binary_tree_level_order_dummy_head_queue(root: TreeNode) -> List[List[int]]:
         if node.right:
             q.append(node.right)
     return result
+
+
+class Testing(unittest.TestCase):
+    TEST_CASES = [
+        ([1, 2, 3, None, None, None, None], [[1], [2, 3]]),
+        ([1, None, 2, 3, None, None, None], [[1], [2], [3]]),
+    ]
+
+    def test_level_order_dummy_head_queue(self):
+        for binary_tree_arr, expected in self.TEST_CASES:
+            root = TreeNode.from_list(binary_tree_arr)
+            self.assertEqual(expected, level_order_dummy_head_queue(root))

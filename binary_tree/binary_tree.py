@@ -57,6 +57,7 @@ class TreeNode:
             binary_tree_arr.append(node.val)
             queue.append(node.left)
             queue.append(node.right)
+        # print(binary_tree_arr)
         return pickle.dumps(binary_tree_arr)
 
     # binary-tree-level-order-traversal: 112ms, 95.43%
@@ -144,4 +145,4 @@ class TestTreeNode(unittest.TestCase):
     def test_serialize_deserialize_pre_order(self):
         root = TreeNode.from_list([1, 2, 3, None, None, None, None])
         node = deserialize_pre_order(serialize_pre_order_helper(root))
-        print(node)
+        self.assertEqual(root.__str__(), node.__str__())
