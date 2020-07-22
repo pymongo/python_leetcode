@@ -61,7 +61,7 @@ class TreeNode:
         return pickle.dumps(binary_tree_arr)
 
     # binary-tree-level-order-traversal: 112ms, 95.43%
-    # serialize-and-deserialize-bst:     76ms , 99.12%
+    # serialize-and-deserialize-bfs:     76ms , 99.12%
     @staticmethod
     def deserialize(data: bytes) -> Optional['TreeNode']:
         arr: List[Optional[int]] = pickle.loads(data)
