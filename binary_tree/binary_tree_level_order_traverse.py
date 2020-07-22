@@ -26,7 +26,7 @@ from typing import List
 # 那么二叉树的经典遍历pre-order, in-order, after-order就只能用递归吗?
 # 这题还能用双队列遍历，一个是curr_queue，一个是next_queue，有点像不断往前拓展滚动的感觉，老的queue就会被垃圾回收掉
 # 双队列 1. new一个next_queue，将当前queue中能展开的子树扔到新的next_queue
-# 双队列 2. 遍历完curr_quque后，curr_queue指向next_queue
+# 双队列 2. 遍历完curr_queue后，curr_queue指向next_queue
 def level_order(root: TreeNode):
     if not root:
         return []

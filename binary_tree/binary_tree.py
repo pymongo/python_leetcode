@@ -20,8 +20,10 @@ class TreeNode:
         1     [1,2]     [2**1-1, 2**2-2]
         2     [3,4,5,6] [2**2-1, 2**3-2]
         """
-        arr = pickle.loads(self.serialize())
-        size = len(arr)
+        # arr = pickle.loads(self.serialize())
+        binary_tree_arr = self.to_list()
+        size = len(binary_tree_arr)
+        arr = []
         for i in range(size):
             if arr[i] is None:
                 arr[i] = 'N'
@@ -42,9 +44,12 @@ class TreeNode:
         return output
 
     # noinspection DuplicatedCode
-    def serialize(self) -> bytes:
+    # 为了方便单元测试，我就不序列化成二进制了
+    # def serialize(self) -> bytes:
+    def to_list(self) -> List[Optional[int]]:
         if self is None:
-            return pickle.dumps([None])
+            return [None]
+            # return pickle.dumps([None])
         queue = collections.deque()
         queue.append(self)
         # 最后的arr一定会是个"满"二叉树，而且最后一层全是None
@@ -58,13 +63,16 @@ class TreeNode:
             queue.append(node.left)
             queue.append(node.right)
         # print(binary_tree_arr)
-        return pickle.dumps(binary_tree_arr)
+        # return pickle.dumps(binary_tree_arr)
+        return binary_tree_arr
 
     # binary-tree-level-order-traversal: 112ms, 95.43%
     # serialize-and-deserialize-bfs:     76ms , 99.12%
     @staticmethod
-    def deserialize(data: bytes) -> Optional['TreeNode']:
-        arr: List[Optional[int]] = pickle.loads(data)
+    # def deserialize(data: bytes) -> Optional['TreeNode']:
+    def from_list(data: List[Optional[int]]) -> Optional['TreeNode']:
+        # arr: List[Optional[int]] = pickle.loads(data)
+        arr = data
         if arr[0] is None:
             return None
         root: TreeNode = TreeNode(arr[0])
@@ -92,10 +100,6 @@ class TreeNode:
             cursor += 2
         return root
 
-    @staticmethod
-    def from_list(arr: List[Optional[int]]) -> Optional['TreeNode']:
-        return TreeNode.deserialize(pickle.dumps(arr))
-
 
 # https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/solution/shou-hui-tu-jie-gei-chu-dfshe-bfsliang-chong-jie-f/
 def serialize_pre_order_helper(root: 'TreeNode') -> List[Optional[int]]:
@@ -104,6 +108,7 @@ def serialize_pre_order_helper(root: 'TreeNode') -> List[Optional[int]]:
     return result
 
 
+# TODO 为了方便测试，就不序列化成bytes了
 def serialize_pre_order(root: 'TreeNode', result: List[Optional[int]]):
     if root is None:
         result.append(None)
@@ -138,7 +143,7 @@ class TestTreeNode(unittest.TestCase):
     def test_serialize_deserialize(self):
         root = TreeNode.from_list([1, 2, 3, None, None, None, None])
         root_str = root.__str__()
-        node = TreeNode.deserialize(root.serialize())
+        node = TreeNode.from_list(root.to_list())
         node_str = node.__str__()
         self.assertEqual(node_str, root_str)
 
