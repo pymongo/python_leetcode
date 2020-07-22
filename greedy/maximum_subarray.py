@@ -9,7 +9,6 @@ O(logn)的算法?分治?: 求区间内最值用「线段树」，但是加上预
 """
 import unittest
 from typing import List, Tuple
-from mydbg import dbg
 
 MIN_INT = -(2 ** 8)
 

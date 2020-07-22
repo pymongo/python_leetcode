@@ -47,15 +47,12 @@ from typing import List, Tuple
 
 
 def expand_center(s: str, size: int, left: int, right: int) -> (int, int):
-    # dbg((left, right))
     while left >= 0 and right < size and s[left] == s[right]:
         left -= 1
         right += 1
 
     # 如果左边和右边不相等，例如ab，它不是个回文串，应该返回1
     # 由于跳出循环时哪怕两边不相等也会额外扩散一次，所以返回值要往里收缩一次
-    # dbg(s[left+1:right])
-    # dbg((left+1, right-1))
     return left+1, right-1
 
 

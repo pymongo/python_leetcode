@@ -4,10 +4,12 @@ import math
 import unittest
 import os
 # import pickle
-from typing import List, Optional
+from typing import List, Optional, TypeVar
+
+ExprType = TypeVar('ExprType')
 
 
-def dbg(expression):
+def dbg(expression: ExprType) -> ExprType:
     for frame in inspect.stack():
         line = frame.code_context[0]
         if "dbg" in line:
@@ -15,7 +17,8 @@ def dbg(expression):
             end = line.rfind(')')
             if end == -1:
                 end = len(line)
-            print(f"[{os.path.basename(frame.filename)}:{frame.lineno}] {line[start:end]} = {expression!r}")
+            # print(f"[{os.path.basename(frame.filename)}:{frame.lineno}] {line[start:end]} = {expression!r}")
+            print(f"[:{frame.lineno}] {line[start:end]} = {expression!r}")
             break
     return expression
 
@@ -37,7 +40,6 @@ class TreeNode:
         """
         # arr = pickle.loads(self.serialize())
         binary_tree_arr = self.to_list()
-        # dbg(binary_tree_arr)
         size = len(binary_tree_arr)
         arr: List[str] = []
         for i in range(size):
@@ -87,7 +89,7 @@ class TreeNode:
             binary_tree_arr.append(node.val)
             queue.append(node.left)
             queue.append(node.right)
-        # print(binary_tree_arr)
+        dbg(binary_tree_arr)
         # return pickle.dumps(binary_tree_arr)
         return binary_tree_arr
 

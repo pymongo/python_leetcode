@@ -142,7 +142,6 @@ def binary_search(nums: List[int], target: int) -> int:
         # 如果middle是(left+right) // 2
         # 遇到([1, 2, 3], 4)的测试用例时会陷入死循环(left, right = 1, 2)
         middle = (left + right) // 2
-        # dbg((left, middle, right))
         if nums[middle] == target:
             print("nums[middle] == target")
             return middle

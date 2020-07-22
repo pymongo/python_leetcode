@@ -48,7 +48,7 @@ b       1
 d
 事实上1和2都是边界条件
 """
-from mydbg import dbg
+from binary_tree.binary_tree import dbg
 from pprint import pprint as p
 import unittest
 from typing import List, Tuple
