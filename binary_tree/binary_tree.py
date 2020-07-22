@@ -1,4 +1,5 @@
 import unittest
+import math
 import collections
 import pickle
 from typing import List, Optional
@@ -12,17 +13,34 @@ class TreeNode:
 
     def __str__(self):
         """
-        如果将二叉树漂亮地打印为"满"二叉树，没有
+        功能: 将二叉树打印成一个漂亮的「杨辉三角」
+        实现思路: 将二叉树序列化为"满"二叉树的一维数组，数组第2-3项表示第二层，数组第3-6项表示第三层，以此类推
+        level index     explain
+        0     0         None
+        1     [1,2]     [2**1-1, 2**2-2]
+        2     [3,4,5,6] [2**2-1, 2**3-2]
         """
-        queue = collections.deque()
-        queue.append(self)
-        while queue:
-            node = queue.popleft()
-            if node is None:
-                if queue:
-                    queue.append(None)
-                continue
-        pass
+        arr = pickle.loads(self.serialize())
+        size = len(arr)
+        for i in range(size):
+            if arr[i] is None:
+                arr[i] = 'N'
+            else:
+                arr[i] = str(arr[i])
+        # 例如[1,2,3,N,N,N,N]只有两层，但是长度+1取2的对数得到的是3
+        level = int(math.log2(size + 1)) - 1
+        # print("level", level)
+        output = " " * (level + 1) + arr[0] + '\n'
+        for i in range(1, level + 1):
+            padding_left = " " * (level - i)
+
+            margin_between_num = ' ' * (2 * (level - i) + 1)
+            curr_level_start_idx = 2 ** i - 1
+            curr_level_end_idx = 2 ** (i + 1) - 2 + 1
+            nums_str = margin_between_num.join(arr[curr_level_start_idx:curr_level_end_idx])
+
+            output += (padding_left + nums_str + '\n')
+        return output
 
     # noinspection DuplicatedCode
     def serialize(self) -> bytes:
@@ -30,6 +48,7 @@ class TreeNode:
             return pickle.dumps([None])
         queue = collections.deque()
         queue.append(self)
+        # 最后的arr一定会是个"满"二叉树，而且最后一层全是None
         binary_tree_arr: List[Optional[int]] = []
         while queue:
             node = queue.popleft()
@@ -44,13 +63,6 @@ class TreeNode:
     # noinspection DuplicatedCode
     @staticmethod
     def static_serialize(root: 'TreeNode') -> bytes:
-        """
-        想法: 将二叉树序列化为"满"二叉树的一维数组，数组第2-3项表示第二层，以此类推
-        level index     explain
-        0     0         None
-        1     [1,2]     [2**1-1, 2**2-2]
-        2     [3,4,5,6] [2**2-1, 2**3-2]
-        """
         if root is None:
             return pickle.dumps([None])
         queue = collections.deque()
@@ -62,8 +74,7 @@ class TreeNode:
                 binary_tree_arr.append(None)
                 continue
             binary_tree_arr.append(node.val)
-            # 图: https://pic.leetcode-cn.com/f93235b0b74fbc481451954ea50a65fab347c602dd55ccb1df36ceed929136d5-image.png
-            # 最后的叶子节点也会往下扩展成两个None才会结束
+            # 最后的叶子节点也会往下扩展成两个None才会结束，所以两层的二叉树{1,2,3}会生成[1,2,3,None,None,None,None]的数组
             queue.append(node.left)
             queue.append(node.right)
         print(binary_tree_arr)
@@ -108,9 +119,7 @@ class TestTreeNode(unittest.TestCase):
         root.right = TreeNode(3)
         root.left.left = TreeNode(4)
         root.left.right = TreeNode(5)
-        a: bytes = TreeNode.static_serialize(root)
-        b = TreeNode.deserialize(a)
-        print(b.val)
+        print(root)
 
     def test2(self):
         root = TreeNode(-1)
