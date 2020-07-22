@@ -6,7 +6,7 @@ from typing import List
 class Solution:
     LOWER_LETTERS = [chr(ord('a') + i) for i in range(26)]
 
-    # 388 ms 在所有 Python3 提交中击败了 37.04%
+    # 388 ms 在所有 Python3 提交中击败了 37.04%，更快的解答只能用双向BFS了
     # def ladderLength(self, begin_word: str, end_word: str, word_list: List[str]) -> int:
     def bfs_1(self, begin_word: str, end_word: str, word_list: List[str]) -> int:
         if not word_list:
@@ -14,7 +14,8 @@ class Solution:
 
         # 将List转为HashSet提高查询单词的效率
         word_set = set(word_list)
-
+        # 如果提交到lintcode，因为lintcode上end_word可以不在word_list上，为了统一解答还得把它加进去
+        # word_set.add(end_word)
         if end_word not in word_set:
             return 0
 
