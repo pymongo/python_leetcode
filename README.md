@@ -43,8 +43,9 @@ LeetCode
 |278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/first_bad_version.py)|partition_array|
 |283|[Move Zeros](https://leetcode.com/problems/move-zeroes/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/move_zeros.py)|partition_array, 快慢双指针|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
-|326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/is_power_of_3.py)|bitwise|
-|342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/bitwise/is_power_of_4.py)|bitwise|
+|297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_tree/binary_tree.py)|serialize|
+|326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/bitwise/is_power_of_3.py)|bitwise|
+|342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/bitwise/is_power_of_4.py)|bitwise|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
 |371|[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/bitwise/binary_addition.py)|binary_addition|
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/palindrome/longest_palindromic_combination.py)|dp(greedy)|
@@ -82,6 +83,7 @@ LintCode
 |2|[Trailing Zeros](https://www.lintcode.com/problem/trailing-zeros/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/math/factorial_trailing_zeroes.py)|factorial|
 |5|[Kth Largest Element](https://www.lintcode.com/problem/kth-largest-element/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
+|7|[Serialize and Deserialize Binary Tree](https://lintcode.com/problem/serialize-and-deserialize-binary-tree/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_tree/binary_tree.py)|serialize|
 |13|[Implement strStr()](https://www.lintcode.com/problem/implement-strstr/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/find_substr.py)|kmp, rabin_karp|
 |14|[First Position of Target](https://www.lintcode.com/problem/first-position-of-target/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/binary_search/binary_search_first_and_last.py)|binary_search|
 |31|[Partition Array](https://www.lintcode.com/problem/partition-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/partition_array/partition_array.py)|two_pointers|
@@ -155,7 +157,8 @@ LintCode
 |1179|[Friend Circles](https://lintcode.com/problem/friend-circles/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/disjoint_set_union_find/friend_circles)|union_find(并查集)|
 |1276|[Sum of Two Integers](https://lintcode.com/problem/sum-of-two-integers/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/bitwise/binary_addition.py)|binary_addition|
 |1283|[Reverse Array](https://lintcode.com/problem/reverse-string/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/reverse_string.py)||
-|1285|[Power of Four](https://lintcode.com/problem/power-of-four/)|[Rust](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/is_power_of_4.py)|bitwise|
+|1285|[Power of Four](https://lintcode.com/problem/power-of-four/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/src/bitwise/is_power_of_4.py)|bitwise|
+|1294|[Power of Three](https://lintcode.com/problem/power-of-three/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/bitwise/is_power_of_3.py)|bitwise|
 |1300|[Bash Game(Nim Game)](https://www.lintcode.com/problem/bash-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |1334|[Rotate Array](https://www.lintcode.com/problem/rotate-array/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |1363|[ZigZag Conversion](https://lintcode.com/problem/zigzag-conversion/)|[Python](https://github.com/pymongo/python_leetcode/blob/master/string/zigzag_conversion.py)||
