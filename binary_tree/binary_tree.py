@@ -53,7 +53,7 @@ class TreeNode:
         if log2_result.is_integer():
             level = int(log2_result) - 1
         else:
-            # 如果对数不能被整除，去掉尾巴的一对None
+            # 如果对数不能被整除(一般是根节点没有左子树的情况)，去掉尾巴的一对None
             # 例如: [3, 9, 20, None, None, 15, 7] 转为二叉树后再转为list，尾巴会多4个None
             new_len = size + 1 - 2
             while not math.log2(new_len).is_integer():
@@ -67,6 +67,9 @@ class TreeNode:
             curr_level_start_idx = 2 ** i - 1
             curr_level_end_idx = 2 ** (i + 1) - 2 + 1
             nums_str = margin_between_num.join(arr[curr_level_start_idx:curr_level_end_idx])
+            # 如果根节点没有左子树，需要反转显示出来的最后一行，否则最后两个元素会错误地显示在根节点的左子树上
+            if i == level and size > 1 and binary_tree_arr[1] is None:
+                nums_str = nums_str[::-1]
 
             output += (padding_left + nums_str + '\n')
         return output
@@ -173,6 +176,15 @@ class TestTreeNode(unittest.TestCase):
         node = TreeNode.from_list(root.to_list())
         node_str = node.__str__()
         self.assertEqual(node_str, root_str)
+
+    def test_serialize_root_has_not_left_subtree(self):
+        root = TreeNode(1)
+        root.right = TreeNode(2)
+        root.right.left = TreeNode(3)
+        root.right.right = TreeNode(4)
+        root_to_list = root.to_list()
+        node = TreeNode.from_list(root_to_list)
+        print(node)
 
     def test_serialize_deserialize_pre_order(self):
         root = TreeNode(3)
