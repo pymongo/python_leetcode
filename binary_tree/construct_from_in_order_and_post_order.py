@@ -68,6 +68,6 @@ class Testing(unittest.TestCase):
     ]
 
     def test_my_solution(self):
-        for pre_order, in_order, binary_tree_list in self.TEST_CASES:
-            root = my_dfs_helper(pre_order, in_order)
+        for in_order, post_order, binary_tree_list in self.TEST_CASES:
+            root = my_dfs_helper(in_order, post_order)
             self.assertEqual(binary_tree_list, root.to_list())
