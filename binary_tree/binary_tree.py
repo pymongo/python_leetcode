@@ -89,7 +89,7 @@ class TreeNode:
             binary_tree_arr.append(node.val)
             queue.append(node.left)
             queue.append(node.right)
-        dbg(binary_tree_arr)
+        # dbg(binary_tree_arr)
         # return pickle.dumps(binary_tree_arr)
         return binary_tree_arr
 
