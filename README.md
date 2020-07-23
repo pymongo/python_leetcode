@@ -57,7 +57,9 @@ LeetCode
 |449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |454|[4Sum II](https://www.lintcode.com/problem/4sum-ii/)|[Python](two_sum/four_sum_2.py)|two_sum|
 |509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
+|536_LOCK|[Construct Binary Tree from String](https://www.leetcode.com/problems/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |547|[Friend Circles](https://leetcode.com/problems/friend-circles/)|[Python](disjoint_set_union_find/friend_circles.py)|union_find(并查集)|
+|606|[Construct String from Binary Tree](https://www.lintcode.com/problem/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |625_LOCK|[Minimum Factorization](https://www.leetcode.com/problems/minimum-factorization/)|[Python](unclassified/minimum_factorization.py)|greedy|
 |658|[Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)|[Python](binary_search/find_k_closest_elements.py)|binary_search|
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
@@ -161,10 +163,12 @@ LintCode
 |630|[Knight Shortest Path II](https://www.lintcode.com/problem/knight-shortest-path-ii/)|[Python](bfs/knight_shortest_path_2.py)|bfs|
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |871|[Minimum Factorization](https://www.lintcode.com/problem/minimum-factorization/)|[Python](unclassified/minimum_factorization.py)|greedy|
+|880|[Construct Binary Tree from String](https://www.lintcode.com/problem/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |900|[Closest Binary Search Tree Value](https://www.lintcode.com/problem/closest-binary-search-tree-value/)|[Python](binary_tree/bst_closest_value.py)|BST, DFS, binary_search|
 |916|[Palindrome Permutation](https://www.lintcode.com/problem/palindrome-permutation/)|[Python](palindrome/palindrome_permutation.py)|greedy|
 |976|[4Sum II](https://www.lintcode.com/problem/4sum-ii/)|[Python](two_sum/four_sum_2.py)|two_sum|
+|1137|[Construct String from Binary Tree](https://www.lintcode.com/problem/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |1179|[Friend Circles](https://lintcode.com/problem/friend-circles/)|[Python](disjoint_set_union_find/friend_circles.py)|union_find(并查集)|
 |1235|[Serialize and Deserialize BST](https://lintcode.com/problem/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |1276|[Sum of Two Integers](https://lintcode.com/problem/sum-of-two-integers/)|[Python](bitwise/binary_addition.py)|binary_addition|

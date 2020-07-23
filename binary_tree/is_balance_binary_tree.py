@@ -5,7 +5,8 @@ from .binary_tree import TreeNode
 def helper(root: TreeNode) -> bool:
     return divide_conquer(root)[0]
 
-
+# > 二叉树分治法和先序遍历的区别
+# 1. 分治法会有返回值，而且当前节点的返回值与其左子树的返回值和右子树的返回值有关
 # 这题很适合用分治法，返回值是(是否平衡,深度)
 # 而当前节点是否平衡与 左子树高度 和 右子树高度信息有关，所以用分治法效率比前序遍历要高
 def divide_conquer(root: TreeNode) -> (bool, int):
