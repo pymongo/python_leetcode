@@ -64,8 +64,8 @@ def my_solution(
     in_order_end: int,
     in_order_map: Dict[int, int]
 ) -> Optional[TreeNode]:
-    # 递归结束条件
-    if pre_order_start > pre_order_end or in_order_start > in_order_end:
+    # 递归结束条件等于`in_order_map[root_val]`中无法找到根元素的索引的下标范围
+    if pre_order_start > pre_order_end:
         return None
     # 找到根节点在in_order_map中的索引`in_order_root_index`
     # 以便将in_order、pre_order数组划分为:

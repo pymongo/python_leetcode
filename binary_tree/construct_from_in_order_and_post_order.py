@@ -31,7 +31,7 @@ def my_dfs(
     in_order_map: Dict[int, int]
 ) -> Optional[TreeNode]:
     # 递归结束条件
-    if post_order_start > post_order_end or in_order_start > in_order_end:
+    if post_order_start > post_order_end:
         return None
 
     root_val = post_order[post_order_end]
