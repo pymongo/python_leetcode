@@ -13,12 +13,16 @@ def divide_conquer(root: TreeNode) -> (bool, int):
         # 空树也是平衡二叉树
         return True, 0
     left_subtree_is_balanced, left_subtree_height = divide_conquer(root.left)
+    if not left_subtree_is_balanced:
+        # 此时返回值中左子树的高度已经没有意义了，只要有一个False往上传染，最终返回值会是False
+        return False, 0
     right_subtree_is_balanced, right_subtree_height = divide_conquer(root.right)
+    if not right_subtree_is_balanced:
+        return False, 0
+    root_is_balanced = abs(left_subtree_height - right_subtree_height) <= 1
+    if not root_is_balanced:
+        return False, 0
     root_height = max(left_subtree_height, right_subtree_height) + 1
-    if not left_subtree_is_balanced or not right_subtree_is_balanced:
-        return False, root_height
-    if abs(left_subtree_height - right_subtree_height) > 1:
-        return False, root_height
     return True, root_height
 
 
