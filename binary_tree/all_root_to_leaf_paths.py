@@ -16,16 +16,18 @@ def helper(root: TreeNode):
 
 def list_all_root_to_leaf_paths(root: TreeNode, stack, paths: List[str]):
     if root is None:
-        # 走到头了，需要将当前栈的所有元素加到解答集
-        if len(stack) >= 2:
-            # 包含两个以上的节点才叫路径
-            paths.append('->'.join(tuple(map(lambda x: str(x), stack))))
         return
     stack.append(root.val)
-    list_all_root_to_leaf_paths(root.left, stack, paths)
-    list_all_root_to_leaf_paths(root.right, stack, paths)
-    if stack:
-        stack.pop()
+    if root.left is None and root.right is None:
+        # 没有左子树和右子树的节点才叫叶子节点
+        # 需要将当前栈的所有元素加到解答集
+        paths.append('->'.join(iter(map(lambda x: str(x), stack))))
+    else:
+        list_all_root_to_leaf_paths(root.left, stack, paths)
+        list_all_root_to_leaf_paths(root.right, stack, paths)
+    # 需要手动pop还原状态的才叫「回溯」
+    # 本节点已遍历完了，要将本节点的值出栈
+    stack.pop()
 
 
 class Testing(unittest.TestCase):
