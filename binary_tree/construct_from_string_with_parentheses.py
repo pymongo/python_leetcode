@@ -45,13 +45,26 @@ def str_to_tree_iterative(s: str):
     return stack[0]
 
 
-def my_str_to_tree(root: TreeNode):
+# 56 ms 击败了95.32%
+def my_tree_to_str(root: TreeNode):
+    """
+    root不为None时，主要区分三种情况:
+    1. 没有左右子树: 只返回root的值
+    2. 没有左子树，但有右子树: 左子树要写成括号
+    3. 有左子树，没有右子树: 左子树正常写，右子树要写成括号
+    @return:
+    """
     if root is None:
         return ""
     if root.left is None and root.right is None:
-        left, right = "", ""
+        return str(root.val)
+    elif root.left is None and root.right is not None:
+        # 如果没有左子树但是有右子树
+        return f"{root.val}()({my_tree_to_str(root.right)})"
+    elif root.left is not None and root.right is None:
+        # 有左子树没有右子树
+        return f"{root.val}({my_tree_to_str(root.left)})"
     else:
-        # 如果没有左子树但是有有右子树
-        left = f"({my_str_to_tree(root.left)})" if root.left is not None else "()"
-        right = f"({my_str_to_tree(root.right)})" if root.right is not None else ""
-    return str(root.val) + left + right
+        return f"{root.val}({my_tree_to_str(root.left)})({my_tree_to_str(root.right)})"
+
+
