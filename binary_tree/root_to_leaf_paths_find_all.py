@@ -14,6 +14,7 @@ def helper(root: TreeNode):
     return paths
 
 
+# 这题不建议用BFS或迭代法，因为还得在队列中额外存储每个节点的nums信息(从根节点到当前节点的数字)
 def list_all_root_to_leaf_paths(root: TreeNode, stack, paths: List[str]):
     if root is None:
         return
@@ -25,7 +26,7 @@ def list_all_root_to_leaf_paths(root: TreeNode, stack, paths: List[str]):
     else:
         list_all_root_to_leaf_paths(root.left, stack, paths)
         list_all_root_to_leaf_paths(root.right, stack, paths)
-    # 需要手动pop还原状态的才叫「回溯」
+    # 需要手动pop还原状态的才叫「回溯」，与之对应的是通过编程语言函数调用结束后释放资源"复原"状态
     # 本节点已遍历完了，要将本节点的值出栈
     stack.pop()
 
