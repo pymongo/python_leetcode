@@ -37,8 +37,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test_list_all_root_to_leaf_paths(self):
-        for binary_tree, paths in self.TEST_CASES:
+        for binary_tree, expected_paths in self.TEST_CASES:
             root = TreeNode.from_list(binary_tree)
             print(root)
             paths = helper(root)
             print(paths)
+            self.assertEqual(expected_paths, paths)
