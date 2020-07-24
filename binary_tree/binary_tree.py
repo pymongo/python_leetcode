@@ -96,6 +96,50 @@ class TreeNode:
         # return pickle.dumps(binary_tree_arr)
         return binary_tree_arr
 
+    def to_parentheses_str(self) -> str:
+        s = ""
+        if self is None:
+            return s
+        # visited + stack可以匹配括号
+        visited = set()
+        # stack里面的节点不可能为None
+        stack = collections.deque()
+        stack.append(self)
+        while stack:
+            node = stack[-1]
+            if node in visited:
+                s += ')'
+                stack.pop()
+                continue
+            s += f"({node.val}"
+            if node.left is None and node.right:
+                s += "()"
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+            visited.add(node)
+        # 去掉一头一尾的括号
+        return s[1:-1]
+
+    @staticmethod
+    def from_parentheses_str(s: str) -> Optional['TreeNode']:
+        if not s:
+            return None
+        if '(' not in s:
+            return TreeNode(int(s))
+        idx = 0
+        while s[idx] != '(':
+            idx += 1
+        root = TreeNode(int(s[:idx]))
+        stack = collections.deque()
+        stack.append(root)
+        size = len(s)
+        while idx < size:
+            pass
+            idx += 1
+        return root
+
     # binary-tree-level-order-traversal: 112ms, 95.43%
     # serialize-and-deserialize-bfs:     76ms , 99.12%
     @staticmethod
@@ -176,6 +220,13 @@ class TestTreeNode(unittest.TestCase):
         node = TreeNode.from_list(root.to_list())
         node_str = node.__str__()
         self.assertEqual(node_str, root_str)
+
+    def test_tree_to_parentheses_str(self):
+        root = TreeNode(1)
+        root.right = TreeNode(2)
+        root.right.left = TreeNode(3)
+        root.right.right = TreeNode(4)
+        print(root.to_parentheses_str())
 
     def test_serialize_root_has_not_left_subtree(self):
         root = TreeNode(1)
