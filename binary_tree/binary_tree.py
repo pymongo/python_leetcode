@@ -137,23 +137,24 @@ class TreeNode:
                 val_len += 1
                 continue
             if val_len:
-                node = TreeNode(int(s[i-val_len:i]))
+                node = TreeNode(int(s[i - val_len:i]))
                 if stack:
-                    stack_peak = stack[-1]
+                    stack_peek = stack[-1]
                     if is_left_subtree_empty:
-                        stack_peak.right = node
+                        stack_peek.right = node
                         is_left_subtree_empty = False
                     else:
-                        if stack_peak.left is None:
-                            stack_peak.left = node
+                        if stack_peek.left is None:
+                            stack_peek.left = node
                         else:
-                            stack_peak.right = node
-                    stack.append(node)
+                            stack_peek.right = node
+                stack.append(node)
                 val_len = 0
             if s[i] == ')':
-                stack.pop()
-                if s[i-1] == '(':
+                if s[i - 1] == '(':
                     is_left_subtree_empty = True
+                else:
+                    stack.pop()
         return stack[0] if stack else None
 
     # binary-tree-level-order-traversal: 112ms, 95.43%
