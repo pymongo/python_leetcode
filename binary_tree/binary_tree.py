@@ -137,24 +137,23 @@ class TreeNode:
                 val_len += 1
                 continue
             if val_len:
-                node = TreeNode(int(s[i - val_len:i]))
+                node = TreeNode(int(s[i-val_len:i]))
                 if stack:
-                    stack_peek = stack[-1]
+                    stack_peak = stack[-1]
                     if is_left_subtree_empty:
-                        stack_peek.right = node
+                        stack_peak.right = node
                         is_left_subtree_empty = False
                     else:
-                        if stack_peek.left is None:
-                            stack_peek.left = node
+                        if stack_peak.left is None:
+                            stack_peak.left = node
                         else:
-                            stack_peek.right = node
-                stack.append(node)
+                            stack_peak.right = node
+                    stack.append(node)
                 val_len = 0
             if s[i] == ')':
-                if s[i - 1] == '(':
+                stack.pop()
+                if s[i-1] == '(':
                     is_left_subtree_empty = True
-                else:
-                    stack.pop()
         return stack[0] if stack else None
 
     # binary-tree-level-order-traversal: 112ms, 95.43%
@@ -231,16 +230,16 @@ class TestTreeNode(unittest.TestCase):
         root.left.right = TreeNode(5)
         print(root)
 
-    def test_serialize_deserialize(self):
-        root = TreeNode.from_list([1, 2, 3, None, None, None, None])
-        node = TreeNode.from_list(root.to_list())
-        self.assertEqual(node.to_str(), root.to_str())
-
     def test_tree_to_parentheses_str(self):
         s = "1(2(4)(5))(3)"
         node = TreeNode.from_str(s)
         print(node)
         self.assertEqual(s, TreeNode.from_str(s).to_str())
+
+    def test_serialize_deserialize(self):
+        root = TreeNode.from_list([1, 2, 3, None, None, None, None])
+        node = TreeNode.from_list(root.to_list())
+        self.assertEqual(node.to_str(), root.to_str())
 
     def test_serialize_root_has_not_left_subtree(self):
         root = TreeNode.from_str("1()(2(3)(4))")
