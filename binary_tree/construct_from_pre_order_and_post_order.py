@@ -107,8 +107,8 @@ def lintcode_left_subtree_priority(
     post_order_start: int,
     post_order_end: int,
 ) -> Optional[TreeNode]:
-    #dbg((pre_order_start, pre_order_end))
-    #dbg((post_order_start, post_order_end))
+    # dbg((pre_order_start, pre_order_end))
+    # dbg((post_order_start, post_order_end))
     # 实际刷题时要灵活推敲出递归结束条件
     if pre_order_start > pre_order_end:
         return None
@@ -128,7 +128,7 @@ def lintcode_left_subtree_priority(
     # dbg(right_subtree_size)
 
     # 后序和中序的左子树索引范围一致
-    print("left subtree")
+    # print("left subtree")
     root.left = lintcode_left_subtree_priority(
         pre_order=pre_order,
         pre_order_start=pre_order_start + 1,  # OK(100%)
@@ -138,7 +138,7 @@ def lintcode_left_subtree_priority(
         post_order_start=post_order_start,  # OK(100%)
         post_order_end=post_order_left_subtree_root  # OK(100%)
     )
-    print("right subtree")
+    # print("right subtree")
     root.right = lintcode_left_subtree_priority(
         pre_order=pre_order,
         pre_order_start=pre_order_start + 1 + left_subtree_size,
