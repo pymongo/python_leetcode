@@ -48,41 +48,27 @@ def str_to_tree_iterative_lintcode_best(s: str):
     return stack[0] if stack else None
 
 
-def str_to_tree_iterative(s: str):
-    if not s:
-        return None
-    # 没有左子树和右子树
-    if '(' not in s:
-        return TreeNode(int(s))
-
-    # 栈主要用来匹配括号
+# 用val_len取代token，去掉了字符串拼接操作，性能更优
+def str_to_tree_iterative_best_performance(s: str):
     stack = collections.deque()
-    index = 0
-    size = len(s)
-    while index < size:
-        if s[index] == ')':
+    val_len = 0
+    for i in range(len(s)):
+        if s[i] != '(' and s[i] != ')':
+            val_len += 1
+            continue
+        if val_len:
+            node = TreeNode(int(s[i - val_len:i]))
+            if stack:
+                stack_peek = stack[-1]
+                if stack_peek.left is None:
+                    stack_peek.left = node
+                else:
+                    stack_peek.right = node
+            stack.append(node)
+            val_len = 0
+        if s[i] == ')':
             stack.pop()
-            index += 1
-            continue
-
-        if s[index] == '(':
-            index += 1
-            continue
-
-        # next_idx = index
-        val_end_idx = index
-        while s[val_end_idx] != '(' and s[val_end_idx] != ')':
-            val_end_idx += 1
-        node = TreeNode(int(s[index:val_end_idx]))
-        if stack:
-            father = stack[-1]
-            if father.left is None:
-                father.left = node
-            else:
-                father.right = node
-        stack.append(node)
-        index = val_end_idx
-    return stack[0]
+    return stack[0] if stack else None
 
 
 # 56 ms 击败了95.32%
