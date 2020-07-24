@@ -86,5 +86,4 @@ class Testing(unittest.TestCase):
     def test_level_order_dummy_head_queue(self):
         for binary_tree, expected in self.TEST_CASES:
             root = TreeNode.from_str(binary_tree)
-            print(root)
             self.assertEqual(expected, level_order_dummy_head_queue(root))

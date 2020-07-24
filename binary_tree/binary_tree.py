@@ -29,6 +29,7 @@ class TreeNode:
         self.left: Optional[TreeNode] = None
         self.right: Optional[TreeNode] = None
 
+    # FIXME Bug: 二叉树为"1()(2(3))"时，最后一行是错的，所以本函数仅供参考，单元测试比较二叉树是否等于期待值还是用to_str()
     def __str__(self):
         """
         功能: 将二叉树打印成一个漂亮的「杨辉三角」
@@ -249,3 +250,16 @@ class TestTreeNode(unittest.TestCase):
         root = TreeNode.from_str("3(9)(20(15)(7))")
         node = deserialize_pre_order(serialize_pre_order_helper(root))
         self.assertEqual(root.to_str(), node.to_str())
+
+    def test_bug_str(self):
+        """
+           1
+         N   2
+        N N N 3
+        FIXME 实际上3是2的左子树，__str__()方法错了，to_str()是对的
+        """
+        root = TreeNode(1)
+        root.right = TreeNode(2)
+        root.right.left = TreeNode(3)
+        print(root.to_str())
+        print(root)
