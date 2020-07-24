@@ -29,8 +29,35 @@ class TreeNode:
         self.left: Optional[TreeNode] = None
         self.right: Optional[TreeNode] = None
 
-    # FIXME Bug: 二叉树为"1()(2(3))"时，最后一行是错的，所以本函数仅供参考，单元测试比较二叉树是否等于期待值还是用to_str()
+    # 为了Debug时方便看到二叉树结构，还是将杨辉三角的打印弄成另一个方法好点
     def __str__(self):
+        s = ""
+        if self is None:
+            return s
+        # visited + stack可以匹配括号
+        visited = set()
+        # stack里面的节点不可能为None
+        stack = collections.deque()
+        stack.append(self)
+        while stack:
+            node = stack[-1]
+            if node in visited:
+                s += ')'
+                stack.pop()
+                continue
+            s += f"({node.val}"
+            if node.left is None and node.right:
+                s += "()"
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+            visited.add(node)
+        # 去掉一头一尾的括号
+        return s[1:-1]
+
+    # FIXME Bug: 二叉树为"1()(2(3))"时，最后一行是错的，所以本函数仅供参考，单元测试比较二叉树是否等于期待值还是用to_str()
+    def pretty(self):
         """
         功能: 将二叉树打印成一个漂亮的「杨辉三角」
         实现思路: 将二叉树序列化为一维数组，数组第2-3项表示第二层，数组第3-6项表示第三层，以此类推
@@ -98,30 +125,7 @@ class TreeNode:
         return binary_tree_arr
 
     def to_str(self) -> str:
-        s = ""
-        if self is None:
-            return s
-        # visited + stack可以匹配括号
-        visited = set()
-        # stack里面的节点不可能为None
-        stack = collections.deque()
-        stack.append(self)
-        while stack:
-            node = stack[-1]
-            if node in visited:
-                s += ')'
-                stack.pop()
-                continue
-            s += f"({node.val}"
-            if node.left is None and node.right:
-                s += "()"
-            if node.right:
-                stack.append(node.right)
-            if node.left:
-                stack.append(node.left)
-            visited.add(node)
-        # 去掉一头一尾的括号
-        return s[1:-1]
+        return self.__str__()
 
     # noinspection DuplicatedCode
     @staticmethod
@@ -226,7 +230,6 @@ class TestTreeNode(unittest.TestCase):
         root.right = TreeNode(3)
         root.left.left = TreeNode(4)
         root.left.right = TreeNode(5)
-        print(root.to_str())
         print(root)
 
     def test_serialize_deserialize(self):
@@ -261,5 +264,5 @@ class TestTreeNode(unittest.TestCase):
         root = TreeNode(1)
         root.right = TreeNode(2)
         root.right.left = TreeNode(3)
-        print(root.to_str())
         print(root)
+        print(root.pretty())
