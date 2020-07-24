@@ -25,33 +25,34 @@ def str_to_tree_recursive(s: str):
     return root
 
 
-# 99.59%
 def str_to_tree_iterative_lintcode_best(s: str):
-    stack = collections.deque()
-    token = ""
-    for char in s:
-        if char != '(' and char != ')':
-            token += char
-            continue
-        if token:
-            node = TreeNode(int(token))
-            if stack:
-                stack_peek = stack[-1]
-                if stack_peek.left is None:
-                    stack_peek.left = node
-                else:
-                    stack_peek.right = node
-            stack.append(node)
+    stack, token = [], ""
+    for c in s + '(':
+        if c in ')(':
+            if token:
+                node = TreeNode(int(token))
+                if stack:
+                    if stack[-1].left is None:
+                        stack[-1].left = node
+                    else:
+                        stack[-1].right = node
+                stack += node,
             token = ""
-        if char == ')':
-            stack.pop()
+            if c == ')':
+                stack.pop()
+        else:
+            token += c
     return stack[0] if stack else None
 
 
 # 用val_len取代token，去掉了字符串拼接操作，性能更优
-def str_to_tree_iterative_best_performance(s: str):
+# TODO 由于本题在lintcode上要求空树表示为""，而且测试用例没有测左子树为空的情况
+# TODO 为了与二叉树转括号字符串的结果一一对应(左子树为空显示())，所以要判断有没有出现「空括号」的字符串
+# noinspection DuplicatedCode
+def str_to_tree_iterative_my_best_performance(s: str):
     stack = collections.deque()
     val_len = 0
+    is_left_subtree_empty = False
     for i in range(len(s)):
         if s[i] != '(' and s[i] != ')':
             val_len += 1
@@ -60,14 +61,21 @@ def str_to_tree_iterative_best_performance(s: str):
             node = TreeNode(int(s[i - val_len:i]))
             if stack:
                 stack_peek = stack[-1]
-                if stack_peek.left is None:
-                    stack_peek.left = node
-                else:
+                if is_left_subtree_empty:
                     stack_peek.right = node
+                    is_left_subtree_empty = False
+                else:
+                    if stack_peek.left is None:
+                        stack_peek.left = node
+                    else:
+                        stack_peek.right = node
             stack.append(node)
             val_len = 0
         if s[i] == ')':
-            stack.pop()
+            if s[i-1] == '(' and not is_left_subtree_empty:
+                is_left_subtree_empty = True
+            else:
+                stack.pop()
     return stack[0] if stack else None
 
 
@@ -130,4 +138,11 @@ class Testing(unittest.TestCase):
         root.right = TreeNode(20)
         root.right.left = TreeNode(15)
         root.right.right = TreeNode(7)
-        tree_to_str_iterative(root)
+        s = tree_to_str_iterative(root)
+        print(s)
+        node = str_to_tree_iterative_my_best_performance(s)
+        print(node)
+
+    def test_str_to_tree(self):
+        node = str_to_tree_iterative_my_best_performance("1()(2(3)(4))")
+        print(node)
