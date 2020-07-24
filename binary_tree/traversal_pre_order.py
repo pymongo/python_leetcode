@@ -20,12 +20,12 @@ def pre_order_recursive(root: TreeNode, result: List[int]):
 
 
 # 栈遍历的升级版是: 「莫里斯遍历+线索二叉树」
-# 莫尼斯遍历不需要借助队列或栈的空间，与先序遍历不同的是莫里斯遍历每个节点只会访问一次
+# 莫尼斯遍历不需要借助队列或栈的空间，与前序遍历不同的是莫里斯遍历每个节点只会访问一次
 def pre_order_iterative(root: TreeNode) -> List[int]:
     result = []
     if root is None:
         return result
-    # 因为栈有FILO的特性，所以满足先序遍历的DFS要求
+    # 因为栈有FILO的特性，所以满足前序遍历的DFS要求
     stack = collections.deque()
     stack.append(root)
     while stack:
@@ -56,6 +56,52 @@ def in_order_iterative(root: TreeNode) -> List[int]:
     return result
 
 
+# Reverse-Pre-Order' s output = reverse(Post-Order)
+def post_order_iterative_1(root: TreeNode) -> List[int]:
+    result = []
+    if root is None:
+        return result
+    stack = collections.deque()
+    stack.append(root)
+    while stack:
+        node = stack.pop()
+        if node is None:
+            continue
+        # "逆"前序遍历(根右左)再逆序等于后续遍历，每次将结果往前追加等于逆序
+        result.insert(0, node.val)
+        stack.append(node.left)
+        stack.append(node.right)
+    return result
+
+
+# 正统的后续遍历思维的迭代法，基于中序遍历版本稍作修改
+def post_order_iterative_2(root: TreeNode) -> List[int]:
+    result = []
+    if root is None:
+        return result
+    stack = collections.deque()
+    curr_node = root
+    while curr_node or stack:
+        while curr_node:
+            stack.append(curr_node)
+            # 判断当前节点的左子树是否存在，若存在则持续往深处遍历左子树，若不存在就转向右子树
+            if curr_node.left:
+                curr_node = curr_node.left
+            else:
+                curr_node = curr_node.right
+        # 走到这里时只可能是最底层且未记录的节点
+        curr_node = stack.pop()
+        result.append(curr_node.val)
+        # 若栈不为空且当前节点是栈顶元素的左节点，说明已记录栈顶元素左节点的值
+        if stack and stack[-1].left is curr_node:
+            # 则转为遍历栈顶节点的右子树
+            curr_node = stack[-1].right
+        else:
+            # 栈顶元素没有左子树和右子树，则curr_node设为None让栈顶元素出栈
+            curr_node = None
+    return result
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         {'binary_tree': "1()(2(3))", 'pre_order': [1, 2, 3], 'in_order': [1, 3, 2], 'post_order': [3, 2, 1]},
@@ -76,3 +122,9 @@ class Testing(unittest.TestCase):
             root = TreeNode.from_str(data['binary_tree'])
             pre_order = in_order_iterative(root)
             self.assertEqual(data['in_order'], pre_order)
+
+    def test_post_order_iterative(self):
+        for data in self.TEST_CASES:
+            root = TreeNode.from_str(data['binary_tree'])
+            self.assertEqual(data['post_order'], post_order_iterative_1(root))
+            self.assertEqual(data['post_order'], post_order_iterative_2(root))
