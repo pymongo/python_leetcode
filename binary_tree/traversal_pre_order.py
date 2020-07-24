@@ -44,6 +44,7 @@ def in_order_iterative(root: TreeNode) -> List[int]:
     result = []
     if root is None:
         return result
+    # stack表示从根节点到当前节点的路径上的所有节点
     stack = collections.deque()
     curr_node = root
     while curr_node or stack:
