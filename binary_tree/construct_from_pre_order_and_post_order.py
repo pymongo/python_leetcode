@@ -154,20 +154,19 @@ def lintcode_left_subtree_priority(
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([3, 9, 20, 15, 7], [9, 15, 7, 20, 3], [3, 9, 20, None, None, 15, 7, None, None, None, None]),
-        ([3], [3], [3, None, None]),
-        ([1, 2, 4, 5, 3, 6, 7], [4, 5, 2, 6, 7, 3, 1],
-         [1, 2, 3, 4, 5, 6, 7, None, None, None, None, None, None, None, None]),
+        ([3], [3], "3"),
+        ([3, 9, 20, 15, 7], [9, 15, 7, 20, 3], "3(9)(20(15)(7))"),
+        ([1, 2, 4, 5, 3, 6, 7], [4, 5, 2, 6, 7, 3, 1], "1(2(4)(5))(3(6)(7))"),
     ]
 
     def test_my_solution(self):
-        for pre_order, post_order, binary_tree_list in self.TEST_CASES:
+        for pre_order, post_order, binary_tree in self.TEST_CASES:
             root = my_dfs_helper(pre_order, post_order)
             print(root)
-            self.assertEqual(binary_tree_list, root.to_list())
+            self.assertEqual(binary_tree, root.to_str())
 
     def test_lintcode_helper(self):
-        for pre_order, post_order, binary_tree_list in self.TEST_CASES:
+        for pre_order, post_order, binary_tree in self.TEST_CASES:
             root = lintcode_helper(pre_order, post_order)
             print(root)
-            self.assertEqual(binary_tree_list, root.to_list())
+            self.assertEqual(binary_tree, root.to_str())

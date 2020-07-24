@@ -96,7 +96,7 @@ class TreeNode:
         # return pickle.dumps(binary_tree_arr)
         return binary_tree_arr
 
-    def to_parentheses_str(self) -> str:
+    def to_str(self) -> str:
         s = ""
         if self is None:
             return s
@@ -122,23 +122,36 @@ class TreeNode:
         # 去掉一头一尾的括号
         return s[1:-1]
 
+    # noinspection DuplicatedCode
     @staticmethod
-    def from_parentheses_str(s: str) -> Optional['TreeNode']:
-        if not s:
-            return None
-        if '(' not in s:
-            return TreeNode(int(s))
-        idx = 0
-        while s[idx] != '(':
-            idx += 1
-        root = TreeNode(int(s[:idx]))
+    def from_str(s: str) -> Optional['TreeNode']:
         stack = collections.deque()
-        stack.append(root)
-        size = len(s)
-        while idx < size:
-            pass
-            idx += 1
-        return root
+        val_len = 0
+        is_left_subtree_empty = False
+        for i in range(len(s)):
+            if s[i] != '(' and s[i] != ')':
+                val_len += 1
+                continue
+            if val_len:
+                node = TreeNode(int(s[i - val_len:i]))
+                if stack:
+                    stack_peek = stack[-1]
+                    if is_left_subtree_empty:
+                        stack_peek.right = node
+                        is_left_subtree_empty = False
+                    else:
+                        if stack_peek.left is None:
+                            stack_peek.left = node
+                        else:
+                            stack_peek.right = node
+                stack.append(node)
+                val_len = 0
+            if s[i] == ')':
+                if s[i - 1] == '(' and not is_left_subtree_empty:
+                    is_left_subtree_empty = True
+                else:
+                    stack.pop()
+        return stack[0] if stack else None
 
     # binary-tree-level-order-traversal: 112ms, 95.43%
     # serialize-and-deserialize-bfs:     76ms , 99.12%
@@ -212,36 +225,27 @@ class TestTreeNode(unittest.TestCase):
         root.right = TreeNode(3)
         root.left.left = TreeNode(4)
         root.left.right = TreeNode(5)
+        print(root.to_str())
         print(root)
 
     def test_serialize_deserialize(self):
         root = TreeNode.from_list([1, 2, 3, None, None, None, None])
-        root_str = root.__str__()
         node = TreeNode.from_list(root.to_list())
-        node_str = node.__str__()
-        self.assertEqual(node_str, root_str)
+        self.assertEqual(node.to_str(), root.to_str())
 
     def test_tree_to_parentheses_str(self):
-        root = TreeNode(1)
-        root.right = TreeNode(2)
-        root.right.left = TreeNode(3)
-        root.right.right = TreeNode(4)
-        print(root.to_parentheses_str())
+        s = "1(2(4)(5))(3)"
+        node = TreeNode.from_str(s)
+        print(node)
+        self.assertEqual(s, TreeNode.from_str(s).to_str())
 
     def test_serialize_root_has_not_left_subtree(self):
-        root = TreeNode(1)
-        root.right = TreeNode(2)
-        root.right.left = TreeNode(3)
-        root.right.right = TreeNode(4)
+        root = TreeNode.from_str("1()(2(3)(4))")
         root_to_list = root.to_list()
         node = TreeNode.from_list(root_to_list)
         print(node)
 
     def test_serialize_deserialize_pre_order(self):
-        root = TreeNode(3)
-        root.left = TreeNode(9)
-        root.right = TreeNode(20)
-        root.right.left = TreeNode(15)
-        root.right.right = TreeNode(7)
+        root = TreeNode.from_str("3(9)(20(15)(7))")
         node = deserialize_pre_order(serialize_pre_order_helper(root))
-        self.assertEqual(root.__str__(), node.__str__())
+        self.assertEqual(root.to_str(), node.to_str())

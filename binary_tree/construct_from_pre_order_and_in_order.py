@@ -99,6 +99,7 @@ def my_solution(
     )
     return root
 
+
 # 44 ms 击败了98.77%的用户，再次证明pop()和append()操作deque的性能优于list
 def recipe_stack(pre_order: List[int], in_order: List[int]) -> Optional[TreeNode]:
     if not pre_order:
@@ -130,15 +131,15 @@ def recipe_stack(pre_order: List[int], in_order: List[int]) -> Optional[TreeNode
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([3, 9, 20, 15, 7], [9, 3, 15, 20, 7], [3, 9, 20, None, None, 15, 7, None, None, None, None])
+        ([3, 9, 20, 15, 7], [9, 3, 15, 20, 7], "3(9)(20(15)(7))")
     ]
 
     def test_my_solution(self):
-        for pre_order, in_order, binary_tree_list in self.TEST_CASES:
+        for pre_order, in_order, binary_tree in self.TEST_CASES:
             root = my_solution_helper(pre_order, in_order)
-            self.assertEqual(binary_tree_list, root.to_list())
+            self.assertEqual(binary_tree, root.to_str())
 
     def test_stack(self):
-        for pre_order, in_order, binary_tree_list in self.TEST_CASES:
+        for pre_order, in_order, binary_tree in self.TEST_CASES:
             root = recipe_stack(pre_order, in_order)
-            self.assertEqual(binary_tree_list, root.to_list())
+            self.assertEqual(binary_tree, root.to_str())

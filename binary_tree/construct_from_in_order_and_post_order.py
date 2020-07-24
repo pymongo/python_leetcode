@@ -64,10 +64,10 @@ def my_dfs(
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([9, 3, 15, 20, 7], [9, 15, 7, 20, 3], [3, 9, 20, None, None, 15, 7, None, None, None, None])
+        ([9, 3, 15, 20, 7], [9, 15, 7, 20, 3], "3(9)(20(15)(7))")
     ]
 
     def test_my_solution(self):
-        for in_order, post_order, binary_tree_list in self.TEST_CASES:
+        for in_order, post_order, binary_tree in self.TEST_CASES:
             root = my_dfs_helper(in_order, post_order)
-            self.assertEqual(binary_tree_list, root.to_list())
+            self.assertEqual(binary_tree, root.to_str())

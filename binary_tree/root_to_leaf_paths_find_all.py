@@ -33,12 +33,12 @@ def list_all_root_to_leaf_paths(root: TreeNode, stack, paths: List[str]):
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([1, 2, 3, None, 5, None, None], ["1->2->5", "1->3"]),
+        ("1(2()(5))(3)", ["1->2->5", "1->3"]),
     ]
 
     def test_list_all_root_to_leaf_paths(self):
         for binary_tree, expected_paths in self.TEST_CASES:
-            root = TreeNode.from_list(binary_tree)
+            root = TreeNode.from_str(binary_tree)
             print(root)
             paths = helper(root)
             print(paths)

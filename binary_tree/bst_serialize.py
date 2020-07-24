@@ -54,11 +54,7 @@ def construct_bst(data: Dict[str, List[Optional[int]]]) -> Optional[TreeNode]:
 
 class Testing(unittest.TestCase):
     def test(self):
-        root = TreeNode(2)
-        root.left = TreeNode(1)
-        root.right = TreeNode(3)
-        root.right.left = TreeNode(2)
-        root.right.right = TreeNode(4)
+        root = TreeNode.from_str("2(1)(3(2)(4))")
         data = pre_order_serialize(root)
         new_node = construct_bst(data)
         print(new_node)

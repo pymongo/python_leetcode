@@ -42,12 +42,12 @@ def list_all_root_to_leaf_paths(root: TreeNode, data):
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([1, 2, 4, 2, 3, None, None], 5, [[1, 2, 2], [1, 4]]),
+        ("1(2(2)(3))(4)", 5, [[1, 2, 2], [1, 4]]),
     ]
 
     def test_list_all_root_to_leaf_paths(self):
         for binary_tree, target, expected_paths in self.TEST_CASES:
-            root = TreeNode.from_list(binary_tree)
+            root = TreeNode.from_str(binary_tree)
             print(root)
             paths = helper(root, target)
             print(paths)

@@ -79,11 +79,12 @@ def level_order_dummy_head_queue(root: TreeNode) -> List[List[int]]:
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([1, 2, 3, None, None, None, None], [[1], [2, 3]]),
-        ([1, None, 2, 3, None, None, None], [[1], [2], [3]]),
+        ("1(2)(3)", [[1], [2, 3]]),
+        ("1()(2(3))", [[1], [2], [3]]),
     ]
 
     def test_level_order_dummy_head_queue(self):
-        for binary_tree_arr, expected in self.TEST_CASES:
-            root = TreeNode.from_list(binary_tree_arr)
+        for binary_tree, expected in self.TEST_CASES:
+            root = TreeNode.from_str(binary_tree)
+            print(root)
             self.assertEqual(expected, level_order_dummy_head_queue(root))
