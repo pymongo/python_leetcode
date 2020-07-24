@@ -36,7 +36,6 @@ class TreeNode:
             return s
         # visited + stack可以匹配括号
         visited = set()
-        # stack里面的节点不可能为None
         stack = collections.deque()
         stack.append(self)
         while stack:
@@ -53,7 +52,7 @@ class TreeNode:
             if node.left:
                 stack.append(node.left)
             visited.add(node)
-        # 去掉一头一尾的括号
+        # 去掉头尾的括号
         return s[1:-1]
 
     # FIXME Bug: 二叉树为"1()(2(3))"时，最后一行是错的，所以本函数仅供参考，单元测试比较二叉树是否等于期待值还是用to_str()
@@ -152,7 +151,7 @@ class TreeNode:
                 stack.append(node)
                 val_len = 0
             if s[i] == ')':
-                if s[i - 1] == '(' and not is_left_subtree_empty:
+                if s[i - 1] == '(':
                     is_left_subtree_empty = True
                 else:
                     stack.pop()

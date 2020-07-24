@@ -72,14 +72,14 @@ def str_to_tree_iterative_my_best_performance(s: str):
             stack.append(node)
             val_len = 0
         if s[i] == ')':
-            if s[i-1] == '(' and not is_left_subtree_empty:
+            # if s[i-1] == '(' and not is_left_subtree_empty:
+            if s[i-1] == '(':
                 is_left_subtree_empty = True
             else:
                 stack.pop()
     return stack[0] if stack else None
 
 
-# 56 ms 击败了95.32%
 def my_tree_to_str_recursive(root: TreeNode):
     """
     root不为None时，主要区分三种情况:
