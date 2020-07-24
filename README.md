@@ -42,6 +42,7 @@ LeetCode
 |167|[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[Python](two_sum/two_sum_2_input_is_sorted.py)|two_pointers|
 |170_LOCK|[Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design/)|[Python](two_sum/two_sum_3_impl.py)|two_pointers|
 |172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[Python](math/factorial_trailing_zeroes.py)|factorial|
+|145|[Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)|[Python](binary_tree/bst_in_order_iterator.py)||
 |189|[Rotate Array](http://leetcode.com/problems/rotate-array/)|[Python](rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[Python](list_node/reverse_linked_list.py)|list_node|
 |215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
@@ -119,6 +120,7 @@ LintCode
 |73|[Construct Binary Tree from Preorder and Inorder Traversal](https://lintcode.com/problem/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_in_order.py)|DFS, stack|
 |74|[First Bad Version](https://lintcode.com/problem/first-bad-version/)|[Python](binary_search/first_bad_version.py)|partition_array|
 |75|[Find Peak Element](https://www.lintcode.com/problem/find-peak-element/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
+|86|[Binary Search Tree Iterator](https://lintcode.com/problem/binary-search-tree-iterator/)|[Python](binary_tree/bst_in_order_iterator.py)||
 |93|[Balanced Binary Tree](https://www.lintcode.com/problem/balanced-binary-tree/)|[Python](binary_tree/depth_is_balance_binary_tree.py)|divide_and_conquer|
 |97|[Maximum Depth of Binary Tree](https://www.lintcode.com/problem/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |100|[Remove Duplicates from Sorted Array](https://lintcode.com/problem/remove-duplicates-from-sorted-array/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/remove_duplicates_from_sorted_array.py)|exclusive_or|
