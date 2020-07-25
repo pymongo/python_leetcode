@@ -51,6 +51,7 @@ def my_bfs(m: List[List[int]]) -> int:
     return circles_count
 
 
+# 可以看到DFS和BFS的核心处理过程基本是一样的，只不过是队列和栈代替递归
 def my_dfs(m: List[List[int]], size: int, visited, node: int):
     # 因为range是从0开始的，所以第一个neighbourhood就是自己
     # 不用看第一个节点，因为第一层递归就已经遍历过第一个点和其它点的连接状况
@@ -63,7 +64,7 @@ def my_dfs(m: List[List[int]], size: int, visited, node: int):
         my_dfs(m, size, visited, neighbourhood)
 
 
-# DFS解法耗时: 228ms, 而BFS解法耗时: 324ms, 在数圈圈问题上DFS更优
+# DFS解法耗时: 216ms, 而BFS解法耗时: 324ms, 在数圈圈问题上DFS更优
 def my_dfs_helper(m: List[List[int]]) -> int:
     size = len(m)
     visited = set()
