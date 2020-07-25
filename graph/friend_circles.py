@@ -26,18 +26,13 @@ def union_find():
 
 
 # 临摹(照抄)了leetcode上BFS的解答
-# noinspection PyPep8Naming
-def my_bfs(M: List[List[int]]) -> int:
-    """
-    @param M: adjacency matrix
-    @return: count of friend circles
-    """
+def my_bfs(m: List[List[int]]) -> int:
     # 邻接矩阵肯定是个"正方形"
     circles_count = 0
-    size = len(M[0])
+    size = len(m[0])
 
-    visited: Set[int] = set()
-    q = collections.deque([])
+    visited = set()
+    q = collections.deque()
 
     for node in range(size):
         if node in visited:
@@ -46,8 +41,8 @@ def my_bfs(M: List[List[int]]) -> int:
         while q:
             curr_node: int = q.popleft()
             visited.add(curr_node)
-            for neighbourhood in range(size):
-                if M[curr_node][neighbourhood] == 0:
+            for neighbourhood in range(1, size):
+                if m[curr_node][neighbourhood] == 0:
                     continue
                 if neighbourhood not in visited:
                     q.append(neighbourhood)
@@ -58,7 +53,8 @@ def my_bfs(M: List[List[int]]) -> int:
 
 def my_dfs(m: List[List[int]], size: int, visited, node: int):
     # 因为range是从0开始的，所以第一个neighbourhood就是自己
-    for neighbourhood in range(size):
+    # 不用看第一个节点，因为第一层递归就已经遍历过第一个点和其它点的连接状况
+    for neighbourhood in range(1, size):
         if neighbourhood in visited:
             continue
         if m[node][neighbourhood] == 0:
