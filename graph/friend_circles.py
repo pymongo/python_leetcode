@@ -57,13 +57,14 @@ def my_bfs(M: List[List[int]]) -> int:
 
 
 def my_dfs(m: List[List[int]], size: int, visited, node: int):
+    # 因为range是从0开始的，所以第一个neighbourhood就是自己
     for neighbourhood in range(size):
+        if neighbourhood in visited:
+            continue
         if m[node][neighbourhood] == 0:
             continue
-        if neighbourhood not in visited:
-            visited.add(neighbourhood)
-            my_dfs(m, size, visited, neighbourhood)
-    visited.add(node)
+        visited.add(neighbourhood)
+        my_dfs(m, size, visited, neighbourhood)
 
 
 # DFS解法耗时: 228ms, 而BFS解法耗时: 324ms, 在数圈圈问题上DFS更优
