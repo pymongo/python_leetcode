@@ -4,18 +4,6 @@ import sys
 from typing import List
 
 
-class DecisionOld:
-    def __init__(self, x, y, dx, dy, steps=0):
-        # 表示某个决策的出发点，如果前进的下一个点已被访问过或已越界则退回出发点(backtracking)
-        self.x = x
-        self.y = y
-        # (dx, dy)的组合表示方向向量, 上下左右分别是(0,-1),(0,1),(-1,0),(1,0)
-        self.dx = dx
-        self.dy = dy
-        # 从起点到出发点，之前一共走了多少步
-        self.steps = steps
-
-
 class MyPoint:
     def __init__(self, x, y, steps):
         # 表示某个决策中，马将要跳到的位置
@@ -46,6 +34,7 @@ def solution(grid: List[List[int]]) -> int:
         MyPoint(x=1, y=2, steps=1),
         MyPoint(x=2, y=1, steps=1)
     ])
+    # TODO 直接用1表示visited或障碍物就行，性能更优，参考knight_shortest_path.py
     visited = set()
     while queue:
         point = queue.popleft()
