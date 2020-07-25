@@ -61,11 +61,32 @@ def level_order_dummy_head_queue(root: TreeNode) -> List[List[int]]:
     while q:
         node = q.popleft()
         if node is None:
-            result.append(curr_level)
-            # 不能用clear()，否则会连同result内部的arr都清掉
-            # curr_level.clear()
-            curr_level = []  # 重新new一个List
+            result.append(curr_level.copy())
+            curr_level.clear()
             # DummyHead相当于该层结尾的分割线，又把分割线扔到最后了
+            if q:
+                q.append(None)
+            continue
+        curr_level.append(node.val)
+        if node.left:
+            q.append(node.left)
+        if node.right:
+            q.append(node.right)
+    return result
+
+
+# 自下而上的层级遍历，跟普通层级遍历一样，只是逆序插入insert(0)即可
+def level_order_2_leaf_to_root(root: TreeNode) -> List[List[int]]:
+    if not root:
+        return []
+    result = []
+    curr_level = []
+    q = collections.deque([root, None])
+    while q:
+        node = q.popleft()
+        if node is None:
+            result.insert(0, curr_level.copy())
+            curr_level.clear()
             if q:
                 q.append(None)
             continue

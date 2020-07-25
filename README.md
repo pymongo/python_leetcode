@@ -26,10 +26,11 @@ LeetCode
 |81|[Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)|[Python](binary_search/rotated_sorted_array_search_2_with_duplicate.py)|binary_search|
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/merge_two_sorted_arrays.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/sorting/merge_two_sorted_arrays_test.go), [Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
 |94|[Binary Tree Inorder Traversal](https://www.leetcode.com/problems/binary-tree-inorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
-|102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Python](binary_tree/traversal_level_order.py)|bst, binary_tree|
+|102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Python](binary_tree/traversal_level_order.py)|BFS|
 |104|[Maximum Depth of Binary Tree](https://www.leetcode.com/problems/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |105|[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_in_order.py)|DFS, stack|
 |106|[Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_in_order_and_post_order.py)|DFS|
+|107|[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Python](binary_tree/traversal_level_order.py)|BFS|
 |110|[Balanced Binary Tree](https://www.leetcode.com/problems/balanced-binary-tree/)|[Python](binary_tree/depth_is_balance_binary_tree.py)|divide_and_conquer|
 |111|[Minimum Depth of Binary Tree](https://www.leetcode.com/problems/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)|divide_and_conquer, BFS|
 |125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[Python](palindrome/valid_palindrome.py)|two_pointers|
@@ -116,7 +117,8 @@ LintCode
 |66|[Binary Tree Preorder Traversal](https://www.lintcode.com/problem/binary-tree-preorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |67|[Binary Tree Inorder Traversal](https://www.lintcode.com/problem/binary-tree-inorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |68|[Binary Tree Postorder Traversal](https://www.lintcode.com/problem/binary-tree-postorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
-|69|[Binary Tree Level Order Traversal](https://lintcode.com/problem/binary-tree-level-order-traversal/)|[Python](binary_tree/traversal_level_order.py)|bst, binary_tree|
+|69|[Binary Tree Level Order Traversal](https://lintcode.com/problem/binary-tree-level-order-traversal/)|[Python](binary_tree/traversal_level_order.py)|BFS|
+|69|[Binary Tree Level Order Traversal II](https://lintcode.com/problem/binary-tree-level-order-traversal-ii/)|[Python](binary_tree/traversal_level_order.py)|BFS|
 |72|[Construct Binary Tree from Inorder and Postorder Traversal](https://lintcode.com/problem/construct-binary-tree-from-inorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_in_order_and_post_order.py)|DFS|
 |73|[Construct Binary Tree from Preorder and Inorder Traversal](https://lintcode.com/problem/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_in_order.py)|DFS, stack|
 |74|[First Bad Version](https://lintcode.com/problem/first-bad-version/)|[Python](binary_search/first_bad_version.py)|partition_array|
