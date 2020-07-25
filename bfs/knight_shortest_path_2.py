@@ -28,6 +28,7 @@ class MyPoint:
         return f"({'%2s' % self.x},{'%2s' % self.y}), steps={self.steps}"
 
 
+# 这题以BFS算法为主，所以没有归类到graph文件夹
 # 没有涉及状态回退[递归或栈](例如N皇后发现错误决策，棋盘状态回退)，严格来说不算回溯算法，DFS中才有回溯
 def solution(grid: List[List[int]]) -> int:
     """

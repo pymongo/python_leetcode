@@ -24,6 +24,7 @@ from copy import deepcopy
 def union_find():
     pass
 
+
 # 临摹(照抄)了leetcode上BFS的解答
 # noinspection PyPep8Naming
 def my_bfs(M: List[List[int]]) -> int:
@@ -55,6 +56,14 @@ def my_bfs(M: List[List[int]]) -> int:
     return circles_count
 
 
+def my_dfs():
+    pass
+
+
+def my_def_helper(m: List[List[int]]) -> int:
+    pass
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([[1, 1, 0],
@@ -68,3 +77,7 @@ class Testing(unittest.TestCase):
     def test_my_bfs(self):
         for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
             self.assertEqual(friend_circles_count, my_bfs(adjacency_matrix))
+
+    def test_my_dfs(self):
+        for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
+            self.assertEqual(friend_circles_count, my_def_helper(adjacency_matrix))

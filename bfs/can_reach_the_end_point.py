@@ -14,6 +14,7 @@ class MyPoint:
         self.dy = dy
 
 
+# 这题以BFS算法为主，所以没有归类到graph文件夹
 # 其实也是BFS，从一个起点开始，访问起点的邻居节点，再将邻居的邻居扔到队尾...
 # 没有涉及状态回退[递归或栈](例如N皇后发现错误决策，棋盘状态回退)，严格来说不算回溯算法，DFS中才有回溯
 def backtrace_solution(grid: List[List[int]]) -> bool:
