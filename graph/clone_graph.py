@@ -8,23 +8,25 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 
 
-# def my_bfs(node: Node) -> Node:
-#     new_node_curr = Node(node.val)
-#     new_node_dummy_head = Node(-1)
-#     new_node_dummy_head.neighbors = [new_node_curr]
-#     # 注意visited里只能存原图的节点，不能存新图的任何点
-#     visited = set()
-#     q = collections.deque()
-#     q.append(new_node_root)
-#     while q:
-#         temp_node = q.popleft()
-#         if temp_node in visited:
-#             continue
-#         new_node_curr = Node(temp_node.val)
-#         for neighbor in temp_node.neighbors:
-#             new_node_curr.neighbors.append(Node(neighbor.val))
-#         visited.add(temp_node)
-#     return new_node_dummy_head.neighbors[0]
+def my_bfs(node: Node):
+    if not node:
+        return None
+    # key: old_node, value: new_node(same val to old_node)
+    old_new_mapping = dict()
+    new_node_root = Node(node.val)
+    old_new_mapping[node] = new_node_root
+
+    q = collections.deque()
+    q.append(node)
+    while q:
+        temp_node = q.popleft()
+        for neighbor in temp_node.neighbors:
+            if neighbor not in old_new_mapping:
+                old_new_mapping[neighbor] = Node(neighbor.val)
+                q.append(neighbor)
+            old_new_mapping[temp_node].neighbors.append(old_new_mapping[neighbor])
+    return new_node_root
+
 
 # 这样做其实不太好，一边遍历一边复制，没法拆分代码
 # 参考复制链表一题，更好的思路是: 先复制所有点，再复制所有点的邻居(边的关系)
@@ -39,11 +41,12 @@ def my_dfs(node: Node, old_new_mapping):
         return
     if node in old_new_mapping:
         return old_new_mapping[node]
-    clone_node = Node(node.val)
-    old_new_mapping[node] = clone_node
+    # lintcode上用clone_node = UndirectedGraphNode(node.label)
+    cloned_node = Node(node.val)
+    old_new_mapping[node] = cloned_node
     for neighbor in node.neighbors:
-        clone_node.neighbors.append(my_dfs(neighbor, old_new_mapping))
-    return clone_node
+        cloned_node.neighbors.append(my_dfs(neighbor, old_new_mapping))
+    return cloned_node
 
 
 def generate_test_case() -> Node:
@@ -60,7 +63,7 @@ def generate_test_case() -> Node:
 
 
 class Testing(unittest.TestCase):
-    def test_my_bfs(self):
+    def test_my_dfs(self):
         node = generate_test_case()
         new_node = my_dfs_helper(node)
         self.assertNotEqual(hash(node), hash(new_node))

@@ -66,6 +66,7 @@ def solution(nums: List[int], target: int, k: int) -> List[int]:
                 right += 1
     return nums[left:right]
 
+
 # leetcode不要求最接近的k个数要按接近程度排序，而lintcode需要
 def leetcode_best(nums: List[int], target: int, k: int) -> List[int]:
     size = len(nums)
