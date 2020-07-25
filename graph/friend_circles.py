@@ -56,12 +56,27 @@ def my_bfs(M: List[List[int]]) -> int:
     return circles_count
 
 
-def my_dfs():
-    pass
+def my_dfs(m: List[List[int]], size: int, visited, node: int):
+    if node in visited:
+        return
+    for neighbourhood in range(size):
+        if m[node][neighbourhood] == 0:
+            continue
+        if neighbourhood not in visited:
+            my_dfs(m, size, visited, node)
+            visited.add(neighbourhood)
+    visited.add(node)
 
 
-def my_def_helper(m: List[List[int]]) -> int:
-    pass
+def my_dfs_helper(m: List[List[int]]) -> int:
+    size = len(m)
+    visited = set()
+    circles_count = 0
+    for node in range(size):
+        if node in visited:
+            continue
+        my_dfs(m, size, visited, node)
+    return circles_count
 
 
 class Testing(unittest.TestCase):
@@ -80,4 +95,4 @@ class Testing(unittest.TestCase):
 
     def test_my_dfs(self):
         for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
-            self.assertEqual(friend_circles_count, my_def_helper(adjacency_matrix))
+            self.assertEqual(friend_circles_count, my_dfs_helper(adjacency_matrix))
