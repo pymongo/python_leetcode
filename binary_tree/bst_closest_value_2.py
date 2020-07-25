@@ -6,10 +6,9 @@ import collections
 
 # 我的思路: 先找到中序遍历的数组，然后根据有序数组最接近目标值的k项这题的二分法进行数据筛选
 def bst_closest_1(root: TreeNode, target: float, k: int) -> List[int]:
-    result = []
-    if root is None:
-        return result
     in_order = []
+    if root is None:
+        return in_order
     size = 0
     stack = collections.deque()
     curr = root
@@ -23,11 +22,11 @@ def bst_closest_1(root: TreeNode, target: float, k: int) -> List[int]:
         curr = node.right
 
     # 第二部分，在中序遍历的有序数组中查找与target最接近的k项，参考[Find K Closest Elements]这题
-    start, end = 0, size-k+1
-    while start + 1 < end:
+    start, end = 0, size-k
+    while start < end:
         mid = start + (end - start) // 2
-        if target - in_order[mid] > in_order[mid+k-1] - target:
-            start = mid
+        if target - in_order[mid] > in_order[mid+k] - target:
+            start = mid + 1
         else:
             end = mid
     return in_order[start:start+k]
