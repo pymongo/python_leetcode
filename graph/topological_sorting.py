@@ -27,19 +27,19 @@ def topological_sorting_bfs(graph: List[DirectedGraphNode]) -> List[DirectedGrap
     for node in graph:
         for neighbor in node.neighbors:
             indegree_map[neighbor] = indegree_map.get(neighbor, 0) + 1
-    queue = collections.deque()
+    zero_indegree_queue = collections.deque()
     for node in graph:
         if node not in indegree_map:
             indegree_map[node] = 0
-            queue.append(node)
+            zero_indegree_queue.append(node)
     topological_order = []
-    while queue:
-        node = queue.popleft()
+    while zero_indegree_queue:
+        node = zero_indegree_queue.popleft()
         topological_order.append(node)
         for neighbor in node.neighbors:
             # 核心部分
             indegree_map[neighbor] -= 1
             if indegree_map[neighbor] == 0:
                 # 如果有向图中还有未遍历完的点，但是所有点的入度都大于等于1，说明出现了循环(例如文件之间的循环依赖)，编译器就是借助拓扑排序类似思路检查循环依赖
-                queue.append(neighbor)
+                zero_indegree_queue.append(neighbor)
     return topological_order

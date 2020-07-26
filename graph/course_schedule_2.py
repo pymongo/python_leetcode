@@ -3,40 +3,37 @@ import collections
 from typing import List
 
 
-class Course:
-    def __init__(self):
-        # self.id = course_id
-        self.pre_courses = []
-        self.next_courses = []
-        self.indegree = 0
-
-
 def course_order(courses_count: int, prerequisites: List[List[int]]) -> List[int]:
     """
+    prerequisites可以理解成一种简单的有向图邻接表(adjacency list)
     Input: 4, [[1,0],[2,0],[3,1],[3,2]]
     Output: [0,1,2,3] or [0,2,1,3]
     """
-    # size = len(prerequisites)
     # index: course_id, value: indegree's courses id
-    courses: List[Course] = [Course() for _ in range(courses_count)]
+    courses_indegree = []
+    # index: course_id, value: next_course require current course_id
+    next_courses: List[List[int]] = []
+    for _ in range(courses_count):
+        courses_indegree.append(0)
+        next_courses.append([])
+
     for course_id, pre_course_id in prerequisites:
-        courses[pre_course_id].next_courses.append(course_id)
-        courses[course_id].pre_courses.append(pre_course_id)
-        courses[course_id].indegree += 1
-    queue = collections.deque()
+        courses_indegree[course_id] += 1
+        next_courses[pre_course_id].append(course_id)
+    zero_indegree_queue = collections.deque()
     for course_id in range(courses_count):
-        if courses[course_id].indegree == 0:
-            queue.append(course_id)
+        if courses_indegree[course_id] == 0:
+            zero_indegree_queue.append(course_id)
     learn_order = []
     learn_order_len = 0
-    while queue:
-        course_id = queue.popleft()
+    while zero_indegree_queue:
+        course_id = zero_indegree_queue.popleft()
         learn_order.append(course_id)
         learn_order_len += 1
-        for next_course_id in courses[course_id].next_courses:
-            courses[next_course_id].indegree -= 1
-            if courses[next_course_id].indegree == 0:
-                queue.append(next_course_id)
+        for next_course_id in next_courses[course_id]:
+            courses_indegree[next_course_id] -= 1
+            if courses_indegree[next_course_id] == 0:
+                zero_indegree_queue.append(next_course_id)
     # 图中有死循环，不能完整地学完课程
     if learn_order_len != courses_count:
         return []
