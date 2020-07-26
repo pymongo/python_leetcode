@@ -131,6 +131,7 @@ LintCode
 |100|[Remove Duplicates from Sorted Array](https://lintcode.com/problem/remove-duplicates-from-sorted-array/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/remove_duplicates_from_sorted_array.py)|exclusive_or|
 |114|[Unique Paths](https://lintcode.com/problem/unique-paths/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|permutation|
 |120|[Word Ladder](https://lintcode.com/problem/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
+|127|[Clone Graph](https://leetcode.com/problems/topological-sorting/)|[Python](graph/topological_sorting.py)|BFS|
 |137|[Clone Graph](https://lintcode.com/problem/clone-graphs/)|[Python](graph/clone_graph.py)|DFS, BFS|
 |140|[Fast Power](https://lintcode.com/problem/fast-power/)|[Python](math/pow.py)|binary_search, 快速幂运算|
 |141|[Sqrt(x)](https://lintcode.com/problem/sqrtx/)|[Python](math/sqrt.py)|牛顿连续均值求根法|

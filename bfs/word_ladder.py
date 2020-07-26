@@ -29,6 +29,8 @@ class Solution:
         word_len = len(begin_word)
 
         while queue:
+            # 分层遍历类型题必有的模板语句: for _ in range(len(queue))
+            # 与之对应的不分层遍历，例如克隆图就没有这一层，不过不分层遍历可以加上这一层
             for _ in range(len(queue)):
                 word = queue.popleft()
                 chars = list(word)
