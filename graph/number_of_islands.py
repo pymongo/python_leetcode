@@ -17,6 +17,8 @@ def my_dfs(grid: List[List[int]], rows: int, cols: int, i: int, j: int):
     my_dfs(grid, rows, cols, i, j + 1)
 
 
+# 本质上，矩阵是一种特殊的图，叫四联通或八连通(斜着也能走)图，既除边界以外每个点都与相邻的四个点相连
+# TODO 蛇形，对角线
 def my_dfs_helper(grid: List[List[int]]) -> int:
     if not grid:
         return 0

@@ -1,7 +1,7 @@
 from .binary_tree import TreeNode
 import unittest
 import collections
-from typing import List
+from typing import List, Optional
 
 
 def pre_order_recursive_helper(root: TreeNode) -> List[int]:
@@ -34,6 +34,7 @@ def pre_order_iterative(root: TreeNode) -> List[int]:
             continue
         # 前序遍历能保证取出一个节点，该节点的值马上能写到result中，所以当前节点出栈读完值后，压入右节点和左节点就好，但是中序遍历就不同，遍历时val可能不会写入result，回溯时才会读val
         result.append(node.val)
+        # 优化空间: 对None做判断避免None值入栈又出栈浪费效率
         stack.append(node.right)
         stack.append(node.left)
     return result
