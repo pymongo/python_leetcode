@@ -175,6 +175,7 @@ LintCode
 |586_LOCK|[Sqrt(x) II](https://www.lintcode.com/problem/sqrtx-ii/)|[Python](math/sqrt.py)|牛顿连续均值求根法|
 |587_LOCK|[Two Sum - Unique pairs](https://www.lintcode.com/problem/two-sum-unique-pairs/)|[Python](two_sum/two_sum_unique_pairs.py)|two_sum|
 |594|[Implement strStr() II](https://www.lintcode.com/problem/strstr-ii/)|[Python](string/find_substr.py)|kmp, rabin_karp|
+|596_LOCK|[Minimum Subtree](https://www.lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |607|[Two Sum III - Data structure design](https://lintcode.com/problem/two-sum-iii-data-structure-design/)|[Python](two_sum/two_sum_3_impl.py)|two_pointers|
 |608|[Two Sum II - Input array is sorted](https://lintcode.com/problem/two-sum-ii-input-array-is-sorted/)|[Python](two_sum/two_sum_2_input_is_sorted.py)|two_pointers|
 |609|[Two Sum - Less than or equal to target](https://www.lintcode.com/problem/two-sum-less-than-or-equal-to-target/)|[Python](two_sum/two_sum_le_count.py)|two_pointers|

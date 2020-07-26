@@ -31,6 +31,7 @@ class Solution:
         while queue:
             # 分层遍历类型题必有的模板语句: for _ in range(len(queue))
             # 与之对应的不分层遍历，例如克隆图就没有这一层，不过不分层遍历可以加上这一层
+            # 可以使用一个<word,distance>的HashMap，就不需要分层遍历的这层for
             for _ in range(len(queue)):
                 word = queue.popleft()
                 chars = list(word)
