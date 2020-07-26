@@ -7,8 +7,8 @@ def lca_helper(root: TreeNode, a: TreeNode, b: TreeNode) -> Optional[TreeNode]:
     return lca(root, a, b)[0]
 
 
-# 适合用二叉树分治法
-def lca(root: TreeNode, a: TreeNode, b: TreeNode):
+# 适合用二叉树分治法, 非递归解法用两个Hash存储p和q的祖先，如果出现重复则为最近公共祖先，迭代写法面试官都不一定能看得懂
+def lca(root: TreeNode, a: TreeNode, b: TreeNode) -> (bool, bool, Optional[TreeNode]):
     if root is None:
         return None, False, False
 
@@ -30,3 +30,14 @@ def lca(root: TreeNode, a: TreeNode, b: TreeNode):
     if root.val == b.val:
         root_is_ancestor_of_b = True
     return root, root_is_ancestor_of_a, root_is_ancestor_of_b
+
+
+class Testing(unittest.TestCase):
+    TEST_CASES = [
+        ("4(3)(7(5)(6))", 3, 5, 4)
+    ]
+
+    def test_lca(self):
+        for binary_tree, a, b, common_ancestor in self.TEST_CASES:
+            root = TreeNode.from_str(binary_tree)
+            self.assertEqual(common_ancestor, lca_helper(root, TreeNode(a), TreeNode(b)).val)
