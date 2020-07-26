@@ -32,6 +32,29 @@ def lca(root: TreeNode, a: TreeNode, b: TreeNode) -> (bool, bool, Optional[TreeN
     return root, root_is_ancestor_of_a, root_is_ancestor_of_b
 
 
+class LCA2:
+    def __init__(self, val: int):
+        self.val = val
+        self.left = None
+        self.right = None
+        # 每个节点除了左右儿子指针以外，还包含一个父亲指针parent，指向自己的父亲
+        self.parent = None
+
+
+def lca2(root: LCA2, a: LCA2, b: LCA2):
+    a_parents = set()
+    a_curr_parent = a
+    while a_curr_parent is not None:
+        a_parents.add(a_curr_parent)
+        a_curr_parent = a_curr_parent.parent
+    b_curr_parent = b
+    while b_curr_parent is not None:
+        if b_curr_parent in a_parents:
+            return b_curr_parent
+        b_curr_parent = b_curr_parent.parent
+    return None
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ("4(3)(7(5)(6))", 3, 5, 4)
