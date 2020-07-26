@@ -27,12 +27,11 @@ def topological_sorting_bfs(graph: List[DirectedGraphNode]) -> List[DirectedGrap
     for node in graph:
         for neighbor in node.neighbors:
             indegree_map[neighbor] = indegree_map.get(neighbor, 0) + 1
-    start_nodes = []
+    queue = collections.deque()
     for node in graph:
         if node not in indegree_map:
             indegree_map[node] = 0
-            start_nodes.append(node)
-    queue = collections.deque(start_nodes)
+            queue.append(node)
     topological_order = []
     while queue:
         node = queue.popleft()

@@ -8,6 +8,7 @@ def lca_helper(root: TreeNode, a: TreeNode, b: TreeNode) -> Optional[TreeNode]:
 
 
 # 适合用二叉树分治法, 非递归解法用两个Hash存储p和q的祖先，如果出现重复则为最近公共祖先，迭代写法面试官都不一定能看得懂
+# 这套模板同时能解决lintcode 578. Lowest Common Ancestor III(没有祖先节点或a和b在二叉树内)
 def lca(root: TreeNode, a: TreeNode, b: TreeNode) -> (bool, bool, Optional[TreeNode]):
     if root is None:
         return None, False, False
@@ -23,13 +24,14 @@ def lca(root: TreeNode, a: TreeNode, b: TreeNode) -> (bool, bool, Optional[TreeN
     # 根据左右子树分治的结果，得到当前节点是不是a或b的祖先节点
     root_is_ancestor_of_a = left_is_ancestor_of_a or right_is_ancestor_of_a
     root_is_ancestor_of_b = left_is_ancestor_of_b or right_is_ancestor_of_b
-    if root_is_ancestor_of_a and root_is_ancestor_of_b:
-        return root, True, True
     if root.val == a.val:
         root_is_ancestor_of_a = True
     if root.val == b.val:
         root_is_ancestor_of_b = True
-    return root, root_is_ancestor_of_a, root_is_ancestor_of_b
+    if root_is_ancestor_of_a and root_is_ancestor_of_b:
+        return root, True, True
+    else:
+        return None, root_is_ancestor_of_a, root_is_ancestor_of_b
 
 
 class LCA2:
