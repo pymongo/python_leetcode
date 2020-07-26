@@ -38,6 +38,7 @@ def solution(grid: List[List[int]]) -> int:
     visited = set()
     while queue:
         point = queue.popleft()
+        # Java中除了构造Point类，还可以用seen = kx + y来解决二元tuple的visited问题
         if (point.x, point.y) in visited:
             continue
         print(point)

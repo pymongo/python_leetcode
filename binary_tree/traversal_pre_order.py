@@ -40,6 +40,21 @@ def pre_order_iterative(root: TreeNode) -> List[int]:
     return result
 
 
+# 230. Kth Smallest Element in a BST
+def bst_kth_smallest(root: TreeNode, k: int) -> int:
+    stack = collections.deque()
+    curr_node = root
+    while curr_node or stack:
+        while curr_node:
+            stack.append(curr_node)
+            curr_node = curr_node.left
+        curr_node = stack.pop()
+        k -= 1
+        if k == 0:
+            return curr_node.val
+        curr_node = curr_node.right
+
+
 # 迭代版的前序和中序遍历用的不是一套模板
 def in_order_iterative(root: TreeNode) -> List[int]:
     result = []

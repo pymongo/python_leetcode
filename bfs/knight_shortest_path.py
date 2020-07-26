@@ -34,6 +34,7 @@ def my_bfs(grid: List[List[int]], source: Point, destination: Point) -> int:
         grid[x][y] = 1
         if x == destination.x and y == destination.y:
             # min_steps = min(min_steps, steps)
+            # 如果图每条边的权重不为1，则这里可能不是最短路径
             return steps
         next_steps = steps + 1
         for dx, dy in HORSE_DIRECTIONS:

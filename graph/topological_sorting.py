@@ -41,5 +41,6 @@ def topological_sorting_bfs(graph: List[DirectedGraphNode]) -> List[DirectedGrap
             # 核心部分
             indegree_map[neighbor] -= 1
             if indegree_map[neighbor] == 0:
+                # 如果有向图中还有未遍历完的点，但是所有点的入度都大于等于1，说明出现了循环(例如文件之间的循环依赖)，编译器就是借助拓扑排序类似思路检查循环依赖
                 queue.append(neighbor)
     return topological_order

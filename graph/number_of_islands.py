@@ -18,7 +18,8 @@ def my_dfs(grid: List[List[int]], rows: int, cols: int, i: int, j: int):
 
 
 # 本质上，矩阵是一种特殊的图，叫四联通或八连通(斜着也能走)图，既除边界以外每个点都与相邻的四个点相连
-# TODO 蛇形，对角线
+# DFS最坏情况: 隔一行的蛇形黑线1，栈的深度大约是rows * cols
+# BFS最坏情况: 全是1，从左上到右下，每层的每个节点都能向右和向下扩散(满二叉树的感觉)，遍历的方向可以想象成矩阵右上角到左下角的对角线，队列最大长度为最长右上左下对角线
 def my_dfs_helper(grid: List[List[int]]) -> int:
     if not grid:
         return 0
