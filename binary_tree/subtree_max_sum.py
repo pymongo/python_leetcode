@@ -3,6 +3,8 @@ from typing import Optional
 import unittest
 
 
+# 请问一个有N个节点的二叉树，一共有几个subtree?
+# 答案是N个(以某个节点为根，把它往下的所有节点囊括进去)
 def subtree_max_sum(root: TreeNode) -> (int, int, Optional[TreeNode]):
     if root.left is None and root.right is None:
         return root.val, root.val, root

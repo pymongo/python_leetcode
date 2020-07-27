@@ -1,8 +1,16 @@
+"""
+一种遍历解法，以二叉树1((2)(3(4)(5))))为例
+遍历结果: 1 2 1 3 4 3 5 3 1
+          ^     ^
+节点深度: 1 2 1 2 3 2 3 2 1
+求2和4的LCA等于2和4之间深度最浅的点1，可以用线段树优化区间搜索最低深度值的过程
+"""
 from .binary_tree import TreeNode
 import unittest
 from typing import Optional
 
 
+# 如果是求n个LCA，有一个算法叫Tarjan算法
 def lca_helper(root: TreeNode, a: TreeNode, b: TreeNode) -> Optional[TreeNode]:
     return lca(root, a, b)[0]
 
