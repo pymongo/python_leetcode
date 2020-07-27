@@ -28,6 +28,7 @@ def kmp_compute_longest_prefix_suffix(target: str) -> List[int]:
 
 
 # 我更喜欢将rabin_karp称为: rolling hash
+# 可是rolling_hash也太慢了，在rotate_string一题上rolling_hash比`a in b`的语句还要慢，还是得学KMP
 def rabin_karp(source: str, target: str) -> int:
     """
     优化思路：通过将字符串转换为整数，使字符串的比较相等从O(n)时间复杂度降低到O(1)
@@ -36,7 +37,6 @@ def rabin_karp(source: str, target: str) -> int:
         为什么基数选用31呢？这是业界的经验之谈，效率和性能较好
         避免整数溢出：将hash的计算结果%(10^12)，存在冲突的可能性几乎为0
     按照上述思路，在source中往右移动比较字符串窗口时，例如abcd从abc移到bcd，只需将a的权重减掉，再加上d的权重
-    TODO 这个算法在leetcode上Runtime: 32 ms, faster than 61.09%，但是在lintcode上有两个测试用例(长度超过20万)时会超时
     """
     if source is None or target is None:
         return -1
@@ -70,16 +70,16 @@ def rabin_karp(source: str, target: str) -> int:
         return 0
 
     # sliding window traverse source
-    for i in range(1, source_len - target_len + 1):
+    for i in range(source_len - target_len):
         # abc + d
-        source_hash = (source_hash * BASE + ord(source[i + target_len - 1]) - CHAR_OFFSET) % MODULES
+        source_hash = (source_hash * BASE + ord(source[i + target_len]) - CHAR_OFFSET) % MODULES
         # abcd - a，经过上面一次移位，a的系数应该是BASE ** (target_len-1)+1
-        source_hash = source_hash - (ord(source[i - 1]) - CHAR_OFFSET) * (BASE ** target_len) % MODULES
+        source_hash = source_hash - (ord(source[i]) - CHAR_OFFSET) * (BASE ** target_len) % MODULES
         if source_hash < 0:
             source_hash += MODULES
         if source_hash == target_hash:
             # TODO double check substr
-            return i
+            return i + 1
     return -1
 
 

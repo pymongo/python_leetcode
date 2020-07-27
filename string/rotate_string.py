@@ -58,11 +58,10 @@ def rolling_hash(a: str, b: str) -> bool:
         target_hash = (target_hash * BASE + ord(target[i]) - CHAR_OFFSET) % MOD
     if source_hash == target_hash:
         return True
-    for i in range(1, source_len - target_len + 1):
-        # abc + d
-        source_hash = (source_hash * BASE + ord(source[i + target_len - 1]) - CHAR_OFFSET) % MOD
-        # abcd - a，经过上面一次移位，a的系数应该是BASE ** (target_len-1)+1
-        source_hash = source_hash - (ord(source[i - 1]) - CHAR_OFFSET) * (BASE ** target_len) % MOD
+    for i in range(source_len - target_len):
+        # rolling_hash背诵点2: source_hash先往右扩展一位，然后再剔除掉第一个字母所占的Hash的代码模板
+        source_hash = (source_hash * BASE + ord(source[i + target_len]) - CHAR_OFFSET) % MOD
+        source_hash = source_hash - ((ord(source[i]) - CHAR_OFFSET) * (BASE ** target_len) % MOD)
         if source_hash < 0:
             source_hash += MOD
         if source_hash == target_hash:
