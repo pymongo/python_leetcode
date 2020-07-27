@@ -1,26 +1,42 @@
 """
 https://leetcode.com/problems/implement-strstr/
+推荐KMP算法:
+KMP的LPS=longest prefix suffix，也有人叫shifts
 """
 import unittest
 from typing import List, Tuple
 
 
-def kmp_compute_longest_prefix_suffix(target: str) -> List[int]:
-    # FIXME 错误的KMP前缀pattern计算方法，KMP有点烧脑，为了节约时间还是用别的算法
-    left_ptr: int
-    size = len(target)
-    lps = [0 for _ in range(size)]
-    for right_prt in range(size):
-        left_ptr = 0
-        while left_ptr < right_prt:
-            # 不能用回文数的比较思想
-            if target[left_ptr] == target[right_prt]:
-                lps[left_ptr] += 1
-                left_ptr += 1
-                right_prt -= 1
-            else:
-                break
-    return lps
+# https://leetcode-cn.com/problems/implement-strstr/solution/kmp-suan-fa-xiang-jie-by-labuladong/
+# 临摹一下 labuladong大神的进阶版KMP(状态机+动态规划)
+def kmp_dp(source: str, target: str) -> int:
+    target_len = len(target)
+    if target_len == 0:
+        return 0
+    # dp[状态][字符(ASCII)] = 下一个状态
+    ord_a = ord('a')
+    dp = [[0] * (128 - ord_a) for _ in range(target_len)]
+    # base case
+    dp[0][ord(target[0]) - ord_a] = 1
+    # 影子状态初始值为0
+    shadow_state = 0
+    for i in range(1, target_len):
+        for char in range(128 - ord_a):
+            dp[i][char] = dp[shadow_state][char]
+        target_char = ord(target[i]) - ord_a
+        dp[i][target_char] = i + 1
+        shadow_state = dp[shadow_state][target_char]
+
+    source_len = len(source)
+    # pat的初始状态为0
+    state = 0
+    for i in range(source_len):
+        # 计算 pat 的下一个状态
+        state = dp[state][ord(source[i]) - ord_a]
+        # 到达终止态，返回结果
+        if state == target_len:
+            return i - target_len + 1
+    return -1
 
 
 # def kmp_search(source: str, target: str) -> int:
@@ -85,19 +101,17 @@ def rabin_karp(source: str, target: str) -> int:
 
 class Testing(unittest.TestCase):
     TEST_CASE: List[Tuple[str, str, int]] = [
+        ("mississippi", "issip", 4),
         ("abcdef", "bcd", 1),
         ("abcde", "e", 4),
         ("any", "", 0),
     ]
 
     def test_rabin_karp(self):
-        for source, target, expected in self.TEST_CASE[:]:
+        for source, target, expected in self.TEST_CASE:
             self.assertEqual(expected, rabin_karp(source, target))
 
-    KMP_LPS_TEST_CASES: List[Tuple[str, List[str]]] = [
-        ("ABCDABD", [0, 0, 0, 0, 1, 2, 0])
-    ]
-
     def test_kmp_lps(self):
-        for pattern, expected in self.KMP_LPS_TEST_CASES[:]:
-            self.assertEqual(expected, kmp_compute_longest_prefix_suffix(pattern))
+        for source, target, expected in self.TEST_CASE:
+            print(source, target)
+            self.assertEqual(expected, kmp_dp(source, target))
