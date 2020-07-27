@@ -19,12 +19,12 @@ def is_words_in_order(words: List[str], order: str) -> bool:
     last_size = len(words[0])
     # 两两比较(冒泡)是否有序
     for i in range(1, size):
-        curr_size = len(words[1])
-        for k in range(min(last_size, curr_size)):
-            if alphabet_priority[words[i][k]] == alphabet_priority[words[i - 1][k]]:
+        curr_size = len(words[i])
+        for j in range(min(last_size, curr_size)):
+            if alphabet_priority[words[i][j]] == alphabet_priority[words[i - 1][j]]:
                 continue
             # 只有当单词字母出现不相等时才需要判断权重
-            if alphabet_priority[words[i][k]] < alphabet_priority[words[i - 1][k]]:
+            if alphabet_priority[words[i][j]] < alphabet_priority[words[i - 1][j]]:
                 return False
             # 比一个不相等的首字母就够了
             break
