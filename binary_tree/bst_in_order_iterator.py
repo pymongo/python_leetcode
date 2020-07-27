@@ -8,9 +8,11 @@ from .binary_tree import TreeNode
 import unittest
 import collections
 
+
 # 二叉树的高度与节点数量关系不大，最好O(logn)最坏O(n)，所以用一个与n无关的变量h表示二叉树的高度。一开始的假设如果错了，后面时间复杂度的推算就全错了
 # BST中最小的节点是从根节点一直往左走遇见的叶子节点，它不一定在树的最底层
 # 如果BST是一个平衡二叉树(满二叉树)，查找最小值的耗时是O(logn)，否则是O(n) (一条链)
+# 红黑树是「其中一种」Balanced BST
 class BSTIterator:
 
     # 另一种笨方法是初始化时直接生成中序数组，然后next去取，但是不满足O(h),h为二叉树最大高度的空间复杂度

@@ -51,7 +51,7 @@ class LCA2:
         self.parent = None
 
 
-def lca2(root: LCA2, a: LCA2, b: LCA2):
+def lca2(_root: LCA2, a: LCA2, b: LCA2):
     a_parents = set()
     a_curr_parent = a
     while a_curr_parent is not None:
@@ -61,6 +61,7 @@ def lca2(root: LCA2, a: LCA2, b: LCA2):
     while b_curr_parent is not None:
         if b_curr_parent in a_parents:
             return b_curr_parent
+        # 因为b是从下往上遍历，所以遍历到第一个节点也在a的祖先列表中，那就一定是LCA
         b_curr_parent = b_curr_parent.parent
     return None
 
