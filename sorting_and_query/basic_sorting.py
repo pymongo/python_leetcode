@@ -21,9 +21,7 @@ https://www.jianshu.com/p/bbbab7fa77a2
 import unittest
 from typing import List, Tuple
 from pprint import pprint as p
-# parent folder的py文件都能被导入... 我还是喜欢Rust的跟文件结构保持一致的包管理
-# 我理解为import的root在项目文件夹，所以mydbg能被找到
-# from mydbg import dbg
+from binary_tree.binary_tree import dbg
 from copy import deepcopy
 
 
@@ -68,34 +66,68 @@ def heap_push(nums: List[int], index: int):
         index = parent_index
 
 
+def heapify_iterative(nums: List[int], size: int, index: int):
+    while True:
+        left = index * 2 + 1
+        right = index * 2 + 2
+        max_index = index
+        if left < size and nums[left] > nums[max_index]:
+            max_index = left
+        if right < size and nums[right] > nums[max_index]:
+            max_index = right
+        # 循环退出条件1. 二叉树节点的根已经是最大值，没有发生交换
+        # 循环退出条件2. 二叉树节点的根发生过交换，没有发生交换
+        if max_index == index:
+            return
+        nums[index], nums[max_index] = nums[max_index], nums[index]
+        # 当前二叉树节点的值与左儿子或右儿子发生互换，需要检查左儿子或右儿子是否仍能保持堆结构
+        index = max_index
+
+
 # In-Place sorting
 def heap_sort_iterative(nums: List[int]):
     """
-    大根堆: max_heapify, 中文上喜欢把根最大的堆称为大根堆
-    heapify指的是将二叉树维护成大根堆，大根堆有两个特性
+    大根堆(max_heapify), 大根堆有两个特性:
     1. 要求二叉树必须是完全二叉树(按BFS的顺序遍历不能有None值，也就是从上到下从左到右排列)
     2. 根节点的值比左右子树的值都要大
     以一个值等于下标的二叉树(0(1(3)(4))(2))为例，1在BFS数组中的下标为1
-    1的parent的下标为: (index-1) // 2 = 0 // 2 = 0
-    1的左子树节点的下标为: index * 2 + 1 = 1 * 2 + 1
-    1的右子树节点的下标为: index * 2 + 1 = 1 * 2 + 2
+    1的parent的下标为:  (index-1) // 2 = 0 // 2    = 0
+    1的左子树节点的下标为: index * 2 + 1 = 1 * 2 + 1 = 3
+    1的右子树节点的下标为: index * 2 + 1 = 1 * 2 + 2 = 4
     本题用BFS二叉树得到的数组进行堆排序，堆排序可以分为: heapify和heappop两个过程
+    用内置库进行堆排序的过程:
+    heap_nums = []
+    for num in nums:
+        heapq.heappush(heap_nums, num)
+    sorted_nums = [heapq.heappop(heap_nums) for _ in range(len(heap_nums))]
     """
     heap_size = len(nums)
-    for index in range(heap_size):
-        heap_push(nums, index)
+    # 从倒数第一个非叶子结点开始遍历(从右到左，从下到上)，并进行heapify
+    # 照抄了heapq内部实现，实际上开始位置的索引是size//2 - 1(最深的左叶子节点)
+    # step.1 从最后一个非叶子节点往上heapify
+    for i in reversed(range(heap_size // 2)):
+        heapify_iterative(nums, heap_size, i)
+    # 将heap_size减1使之与heap内最后一个元素的下标值相等，方便下标访问
+    heap_size -= 1
+    # step.2 heappop: 每次将堆顶(堆的根)弹出与堆最后一个值交换，然后堆的大小减1进行heapify维护堆的特性，数组就划分成两个区域前面是堆，后面是排序好的部分
+    while heap_size > 0:
+        nums[0], nums[heap_size] = nums[heap_size], nums[0]
+        heapify_iterative(nums, heap_size, 0)
+        heap_size -= 1
+    # for i in range(heap_size - 1):
+    #     nums[0], nums[heap_size - 1 - i] = nums[heap_size - 1 - i], nums[0]
+    #     heapify_iterative(nums, heap_size - 1 - i, 0)
 
 
 def heap_sort(input_numbers: List[int]) -> List[int]:
     """
-    ## 堆排序学习资料
     https://www.youtube.com/watch?v=j-DqQcNPGbE
 
-    ## heapq
+    ## heapq和堆排序的关系
     有人把上述视频中的build_heap 叫做heapify
     Python heapq 的heapify就是把整个array变成heap
     视频中的heapify 有人喜欢叫成bubble down，因为是value从parent往children走
-    然后视频没有cover bubble up。heappop的时候用bubble down
+    然后视频没有cover bubble up heappop的时候用bubble down
     如果implement heappush的话是需要bubble up
 
     ## 堆排序的几个概念
@@ -103,15 +135,8 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
     - 堆的规则/特征: 1. 是个完全二叉树 2. 父节点的数值比子节点大
     - heapify: 将一个完全二叉树的某个节点按堆的规则进行重排，常用于堆的数据发生变化时(例如堆顶被扔掉)，需要对变化的节点进行重排
 
-    ## 用数组模拟堆(完全二叉树)
-    1. 用数组模拟完全二叉树，从上到下从左到右(BFS)地编号，假设节点的索引为i，有如下规律
-    1.1 i的父节点索引parent=(i-1)/2
-    1.2 i的左子节点索引c1=2*i+1
-    1.3 i的右子节点索引c2=2*i+2
-
     ## 时间复杂度分析
-    时间复杂度：O(nlog n)O(nlogn)。初始化建堆的时间复杂度为 O(n)O(n)，建完堆以后需要进行 n-1n−1 次调整，
-    一次调整（即 maxHeapify）的时间复杂度为 O(logn)O(logn)，
+    初始化heappush的时间复杂度为O(n*logn)，建完堆以后"排序"heapop需要n-1次，每次需要logn时间复杂度
     那么 n-1n−1 次调整即需要 O(nlog n)O(nlogn) 的时间复杂度。因此，总时间复杂度为 O(n+nlog n)=O(nlog n)O(n+nlogn)=O(nlogn)。
     平均/最好/最坏都是O(nlogn)；不稳定排序
     """
@@ -215,7 +240,7 @@ def insertion_sort(nums: List[int]) -> List[int]:
     return nums
 
 
-def shell_sort(numbers: List[int]) -> List[int]:
+def shell_sort(numbers: List[int]):
     """
     理解希尔排序的话看图
     https://www.cnblogs.com/chengxiao/p/6104371.html
@@ -255,8 +280,6 @@ def shell_sort(numbers: List[int]) -> List[int]:
             # 将current_number插入到正确位置
             numbers[left + gap] = current_number
         gap //= 2
-
-    return numbers
 
 
 def merge_sort(numbers: List[int]) -> List[int]:
@@ -369,7 +392,7 @@ def quick_sort_in_place(nums: List[int], start, end):
 
 
 class TestSorting(unittest.TestCase):
-    TEST_CASES: List[List[int]] = [
+    NUMS_TEST_CASES: List[List[int]] = [
         [5, 2, 3, 1],
         [5, 3, 4, 2],
         [3, 2, 1, 4, 5],
@@ -385,48 +408,51 @@ class TestSorting(unittest.TestCase):
 
     def test_bubble_sort(self):
         print("test_bubble_sort")
-        for nums in deepcopy(self.TEST_CASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
+            dbg(nums)
+            sorted_nums = sorted(nums)
+            bubble_sort(nums)
+            dbg(nums)
+            self.assertEqual(sorted_nums, nums)
+
+    def test_selection_sort(self):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             sorted_nums = sorted(nums)
             bubble_sort(nums)
             self.assertEqual(sorted_nums, nums)
 
-    @unittest.skip("修复中")
-    def test_selection_sort(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
-            self.assertEqual(expected, selection_sort(nums))
-
-    @unittest.skip("修复中")
     def test_heap_sort_iterative(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             sorted_nums = sorted(nums)
-            print(nums)
+            heap_sort_iterative(nums)
             self.assertEqual(sorted_nums, nums)
 
-    @unittest.skip("修复中")
     def test_heap_sort(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
+            sorted_nums = sorted(nums)
             heap_sort(nums)
-            self.assertEqual(expected, nums)
+            self.assertEqual(sorted_nums, nums)
 
     @unittest.skip("跟Rust的binary_search的行为不一致")
     def test_binary_search(self):
         for nums, target, expected in deepcopy(self.BINARY_SEARCH_TEST_CASES):
             self.assertEqual(expected, binary_search(nums, target))
 
-    @unittest.skip("修复中")
+    @unittest.skip("二分查找有问题，插入排序用到了二分查找的函数，等待修复")
     def test_insertion_sort(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
+        for nums, expected in deepcopy(self.NUMS_TEST_CASES):
             self.assertEqual(expected, insertion_sort(nums))
 
-    @unittest.skip("修复中")
     def test_shell_sort(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
-            self.assertEqual(expected, shell_sort(nums))
+        for nums in deepcopy(self.NUMS_TEST_CASES):
+            sorted_nums = sorted(nums)
+            shell_sort(nums)
+            self.assertEqual(sorted_nums, nums)
 
     @unittest.skip("修复中")
     def test_merge_sort(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
-            self.assertEqual(expected, merge_sort(nums))
+        for nums in deepcopy(self.NUMS_TEST_CASES):
+            self.assertEqual(nums, merge_sort(nums))
 
     @unittest.skip("修复中")
     def test_quick_sort_simple(self):
@@ -434,20 +460,19 @@ class TestSorting(unittest.TestCase):
         print('python import paths:')
         for path in sys.path:
             print(path)
-        for nums, expected in deepcopy(self.TEST_CASES):
+        for nums, expected in deepcopy(self.NUMS_TEST_CASES):
             self.assertEqual(expected, quick_sort_simple(nums))
 
     @unittest.skip("修复中")
     def test_quick_sort_recipe(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
+        for nums, expected in deepcopy(self.NUMS_TEST_CASES):
             self.assertEqual(expected, quick_sort_recipe(nums))
 
     @unittest.skip("修复中")
     def test_quick_sort_in_place(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
+        for nums, expected in deepcopy(self.NUMS_TEST_CASES):
             quick_sort_in_place(nums, 0, len(nums) - 1)
             self.assertEqual(expected, nums)
-
 
 # if __name__ == '__main__':
 #     print("为什么在这里运行单元测试")
