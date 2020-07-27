@@ -1,9 +1,3 @@
-"""
-alien_dictionary这题用的还是拓补排序的模板
-不过deque要换成heapq，Java中是把Queue换成PriorityQueue
-Python中heapq本身不是优先队列，但是可以实现优先队列的效果
-deque也是如此，本身deque不是栈，但是也能实现栈的效果(因为是双端队列)
-"""
 import unittest
 from typing import List
 
