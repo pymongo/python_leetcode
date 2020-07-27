@@ -31,6 +31,9 @@ class TreeNode:
 
     # 为了Debug时方便看到二叉树结构，还是将杨辉三角的打印弄成另一个方法好点
     def __str__(self):
+        """
+        用于 print(TreeNode)
+        """
         s = ""
         if self is None:
             return s
@@ -54,6 +57,12 @@ class TreeNode:
             visited.add(node)
         # 去掉头尾的括号
         return s[1:-1]
+
+    def __repr__(self):
+        """
+        用于 print(List[TreeNode])
+        """
+        return self.__str__()
 
     # FIXME Bug: 二叉树为"1()(2(3))"时，最后一行是错的，所以本函数仅供参考，单元测试比较二叉树是否等于期待值还是用to_str()
     def pretty(self):

@@ -2,7 +2,6 @@
 终极方案: 莫里斯遍历(Morris)+线索二叉树(threaded_binary_tree)
 关键词: successor, predecessor
 在遍历的时候，利用predecessor的右空指针，将其指向当前节点
-
 """
 from .binary_tree import TreeNode
 import unittest

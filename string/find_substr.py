@@ -38,11 +38,6 @@ def kmp_dp(source: str, target: str) -> int:
             return i - target_len + 1
     return -1
 
-
-# def kmp_search(source: str, target: str) -> int:
-#     return -1
-
-
 # 我更喜欢将rabin_karp称为: rolling hash
 # 可是rolling_hash也太慢了，在rotate_string一题上rolling_hash比`a in b`的语句还要慢，还是得学KMP
 def rabin_karp(source: str, target: str) -> int:

@@ -42,6 +42,12 @@ def pre_order_iterative(root: TreeNode) -> List[int]:
 
 # 230. Kth Smallest Element in a BST
 def bst_kth_smallest(root: TreeNode, k: int) -> int:
+    """
+    TODO 优化方法
+    用一个HashMap<TreeNode, Integer>记录每个节点的子树的节点个数
+    利用快速选择的算法，确定第k小的数在哪一个子树中，时间复杂度为O(h)
+    例如求k=20小的元素，root.left有15个，root算一个，那么等同于求root.right中第4小的元素
+    """
     stack = collections.deque()
     curr_node = root
     while curr_node or stack:
