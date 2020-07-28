@@ -34,7 +34,8 @@ def solution(nums, target):
 class UnitTest(unittest.TestCase):
     TEST_CASES = [
         ([-1, 0, 3, 5, 9, 12], 9, 4),
-        ([-1, 0, 3, 5, 9, 12], 2, -1)
+        ([-1, 0, 3, 5, 9, 12], 2, -1),
+        ([-1, 1, 2, 2, 2, 3], 2, 2),
     ]
 
     def test(self):

@@ -81,21 +81,22 @@ def cascading(nums: List[int]) -> List[List[int]]:
 
 # 用递归版本(回溯的解法)
 def dfs_helper(nums: List[int]) -> List[List[int]]:
-    result = []
+    results = []
     # 排序
     nums.sort()
     # dfs搜索
     size = len(nums)
-    dfs(nums=nums, nums_start_index=0, size=size, subset=[], result=result)
-    return result
+    dfs(nums=nums, nums_start_index=0, size=size, subset=[], results=results)
+    return results
 
 
-def dfs(nums: List[int], nums_start_index: int, size: int, subset: List[int], result: List[List[int]]):
+def dfs(nums: List[int], nums_start_index: int, size: int, subset: List[int], results: List[List[int]]):
     # 当前组合存入res
-    result.append(subset.copy())
+    results.append(subset.copy())
     # 为subset(当前组合)新增一位元素
     # 当前的subset里还能往后加什么，例如[1,2]往后只能加3
     for i in range(nums_start_index, size):
+        # TODO 另一种去重方法是将结果集的数据结构改为HashSet，不过性能差很多
         # 剪枝(去重)
         if i > nums_start_index and nums[i] == nums[i - 1]:
             continue
@@ -104,7 +105,7 @@ def dfs(nums: List[int], nums_start_index: int, size: int, subset: List[int], re
         subset.append(nums[i])
 
         # 下一层搜索，去寻找所有以[1,2]开头的子集
-        dfs(nums=nums, nums_start_index=i+1, size=size, subset=subset, result=result)
+        dfs(nums=nums, nums_start_index=i+1, size=size, subset=subset, results=results)
 
         # [1,2] => [1]
         # 撤销掉上上个语句subset.append(nums[i])的影响，也就是回溯(或用subset.pop())
