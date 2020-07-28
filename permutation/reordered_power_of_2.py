@@ -1,5 +1,6 @@
 import unittest
 import itertools
+from collections import Counter
 
 
 # 耗时8s的排列组合解法
@@ -46,9 +47,6 @@ def better_permutation_solution(n: int) -> bool:
         num = int("".join(nums))
         if (num & -num) == num:
             return True
-
-
-from collections import Counter
 
 
 # Java实现Counter类型: 长度为10的数组，索引表示0-9每位，值表示出现次数

@@ -14,6 +14,7 @@ def dfs_helper(nums: List[int], target: int) -> List[List[int]]:
     return results
 
 
+# 组合类问题都是n*2^n以上的时间复杂度，基本就只有一种搜索方法，不像多项式级别的算法有各种优化
 # BFS不容易实现target的reduce，不建议折腾BFS写法，背熟这个模板即可
 def dfs(nums: List[int], target: int, nums_start: int, size: int, combination: List[int], results: List[List[int]]):
     if target == 0:
