@@ -11,18 +11,20 @@ TODO 本题相当于让你impl内置库: itertools.permutations
 import unittest
 import random
 import itertools
-from typing import List, Set
+from typing import List
 
 
 def my_permutation(nums: List[int]) -> List[List[int]]:
     results = []
-    dfs([], set(), 0, len(nums), nums, results)
+    size = len(nums)
+    permutation_visited = [False] * size
+    dfs([], permutation_visited, 0, size, nums, results)
     return results
 
 
 def dfs(
     permutation: List[int],
-    permutation_visited: Set[int],
+    permutation_visited: List[int],
     permutation_size: int,
     size: int,
     nums: List[int],
@@ -32,16 +34,16 @@ def dfs(
         results.append(permutation.copy())
         return
 
-    for num in nums:
-        if num in permutation_visited:
+    for i in range(size):
+        if permutation_visited[i]:
             continue
-        permutation.append(num)
-        permutation_visited.add(num)
+        permutation.append(nums[i])
+        permutation_visited[i] = True
 
         dfs(permutation, permutation_visited, permutation_size + 1, size, nums, results)
 
         permutation.pop()
-        permutation_visited.remove(num)
+        permutation_visited[i] = False
 
 
 class Testing(unittest.TestCase):
