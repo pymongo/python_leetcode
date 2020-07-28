@@ -31,6 +31,12 @@ DFS的过程出发点是空集，然后是否选1可以分岔为2个决策，第
 干掉重复项之后再分岔
 [1,1] [1] []
 [1,1,3] [1,1] [1,3] [1] [3] []
+
+如果没有重复元素，三行就搞定:
+output = [[]]
+for num in nums:
+    output += [curr + [num] for curr in output]
+return output
 """
 import unittest
 from typing import List
@@ -73,6 +79,40 @@ def cascading(nums: List[int]) -> List[List[int]]:
     return list(q)
 
 
+# 用递归版本(回溯的解法)
+def dfs_helper(nums: List[int]) -> List[List[int]]:
+    result = []
+    # 排序
+    nums.sort()
+    # dfs搜索
+    size = len(nums)
+    dfs(nums=nums, nums_start_index=0, size=size, subset=[], result=result)
+    return result
+
+
+def dfs(nums: List[int], nums_start_index: int, size: int, subset: List[int], result: List[List[int]]):
+    # 当前组合存入res
+    result.append(subset.copy())
+    # 为subset(当前组合)新增一位元素
+    # 当前的subset里还能往后加什么，例如[1,2]往后只能加3
+    for i in range(nums_start_index, size):
+        # 剪枝(去重)
+        if i > nums_start_index and nums[i] == nums[i - 1]:
+            continue
+
+        # [1] => [1,2]
+        subset.append(nums[i])
+
+        # 下一层搜索，去寻找所有以[1,2]开头的子集
+        dfs(nums=nums, nums_start_index=i+1, size=size, subset=subset, result=result)
+
+        # [1,2] => [1]
+        # 撤销掉上上个语句subset.append(nums[i])的影响，也就是回溯(或用subset.pop())
+        # 只有这样子，第二遍for循环时才能跟第一遍for循环的开头时的subset一样
+        # 或者用del subset[-1]
+        subset.pop()
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([1, 3, 1], [
@@ -90,6 +130,10 @@ class Testing(unittest.TestCase):
         ]),
     ]
 
-    def test_dfs(self):
+    def test_cascading(self):
         for nums, subsets in self.TEST_CASES:
             self.assertCountEqual(subsets, cascading(nums))
+
+    def test_dfs(self):
+        for nums, subsets in self.TEST_CASES:
+            self.assertCountEqual(subsets, dfs_helper(nums))
