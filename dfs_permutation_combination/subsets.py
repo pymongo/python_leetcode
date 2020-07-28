@@ -37,6 +37,13 @@ output = [[]]
 for num in nums:
     output += [curr + [num] for curr in output]
 return output
+
+TODO 本题相当于impl了哪些内置库
+相当于让你求:
+results = []
+for i in range(len(nums)+1):
+    results.append(itertools.combinations(nums, i))
+return results
 """
 import unittest
 from typing import List
