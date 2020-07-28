@@ -76,8 +76,8 @@ class Testing(unittest.TestCase):
 
     def test_k_closest(self):
         for points, k, expected in deepcopy(self.TEST_CASES):
-            self.assertEqual(expected, k_closest(points, k))
+            self.assertListEqual(expected, k_closest(points, k))
 
     def test_k_closest_quick_select(self):
         for points, k, expected in deepcopy(self.TEST_CASES):
-            self.assertEqual(expected, k_closest_quick_select(points, k))
+            self.assertListEqual(expected, k_closest_quick_select(points, k))

@@ -413,30 +413,30 @@ class TestSorting(unittest.TestCase):
             sorted_nums = sorted(nums)
             bubble_sort(nums)
             dbg(nums)
-            self.assertEqual(sorted_nums, nums)
+            self.assertListEqual(sorted_nums, nums)
 
     def test_selection_sort(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
             sorted_nums = sorted(nums)
             bubble_sort(nums)
-            self.assertEqual(sorted_nums, nums)
+            self.assertListEqual(sorted_nums, nums)
 
     def test_heap_sort_iterative(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
             sorted_nums = sorted(nums)
             heap_sort_iterative(nums)
-            self.assertEqual(sorted_nums, nums)
+            self.assertListEqual(sorted_nums, nums)
 
     def test_heap_sort(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
             sorted_nums = sorted(nums)
             heap_sort(nums)
-            self.assertEqual(sorted_nums, nums)
+            self.assertListEqual(sorted_nums, nums)
 
     @unittest.skip("跟Rust的binary_search的行为不一致")
     def test_binary_search(self):
         for nums, target, expected in deepcopy(self.BINARY_SEARCH_TEST_CASES):
-            self.assertEqual(expected, binary_search(nums, target))
+            self.assertListEqual(expected, binary_search(nums, target))
 
     @unittest.skip("二分查找有问题，插入排序用到了二分查找的函数，等待修复")
     def test_insertion_sort(self):

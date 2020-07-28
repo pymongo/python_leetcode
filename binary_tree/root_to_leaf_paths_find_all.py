@@ -42,4 +42,4 @@ class Testing(unittest.TestCase):
             print(root)
             paths = helper(root)
             print(paths)
-            self.assertEqual(expected_paths, paths)
+            self.assertListEqual(expected_paths, paths)

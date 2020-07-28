@@ -34,6 +34,7 @@ def bst_closest_1(root: TreeNode, target: float, k: int) -> List[int]:
     return in_order[start:start + k]
 
 
+# 中序遍历的代码模板性能更优，但是以下这套模板既能往右走，对调left和right又能往左走，这是中序遍历模板不具备的优点
 def move_upper(stack: List[TreeNode]):
     print("In move_upper")
     print(stack)

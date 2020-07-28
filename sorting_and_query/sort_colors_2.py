@@ -34,4 +34,4 @@ class Testing(unittest.TestCase):
         for nums, k, expected in self.TEST_CASES:
             counting_sort(nums, k)
             print(nums)
-            self.assertEqual(expected, nums)
+            self.assertListEqual(expected, nums)

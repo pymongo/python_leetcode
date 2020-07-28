@@ -9,10 +9,6 @@ class DirectedGraphNode:
 
 
 # 入度(indegree): 若G为有向图，则把以节点/顶点node为终点的边的数目称为「入度」
-def get_indegree(graph: List[DirectedGraphNode]):
-    pass
-
-
 def topological_sorting_bfs(graph: List[DirectedGraphNode]) -> List[DirectedGraphNode]:
     """
     将一个无向图节点数组以拓补排序的方式排序，起点是(没有其他节点指向它的节点)，也就是起点的入度=0，终点的入度>0

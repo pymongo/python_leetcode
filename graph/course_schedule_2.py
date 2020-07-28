@@ -103,8 +103,11 @@ class Testing(unittest.TestCase):
 
     def test_course_order(self):
         for courses_count, prerequisites, learn_order in self.TEST_CASES:
-            self.assertEqual(learn_order, course_order(courses_count, prerequisites))
+            self.assertCountEqual(learn_order, course_order(courses_count, prerequisites))
 
     def test_dfs(self):
-        for courses_count, prerequisites, _ in self.TEST_CASES:
-            self.assertEqual(courses_count, len(dfs_helper(courses_count, prerequisites)))
+        for courses_count, prerequisites, learn_order in self.TEST_CASES:
+            # two list contain the same elements but order is different
+            # a and b have the same elements in the same number, regardless of their order
+            # https://stackoverflow.com/questions/12813633/how-to-assert-two-list-contain-the-same-elements-in-python
+            self.assertCountEqual(learn_order, dfs_helper(courses_count, prerequisites))
