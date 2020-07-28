@@ -9,21 +9,24 @@ def dfs_helper(nums: List[int], target: int) -> List[List[int]]:
     # 去重并排序
     nums = sorted(list(set(nums)))
     size = len(nums)
-    result = []
-    dfs(nums, target, 0, size, [], result)
-    return result
+    results = []
+    dfs(nums, target, 0, size, [], results)
+    return results
 
 
 # BFS不容易实现target的reduce，不建议折腾BFS写法，背熟这个模板即可
 def dfs(nums: List[int], target: int, nums_start: int, size: int, combination: List[int], results: List[List[int]]):
-    if target < 0:
-        return
     if target == 0:
         results.append(combination.copy())
         return
     for i in range(nums_start, size):
+        residue = target - nums[i]
+        if residue < 0:
+            # 因为数组是升序，往后都不可能匹配到
+            break
         combination.append(nums[i])
-        dfs(nums, target - nums[i], i, size, combination, results)
+        dfs(nums, residue, i, size, combination, results)
+        # 将combination回溯到还没.append(nums[i])的状态，以便每趟for循环开始时nums都一样
         combination.pop()
 
 
