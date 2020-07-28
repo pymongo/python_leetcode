@@ -117,6 +117,7 @@ LintCode
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
 |7|[Serialize and Deserialize Binary Tree](https://lintcode.com/problem/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |8|[Rotate String](https://lintcode.com/problem/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp|
+|10|[String Permutation II](https://lintcode.com/problem/string-permutation-ii/)|[Python](dfs_permutation_combination/permutation.py)||
 |13|[Implement strStr()](https://www.lintcode.com/problem/implement-strstr/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
 |15|[Permutations](https://lintcode.com/problem/permutations/)|[Python](dfs_permutation_combination/permutation.py)||
 |17|[Subsets](https://lintcode.com/problem/subsets/)|[Python](dfs_permutation_combination/subsets.py)||

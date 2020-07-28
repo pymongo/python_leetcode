@@ -118,6 +118,7 @@ def dfs(nums: List[int], nums_start_index: int, size: int, subset: List[int], re
         # 撤销掉上上个语句subset.append(nums[i])的影响，也就是回溯(或用subset.pop())
         # 只有这样子，第二遍for循环时才能跟第一遍for循环的开头时的subset一样
         # 或者用del subset[-1]
+        # TODO 注意只有引用类型传参才需要复原, primitive types基本实现了Copy Trait所以是值传递
         subset.pop()
 
 
