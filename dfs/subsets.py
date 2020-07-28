@@ -33,7 +33,7 @@ DFS的过程出发点是空集，然后是否选1可以分岔为2个决策，第
 [1,1,3] [1,1] [1,3] [1] [3] []
 """
 import unittest
-from typing import List, Optional
+from typing import List
 import collections
 
 
@@ -53,6 +53,7 @@ def cascading(nums: List[int]) -> List[List[int]]:
                     break
                 new_subset = subset.copy()
                 new_subset.append(nums[i])
+                # subsets_1的输入用例没有重复元素，但是subsets_2的输入用例有重复元素
                 if new_subset not in q:
                     q.append(new_subset)
                 if subset not in q:
@@ -74,6 +75,9 @@ def cascading(nums: List[int]) -> List[List[int]]:
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
+        ([1, 3, 1], [
+            [1, 1, 3], [1, 1], [1, 3], [1], [3], []
+        ]),
         ([1, 2, 3], [
             [3],
             [1],

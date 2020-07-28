@@ -28,6 +28,7 @@ LeetCode
 |78|[Subsets](https://leetcode.com/problems/subsets/)|[Python](dfs/subsets.py)||
 |81|[Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)|[Python](binary_search/rotated_sorted_array_search_2_with_duplicate.py)|binary_search|
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/merge_two_sorted_arrays.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/sorting/merge_two_sorted_arrays_test.go), [Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
+|90|[Subsets](https://leetcode.com/problems/subsets-ii/)|[Python](dfs/subsets.py)||
 |94|[Binary Tree Inorder Traversal](https://www.leetcode.com/problems/binary-tree-inorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Python](binary_tree/traversal_level_order.py)|BFS|
 |104|[Maximum Depth of Binary Tree](https://www.leetcode.com/problems/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
@@ -115,6 +116,8 @@ LintCode
 |7|[Serialize and Deserialize Binary Tree](https://lintcode.com/problem/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |8|[Rotate String](https://lintcode.com/problem/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp|
 |13|[Implement strStr()](https://www.lintcode.com/problem/implement-strstr/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
+|17|[Subsets](https://lintcode.com/problem/subsets/)|[Python](dfs/subsets.py)||
+|18|[Subsets II](https://lintcode.com/problem/subsets-ii/)|[Python](dfs/subsets.py)||
 |14|[First Position of Target](https://www.lintcode.com/problem/first-position-of-target/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |31|[Partition Array](https://www.lintcode.com/problem/partition-array/)|[Python](partition_array/partition_array.py)|two_pointers|
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](list_node/reverse_linked_list.py)|list_node|
