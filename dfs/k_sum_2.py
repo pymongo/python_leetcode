@@ -23,15 +23,16 @@ def dfs(
     combination: List[int],
     results: List[List[int]]
 ) -> None:
-    if target == 0 and len(combination) == k:
-        results.append(combination.copy())
+    if k == 0:
+        if target == 0:
+            results.append(combination.copy())
         return
     for i in range(nums_start, size):
         residue = target - nums[i]
         if residue < 0:
             break
         combination.append(nums[i])
-        dfs(target - nums[i], k, nums, i + 1, size, combination, results)
+        dfs(target - nums[i], k - 1, nums, i + 1, size, combination, results)
         combination.pop()
 
 
