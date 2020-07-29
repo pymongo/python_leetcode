@@ -33,8 +33,9 @@ def keypad(digits: str) -> List[str]:
     q.append([])
     q.append(None)
     for i in range(size):
-        if digits[i] not in keypad_mapping:
-            continue
+        # 这里不用判断是否在2-9的范围，如果不是，`for letter in keypad_mapping[digits[i]]`这句就是个空循环
+        # if digits[i] not in keypad_mapping:
+        #     continue
         while True:
             combination = q.popleft()
             if combination is None:
@@ -48,6 +49,43 @@ def keypad(digits: str) -> List[str]:
                 else:
                     q.append(temp)
     return results
+
+
+# 不用queue 通过last_combs/curr_combs 生成product笛卡尔积
+# 性能比用queue的遍历快一丢丢
+def bfs_2(digits: str) -> List[str]:
+    results = []
+    size = len(digits)
+    if size == 0:
+        return results
+    # combs = combinations
+    last_combs = [[]]
+    for digit in digits:
+        curr_combs = []
+        for last_comb in last_combs:
+            for letter in keypad_mapping[digit]:
+                curr_comb = last_comb.copy()
+                curr_comb.append(letter)
+                curr_combs.append(curr_comb)
+        last_combs = curr_combs.copy()
+    for comb in last_combs:
+        results.append("".join(comb))
+    return results
+
+
+# 考虑List[List[str]]效率可能不如字符串拼接(copy操作太多了)，来个字符串拼接的版本试试
+def bfs_3(digits: str) -> List[str]:
+    if not digits:
+        return []
+    last_combs = [""]
+    for digit in digits:
+        curr_combs = []
+        for last_comb in last_combs:
+            for letter in keypad_mapping[digit]:
+                curr_combs.append(last_comb + letter)
+        last_combs = curr_combs.copy()
+    return last_combs
+
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
