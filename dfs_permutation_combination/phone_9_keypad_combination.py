@@ -87,6 +87,23 @@ def bfs_3(digits: str) -> List[str]:
     return last_combs
 
 
+def dfs(combination, digits, results: List[str]):
+    if not digits:
+        results.append(combination)
+        return
+    next_digits = digits[1:]
+    for letter in keypad_mapping[digits[0]]:
+        dfs(combination + letter, next_digits, results)
+
+
+def def_helper(digits: str) -> List[str]:
+    if not digits:
+        return []
+    results = []
+    dfs("", digits, results)
+    return results
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ("23", ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]),
