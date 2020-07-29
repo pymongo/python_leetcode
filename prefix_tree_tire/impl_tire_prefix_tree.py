@@ -19,6 +19,14 @@ from typing import List, Optional
 
 
 class TreeNode:
+    """
+    Python中可以通过 .__sizeof__ 或 sys.getsizeof 获取对象占内存多少个字节，Ruby则没法获取对象占内存的大小
+    sys.getsizeof(None) # 16
+    False.__sizeof__() # 24
+    True.__sizeof__() # 28
+    Python中空指针None占据内存空间大小比Boolean类型还小
+    我还以为True和False和None都是操作系统内存最小单位 1Byte的大小
+    """
     def __init__(self, char: str = "", is_word: bool = False):
         self.char = char
         self.is_word = is_word

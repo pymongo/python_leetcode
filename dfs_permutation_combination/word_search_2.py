@@ -1,6 +1,6 @@
 # Boggle单词游戏, 给你一个乱序的字母矩阵，从矩阵中任意一点往上下左右四个方向去搜索，能找到几个单词
 import unittest
-from typing import List
+from typing import List, Dict, Union
 
 
 def dfs_search(
@@ -9,7 +9,7 @@ def dfs_search(
     row_size: int,
     col_size: int,
     board: List[List[str]],
-    parent_node,  # dict[str, Any[dict, str]]
+    parent_node: Dict[str, Union[Dict, str]],
     matched_words: List[str]
 ):
     # 临时存储当前坐标的letter，用于回溯
@@ -21,7 +21,7 @@ def dfs_search(
     # market curr letter is visited, make board[new_row][new_col] not in curr_node in inner dfs_search
     board[row][col] = '#'
 
-    for row_offset, col_offset in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+    for row_offset, col_offset in ((0, 1), (0, -1), (1, 0), (-1, 0)):
         new_row, new_col = row + row_offset, col + col_offset
         if not (0 <= new_row < row_size and 0 <= new_col < col_size):
             continue
@@ -41,7 +41,7 @@ def dfs_search(
 
 
 def boggle(board: List[List[str]], words: List[str]) -> List[str]:
-    # 构建前缀树
+    # 构建前缀树, 具体原理请看: [Implement Trie (Prefix Tree)]这题
     trie = {}
     for word in words:
         curr_node = trie
@@ -65,15 +65,15 @@ def boggle(board: List[List[str]], words: List[str]) -> List[str]:
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        # (["oath", "pea", "eat", "rain"],
-        #  [
-        #      ['o', 'a', 'a', 'n'],
-        #      ['e', 't', 'a', 'e'],
-        #      ['i', 'h', 'k', 'r'],
-        #      ['i', 'f', 'l', 'v']
-        #  ],
-        #  ["eat", "oath"]
-        #  ),
+        (["oath", "pea", "eat", "rain"],
+         [
+             ['o', 'a', 'a', 'n'],
+             ['e', 't', 'a', 'e'],
+             ['i', 'h', 'k', 'r'],
+             ['i', 'f', 'l', 'v']
+         ],
+         ["eat", "oath"]
+         ),
         (["aaaa"],
          [
              ['a', 'a', 'a', 'a'],
