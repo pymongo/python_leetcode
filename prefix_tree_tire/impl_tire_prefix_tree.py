@@ -35,10 +35,10 @@ class Trie:
         if not word:
             return
         curr_node = self.root
-        for char in word:
-            char_ascii = ord(char) - 98
+        for letter in word:
+            char_ascii = ord(letter) - 98
             if curr_node.children[char_ascii] is None:
-                curr_node.children[char_ascii] = TreeNode(char)
+                curr_node.children[char_ascii] = TreeNode(letter)
             curr_node = curr_node.children[char_ascii]
 
         curr_node.is_word = True
@@ -61,8 +61,8 @@ class Trie:
         if not word:
             return None
         curr_node = self.root
-        for char in word:
-            char_ascii = ord(char) - 98
+        for letter in word:
+            char_ascii = ord(letter) - 98
             if curr_node.children[char_ascii] is None:
                 return None
             curr_node = curr_node.children[char_ascii]
@@ -77,19 +77,19 @@ class TrieHashMap1:
 
     def insert(self, word: str) -> None:
         curr_node = self.root
-        for char in word:
-            if char not in curr_node:
-                curr_node[char] = {}
-            curr_node = curr_node[char]
+        for letter in word:
+            if letter not in curr_node:
+                curr_node[letter] = {}
+            curr_node = curr_node[letter]
         # $ means is_word
         curr_node['$'] = True
 
     def search(self, word: str) -> bool:
         curr_node = self.root
-        for char in word:
-            if char not in curr_node:
+        for letter in word:
+            if letter not in curr_node:
                 return False
-            curr_node = curr_node[char]
+            curr_node = curr_node[letter]
         if '$' not in curr_node:
             return False
         return True
