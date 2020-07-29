@@ -69,6 +69,41 @@ class Trie:
         return curr_node
 
 
+# 用HashMap实现的Prefix Tree比数组的实现快2倍以上
+class TrieHashMap1:
+
+    def __init__(self):
+        self.root = {}
+
+    def insert(self, word: str) -> None:
+        curr_node = self.root
+        for char in word:
+            if char not in curr_node:
+                curr_node[char] = {}
+            curr_node = curr_node[char]
+        # $ means is_word
+        curr_node['$'] = True
+
+    def search(self, word: str) -> bool:
+        curr_node = self.root
+        for char in word:
+            if char not in curr_node:
+                return False
+            curr_node = curr_node[char]
+        if '$' not in curr_node:
+            return False
+        return True
+
+    # noinspection PyPep8Naming
+    def startsWith(self, prefix: str) -> bool:
+        curr_node = self.root
+        for char in prefix:
+            if char not in curr_node:
+                return False
+            curr_node = curr_node[char]
+        return True
+
+
 class Testing(unittest.TestCase):
     def test_1(self):
         trie = Trie()
@@ -95,3 +130,12 @@ class Testing(unittest.TestCase):
         self.assertTrue(trie.startsWith("hell"))
         self.assertFalse(trie.startsWith("helloa"))
         self.assertTrue(trie.startsWith("hello"))
+
+    def test_tire_hash_map_1(self):
+        trie = TrieHashMap1()
+        trie.insert("apple")
+        self.assertTrue(trie.search("apple"))
+        self.assertFalse(trie.search("app"))
+        self.assertTrue(trie.startsWith("app"))
+        trie.insert("app")
+        self.assertTrue(trie.search("app"))
