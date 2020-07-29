@@ -11,21 +11,23 @@ TODO 本题相当于让你impl内置库: itertools.permutations
 import unittest
 import random
 import itertools
+import collections
 from typing import List
 
 
 def my_permutation(nums: List[int]) -> List[List[int]]:
     results = []
+    nums = sorted(nums)
     size = len(nums)
-    permutation_visited = [False] * size
-    dfs([], permutation_visited, 0, size, nums, results)
+    used = [False] * size
+    dfs([], used, 0, size, nums, results)
     return results
 
 
 # 时间复杂度=方案总数*构造/保存/遍历方案的耗时: O(n! * n), 例如复制找到的其中一个答案到答案集就耗时O(n)
 def dfs(
     permutation: List[int],
-    permutation_visited: List[bool],
+    used: List[bool],
     permutation_size: int,
     size: int,
     nums: List[int],
@@ -36,22 +38,29 @@ def dfs(
         return
 
     for i in range(size):
-        if permutation_visited[i]:
+        if used[i]:
             continue
-        permutation.append(nums[i])
-        permutation_visited[i] = True
 
-        dfs(permutation, permutation_visited, permutation_size + 1, size, nums, results)
+        # 去重，解决Permutation II这题
+        # used[i-1]=false表示回退的过程中刚刚被撤销的选择
+        # 例如 [1,1,2], 遍历第一个1时也能选中112，但是从第一个1回退到根(空数组)再到1时，此时的1已被选过，不能继续展开，否则会出现重复解
+        if i > 0 and nums[i] == nums[i - 1] and not used[i - 1]:
+            continue
+
+        permutation.append(nums[i])
+        used[i] = True
+
+        dfs(permutation, used, permutation_size + 1, size, nums, results)
 
         # 为什么这里permutation_size不用复原?
         # 因为int类型在传参时都是Copy过去的，不会影响这里的int
         permutation.pop()
-        permutation_visited[i] = False
+        used[i] = False
 
 
 def str_permutation(s: str) -> List[str]:
     results = []
-    chars = list(s)
+    chars = sorted(list(s))
     size = len(chars)
     permutation_visited = [False] * size
     dfs_str([], permutation_visited, 0, size, chars, results)
@@ -60,7 +69,7 @@ def str_permutation(s: str) -> List[str]:
 
 def dfs_str(
     permutation: List[str],
-    permutation_visited: List[bool],
+    used: List[bool],
     permutation_size: int,
     size: int,
     chars: List[str],
@@ -74,15 +83,44 @@ def dfs_str(
         return
 
     for i in range(size):
-        if permutation_visited[i]:
+        if used[i]:
+            continue
+        # used[i-1]=false表示回退的过程中刚刚被撤销的选择
+        # 例如 [1,1,2], 遍历第一个1时也能选中112，但是从第一个1回退到根(空数组)再到1时，此时的1已被选过，不能继续展开，否则会出现重复解
+        if i > 0 and chars[i] == chars[i - 1] and not used[i - 1]:
             continue
         permutation.append(chars[i])
-        permutation_visited[i] = True
+        used[i] = True
 
-        dfs_str(permutation, permutation_visited, permutation_size + 1, size, chars, results)
+        dfs_str(permutation, used, permutation_size + 1, size, chars, results)
 
         permutation.pop()
-        permutation_visited[i] = False
+        used[i] = False
+
+
+# BFS的性能不如DFS
+def permute_bfs(nums: List[int]) -> List[List[int]]:
+    if len(nums) < 2:
+        return [nums]
+    queue = collections.deque()
+    n = len(nums)
+    # used = [[0] * n for _ in range(n)]
+    res = []
+    # depth = 0
+    for start in range(n):
+        queue.append([nums[start]])
+        while queue:
+            if queue[0] == n:
+                break
+            curr = queue.popleft()
+            for j in range(n):
+                if nums[j] not in curr:
+                    curr.append(nums[j])
+                    if len(curr) == n:
+                        res.append(curr.copy())
+                    queue.append(curr.copy())
+                    curr.pop()
+    return res
 
 
 class Testing(unittest.TestCase):
@@ -91,6 +129,7 @@ class Testing(unittest.TestCase):
     ]
 
     STR_PERMUTATION_2_CASES = [
+        # 答案需要去重
         ("abb", ["abb", "bab", "bba"]),
         ("aabb", ["aabb", "abab", "baba", "bbaa", "abba", "baab"]),
     ]

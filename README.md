@@ -20,7 +20,8 @@ LeetCode
 |33|[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |34|[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |39|[Combination Sum](https://leetcode.com/problems/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
-|46|[Permutations](https://leetcode.com/problems/permutations/)|[Python](dfs_permutation_combination/permutation.py)||
+|46|[Permutations](https://leetcode.com/problems/permutations/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
+|46|[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
 |50|[Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Python](math/pow.py)|binary_search, 快速幂运算|
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
 |62|[Unique Paths](https://leetcode.com/problems/unique-paths/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|permutation|
@@ -65,7 +66,7 @@ LeetCode
 |266_LOCK|[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)|[Python](palindrome/palindrome_permutation.py)|greedy|
 |269_LOCK|[Alien Dictionary](https://leetcode.com/problems/alien-dictionary/)|[Python](graph/alien_dictionary.py)|heapq, topological_sorting|
 |270_LOCK|[Closest Binary Search Tree Value](https://www.leetcode.com/problems/closest-binary-search-tree-value/)|[Python](binary_tree/bst_closest_value.py)||
-|272_LOCK|[Closest Binary Search Tree Value II](https://www.lintcode.com/problem/closest-binary-search-tree-value-ii/)|[Python](binary_tree/bst_closest_value_2.py)||
+|272_LOCK|[Closest Binary Search Tree Value II](https://www.leetcode.com/problems/closest-binary-search-tree-value-ii/)|[Python](binary_tree/bst_closest_value_2.py)||
 |278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Python](binary_search/first_bad_version.py)|partition_array|
 |283|[Move Zeros](https://leetcode.com/problems/move-zeroes/)|[Python](partition_array/move_zeros.py)|partition_array, 快慢双指针|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
@@ -77,11 +78,11 @@ LeetCode
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |413|[Reverse Integer](https://www.leetcode.com/problems/reverse-integer/)|[Python](unclassified/reverse_integer.py)||
 |449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
-|454|[4Sum II](https://www.lintcode.com/problem/4sum-ii/)|[Python](two_sum/four_sum_2.py)|two_sum|
+|454|[4Sum II](https://www.leetcode.com/problems/4sum-ii/)|[Python](two_sum/four_sum_2.py)|two_sum|
 |509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |536_LOCK|[Construct Binary Tree from String](https://www.leetcode.com/problems/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |547|[Friend Circles](https://leetcode.com/problems/friend-circles/)|[Python](graph/friend_circles.py)|union_find, BFS, BFS|
-|606|[Construct String from Binary Tree](https://www.lintcode.com/problem/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
+|606|[Construct String from Binary Tree](https://www.leetcode.com/problems/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |625_LOCK|[Minimum Factorization](https://www.leetcode.com/problems/minimum-factorization/)|[Python](unclassified/minimum_factorization.py)|greedy|
 |658|[Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)|[Python](binary_search/find_k_closest_elements.py)|binary_search|
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
@@ -117,9 +118,10 @@ LintCode
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
 |7|[Serialize and Deserialize Binary Tree](https://lintcode.com/problem/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |8|[Rotate String](https://lintcode.com/problem/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp|
-|10|[String Permutation II](https://lintcode.com/problem/string-permutation-ii/)|[Python](dfs_permutation_combination/permutation.py)||
+|10|[String Permutation II](https://lintcode.com/problem/string-permutation-ii/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
 |13|[Implement strStr()](https://www.lintcode.com/problem/implement-strstr/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
-|15|[Permutations](https://lintcode.com/problem/permutations/)|[Python](dfs_permutation_combination/permutation.py)||
+|15|[Permutations](https://lintcode.com/problem/permutations/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
+|16|[Permutations II](https://lintcode.com/problem/permutations-ii/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
 |17|[Subsets](https://lintcode.com/problem/subsets/)|[Python](dfs_permutation_combination/subsets.py)||
 |18|[Subsets II](https://lintcode.com/problem/subsets-ii/)|[Python](dfs_permutation_combination/subsets.py)||
 |14|[First Position of Target](https://www.lintcode.com/problem/first-position-of-target/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
