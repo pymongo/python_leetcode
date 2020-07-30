@@ -45,11 +45,10 @@ class MinDistance:
 # 只遍历图中的每个节点1次，用贪心的思考方式，如果有节点遍历超过2次，那就一定不是最短路径的遍历了
 def dfs(
     visited: List[bool],
-    sum_distance: int,  # current city
-    last_city: int,
+    curr_distance: int,  # current city
     curr_city: int,
-    # graph: Dict[int, Dict[int, Dict[int, int]]],
-    graph,
+    graph: List[List[int]],
+    size: int,
     min_distance: MinDistance,
 ):
     """
@@ -62,42 +61,43 @@ def dfs(
         # 剪枝
         # RuntimeError: dictionary changed size during iteration
         # graph[last_city].pop(curr_city)
-        min_distance.update(sum_distance)
+        min_distance.update(curr_distance)
         return
 
-    for next_city in graph[curr_city]:
+    for next_city in range(1, size):
         if visited[next_city]:
+            continue
+        distance = graph[curr_city][next_city]
+        if distance == sys.maxsize:
             continue
         visited[next_city] = True
 
-        dfs(visited, sum_distance + graph[curr_city][next_city], curr_city, next_city, graph, min_distance)
+        dfs(visited, curr_distance + distance, next_city, graph, size, min_distance)
 
         visited[next_city] = False
 
 
 def dfs_helper(n: int, roads: List[List[int]]) -> int:
-    # 1. 构建图
-    # 将[[1, 2, 1], [2, 3, 2], [1, 3, 3]]的roads转为HashMap<int(from_city), HashMap<int(to_city), int(distance)>>
-    # { 1: {2: 1, 3: 3}, 2: {3: 2} }
+    # 图的设计方案1: 评价: 这种图还不如邻接矩阵
+    # 将[[1, 2, 1], [2, 3, 2], [1, 3, 3]]的roads转为HashMap
+    # FIXME 这是「有向图」{ 1: {2: 1, 3: 3}, 2: {3: 2} } 题目要求「无向图」
+    # 结果: 还是用邻接矩阵
     if not roads:
         return 0
-    graph: Dict[int, Dict[int, Dict[int, int]]] = {}
+    adjacency_matrix: List[List[int]] = [[sys.maxsize] * n for _ in range(n)]
     for from_city, to_city, distance in roads:
-        if from_city not in graph:
-            graph[from_city] = {to_city: distance}
-            continue
-        if to_city in graph[from_city]:
-            graph[from_city][to_city] = min(graph[from_city][to_city], distance)
+        from_city, to_city = from_city - 1, to_city - 1
+        adjacency_matrix[from_city][to_city] = min(adjacency_matrix[from_city][to_city], distance)
+        adjacency_matrix[to_city][from_city] = min(adjacency_matrix[to_city][from_city], distance)
     # 既然入参中已给出城市的个数，那么用布尔值表示城市/节点是否被访问过更优
 
     # any(iterable) Return True if bool(x) is True for any x in the iterable
     # 用all(visited)判断是否遍历完所有节点
-    visited: List[bool] = [False] * (n + 1)
+    visited: List[bool] = [False] * n
     visited[0] = True
-    visited[1] = True
 
     min_distance = MinDistance()
-    dfs(visited, 0, 1, 1, graph, min_distance)
+    dfs(visited=visited, curr_distance=0, curr_city=0, graph=adjacency_matrix, size=n, min_distance=min_distance)
     return min_distance.output()
 
 
@@ -105,6 +105,11 @@ class Testing(unittest.TestCase):
     TEST_CASES = [
         # 解释: cost一定是个三元组组成的List，例如[1,2,1]表示从城市1到城市2耗费1
         # 注意: 可能会有重复的路径，例如城市1到城市2有多条路，取最短的一条即可
+        # 1->3: 0+2
+        # 3->2: 2+1
+        # 2->4: 3+3
+        # 4->5: 6+4
+        (5, [[1, 2, 9], [2, 3, 1], [3, 4, 9], [4, 5, 4], [2, 4, 3], [1, 3, 2], [5, 4, 9]], 10),
         (3, [[1, 2, 1], [2, 3, 2], [1, 3, 3]], 3),
     ]
 
