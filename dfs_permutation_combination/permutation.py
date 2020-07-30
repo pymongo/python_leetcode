@@ -77,9 +77,7 @@ def dfs_str(
 ):
     if permutation_size == size:
         candidate = "".join(permutation)
-        # TODO 去重的方法太笨了吧
-        if candidate not in results:
-            results.append(candidate)
+        results.append(candidate)
         return
 
     for i in range(size):

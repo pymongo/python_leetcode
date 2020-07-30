@@ -10,6 +10,7 @@ from copy import deepcopy
 
 
 # Runtime: 668 ms, faster than 91.41% of Python3
+# 或者用最小堆也行，heapify整个数组后heappop() k次
 def k_closest(points: List[List[int]], k: int) -> List[List[int]]:
     points.sort(key=lambda point: point[0] ** 2 + point[1] ** 2)
     return points[:k]

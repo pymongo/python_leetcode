@@ -9,7 +9,7 @@ LeetCode
 |2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/traverse_two_list_node.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/traverse_two_list_node_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/TraverseTwoListNode.java), [Python](list_node/add_two_numbers.py)|create/traverse_list_node|
 |3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_non_repeated_substr.rs), [Python](string/longest_non_repeated_substr.py)|sliding_window|
 |4|[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/median_of_two_sorted_arrays.rs), [Python](binary_search/median_of_two_sorted_arrays.py)|binary_search|
-|5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/palindrome/longest_palindromic_substr.rs), [Python](palindrome/longest_palindromic_substr.py)|multi_solutions, manacher, suffix_array|
+|5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_palindromic_substr.rs), [Python](palindrome/longest_palindromic_substr.py)|multi_solutions, manacher, suffix_array|
 |6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|[Python](string/zigzag_conversion.py)||
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Python](unclassified/reverse_integer.py)||
 |9|[Palindromic Number](https://leetcode.com/problems/palindrome-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/i32_is_palindromic.rs), [Python](palindrome/longest_palindromic_substr.py)|half_traverse_i32|
@@ -173,9 +173,9 @@ LintCode
 |167|[Add Two Numbers](https://www.lintcode.com/problem/add-two-numbers/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/traverse_two_list_node.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/traverse_two_list_node_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/TraverseTwoListNode.java), [Python](list_node/add_two_numbers.py)|create/traverse_list_node|
 |183|[Wood Cut](https://www.lintcode.com/problem/wood-cut/)|[Python](binary_search/wood_cut.py)|greedy|   
 |187|[Gas Station](https://www.lintcode.com/problem/gas-station/)|[Python](greedy/gas_station.py)|greedy|
-|200|[Longest Palindromic Substring](https://www.lintcode.com/problem/longest-palindromic-substring/)|[Python](palindrome/longest_palindromic_substr.py)|multi_solutions|
+|200|[Longest Palindromic Substring](https://lintcode.com/problem/longest-palindromic-substring/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_palindromic_substr.rs), [Python](palindrome/longest_palindromic_substr.py)|multi_solutions, manacher, suffix_array|
 |228_LOCK|[Middle of the Linked List](https://www.lintcode.com/problem/middle-of-linked-list/)|[Python](list_node/middle_of_linked_list.py)|list_node, 快慢指针|
-|235|[Longest Palindromic Substring](https://www.lintcode.com/problem/prime-factorization/)|[Python](math/prime_factorization.py)|分解质因数|
+|235|[Prime Factorization](https://www.lintcode.com/problem/prime-factorization/)|[Python](math/prime_factorization.py)|分解质因数|
 |254|[Drop Eggs](https://www.lintcode.com/problem/drop-eggs/)|[Python](dp/drop_eggs.py)|sqrt_n|
 |366|[Fibonacci](https://www.lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |373|[Partition Array by Odd and Even](https://www.lintcode.com/problem/partition-array-by-odd-and-even/)|[Python](partition_array/partition_array_by_odd_and_even.py)||
@@ -219,6 +219,7 @@ LintCode
 |628|[Maximum Subtree](https://www.lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |630_LOCK|[Knight Shortest Path II](https://www.lintcode.com/problem/knight-shortest-path-ii/)|[Python](bfs/knight_shortest_path_2.py)|bfs|
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
+|816|[Traveling Salesman Problem](https://www.lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_permutation_combination/traveling_salesman_problem.py)||
 |871|[Minimum Factorization](https://www.lintcode.com/problem/minimum-factorization/)|[Python](unclassified/minimum_factorization.py)|greedy|
 |880|[Construct Binary Tree from String](https://www.lintcode.com/problem/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
