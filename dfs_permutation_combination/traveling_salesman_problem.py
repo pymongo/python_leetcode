@@ -45,6 +45,7 @@ class MinDistance:
 # 只遍历图中的每个节点1次，用贪心的思考方式，如果有节点遍历超过2次，那就一定不是最短路径的遍历了
 def dfs(
     visited: List[bool],
+    visited_size: int,
     curr_distance: int,  # current city
     curr_city: int,
     graph: List[List[int]],
@@ -57,10 +58,10 @@ def dfs(
     而这题是搜索到一条路径之后，也是往上不断✂️到根
     """
     # if all True in visited
-    if all(visited):
-        # 剪枝
-        # RuntimeError: dictionary changed size during iteration
-        # graph[last_city].pop(curr_city)
+    # if all(visited):
+    #     min_distance.update(curr_distance)
+    #     return
+    if visited_size == size:
         min_distance.update(curr_distance)
         return
 
@@ -70,12 +71,15 @@ def dfs(
         distance = graph[curr_city][next_city]
         if distance == sys.maxsize:
             continue
+
+        # Early Return 部分
         next_distance = curr_distance + distance
         if next_distance >= min_distance.value:
             continue
+
         visited[next_city] = True
 
-        dfs(visited, next_distance, next_city, graph, size, min_distance)
+        dfs(visited, visited_size+1, next_distance, next_city, graph, size, min_distance)
 
         visited[next_city] = False
 
@@ -100,7 +104,8 @@ def dfs_helper(n: int, roads: List[List[int]]) -> int:
     visited[0] = True
 
     min_distance = MinDistance()
-    dfs(visited=visited, curr_distance=0, curr_city=0, graph=adjacency_matrix, size=n, min_distance=min_distance)
+    dfs(visited=visited, visited_size=1, curr_distance=0, curr_city=0, graph=adjacency_matrix, size=n,
+        min_distance=min_distance)
     return min_distance.output()
 
 
