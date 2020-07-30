@@ -36,6 +36,18 @@ def move_zeros_quick_sort_partition(nums: List[int]) -> None:
         curr += 1
 
 
+# leetcode 27. Remove Element
+# 这题跟move_zeros完全一样，或者说move_zeros就是target=0的remove_element
+# In-Place, 将num=target的挪到数组末尾，然后返回数组前半部分不等于target的元素个数
+def remove_element(nums: List[int], target: int) -> int:
+    not_eq_target = 0
+    for curr in range(len(nums)):
+        if nums[curr] != target:
+            nums[curr], nums[not_eq_target] = nums[not_eq_target], nums[curr]
+            not_eq_target += 1
+    return not_eq_target + 1
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([0, 1, 0, 3, 12], [1, 3, 12, 0, 0]),

@@ -17,6 +17,7 @@ LeetCode
 |17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|[Python](dfs_permutation_combination/phone_9_keypad_combination.py)|product(笛卡尔积)|
 |18|[4Sum](https://www.lintcode.com/problem/4sum/)|[Python](two_sum/four_sum.py)|two_pointers, two_sum|
 |26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|[Python](bitwise/remove_duplicates_from_sorted_array.py)|exclusive_or|
+|27|[Subarray Sum](https://www.lintcode.com/problem/remove-element/)|[Python](partition_array/move_zeros.py)||
 |28|[Implement strStr()](https://leetcode.com/problems/implement-strstr/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/contains_substr_kmp.rs), [Python](string/find_substr.py)|kmp, dfa, multi_solutions|
 |33|[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |34|[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
@@ -164,6 +165,7 @@ LintCode
 |132|[Word Search II](https://lintcode.com/problem/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
 |135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
 |137|[Clone Graph](https://lintcode.com/problem/clone-graphs/)|[Python](graph/clone_graph.py)|DFS, BFS|
+|138|[Subarray Sum](https://www.lintcode.com/problem/subarray-sum/)|[Python](unclassified/subarray_sum_zero.py)||
 |140|[Fast Power](https://lintcode.com/problem/fast-power/)|[Python](math/pow.py)|binary_search, 快速幂运算|
 |141|[Sqrt(x)](https://lintcode.com/problem/sqrtx/)|[Python](math/sqrt.py)|牛顿连续均值求根法|
 |142|[O(1) Check Power of 2](https://www.lintcode.com/problem/o1-check-power-of-2/)|[Python](bitwise/is_power_of_2.py)|bitwise, dichotomy|
@@ -174,6 +176,7 @@ LintCode
 |159|[Find Minimum in Rotated Sorted Array](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |160|[Find Minimum in Rotated Sorted Array II](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_min_2_with_duplicate.py)|binary_search|
 |167|[Add Two Numbers](https://www.lintcode.com/problem/add-two-numbers/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/traverse_two_list_node.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/traverse_two_list_node_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/TraverseTwoListNode.java), [Python](list_node/add_two_numbers.py)|create/traverse_list_node|
+|172|[Subarray Sum](https://www.lintcode.com/problem/remove-element/)|[Python](partition_array/move_zeros.py)||
 |183|[Wood Cut](https://www.lintcode.com/problem/wood-cut/)|[Python](binary_search/wood_cut.py)|greedy|   
 |187|[Gas Station](https://www.lintcode.com/problem/gas-station/)|[Python](greedy/gas_station.py)|greedy|
 |200|[Longest Palindromic Substring](https://lintcode.com/problem/longest-palindromic-substring/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_palindromic_substr.rs), [Python](palindrome/longest_palindromic_substr.py)|multi_solutions, manacher, suffix_array|
