@@ -1,6 +1,8 @@
 import unittest
 
 
+# 用到了类似is_power_of_2一题中判断一个数是不是2的幂的规律
+# 相似题型: [Minimum Factorization]
 def my_is_ugly_number(num: int) -> bool:
     if num == 0:
         return False

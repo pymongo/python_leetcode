@@ -67,6 +67,7 @@ LeetCode
 |236|[Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)|divide_and_conquer|
 |257|[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
 |263|[Ugly Number](https://www.leetcode.com/problems/ugly-number/)|[Python](unclassified/ugly_number.py)||
+|264|[Ugly Number II](https://www.leetcode.com/problems/ugly-number-ii/)|[Python](unclassified/ugly_number_2_nth_ugly.py)||
 |266_LOCK|[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)|[Python](palindrome/palindrome_permutation.py)|greedy|
 |269_LOCK|[Alien Dictionary](https://leetcode.com/problems/alien-dictionary/)|[Python](graph/alien_dictionary.py)|heapq, topological_sorting|
 |270_LOCK|[Closest Binary Search Tree Value](https://www.leetcode.com/problems/closest-binary-search-tree-value/)|[Python](binary_tree/bst_closest_value.py)||
@@ -118,6 +119,7 @@ LintCode
 |---| ----- | -------- | ---------- |
 |1|[A + B Problem](https://www.lintcode.com/problem/a-b-problem/)|[Python](bitwise/binary_addition.py)|binary_addition|
 |2|[Trailing Zeros](https://www.lintcode.com/problem/trailing-zeros/)|[Python](math/factorial_trailing_zeroes.py)|factorial|
+|4|[Ugly Number II](https://www.leetcode.com/problems/ugly-number-ii/)|[Python](unclassified/ugly_number_2_nth_ugly.py)||
 |5|[Kth Largest Element](https://www.lintcode.com/problem/kth-largest-element/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
 |7|[Serialize and Deserialize Binary Tree](https://lintcode.com/problem/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
