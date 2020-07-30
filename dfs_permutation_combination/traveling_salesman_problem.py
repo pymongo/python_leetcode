@@ -70,13 +70,17 @@ def dfs(
         distance = graph[curr_city][next_city]
         if distance == sys.maxsize:
             continue
+        next_distance = curr_distance + distance
+        if next_distance >= min_distance.value:
+            continue
         visited[next_city] = True
 
-        dfs(visited, curr_distance + distance, next_city, graph, size, min_distance)
+        dfs(visited, next_distance, next_city, graph, size, min_distance)
 
         visited[next_city] = False
 
 
+# 101ms, 97.5%
 def dfs_helper(n: int, roads: List[List[int]]) -> int:
     # 图的设计方案1: 评价: 这种图还不如邻接矩阵
     # 将[[1, 2, 1], [2, 3, 2], [1, 3, 3]]的roads转为HashMap
@@ -89,9 +93,8 @@ def dfs_helper(n: int, roads: List[List[int]]) -> int:
         from_city, to_city = from_city - 1, to_city - 1
         adjacency_matrix[from_city][to_city] = min(adjacency_matrix[from_city][to_city], distance)
         adjacency_matrix[to_city][from_city] = min(adjacency_matrix[to_city][from_city], distance)
-    # 既然入参中已给出城市的个数，那么用布尔值表示城市/节点是否被访问过更优
 
-    # any(iterable) Return True if bool(x) is True for any x in the iterable
+    # 既然入参中已给出城市的个数，那么用布尔值表示城市/节点是否被访问过更优
     # 用all(visited)判断是否遍历完所有节点
     visited: List[bool] = [False] * n
     visited[0] = True
