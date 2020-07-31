@@ -61,6 +61,8 @@ def dfs(
     # if all(visited):
     #     min_distance.update(curr_distance)
     #     return
+    # 既然入参中已给出城市的个数，那么用布尔值表示城市/节点是否被访问过更优
+    # 用all(visited)判断是否遍历完所有节点
     if visited_size == size:
         min_distance.update(curr_distance)
         return
@@ -83,12 +85,13 @@ def dfs(
 
         visited[next_city] = True
 
-        dfs(visited, visited_size+1, next_distance, next_city, graph, size, min_distance)
+        dfs(visited, visited_size + 1, next_distance, next_city, graph, size, min_distance)
 
         visited[next_city] = False
 
 
 # 101ms, 97.5%
+# noinspection DuplicatedCode
 def dfs_helper(n: int, roads: List[List[int]]) -> int:
     # 图的设计方案1: 评价: 这种图还不如邻接矩阵
     # 将[[1, 2, 1], [2, 3, 2], [1, 3, 3]]的roads转为HashMap
@@ -96,21 +99,84 @@ def dfs_helper(n: int, roads: List[List[int]]) -> int:
     # 结果: 还是用邻接矩阵
     if not roads:
         return 0
-    adjacency_matrix: List[List[int]] = [[sys.maxsize] * n for _ in range(n)]
+    visited: List[bool] = []
+    adjacency_matrix: List[List[int]] = []
+    for _ in range(n):
+        adjacency_matrix.append([sys.maxsize] * n)
+        visited.append(False)
+    visited[0] = True
     for from_city, to_city, distance in roads:
         from_city, to_city = from_city - 1, to_city - 1
         adjacency_matrix[from_city][to_city] = min(adjacency_matrix[from_city][to_city], distance)
         adjacency_matrix[to_city][from_city] = min(adjacency_matrix[to_city][from_city], distance)
 
-    # 既然入参中已给出城市的个数，那么用布尔值表示城市/节点是否被访问过更优
-    # 用all(visited)判断是否遍历完所有节点
-    visited: List[bool] = [False] * n
-    visited[0] = True
-
     min_distance = MinDistance()
     dfs(visited=visited, visited_size=1, curr_distance=0, curr_city=0, graph=adjacency_matrix, size=n,
         min_distance=min_distance)
     return min_distance.output()
+
+
+# noinspection DuplicatedCode
+def dp_solution(n: int, roads: List[List[int]]) -> int:
+    if not roads:
+        return 0
+    # 也就是所有城市全被访问过的二进制值，长度为2**n, 最后一个索引为2**n-1
+    state_size = 1 << n
+    dp: List[List[int]] = [[sys.maxsize] * n for _ in range(state_size)]
+    adjacency_matrix: List[List[int]] = [[sys.maxsize] * n for _ in range(n)]
+    # TODO 状态压缩DP的特点: 使用足够长二进制表示状态
+    # dp的优化思路，不关心先后顺序，只关心每个节点是否访问了一次
+    # dp[state][city]=distance；city表示到达城市后，state表示之前访问过哪些城市，
+    # 例如二进制10101(从右往左倒着看)表示1，3，5城市已被访问过
+    # 二进制的(从右往左)第n位表示city_n是否被遍历
+    # 既然状态表示已确定，那么状态转移也容易推导出来
+    for from_city, to_city, distance in roads:
+        from_city, to_city = from_city - 1, to_city - 1
+        adjacency_matrix[from_city][to_city] = min(adjacency_matrix[from_city][to_city], distance)
+        adjacency_matrix[to_city][from_city] = min(adjacency_matrix[to_city][from_city], distance)
+    # dp初始值
+    # 1. dp[0][0..=n-1] 是冗余列，不考虑所有城市都没访问的状态
+    # 2. dp[0..2^n-1][0] 是冗余列，不能含有到达城市是1的状态，因为1是出发点
+    # 2. dp[城市1已被遍历][到达城市1] = 0
+    dp[1][0] = 0
+    # 开始填表了
+    # dp的状态转移方程
+    # last_state = state ^ (1 << city)
+    # dp[state][city] = min(dp[state][city], dp[last_state][city] + adjacency_matrix[j?][city])
+    for state in range(state_size):
+        # 如果state只有一位是1
+        # if (state & -state) == state:
+        #     continue
+        for city in range(1, n):
+            # print(state, city)
+            city_bit = 1 << city
+            # 如果当前状态state和 xxx 没有公共部分，例如0b1011和2**2
+            # 也就是当前状态 不包含city 或 只包含city，那一定找不到子状态last_state的，可以pass掉
+            if state & city_bit == 0:
+                continue
+
+            # 以city=2为例，0b0101 ^ 2**2 = 0b0001, last_state里刚好把现在city给去掉了
+            last_state = state ^ city_bit
+
+            # for visited city in last state
+            # 这步的目的: 遍历last_state中所有城市(city2)，找到能连上city的所有city2中的最短路径
+            # 所以这步操作就跟DFS剪枝的过程有点像
+            for visited_city_in_last_state in range(1, n):
+                # if city2 not in last_state
+                if last_state & (1 << visited_city_in_last_state) == 0:
+                    continue
+
+                # 从last_state中其中一个节点到`for city in range(1, n)`的距离
+                distance = adjacency_matrix[city][visited_city_in_last_state]
+                # 如果visited_city_in_last_state不能连上city
+                if distance == sys.maxsize:
+                    continue
+
+                # 找到能连上city的所有city2中的最短路径
+                dp[state][city] = min(dp[state][city], dp[last_state][visited_city_in_last_state] + distance)
+
+    # 全部城市都已访问，而且最后的到达城市不是城市0的所有距离的最小值
+    return min(dp[state_size - 1][1:])
 
 
 class Testing(unittest.TestCase):
@@ -121,10 +187,14 @@ class Testing(unittest.TestCase):
         # 3->2: 2+1
         # 2->4: 3+3
         # 4->5: 6+4
-        (5, [[1, 2, 9], [2, 3, 1], [3, 4, 9], [4, 5, 4], [2, 4, 3], [1, 3, 2], [5, 4, 9]], 10),
         (3, [[1, 2, 1], [2, 3, 2], [1, 3, 3]], 3),
+        (5, [[1, 2, 9], [2, 3, 1], [3, 4, 9], [4, 5, 4], [2, 4, 3], [1, 3, 2], [5, 4, 9]], 10),
     ]
 
     def test_dfs(self):
         for num_cities, roads, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, dfs_helper(num_cities, roads))
+
+    def test_dp(self):
+        for num_cities, roads, expected in deepcopy(self.TEST_CASES):
+            self.assertEqual(expected, dp_solution(num_cities, roads))
