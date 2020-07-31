@@ -145,8 +145,8 @@ def dp_solution(n: int, roads: List[List[int]]) -> int:
     # dp[state][city] = min(dp[state][city], dp[last_state][city] + adjacency_matrix[j?][city])
     for state in range(state_size):
         # 如果state只有一位是1
-        # if (state & -state) == state:
-        #     continue
+        if (state & -state) == state:
+            continue
         for city in range(1, n):
             # print(state, city)
             city_bit = 1 << city
@@ -161,19 +161,22 @@ def dp_solution(n: int, roads: List[List[int]]) -> int:
             # for visited city in last state
             # 这步的目的: 遍历last_state中所有城市(city2)，找到能连上city的所有city2中的最短路径
             # 所以这步操作就跟DFS剪枝的过程有点像
-            for visited_city_in_last_state in range(1, n):
+            # for visited_city_in_last_state in range(1, n):
+            for visited_city_in_last_state in range(n):
                 # if city2 not in last_state
                 if last_state & (1 << visited_city_in_last_state) == 0:
                     continue
 
                 # 从last_state中其中一个节点到`for city in range(1, n)`的距离
-                distance = adjacency_matrix[city][visited_city_in_last_state]
+                temp_distance = adjacency_matrix[city][visited_city_in_last_state]
                 # 如果visited_city_in_last_state不能连上city
-                if distance == sys.maxsize:
+                if temp_distance == sys.maxsize:
                     continue
 
                 # 找到能连上city的所有city2中的最短路径
-                dp[state][city] = min(dp[state][city], dp[last_state][visited_city_in_last_state] + distance)
+                print(city, visited_city_in_last_state)
+                print(state, last_state)
+                dp[state][city] = min(dp[state][city], dp[last_state][visited_city_in_last_state] + temp_distance)
 
     # 全部城市都已访问，而且最后的到达城市不是城市0的所有距离的最小值
     return min(dp[state_size - 1][1:])
@@ -187,8 +190,8 @@ class Testing(unittest.TestCase):
         # 3->2: 2+1
         # 2->4: 3+3
         # 4->5: 6+4
+        # (5, [[1, 2, 9], [2, 3, 1], [3, 4, 9], [4, 5, 4], [2, 4, 3], [1, 3, 2], [5, 4, 9]], 10),
         (3, [[1, 2, 1], [2, 3, 2], [1, 3, 3]], 3),
-        (5, [[1, 2, 9], [2, 3, 1], [3, 4, 9], [4, 5, 4], [2, 4, 3], [1, 3, 2], [5, 4, 9]], 10),
     ]
 
     def test_dfs(self):
