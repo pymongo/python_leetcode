@@ -20,6 +20,12 @@ TSP也叫「最短哈密尔顿路径问题」
 随机化(Randomization)算法又称遗传算法、模拟退火算法(Simulated Annealing)
 
 类似最长回文子串，这题也是一题涵盖5-6种解法，既有构建图也有动态规划最短路径等等，属于必刷的经典题
+
+随机化生成了一条链 然后依靠交换来逐渐逼近正确值
+调整路径的思想，假设最短路径是一个很多个山坡的函数，随机化思路是在函数上随机撒N个点，如果当前的点是递增的，就往上爬，如果是递减的就往回退
+这样所有随机撒出的点都能找到附近的山坡(极大值)，像这题就算是在极小值中找最小值
+
+随机化算法的时间复杂度无法估算，还有一种思路是给每次随机尝试设一个Timeout，如果超时了那就肯定不是最优解
 """
 import unittest
 from copy import deepcopy
@@ -120,35 +126,39 @@ def dfs_helper(n: int, roads: List[List[int]]) -> int:
 def dp_solution(n: int, roads: List[List[int]]) -> int:
     if not roads:
         return 0
+
     # 也就是所有城市全被访问过的二进制值，长度为2**n, 最后一个索引为2**n-1
-    state_size = 1 << n
-    dp: List[List[int]] = [[sys.maxsize] * n for _ in range(state_size)]
-    adjacency_matrix: List[List[int]] = [[sys.maxsize] * n for _ in range(n)]
     # TODO 状态压缩DP的特点: 使用足够长二进制表示状态
     # dp的优化思路，不关心先后顺序，只关心每个节点是否访问了一次
     # dp[state][city]=distance；city表示到达城市后，state表示之前访问过哪些城市，
     # 例如二进制10101(从右往左倒着看)表示1，3，5城市已被访问过
     # 二进制的(从右往左)第n位表示city_n是否被遍历
     # 既然状态表示已确定，那么状态转移也容易推导出来
+    state_size = 1 << n
+    dp: List[List[int]] = [[sys.maxsize] * n for _ in range(state_size)]
+
+    adjacency_matrix: List[List[int]] = [[sys.maxsize] * n for _ in range(n)]
     for from_city, to_city, distance in roads:
         from_city, to_city = from_city - 1, to_city - 1
         adjacency_matrix[from_city][to_city] = min(adjacency_matrix[from_city][to_city], distance)
         adjacency_matrix[to_city][from_city] = min(adjacency_matrix[to_city][from_city], distance)
+
     # dp初始值
     # 1. dp[0][0..=n-1] 是冗余列，不考虑所有城市都没访问的状态
     # 2. dp[0..2^n-1][0] 是冗余列，不能含有到达城市是1的状态，因为1是出发点
-    # 2. dp[城市1已被遍历][到达城市1] = 0
+    # 3. dp[只有一个城市被遍历的状态，而且被遍历的城市不是1][...] = 0
     dp[1][0] = 0
+
     # 开始填表了
     # dp的状态转移方程
     # last_state = state ^ (1 << city)
     # dp[state][city] = min(dp[state][city], dp[last_state][city] + adjacency_matrix[j?][city])
-    for state in range(state_size):
+    for state in range(3, state_size):
         # 如果state只有一位是1
+        # dp[只有一个城市被遍历的状态，而且被遍历的城市不是1][...] = 0
         if (state & -state) == state:
             continue
         for city in range(1, n):
-            # print(state, city)
             city_bit = 1 << city
             # 如果当前状态state和 xxx 没有公共部分，例如0b1011和2**2
             # 也就是当前状态 不包含city 或 只包含city，那一定找不到子状态last_state的，可以pass掉
@@ -174,12 +184,76 @@ def dp_solution(n: int, roads: List[List[int]]) -> int:
                     continue
 
                 # 找到能连上city的所有city2中的最短路径
-                print(city, visited_city_in_last_state)
-                print(state, last_state)
+                # 填表方向: 第一次走到这里时dp[last_state][visited_city_in_last_state] = dp[1][0] = 0
                 dp[state][city] = min(dp[state][city], dp[last_state][visited_city_in_last_state] + temp_distance)
 
     # 全部城市都已访问，而且最后的到达城市不是城市0的所有距离的最小值
     return min(dp[state_size - 1][1:])
+
+
+# increase RANDOM_TIMES or submit your code again
+# if you got wrong answer.
+RANDOM_TIMES = 1000
+
+# 其中一种随机化算法，可以提前知道大致结果，复制别人的代码，我感觉这题不适合用，目前来看用DFS性能是最好
+class Solution:
+    def minCost(self, n, roads):
+        graph = self.construct_graph(roads, n)
+        min_cost = float('inf')
+        for _ in range(RANDOM_TIMES):
+            path = self.get_random_path(n)
+            cost = self.adjust_path(path, graph)
+            min_cost = min(min_cost, cost)
+        return min_cost
+
+    def construct_graph(self, roads, n):
+        graph = {
+            i: {j: float('inf') for j in range(1, n + 1)}
+            for i in range(1, n + 1)
+        }
+        for a, b, c in roads:
+            graph[a][b] = min(graph[a][b], c)
+            graph[b][a] = min(graph[b][a], c)
+        return graph
+
+    def get_random_path(self, n):
+        import random
+
+        path = [i for i in range(1, n + 1)]
+        for i in range(2, n):
+            j = random.randint(1, i)
+            path[i], path[j] = path[j], path[i]
+        return path
+
+    def adjust_path(self, path, graph):
+        n = len(graph)
+        adjusted = True
+        while adjusted:
+            adjusted = False
+            for i in range(1, n):
+                for j in range(i + 1, n):
+                    if self.can_reverse(path, i, j, graph):
+                        self.reverse(path, i, j)
+                        adjusted = True
+        cost = 0
+        for i in range(1, n):
+            cost += graph[path[i - 1]][path[i]]
+        return cost
+
+    def can_reverse(self, path, i, j, graph):
+        before = graph[path[i - 1]][path[i]]
+        if j + 1 < len(path):
+            before += graph[path[j]][path[j + 1]]
+        after = graph[path[i - 1]][path[j]]
+        if j + 1 < len(path):
+            after += graph[path[i]][path[j + 1]]
+        return before > after
+
+    def reverse(self, path, i, j):
+        while i < j:
+            path[i], path[j] = path[j], path[i]
+            i += 1
+            j -= 1
 
 
 class Testing(unittest.TestCase):
@@ -190,7 +264,7 @@ class Testing(unittest.TestCase):
         # 3->2: 2+1
         # 2->4: 3+3
         # 4->5: 6+4
-        # (5, [[1, 2, 9], [2, 3, 1], [3, 4, 9], [4, 5, 4], [2, 4, 3], [1, 3, 2], [5, 4, 9]], 10),
+        (5, [[1, 2, 9], [2, 3, 1], [3, 4, 9], [4, 5, 4], [2, 4, 3], [1, 3, 2], [5, 4, 9]], 10),
         (3, [[1, 2, 1], [2, 3, 2], [1, 3, 3]], 3),
     ]
 
