@@ -48,6 +48,33 @@ def remove_element(nums: List[int], target: int) -> int:
     return not_eq_target + 1
 
 
+# leetcode 26. Remove Duplicates from Sorted Array, 还是一样，把Unique的挪到前面，重复的扔到数组后面 用不上两两异或
+def remove_duplicates_from_sorted_array(nums: List[int]) -> int:
+    unique_ptr = 0
+    for curr in range(len(nums)):
+        if nums[curr] != nums[unique_ptr]:
+            # 这里不同的是，unique_ptr要先加后互换
+            # 如果不是先加后互换会变成[1,1,2] -> [2,1,1]
+            unique_ptr += 1
+            nums[curr], nums[unique_ptr] = nums[unique_ptr], nums[curr]
+    return unique_ptr
+
+
+def remove_duplicates_from_sorted_array_2(nums: List[int]) -> int:
+    length = len(nums)
+    if length <= 1:
+        return length
+    last_unique_index = 1
+    for i in range(1, length):
+        # 这里想多了，参考官方题解不需要用异或
+        # if nums[i] ^ nums[i - 1] == 0:
+        if nums[i] == nums[i - 1]:
+            continue
+        nums[last_unique_index] = nums[i]
+        last_unique_index += 1
+    return last_unique_index
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([0, 1, 0, 3, 12], [1, 3, 12, 0, 0]),

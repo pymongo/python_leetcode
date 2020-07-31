@@ -73,6 +73,10 @@ def dfs(
             continue
 
         # Early Return 部分
+        # 另一种剪枝方案：
+        # curr_path = [1->2->3->4], next_city=5
+        # for i in 2..4: if [1->2->4->3->5] < [1->2->3->4->5]: 说明当前路径不是最优解，抛弃掉next_city(continue)
+        # 枚举走过的点，判断 边 4->5 + 2->3 是否小于 2->4 + 3->5
         next_distance = curr_distance + distance
         if next_distance >= min_distance.value:
             continue
