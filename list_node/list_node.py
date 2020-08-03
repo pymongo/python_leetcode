@@ -1,5 +1,5 @@
 import unittest
-from typing import List
+from typing import List, Optional
 
 
 class ListNode:
@@ -15,6 +15,9 @@ class ListNode:
             list_node_to_string += f"->{curr_node.val}"
         return list_node_to_string
 
+    def __repr__(self) -> str:
+        return self.__str__()
+
     def to_list(self) -> List[int]:
         nums = [self.val]
         curr_node = self
@@ -24,13 +27,22 @@ class ListNode:
         return nums
 
     @staticmethod
-    def from_list(nums: List[int]):
+    def from_list(nums: List[int]) -> Optional['ListNode']:
+        if not nums:
+            return None
         dummy_head = ListNode(-1)
         curr_node = dummy_head
         for num in nums:
             curr_node.next = ListNode(num)
             curr_node = curr_node.next
         return dummy_head.next
+
+    @staticmethod
+    def from_str(s: str) -> Optional['ListNode']:
+        if not s:
+            return None
+        nums = [int(num) for num in s.split("->")]
+        return ListNode.from_list(nums)
 
 
 # Private Class

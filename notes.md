@@ -67,6 +67,21 @@ Divide&Conquer和Traversal可以用递归和非递归的两种实现方法
 
 哈希内部数组的每个格子是一个链表，但是链表内包含key和value，算出来相同的Hash的key,value都挤在一起，都在一个链表上
 
-冲突的解决方法2: Close Hashing
+冲突的解决方法2: Closed Hashing
 
-如果数组格子被占了，则后来者
+如果数组格子被占了(联想茅厕被占)，则后来者往后一格(或者有其它挪动算法)，缺点是删除元素后，要将格子标记为deleted，代表曾经有人过
+
+下次搜索冲突的值时，遇到deleted也不会停，会继续往下一格搜索
+
+总结哈希冲突的解决方案:
+
+1. open_hashing(开散列法): 哈希表所基于的数组中每个位置都是一个LinkedList的头结点。这样冲突的(key, value) pair都放在同一个链表中
+2. closed_hash(闭散列法): 发生冲突时，后来的元素往下一个位置去找空位
+
+[open hashing的动画演示](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html)
+
+记录冲突链表中的元素顺序其实是没有关系的，所以新冲突的(key, value)pair都是插入到头结点后，这样就不用记录尾节点的指针
+
+例如 Head->1中插入3(会插入到Head和1之间)  =>  Head->3->1
+
+所以开散列法实际上可以存的元素是无穷个，但哈希表如果冲突严重，那就需要哈希扩容
