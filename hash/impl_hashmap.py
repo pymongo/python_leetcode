@@ -23,15 +23,19 @@ class MyHashMap:
         self.bucket: List[Optional[ListNode]] = [None] * self.capacity
 
     def put(self, key: int, value: int) -> None:
-        if (self.elements_count + 1) * 2 > self.capacity:
+        if self.elements_count * 2 > self.capacity:
             self._rehashing(self.capacity * 2)
         bucket_index: int = key % self.capacity
-        if self.bucket[bucket_index] is None:
-            self.bucket[bucket_index] = ListNode(key, value)
-        else:
-            # If the key already exists in the HashMap, update the value
-            new_node = ListNode(key, value)
-            new_node.next, self.bucket[bucket_index] = self.bucket[bucket_index], new_node
+        curr_node = self.bucket[bucket_index]
+        while curr_node is not None:
+            if curr_node.key == key:
+                # If the key already exists in the HashMap, update the value
+                curr_node.value = value
+                return
+            curr_node = curr_node.next
+        new_node = ListNode(key, value)
+        new_node.next = self.bucket[bucket_index]
+        self.bucket[bucket_index] = new_node
         self.elements_count += 1
 
     def get(self, key: int) -> int:
@@ -44,10 +48,22 @@ class MyHashMap:
 
     def remove(self, key: int) -> None:
         bucket_index = key % self.capacity
-        if self.bucket[bucket_index] is None:
+        curr_node = self.bucket[bucket_index]
+        if curr_node is not None and curr_node.key == key:
+            self.bucket[bucket_index] = None
+            self.elements_count -= 1
             return
-        self.bucket[bucket_index] = None
-        self.elements_count -= 1
+        last_node = curr_node
+        # 要移除的节点在链表中间的情况
+        while curr_node is not None:
+            if curr_node.key == key:
+                # Remove
+                last_node.next = curr_node.next
+                del curr_node
+                self.elements_count -= 1
+                return
+            last_node = curr_node
+            curr_node = curr_node.next
 
     def contains(self, key: int) -> bool:
         curr_node = self.bucket[key % self.capacity]
@@ -67,41 +83,49 @@ class MyHashMap:
                     new_bucket[new_index] = ListNode(curr_node.key, curr_node.value)
                 else:
                     new_node = ListNode(curr_node.key, curr_node.value)
-                    new_node.next, new_bucket[new_index] = new_bucket[new_index], new_node
+                    new_node.next = new_bucket[new_index]
+                    new_bucket[new_index] = new_bucket[new_index]
                 curr_node = curr_node.next
         self.bucket = new_bucket
         self.capacity = new_capacity
 
 
-# Your MyHashMap object will be instantiated and called as such:
-# obj = MyHashMap()
-# obj.put(key,value)
-# param_2 = obj.get(key)
-# obj.remove(key)
-
-"""
-hashMap.put(2, 1);          // update the existing value
-
-hashMap.get(2);            // returns 1 
-hashMap.remove(2);          // remove the mapping for 2
-hashMap.get(2);            // returns -1 (not found) 
-
-"""
-
-"""
-["MyHashMap","put","put","put","remove","get","put","put","get","put","put","put","put","put","put","put","put","put","put","put","put","remove","put","remove","put","put","remove","put","get","put","get","put","put","put","put","put","get","put","remove","put","remove","put","put","put","put","put","remove","put","put","remove","put","put","put","get","get","put","remove","put","put","put","get","put","put","put","remove","put","put","put","put","put","get","put","put","get","get","put","remove","remove","get","put","remove","put","remove","put","put","put","get","put","put","put","remove","put","put","get","put","put","get","remove","get","get","put"]
-[[],[24,31],[58,35],[59,88],[84],[62],[2,22],[44,70],[24],[24,42],[58,99],[74,29],[40,66],[55,83],[21,27],[31,25],[78,19],[86,70],[71,73],[39,95],[6,96],[76],[62,22],[78],[53,51],[66,53],[44],[14,46],[77],[15,32],[22],[53,79],[35,21],[73,57],[18,67],[96,61],[73],[58,77],[6],[5,58],[17],[25,14],[16,13],[4,37],[47,43],[14,79],[35],[7,13],[78,85],[27],[73,33],[95,87],[31,21],[20],[64],[90,22],[16],[77,50],[55,41],[33,62],[44],[73,16],[13,54],[41,5],[71],[81,6],[20,98],[35,64],[15,35],[74,31],[90],[32,15],[44,79],[37],[53],[22,80],[24],[10],[7],[53,61],[65],[63,99],[47],[97,68],[7,0],[9,25],[97],[93,13],[92,43],[83,73],[74],[41,78],[39,28],[52],[34,16],[93,63],[82],[77],[16],[50],[68,47]]
-[null,null,null,null,null,-1,null,null,-1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,90,null,-1,null,null,40,null,null,null,null,null,29,null,null,null,null,17,null,null,null,null,null,null,null,null,null,33,null,null,null,null,null,null,18,null,null,-1,null,null,-1,35,null,null,null,null,null,null,null,-1,-1,null,null,null,null,null,-1,null,null,null,null,null,null,null,null,null,null,null,null,null,-1,null,null,null,null,87,null,null]
-[null,null,null,null,null,-1,null,null,-1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,90,null,50,null,null,40,null,null,null,null,null,29,null,null,null,null,17,null,null,null,null,null,null,null,null,null,33,null,null,null,null,null,null,18,null,null,-1,null,null,-1,35,null,null,null,null,null,null,null,-1,-1,null,null,null,null,null,-1,null,null,null,null,null,null,null,null,null,null,null,null,null,-1,null,null,null,null,87,null,null]
-"""
-
-"""
-[None,None,None,None,None,-1,None,None,-1,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,90,None,50,None,None,40,None,None,None,None,None,29,None,None,None,None,17,None,None,None,None,None,None,None,None,None,33,None,None,None,None,None,None,18,None,None,-1,None,None,-1,35,None,None,None,None,None,None,None,-1,-1,None,None,None,None,None,-1,None,None,None,None,None,None,None,None,None,None,None,None,None,-1,None,None,None,None,87,None,None]
-
-"""
-
 
 class Testing(unittest.TestCase):
+    def test_remove(self):
+        m = MyHashMap()
+        m.put(1, 1)
+        m.put(129, 129)
+        m.put(257, 257)
+        # 257->129->1
+
+        m.remove(129)
+        # 257->1
+        self.assertEqual(257, m.get(257))
+        self.assertEqual(-1, m.get(129))
+        self.assertEqual(1, m.get(1))
+        m.remove(1)
+        self.assertEqual(257, m.get(257))
+        self.assertEqual(-1, m.get(129))
+        self.assertEqual(-1, m.get(1))
+        m.remove(257)
+        self.assertEqual(-1, m.get(257))
+        self.assertEqual(-1, m.get(129))
+        self.assertEqual(-1, m.get(1))
+        m.put(129, 129)
+        m.put(1, 1)
+        self.assertEqual(-1, m.get(257))
+        self.assertEqual(129, m.get(129))
+        self.assertEqual(1, m.get(1))
+        m.remove(257)
+        self.assertEqual(-1, m.get(257))
+        self.assertEqual(129, m.get(129))
+        self.assertEqual(1, m.get(1))
+        m.remove(129)
+        self.assertEqual(-1, m.get(257))
+        self.assertEqual(-1, m.get(129))
+        self.assertEqual(1, m.get(1))
+
     def test_my_hash_map(self):
         my_map = MyHashMap()
         my_map.put(1, 1)
