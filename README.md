@@ -2,6 +2,7 @@ LeetCode
 ========
 
 因为leetcode-cn上我多做了2道面试题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了2题
+https://www.jiuzhang.com/course/71/dialog/#chapter-236
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
@@ -96,6 +97,7 @@ LeetCode
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |702_LOCK|[Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)|[Python](binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
 |704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](binary_search/binary_search.py)|binary_search|
+|704|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](hash/impl_hashmap.py)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
