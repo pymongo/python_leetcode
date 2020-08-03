@@ -3,8 +3,9 @@ from typing import Optional, List
 
 
 class ListNode:
-    def __init__(self, val: int):
-        self.val: int = val
+    def __init__(self, key: int, value: int):
+        self.key = key
+        self.value = value
         self.next: Optional[ListNode] = None
 
 
@@ -17,29 +18,29 @@ class MyHashMap:
         # HashMap内部元素个数
         self.elements_count: int = 0
         # HashMap内部bucket数组的长度
-        self.capacity: int = 8
+        self.capacity: int = 128
         # HashMap内部的数组
-        self.bucket: List[Optional[ListNode]] = [None] * 8
+        self.bucket: List[Optional[ListNode]] = [None] * self.capacity
 
     def put(self, key: int, value: int) -> None:
-        # 如果key大于bucket的长度，容易出现哈希冲突
-        if key > self.capacity:
-            self._rehashing(key + 1)
+        if (self.elements_count + 1) * 2 > self.capacity:
+            self._rehashing(self.capacity * 2)
         bucket_index: int = key % self.capacity
         if self.bucket[bucket_index] is None:
-            if (self.elements_count + 1) * 2 > self.capacity:
-                self._rehashing(self.capacity * 2)
-            self.bucket[bucket_index] = ListNode(value)
-            self.elements_count += 1
+            self.bucket[bucket_index] = ListNode(key, value)
         else:
             # If the key already exists in the HashMap, update the value
-            self.bucket[bucket_index].val = value
+            new_node = ListNode(key, value)
+            new_node.next, self.bucket[bucket_index] = self.bucket[bucket_index], new_node
+        self.elements_count += 1
 
     def get(self, key: int) -> int:
-        bucket_index = key % self.capacity
-        if self.bucket[bucket_index] is None:
-            return -1
-        return self.bucket[bucket_index].val
+        curr_node = self.bucket[key % self.capacity]
+        while curr_node is not None:
+            if curr_node.key == key:
+                return curr_node.value
+            curr_node = curr_node.next
+        return -1
 
     def remove(self, key: int) -> None:
         bucket_index = key % self.capacity
@@ -49,11 +50,26 @@ class MyHashMap:
         self.elements_count -= 1
 
     def contains(self, key: int) -> bool:
-        return self.bucket[key % self.capacity] is None
+        curr_node = self.bucket[key % self.capacity]
+        while curr_node is not None:
+            if curr_node.key == key:
+                return True
+            curr_node = curr_node.next
+        return False
 
     def _rehashing(self, new_capacity: int):
-        for _ in range(new_capacity - self.capacity):
-            self.bucket.append(None)
+        new_bucket: List[Optional[ListNode]] = [None] * new_capacity
+        for node in self.bucket:
+            curr_node = node
+            while curr_node is not None:
+                new_index: int = curr_node.key % new_capacity
+                if new_bucket[new_index] is None:
+                    new_bucket[new_index] = ListNode(curr_node.key, curr_node.value)
+                else:
+                    new_node = ListNode(curr_node.key, curr_node.value)
+                    new_node.next, new_bucket[new_index] = new_bucket[new_index], new_node
+                curr_node = curr_node.next
+        self.bucket = new_bucket
         self.capacity = new_capacity
 
 
@@ -69,6 +85,7 @@ hashMap.put(2, 1);          // update the existing value
 hashMap.get(2);            // returns 1 
 hashMap.remove(2);          // remove the mapping for 2
 hashMap.get(2);            // returns -1 (not found) 
+
 """
 
 """
@@ -141,6 +158,7 @@ class Testing(unittest.TestCase):
                 self.assertEqual(expected[i], m.put(data[i][0], data[i][1]))
             else:
                 raise Exception("Unreachable")
+
 
 """
 [null,null,null,null,null,-1,null,null,-1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,90,null,-1,null,null,40,null,null,null,null,null,29,null,null,null,null,17,null,null,null,null,null,null,null,null,null,33,null,null,null,null,null,null,-1,null,null,-1,null,null,-1,35,null,null,null,null,null,null,null,-1,-1,null,null,null,null,null,-1,null,null,null,null,null,null,null,null,null,null,null,null,null,-1,null,null,null,null,87,null,null]
