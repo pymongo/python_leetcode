@@ -39,5 +39,7 @@ class UnitTest(unittest.TestCase):
     ]
 
     def test(self):
+        # 另一种提高单元测试-测试用例可读性的方法，用namedtuple
+        # 例如Point = namedtuple('Point', ['x', 'y']) 会生成一个含有x,y字段的Point类
         for nums, target, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, solution(nums, target))

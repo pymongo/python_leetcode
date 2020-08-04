@@ -7,6 +7,7 @@
 这样下次来新的节点时，要删老的节点，就只会删头部的节点了
 """
 import unittest
+import collections
 from typing import Dict, Optional
 
 
@@ -18,17 +19,17 @@ class ListNode:
         self.prev: Optional[ListNode] = None
         self.next: Optional[ListNode] = None
 
-    def __repr__(self):
-        s = ""
-        curr = self
-        while curr:
-            s += str(curr.key)
-            s += "->"
-            curr = curr.next
-        return s[:-2]
+    # def __repr__(self):
+    #     s = ""
+    #     curr = self
+    #     while curr:
+    #         s += str(curr.key)
+    #         s += "->"
+    #         curr = curr.next
+    #     return s[:-2]
 
 
-class LRU:
+class LRUCache:
     def __init__(self, capacity: int):
         self.capacity: int = capacity
         self.elements_count: int = 0
@@ -65,6 +66,7 @@ class LRU:
 
         new_node = ListNode(key, value)
 
+        # TODO 如果用单链表+prev_map，这里维护prev_map很恶心，代码容易乱
         # new_node与self.tail.prev互连
         new_node.prev = self.tail.prev
         self.tail.prev.next = new_node
@@ -83,28 +85,61 @@ class LRU:
         if node.next == self.tail:
             # 如果节点已经是最后一个节点了，就不需要挪动了
             return
+
         # 从链表中剪掉update_node
         node.prev.next = node.next
         node.next.prev = node.prev
+
         # 将update_node与self.tail.prev建立连接
         self.tail.prev.next = node
         node.prev = self.tail.prev
+
         # 将update_node与self.tail建立连接
         node.next = self.tail
         self.tail.prev = node
         return
 
 
+class UseOrderedDict(collections.OrderedDict):
+    def __init__(self, capacity: int):
+        super().__init__()
+        self.capacity: int = capacity
+        self.elements_count: int = 0
+        self.is_full: bool = False
+        # remembers the order entries were added
+
+    def get(self, key: int) -> int:
+        if key not in self:
+            return -1
+        self.move_to_end(key)
+        return self[key]
+
+    def set(self, key: int, value: int):
+        if key in self:
+            self.move_to_end(key)
+            self[key] = value
+            return
+        if self.is_full:
+            # pop first item
+            self.popitem(last=False)
+            self[key] = value
+        else:
+            self[key] = value
+            self.elements_count += 1
+            if self.elements_count == self.capacity:
+                self.is_full = True
+
+
 class Testing(unittest.TestCase):
     def test_put_insert_or_update(self):
-        lru = LRU(1)
+        lru = LRUCache(1)
         lru.put(1, 1)
         self.assertEqual(1, lru.get(1))
         lru.put(1, 2)
         self.assertEqual(2, lru.get(1))
 
     def test_remove_head(self):
-        lru = LRU(1)
+        lru = LRUCache(1)
         lru.put(1, 1)
         self.assertEqual(1, lru.get(1))
         lru.put(2, 2)
@@ -112,7 +147,7 @@ class Testing(unittest.TestCase):
         self.assertEqual(2, lru.get(2))
 
     def test_lru(self):
-        lru = LRU(2)
+        lru = LRUCache(2)
         lru.put(1, 1)
         lru.put(2, 2)
 

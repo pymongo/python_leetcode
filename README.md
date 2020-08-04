@@ -50,7 +50,7 @@ LeetCode
 |136|[Single Number](https://leetcode.com/problems/single-number/)|[Python](bitwise/xor_find_single.py)||
 |144|[Binary Tree Preorder Traversal](https://www.leetcode.com/problems/binary-tree-preorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |145|[Binary Tree Postorder Traversal](https://www.leetcode.com/problems/binary-tree-postorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
-|145|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Python](list_node/lru_cache.py)||
+|145|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Python](list_node/lru_cache.py)|double_linked_list, OrderedDict|
 |153|[Find Minimum in Rotated Sorted Array](https://www.leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |154|[Find Minimum in Rotated Sorted Array II](https://www.leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python](binary_search/rotated_sorted_array_min_2_with_duplicate.py)|binary_search|
 |167|[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[Python](two_sum/two_sum_2_input_is_sorted.py)|two_pointers|
@@ -168,10 +168,10 @@ LintCode
 |114|[Unique Paths](https://lintcode.com/problem/unique-paths/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|permutation|
 |120|[Word Ladder](https://lintcode.com/problem/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
 |127|[Topological Sorting](https://lintcode.com/problem/topological-sorting/)|[Python](graph/topological_sorting.py)|BFS, topological_sorting|
-|128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](hash/hash_function.py)||
-|129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](hash/rehashing.py)||
+|128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](collections/hash_function.py)||
+|129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](collections/rehashing.py)||
 |132|[Word Search II](https://lintcode.com/problem/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
-|134|[LRU Cache](https://lintcode.com/problem/lru-cache/)|[Python](list_node/lru_cache.py)||
+|134|[LRU Cache](https://lintcode.com/problem/lru-cache/)|[Python](list_node/lru_cache.py)|double_linked_list, OrderedDict|
 |135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
 |137|[Clone Graph](https://lintcode.com/problem/clone-graphs/)|[Python](graph/clone_graph.py)|DFS, BFS|
 |138|[Subarray Sum](https://www.lintcode.com/problem/subarray-sum/)|[Python](unclassified/subarray_sum_zero.py)||
@@ -335,3 +335,27 @@ python自带的pip没有类似`pom.xml`或`package.json`之类管理项目第三
 > pipenv uses Pipfile and Pipfile.lock
 
 所以推荐用pyenv管理python版本，pipenv管理第三方依赖
+
+## Python测试用例可读性
+
+```python
+import unittest
+from copy import deepcopy
+
+def solution(nums, target): pass
+
+class UnitTest(unittest.TestCase):
+    TEST_CASES = [
+        ([-1, 0, 3, 5, 9, 12], 9, 4),
+        ([-1, 0, 3, 5, 9, 12], 2, -1),
+        ([-1, 1, 2, 2, 2, 3], 2, 2),
+    ]
+
+    def test(self):
+        for nums, target, expected in deepcopy(self.TEST_CASES):
+            self.assertEqual(expected, solution(nums, target))
+```
+
+另一种提高单元测试-测试用例可读性的方法，用namedtuple
+
+例如Point = namedtuple('Point', ['x', 'y']) 会生成/定义一个含有x,y字段的Point类
