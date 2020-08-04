@@ -13,6 +13,8 @@ class MyHeap:
     def __init__(self, nums: List[int] = None):
         self.nums: List[int] = [] if nums is None else nums
         self.len: int = len(self.nums)
+        if self.len > 0:
+            self.heapify()
 
     def push(self, val: int):
         # old_len = insert_element_index
@@ -28,7 +30,6 @@ class MyHeap:
         self.nums[0], self.nums[last_index] = self.nums[last_index], self.nums[0]
         output = self.nums.pop()
         self.len -= 1
-        print(self.nums)
         self._sift_down(0)
         return output
 
@@ -87,3 +88,7 @@ class TestMyHeap(unittest.TestCase):
         for _ in range(heap.len):
             print(heap.pop())
 
+    def test_heapify(self):
+        heap = MyHeap([4, 10, 3, 5, 1, 2])
+        for _ in range(heap.len):
+            print(heap.pop())
