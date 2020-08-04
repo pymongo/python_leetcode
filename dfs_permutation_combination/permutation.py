@@ -44,6 +44,9 @@ def dfs(
         # 去重，解决Permutation II这题
         # used[i-1]=false表示回退的过程中刚刚被撤销的选择
         # 例如 [1,1,2], 遍历第一个1时也能选中112，但是从第一个1回退到根(空数组)再到1时，此时的1已被选过，不能继续展开，否则会出现重复解
+        # 例如: a', a", b
+        # 不能 x => a"->a'->b
+        # 不能跳过第一个a'去选第二个a"
         if i > 0 and nums[i] == nums[i - 1] and not used[i - 1]:
             continue
 

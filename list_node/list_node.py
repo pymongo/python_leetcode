@@ -5,7 +5,7 @@ from typing import List, Optional
 class ListNode:
     def __init__(self, num):
         self.val: int = num
-        self.next = None
+        self.next: Optional[ListNode] = None
 
     def __str__(self) -> str:
         list_node_to_string: str = str(self.val)

@@ -50,6 +50,7 @@ LeetCode
 |136|[Single Number](https://leetcode.com/problems/single-number/)|[Python](bitwise/xor_find_single.py)||
 |144|[Binary Tree Preorder Traversal](https://www.leetcode.com/problems/binary-tree-preorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |145|[Binary Tree Postorder Traversal](https://www.leetcode.com/problems/binary-tree-postorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
+|145|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Python](list_node/lru_cache.py)||
 |153|[Find Minimum in Rotated Sorted Array](https://www.leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |154|[Find Minimum in Rotated Sorted Array II](https://www.leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python](binary_search/rotated_sorted_array_min_2_with_duplicate.py)|binary_search|
 |167|[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[Python](two_sum/two_sum_2_input_is_sorted.py)|two_pointers|
@@ -96,8 +97,8 @@ LeetCode
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |702_LOCK|[Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)|[Python](binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
 |704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](binary_search/binary_search.py)|binary_search|
-|704|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](hash/impl_hashmap.py)||
-|705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python](hash/impl_hashmap.py)||
+|704|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](list_node/impl_hashmap.py)||
+|705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python](list_node/impl_hashmap.py)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
@@ -170,6 +171,7 @@ LintCode
 |128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](hash/hash_function.py)||
 |129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](hash/rehashing.py)||
 |132|[Word Search II](https://lintcode.com/problem/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
+|134|[LRU Cache](https://lintcode.com/problem/lru-cache/)|[Python](list_node/lru_cache.py)||
 |135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
 |137|[Clone Graph](https://lintcode.com/problem/clone-graphs/)|[Python](graph/clone_graph.py)|DFS, BFS|
 |138|[Subarray Sum](https://www.lintcode.com/problem/subarray-sum/)|[Python](unclassified/subarray_sum_zero.py)||

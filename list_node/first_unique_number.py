@@ -1,19 +1,22 @@
 import unittest
-from typing import List, Optional, Dict, Set
+from .list_node import ListNode
+from typing import List, Dict, Set
 
 
-class ListNode:
-    def __init__(self, val: int):
-        self.val: int = val
-        self.next: Optional[ListNode] = None
-
-
+# 相似题型: LRU
+# 所谓双向链表，指的是每个节点除了next指针外还有prev指针指向上一个节点
+# 删除操作的单链表和双链表比较:
+# 1. 单链表: 更新prev_map[delete_key].next，map删掉一项，被删节点是不是尾部 ? 更新尾指针 : 更新pre_map中被删节点的下一个节点的prev指针
+# 2. 双链表: 头尾都有一个哑指针，map删掉一项，然后仅有两根指针要变，简单多了
+# 只有删除或尾部插入，用单链表双链表都可以
+# 如果像LRU这题需要频繁的挪动链表的节点，还是用更简单的双链表方便维护
 class FindUnique:
     def __init__(self):
         self.head: ListNode = ListNode(-1)
         self.tail: ListNode = self.head
         # HashMap<Integer, ListNode>，存储节点num的上一个节点，方便删除操作
         # 如果出现重复则把它删掉然后放到self.duplicate_nums中
+        # 这个HashMap的数据结构很妙，这样子就不用使用「双向链表」
         self.linked_list_prev: Dict[int, ListNode] = dict()
         self.duplicate_nums: Set[int] = set()
 
