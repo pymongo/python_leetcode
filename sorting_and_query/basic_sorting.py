@@ -57,7 +57,7 @@ def selection_sort(nums: List[int]):
                 min_index = j
         nums[i], nums[min_index] = nums[min_index], nums[i]
 
-
+# sift_down过程
 def heapify_iterative(nums: List[int], size: int, index: int):
     while True:
         left = index * 2 + 1
@@ -90,7 +90,7 @@ def heap_sort_iterative(nums: List[int]):
     以一个值等于下标的二叉树(0(1(3)(4))(2))为例，1在BFS数组中的下标为1
     1的parent的下标为:  (index-1) // 2 = 0 // 2    = 0
     1的左子树节点的下标为: index * 2 + 1 = 1 * 2 + 1 = 3
-    1的右子树节点的下标为: index * 2 + 1 = 1 * 2 + 2 = 4
+    1的右子树节点的下标为: index * 2 + 2 = 1 * 2 + 2 = 4
     本题用BFS二叉树得到的数组进行堆排序，堆排序可以分为: heapify和heappop两个过程
     用内置库heapq进行堆排序的过程:
     heap_nums = []
@@ -131,12 +131,14 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
     平均/最好/最坏都是O(nlogn)；不稳定排序
     """
 
+    # sift_down过程
     def heapify(nums: List[int], length: int, index: int):
         """
         调整完全二叉树，使二叉树满足堆的第二个条件(父节点的数值比子节点大)
         """
         children_left: int = 2 * index + 1
-        children_right: int = 2 * index + 2
+        children_right: int = children_left + 1
+        # children_right: int = 2 * index + 2
         max_index: int = index
         if children_left < length and nums[children_left] > nums[max_index]:
             max_index = children_left
