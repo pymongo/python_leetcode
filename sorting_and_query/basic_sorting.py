@@ -58,14 +58,6 @@ def selection_sort(nums: List[int]):
         nums[i], nums[min_index] = nums[min_index], nums[i]
 
 
-def heap_push(nums: List[int], index: int):
-    parent_index = (index - 1) // 2
-    while nums[index] > nums[parent_index]:
-        nums[index], nums[parent_index] = nums[parent_index], nums[index]
-        # 父节点的值发生改变，需要往上逐层判断父节点的父节点是否仍是最大值
-        index = parent_index
-
-
 def heapify_iterative(nums: List[int], size: int, index: int):
     while True:
         left = index * 2 + 1
@@ -100,10 +92,9 @@ def heap_sort_iterative(nums: List[int]):
     1的左子树节点的下标为: index * 2 + 1 = 1 * 2 + 1 = 3
     1的右子树节点的下标为: index * 2 + 1 = 1 * 2 + 2 = 4
     本题用BFS二叉树得到的数组进行堆排序，堆排序可以分为: heapify和heappop两个过程
-    用内置库进行堆排序的过程:
+    用内置库heapq进行堆排序的过程:
     heap_nums = []
-    for num in nums:
-        heapq.heappush(heap_nums, num)
+    for num in nums: heapq.heappush(heap_nums, num)
     sorted_nums = [heapq.heappop(heap_nums) for _ in range(len(heap_nums))]
     """
     heap_size = len(nums)
@@ -129,14 +120,6 @@ def heap_sort_iterative(nums: List[int]):
 def heap_sort(input_numbers: List[int]) -> List[int]:
     """
     https://www.youtube.com/watch?v=j-DqQcNPGbE
-
-    ## heapq和堆排序的关系
-    有人把上述视频中的build_heap 叫做heapify
-    Python heapq 的heapify就是把整个array变成heap
-    视频中的heapify 有人喜欢叫成bubble down，因为是value从parent往children走
-    然后视频没有cover bubble up heappop的时候用bubble down
-    如果implement heappush的话是需要bubble up
-
     ## 堆排序的几个概念
     - 完全二叉树: 从上到下，从左到右生成的二叉树
     - 堆的规则/特征: 1. 是个完全二叉树 2. 父节点的数值比子节点大
@@ -176,8 +159,7 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
         heapify(input_numbers, size, i)
     # p(input_numbers)
 
-    # Step.2 开始真正的堆排序
-    # 过程是先将根节点(最大值)与最后的叶节点交换，
+    # Step.2 开始真正的堆排序，过程是先将根节点(最大值)与最后的叶节点交换，
     # 然后"剔除"最后的子叶节点，重新heapify根节点(因为发生变化)
     # 由于每次大的都会放到后面，因此最后的input_numbers是从小到大排
     for i in range(size - 1):
@@ -186,7 +168,6 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
         # 由于根节点发生变化，需要重新heapify，注意重新heapify时不要包括已剔除的叶节点
         heapify(input_numbers, size - 1 - i, 0)
 
-    # p(input_numbers)
     return input_numbers
 
 
