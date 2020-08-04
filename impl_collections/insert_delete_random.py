@@ -2,6 +2,7 @@ import random
 
 
 # https://www.lintcode.com/problem/insert-delete-getrandom-o1/
+# TODO 这题的解答并不好
 class RandomizedSet:
 
     def __init__(self):
