@@ -24,6 +24,13 @@ class FindUnique:
             # 注意要删掉num在linked_list_prev的节点
             duplicate_prev = self.linked_list_prev.pop(num)
             duplicate_prev.next = duplicate_prev.next.next
+            # del duplicate_prev.next
+            if duplicate_prev.next is None:
+                # deleted node is tail of linked list, need to update self.tail
+                self.tail = duplicate_prev
+            else:
+                # 需要更新被删除节点的下一个节点的prev指针
+                self.linked_list_prev[duplicate_prev.next.val] = duplicate_prev
             self.duplicate_nums.add(num)
         else:
             new_node = ListNode(num)
