@@ -42,6 +42,7 @@ def dfs_search(
 
 def boggle(board: List[List[str]], words: List[str]) -> List[str]:
     # 构建前缀树, 具体原理请看: [Implement Trie (Prefix Tree)]这题
+    # 如果不会前缀树，可以用一个前缀集合，例如"hellow" -> {'h', 'he', 'hel', 'hell', 'hello', 'hellow'}
     trie = {}
     for word in words:
         curr_node = trie

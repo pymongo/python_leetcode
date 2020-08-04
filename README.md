@@ -1,7 +1,7 @@
 LeetCode
 ========
 
-因为leetcode-cn上我多做了2道面试题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了2题
+因为leetcode-cn上我多做了2道面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了3题
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
@@ -184,6 +184,7 @@ LintCode
 |142|[O(1) Check Power of 2](https://www.lintcode.com/problem/o1-check-power-of-2/)|[Python](bitwise/is_power_of_2.py)|bitwise, dichotomy|
 |143|[Sort Colors II](https://lintcode.com/problem/sort-colors-ii/)|[Python](sorting_and_query/sort_colors_2.py)|quick_sort, counting_sort|
 |144|[interleaving_positive_and_negative_numbers](https://lintcode.com/problem/sort-colors-ii/)|[Python](partition_array/interleaving_positive_and_negative_numbers.py)||
+|147_LOCK_TODO|[Narcissistic Number](https://www.lintcode.com/problem/narcissistic-number)|[Python](unclassified/narcissistic_number.py)||
 |148|[Sort Colors](https://lintcode.com/problem/sort-colors/)|[Python](partition_array/sort_colors.py)|three_pointers, partition_array|
 |155|[Minimum Depth of Binary Tree](https://www.lintcode.com/problem/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |159|[Find Minimum in Rotated Sorted Array](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
@@ -276,6 +277,11 @@ LintCode
 |1876|[Alien Dictionary(easy)](https://www.lintcode.com/problem/alien-dictionaryeasy/)|[Python](unclassified/verifying_an_alien_dictionary.py)||
 
 ---
+
+Project Euler
+===
+
+TODO
 
 # Category
 
