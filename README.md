@@ -168,8 +168,8 @@ LintCode
 |114|[Unique Paths](https://lintcode.com/problem/unique-paths/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|permutation|
 |120|[Word Ladder](https://lintcode.com/problem/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
 |127|[Topological Sorting](https://lintcode.com/problem/topological-sorting/)|[Python](graph/topological_sorting.py)|BFS, topological_sorting|
-|128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](collections/hash_function.py)||
-|129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](collections/rehashing.py)||
+|128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](understand_collections/hash_function.py)||
+|129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](understand_collections/rehashing.py)||
 |132|[Word Search II](https://lintcode.com/problem/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
 |134|[LRU Cache](https://lintcode.com/problem/lru-cache/)|[Python](list_node/lru_cache.py)|double_linked_list, OrderedDict|
 |135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
