@@ -18,11 +18,21 @@ class ListNode:
         self.prev: Optional[ListNode] = None
         self.next: Optional[ListNode] = None
 
+    def __repr__(self):
+        s = ""
+        curr = self
+        while curr:
+            s += str(curr.key)
+            s += "->"
+            curr = curr.next
+        return s[:-2]
+
 
 class LRU:
     def __init__(self, capacity: int):
         self.capacity: int = capacity
         self.elements_count: int = 0
+        self.is_full: bool = False
         # dummy head and dummy tail
         self.head = ListNode(-1, -1)
         self.tail = ListNode(-1, -1)
@@ -46,19 +56,28 @@ class LRU:
             self._move_node_to_tail(update_node)
             return
 
-        if self.elements_count == self.capacity:
+        if self.is_full:
             # 链表头部删掉一个节点
             remove_node = self.head.next
             self.node_map.pop(remove_node.key)
             remove_node.next.prev = self.head
             self.head.next = remove_node.next
+
         new_node = ListNode(key, value)
+
+        # new_node与self.tail.prev互连
         new_node.prev = self.tail.prev
-        new_node.next = self.tail
         self.tail.prev.next = new_node
+
+        # new_node与self.tail互连
+        self.tail.prev = new_node
+        new_node.next = self.tail
+
         self.node_map[key] = new_node
-        if self.elements_count < self.capacity:
+        if not self.is_full:
             self.elements_count += 1
+            if self.elements_count == self.capacity:
+                self.is_full = True
 
     def _move_node_to_tail(self, node: ListNode):
         if node.next == self.tail:
@@ -92,4 +111,23 @@ class Testing(unittest.TestCase):
         self.assertEqual(-1, lru.get(1))
         self.assertEqual(2, lru.get(2))
 
+    def test_lru(self):
+        lru = LRU(2)
+        lru.put(1, 1)
+        lru.put(2, 2)
 
+        self.assertEqual(1, lru.get(1))
+        # lru.get(1)
+
+        lru.put(3, 3)  # evicts key 2(会覆盖掉2，因为1之前被读取过，会挪到尾部)
+
+        self.assertEqual(-1, lru.get(2))
+        # lru.get(2)
+
+        lru.put(4, 4)  # evicts key 1
+
+        # lru.get(1)
+        self.assertEqual(-1, lru.get(1))
+
+        self.assertEqual(3, lru.get(3))
+        self.assertEqual(4, lru.get(4))
