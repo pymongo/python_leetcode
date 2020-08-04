@@ -9,15 +9,8 @@ class ListNode:
         self.next: Optional[ListNode] = None
 
 
-class ListNode:
-    def __init__(self, key: int, value: int):
-        self.key = key
-        self.value = value
-        self.next: Optional[ListNode] = None
-
-
+# 看过Rust源码就知道，HashSet其实就是value=()的HashMap
 class MyHashMap:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -90,7 +83,6 @@ class MyHashMap:
                 curr_node = curr_node.next
         self.bucket = new_bucket
         self.capacity = new_capacity
-
 
 
 class Testing(unittest.TestCase):

@@ -2,7 +2,6 @@ LeetCode
 ========
 
 因为leetcode-cn上我多做了2道面试题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了2题
-https://www.jiuzhang.com/course/71/dialog/#chapter-236
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
@@ -98,6 +97,7 @@ https://www.jiuzhang.com/course/71/dialog/#chapter-236
 |702_LOCK|[Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)|[Python](binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
 |704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](binary_search/binary_search.py)|binary_search|
 |704|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](hash/impl_hashmap.py)||
+|705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python](hash/impl_hashmap.py)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
@@ -113,6 +113,7 @@ https://www.jiuzhang.com/course/71/dialog/#chapter-236
 |973|[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Python](sorting_and_query/k_closest_points_to_origin.py)|quick_select, sort_by_multi_keys|
 |1095|[Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](binary_search/mountain_array_find.py)|binary_search, mountain_array|
 |1099_LOCK|[Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)|[Python](two_sum/two_sum_le_count.py)|two_pointers|
+|1429_LOCK|[First Unique Number](https://leetcode.com/problems/first-unique-number/)|[Python](list_node/first_unique_number.py)||
 
 
 ---
@@ -232,6 +233,7 @@ LintCode
 |628|[Maximum Subtree](https://www.lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |630_LOCK|[Knight Shortest Path II](https://www.lintcode.com/problem/knight-shortest-path-ii/)|[Python](bfs/knight_shortest_path_2.py)|bfs|
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
+|685|[First Unique Number in Data Stream](https://www.lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](list_node/first_unique_number.py)||
 |816|[Traveling Salesman Problem](https://www.lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_permutation_combination/traveling_salesman_problem.py)||
 |871|[Minimum Factorization](https://www.lintcode.com/problem/minimum-factorization/)|[Python](factorization/minimum_factorization.py)|greedy|
 |880|[Construct Binary Tree from String](https://www.lintcode.com/problem/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||

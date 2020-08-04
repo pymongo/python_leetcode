@@ -84,7 +84,12 @@ def heapify_iterative(nums: List[int], size: int, index: int):
         index = max_index
 
 
-# In-Place sorting
+# 大根堆/小根堆的heappush/heappop操作跟「优先队列」很像，常常使用heap实现优先队列
+# 如果需要删除堆的任意节点，需要额外辅助数据结构才能知道往上或往下调整
+# 优先队列/堆的常见应用:
+# 1. Dijkstra’s algorithm(单源最短路问题中需要在邻接表中找到某一点的最短邻接边，这可以将复杂度降低)
+# 2. Huffman coding(出现频率高的字符权重更高)(贪心算法的一个典型例子，采用优先队列构建最优的前缀编码树(prefixEncodeTree))
+# 3. Prim’s algorithm for minimum spanning tree
 def heap_sort_iterative(nums: List[int]):
     """
     大根堆(max_heapify), 大根堆有两个特性:
@@ -106,12 +111,14 @@ def heap_sort_iterative(nums: List[int]):
     # 照抄了heapq内部实现，实际上开始位置的索引是size//2 - 1(最深的左叶子节点)
     # step.1 从最后一个非叶子节点往上heapify
     for i in reversed(range(heap_size // 2)):
+        # sift/bubble up
         heapify_iterative(nums, heap_size, i)
     # 将heap_size减1使之与heap内最后一个元素的下标值相等，方便下标访问
     heap_size -= 1
     # step.2 heappop: 每次将堆顶(堆的根)弹出与堆最后一个值交换，然后堆的大小减1进行heapify维护堆的特性，数组就划分成两个区域前面是堆，后面是排序好的部分
     while heap_size > 0:
         nums[0], nums[heap_size] = nums[heap_size], nums[0]
+        # sift/bubble down
         heapify_iterative(nums, heap_size, 0)
         heap_size -= 1
     # for i in range(heap_size - 1):
