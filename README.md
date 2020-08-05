@@ -67,10 +67,10 @@ LeetCode
 |210|[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
 |212|[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
 |215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
-|225|[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)|[Python](impl_collections/impl_stack_using_queue.py)||
+|225|[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)|[Python](collections/impl_stack_using_queue.py)||
 |230|[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |231|[Power of Two](https://leetcode.com/problems/power-of-two/)|[Python](bitwise/is_power_of_2.py)|bitwise, dichotomy|
-|232|[Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)|[Python](impl_collections/impl_stack_using_queue.py)||
+|232|[Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)|[Python](collections/impl_stack_using_queue.py)||
 |235|[Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)|[Python](binary_tree/bst_lowest_common_ancestor.py)||
 |236|[Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)|divide_and_conquer|
 |257|[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
@@ -88,8 +88,8 @@ LeetCode
 |342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
 |371|[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)|[Python](bitwise/binary_addition.py)|binary_addition|
-|380|[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Python](impl_collections/insert_delete_random.py)||
-|381|[Insert Delete GetRandom O(1) - Duplicates allowed](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](impl_collections/insert_delete_random.py)||
+|380|[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
+|381|[Insert Delete GetRandom O(1) - Duplicates allowed](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |413|[Reverse Integer](https://www.leetcode.com/problems/reverse-integer/)|[Python](unclassified/reverse_integer.py)||
 |449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
@@ -150,7 +150,7 @@ LintCode
 |14|[First Position of Target](https://www.lintcode.com/problem/first-position-of-target/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |31|[Partition Array](https://www.lintcode.com/problem/partition-array/)|[Python](partition_array/partition_array.py)|two_pointers|
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](list_node/reverse_linked_list.py)|list_node|
-|40|[Implement Queue by Two Stacks](https://www.lintcode.com/problem/implement-queue-by-two-stacks/)|[Python](impl_collections/impl_stack_using_queue.py)||
+|40|[Implement Queue by Two Stacks](https://www.lintcode.com/problem/implement-queue-by-two-stacks/)|[Python](collections/impl_stack_using_queue.py)||
 |41|[Maximum Subarray](https://www.lintcode.com/problem/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
 |49|[Sort Letters by Case](https://www.lintcode.com/problem/sort-letters-by-case/)|[Python](partition_array/partition_array_by_odd_and_even.py)||
 |53|[Reverse Words in a String](https://lintcode.com/problem/reverse-words-in-a-string/)|[Python](rotate_reverse_circle_shift/reverse_words_in_a_string.py)||
@@ -182,8 +182,8 @@ LintCode
 |121|[Word Ladder II](https://lintcode.com/problem/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
 |123|[Word Search](https://lintcode.com/problem/word-search/)|[Python](dfs_permutation_combination/word_search.py)||
 |127|[Topological Sorting](https://lintcode.com/problem/topological-sorting/)|[Python](graph/topological_sorting.py)|BFS, topological_sorting|
-|128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](impl_collections/hash_function.py)||
-|129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](impl_collections/rehashing.py)||
+|128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](collections/hash_function.py)||
+|129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](collections/rehashing.py)||
 |132|[Word Search II](https://lintcode.com/problem/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
 |134|[LRU Cache](https://lintcode.com/problem/lru-cache/)|[Python](list_node/lru_cache.py)|double_linked_list, OrderedDict|
 |135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
@@ -228,9 +228,9 @@ LintCode
 |474_LOCK|[Lowest Common Ancestor II](https://www.lintcode.com/problem/lowest-common-ancestor-ii/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)||
 |480|[Binary Tree Paths](https://lintcode.com/problem/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
 |491|[Palindromic Number](https://www.lintcode.com/problem/palindrome-number/)|[Python](palindrome/longest_palindromic_substr.py)||
-|492|[Implement Queue by Linked List](https://www.lintcode.com/problem/implement-queue-by-linked-list/)|[Python](impl_collections/impl_queue_by_linked_list.py)||
-|494|[Implement Stack by Two Queues](https://www.lintcode.com/problem/implement-stack-by-two-queues/)|[Python](impl_collections/impl_stack_using_queue.py)||
-|495|[Implement Stack](https://www.lintcode.com/problem/implement-stack/)|[Python](impl_collections/impl_stack_using_queue.py)||
+|492|[Implement Queue by Linked List](https://www.lintcode.com/problem/implement-queue-by-linked-list/)|[Python](collections/impl_queue_by_linked_list.py)||
+|494|[Implement Stack by Two Queues](https://www.lintcode.com/problem/implement-stack-by-two-queues/)|[Python](collections/impl_stack_using_queue.py)||
+|495|[Implement Stack](https://www.lintcode.com/problem/implement-stack/)|[Python](collections/impl_stack_using_queue.py)||
 |517|[Ugly Number](https://www.lintcode.com/problem/ugly-number/)|[Python](unclassified/ugly_number.py)||
 |521_LOCK|[Remove Duplicate Numbers in Array](https://www.lintcode.com/problem/remove-duplicate-numbers-in-array/)|[Python](partition_array/remove_duplicate_numbers_in_array.py)|partition_array|
 |533_LOCK|[Two Sum - Closest to target](https://www.lintcode.com/problem/two-sum-closest-to-target/)|[Python](two_sum/two_sum_unique_pairs.py)|two_sum|
@@ -251,7 +251,7 @@ LintCode
 |627|[Longest Palindromic Combination](https://www.lintcode.com/problem/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|greedy|
 |628|[Maximum Subtree](https://www.lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |630_LOCK|[Knight Shortest Path II](https://www.lintcode.com/problem/knight-shortest-path-ii/)|[Python](bfs/knight_shortest_path_2.py)|bfs|
-|657|[Insert Delete GetRandom O(1)](https://www.lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](impl_collections/insert_delete_random.py)||
+|657|[Insert Delete GetRandom O(1)](https://www.lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |685|[First Unique Number in Data Stream](https://www.lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](list_node/first_unique_number.py)||
 |816|[Traveling Salesman Problem](https://www.lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_permutation_combination/traveling_salesman_problem.py)||
@@ -263,6 +263,7 @@ LintCode
 |901|[Closest Binary Search Tree Value II](https://www.lintcode.com/problem/closest-binary-search-tree-value-ii/)|[Python](binary_tree/bst_closest_value_2.py)||
 |902|[Kth Smallest Element in a BST](https://lintcode.com/problem/kth-smallest-element-in-a-bst/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |916|[Palindrome Permutation](https://www.lintcode.com/problem/palindrome-permutation/)|[Python](palindrome/palindrome_permutation.py)|greedy|
+|954|[Insert Delete GetRandom O(1) - Duplicates allowed](https://lintcode.com/problem/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |976|[4Sum II](https://www.lintcode.com/problem/4sum-ii/)|[Python](two_sum/four_sum_2.py)|two_sum|
 |1137|[Construct String from Binary Tree](https://www.lintcode.com/problem/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |1179|[Friend Circles](https://lintcode.com/problem/friend-circles/)|[Python](graph/friend_circles.py)|union_find, DFS, BFS|
