@@ -278,6 +278,7 @@ LintCode
 |1593|[Construct Binary Tree from Preorder and Postorder Traversal](https://lintcode.com/problem/construct-binary-tree-from-preorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_post_order.py)|DFS|
 |1609|[Middle of the Linked List](https://lintcode.com/problem/middle-of-the-linked-list/)|[Python](list_node/middle_of_linked_list.py)|list_node, 快慢指针|
 |1790_LOCK|[Rotate String II](https://www.lintcode.com/problem/rotate-string-ii/)|[Python](rotate_reverse_circle_shift/rotate_string_2.py)|reverse, circle_shift|
+|1848_ABANDONED|[Word Search III](https://www.lintcode.com/problem/word-search-iii/)|[Python](dfs_permutation_combination/word_search_3.py)||
 |1876|[Alien Dictionary(easy)](https://www.lintcode.com/problem/alien-dictionaryeasy/)|[Python](unclassified/verifying_an_alien_dictionary.py)||
 
 ---
