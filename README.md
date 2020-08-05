@@ -120,6 +120,7 @@ LeetCode
 |1095|[Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](binary_search/mountain_array_find.py)|binary_search, mountain_array|
 |1099_LOCK|[Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)|[Python](two_sum/two_sum_le_count.py)|two_pointers|
 |1429_LOCK|[First Unique Number](https://leetcode.com/problems/first-unique-number/)|[Python](list_node/first_unique_number.py)||
+|1470|[Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)|[Python](unclassified/shuffle_the_array.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/unclassified/shuffle_the_array.rs)||
 |1476|[Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries/)|[Python](unclassified/subrectangle_queries.py)||
 |1480|[Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[Python](unclassified/running_sum_of_1d_array.py)||
 
