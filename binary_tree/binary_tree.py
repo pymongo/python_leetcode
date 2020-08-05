@@ -56,7 +56,11 @@ class TreeNode:
                 stack.append(node.left)
             visited.add(node)
         # 去掉头尾的括号
-        return s[1:-1]
+        if len(s) == 3:
+            # 如果只有根节点一个，返回值要补上一对括号，否则读取字符串时会解析成None
+            return s[1:-1] + "()"
+        else:
+            return s[1:-1]
 
     def __repr__(self):
         """

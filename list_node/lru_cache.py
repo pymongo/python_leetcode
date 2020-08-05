@@ -82,6 +82,9 @@ class LRUCache:
             if self.elements_count == self.capacity:
                 self.is_full = True
 
+    # 做链表类题，最好用图画出每个函数输入输出对链表的变化，这样才不容易乱
+    # Change: head->...->node->...->tail
+    # To    : head->...->node->tail
     def _move_node_to_tail(self, node: ListNode):
         if node.next == self.tail:
             # 如果节点已经是最后一个节点了，就不需要挪动了

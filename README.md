@@ -1,7 +1,7 @@
 LeetCode
 ========
 
-因为leetcode-cn上我多做了2道面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了3题
+因为leetcode-cn上我多做了2道面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了4题
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
