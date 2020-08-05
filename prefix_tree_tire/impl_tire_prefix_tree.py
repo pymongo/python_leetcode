@@ -33,7 +33,7 @@ class TreeNode:
         self.children: List[Optional[TreeNode]] = [None] * 26
 
 
-# prefix tree
+# prefix tree(字典树/前缀树)
 class Trie:
 
     def __init__(self):

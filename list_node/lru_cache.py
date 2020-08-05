@@ -29,6 +29,7 @@ class ListNode:
     #     return s[:-2]
 
 
+# 用处: 内存淘汰算法，哪些数据访问次数少/比较旧，就把它扔掉
 class LRUCache:
     def __init__(self, capacity: int):
         self.capacity: int = capacity
