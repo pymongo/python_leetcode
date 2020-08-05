@@ -6,57 +6,48 @@ from typing import List
 def dfs(
     row: int,
     col: int,
-    # word_next_index
-    word_index: int,
+    visited: List[List[bool]],
+    word_next_index: int,
     word_size: int,
     word: str,
     board: List[List[str]],
     n_rows: int,
     n_cols: int,
 ) -> bool:
-    pass
+    if word_next_index == word_size:
+        return True
+    for delta_row, delta_col in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+        next_row, next_col = row + delta_row, col + delta_col
+        if not (0 <= next_row < n_rows and 0 <= next_col < n_cols):
+            continue
+        if visited[next_row][next_col]:
+            continue
+        if board[next_row][next_col] != word[word_next_index]:
+            continue
+        visited[next_row][next_col] = True
+        if dfs(next_row, next_col, visited, word_next_index+1, word_size, word, board, n_rows, n_cols):
+            return True
+        visited[next_row][next_col] = False
 
 
 def dfs_helper(board: List[List[str]], word: str) -> bool:
     n_rows = len(board)
     n_cols = len(board[0])
     visited = [[False] * n_cols for _ in range(n_rows)]
-    first_letter = word[0]
     word_size = len(word)
-    last_word_index = word_size - 1
-    last_match_word = word[word_size-1]
-    queue = collections.deque()
+    if word_size == 1 and n_rows == 1 and n_cols == 1:
+        return board[0][0] == word[0]
     for row in range(n_rows):
         for col in range(n_cols):
-            if board[row][col] != first_letter:
-                continue
-            if visited[row][col]:
-                continue
-            queue.append((row, col))
-            visited[row][col] = True
-            word_index = 1
-            while queue:
-                x, y = queue.pop()
-                next_match_letter = word[word_index]
-                for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0)):
-                    next_x, next_y = x + dx, y + dy
-                    if not (0 <= next_x < n_rows and 0 <= next_y < n_cols):
-                        continue
-                    if visited[next_x][next_y]:
-                        continue
-                    visited[next_x][next_y] = True
-                    if board[next_x][next_y] != next_match_letter:
-                        continue
-                    if word_index == last_word_index:
-                        return True
-                    queue.append((next_x, next_y))
-                if word_index < last_word_index:
-                    word_index += 1
+            if dfs(row, col, visited, 0, word_size, word, board, n_rows, n_cols):
+                return True
     return False
 
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
+        ([['a']], "a", True),
+        ([['a', 'a']], "aaa", False),
         ([
              ['A', 'B', 'C', 'E'],
              ['S', 'F', 'C', 'S'],
