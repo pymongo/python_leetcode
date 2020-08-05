@@ -39,6 +39,8 @@ class Solution:
                     origin_char = chars[i]
                     # 枚举所有小写字母，将单词第i个字符改为枚举的小写字母
                     for letter in self.LOWER_LETTERS:
+                        if letter == origin_char:
+                            continue
                         chars[i] = letter
                         next_word = ''.join(chars)
                         if next_word in word_set:

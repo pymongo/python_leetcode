@@ -25,12 +25,15 @@ def word_ladder_2(begin_word: str, end_word: str, word_list: List[str]) -> List[
     # print(word_list)
     # print(words_index)
     # 索引值是每个单词在单词列表中的下标，邻接矩阵的值表示两个单词之间是否连通
+    # 单词数量比较多，用邻接表(HashMap[node][neighbors])性能比邻接矩阵更高
     adjacency_matrix: List[List[bool]] = [[False] * size for _ in range(size)]
     for i, word in enumerate(word_list):
         letters = list(word)
         for k in range(word_len):
             origin_letter = letters[k]
             for lower_letter in LOWER_LETTERS:
+                if lower_letter == origin_letter:
+                    continue
                 letters[k] = lower_letter
                 next_word = ''.join(letters)
                 if next_word in words_index:
@@ -38,6 +41,9 @@ def word_ladder_2(begin_word: str, end_word: str, word_list: List[str]) -> List[
                     adjacency_matrix[i][j] = True
                     adjacency_matrix[j][i] = True
             letters[k] = origin_letter
+    # 如果没有边连向终点
+    if not any(adjacency_matrix[end_index]):
+        return []
     # for row in range(size):
     #     for col in range(size):
     #         print(adjacency_matrix[row][col], end=', ')
@@ -57,8 +63,8 @@ def word_ladder_2(begin_word: str, end_word: str, word_list: List[str]) -> List[
             if next not in distance_to_end:
                 distance_to_end[next] = distance_to_end[curr] + 1
                 queue.append(next)
-    for key in distance_to_end:
-        print(word_list[key], distance_to_end[key])
+    # for key in distance_to_end:
+    #     print(word_list[key], distance_to_end[key])
 
     # 3. 从start开始做DFS，根据distance_to_end，只选择distance_to_end[next] = distance_to_end[curr] + 1的路径
     # BFS适合求最短路径，不适合列出所有方案，DFS(回溯)适合用于列出所有方案
