@@ -6,8 +6,7 @@ from typing import List
 class Solution:
     LOWER_LETTERS = [chr(ord('a') + i) for i in range(26)]
 
-    # 388 ms 在所有 Python3 提交中击败了 37.04%，更快的解答只能用双向BFS了
-    # def ladderLength(self, begin_word: str, end_word: str, word_list: List[str]) -> int:
+    # 更快的解答只能用双向BFS了
     def bfs_1(self, begin_word: str, end_word: str, word_list: List[str]) -> int:
         if not word_list:
             return 0
