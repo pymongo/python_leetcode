@@ -99,6 +99,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |380|[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |381|[Insert Delete GetRandom O(1) - Duplicates allowed](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|dp(greedy)|
+|412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|[Python](unclassified/fizz_buzz.py)||
 |413|[Reverse Integer](https://www.leetcode.com/problems/reverse-integer/)|[Python](unclassified/reverse_integer.py)||
 |449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |454|[4Sum II](https://www.leetcode.com/problems/4sum-ii/)|[Python](two_sum/four_sum_2.py)|two_sum|
@@ -151,6 +152,7 @@ LintCode
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
 |7|[Serialize and Deserialize Binary Tree](https://lintcode.com/problem/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |8|[Rotate String](https://lintcode.com/problem/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp|
+|9|[Fizz Buzz](https://www.lintcode.com/problem/fizz-buzz/)|[Python](unclassified/fizz_buzz.py)||
 |10|[String Permutation II](https://lintcode.com/problem/string-permutation-ii/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
 |13|[Implement strStr()](https://www.lintcode.com/problem/implement-strstr/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
 |15|[Permutations](https://lintcode.com/problem/permutations/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
