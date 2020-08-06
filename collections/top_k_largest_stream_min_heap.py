@@ -101,6 +101,15 @@ class MinHeap:
 
 
 class TopKLargestNums:
+    """ 544. Top k Largest Numbers
+    def topk(self, nums, k):
+        min_heap = nums[:k]
+        heapq.heapify(min_heap)
+        for num in nums[k:]:
+            heapq.heappushpop(min_heap, num)
+        min_heap.sort()
+        return min_heap[::-1]
+    """
     def __init__(self, k: int):
         self.k = k
         self.nums = []

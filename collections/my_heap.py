@@ -44,6 +44,7 @@ class MyHeap:
         for i in range(self.len // 2 - 1, -1, -1):
             self._sift_down(i)
 
+    # TODO Python的siftup是跟儿子比，Rust的siftup是跟父节点比，Rust的更加正确
     def _sift_up(self, curr: int):
         """
         只比较当前节点和父亲节点之前的最大值，如果发生挪到，则curr=parent

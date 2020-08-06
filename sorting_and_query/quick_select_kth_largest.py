@@ -60,6 +60,7 @@ def kth_largest_min_heap(nums: List[int], k: int) -> int:
     min_heap = nums[:k]
     heapq.heapify(min_heap)
     for num in nums[k:]:
+        # 维护好最大的前k个数
         heapq.heappushpop(min_heap, num)
     return min_heap[0]
 
