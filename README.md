@@ -73,7 +73,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |208|[Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)|[Python](prefix_tree_tire/impl_tire_prefix_tree.py)|前缀树/字典树|
 |210|[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
 |212|[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
-|215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
+|215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
 |225|[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)|[Python](collections/impl_stack_using_queue.py)||
 |230|[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |231|[Power of Two](https://leetcode.com/problems/power-of-two/)|[Python](bitwise/is_power_of_2.py)|bitwise, dichotomy|
@@ -147,7 +147,7 @@ LintCode
 |1|[A + B Problem](https://www.lintcode.com/problem/a-b-problem/)|[Python](bitwise/binary_addition.py)|binary_addition|
 |2|[Trailing Zeros](https://www.lintcode.com/problem/trailing-zeros/)|[Python](factorization/factorial_trailing_zeroes.py)|factorial|
 |4|[Ugly Number II](https://www.leetcode.com/problems/ugly-number-ii/)|[Python](unclassified/ugly_number_2_nth_ugly.py)||
-|5|[Kth Largest Element](https://www.lintcode.com/problem/kth-largest-element/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort|
+|5|[Kth Largest Element](https://www.lintcode.com/problem/kth-largest-element/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
 |7|[Serialize and Deserialize Binary Tree](https://lintcode.com/problem/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |8|[Rotate String](https://lintcode.com/problem/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp|
@@ -257,6 +257,7 @@ LintCode
 |587_LOCK|[Two Sum - Unique pairs](https://www.lintcode.com/problem/two-sum-unique-pairs/)|[Python](two_sum/two_sum_unique_pairs.py)|two_sum|
 |594|[Implement strStr() II](https://www.lintcode.com/problem/strstr-ii/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
 |596_LOCK|[Minimum Subtree](https://www.lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
+|606|[Kth Largest Element II](https://www.lintcode.com/problem/kth-largest-element-ii/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
 |607|[Two Sum III - Data structure design](https://lintcode.com/problem/two-sum-iii-data-structure-design/)|[Python](two_sum/two_sum_3_impl.py)|two_pointers|
 |608|[Two Sum II - Input array is sorted](https://lintcode.com/problem/two-sum-ii-input-array-is-sorted/)|[Python](two_sum/two_sum_2_input_is_sorted.py)|two_pointers|
 |609|[Two Sum - Less than or equal to target](https://www.lintcode.com/problem/two-sum-less-than-or-equal-to-target/)|[Python](two_sum/two_sum_le_count.py)|two_pointers|

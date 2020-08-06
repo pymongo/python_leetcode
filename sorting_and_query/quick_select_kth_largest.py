@@ -12,6 +12,7 @@ return nums[len(nums)-k]
 """
 
 import unittest
+import heapq
 from typing import List
 
 
@@ -51,6 +52,16 @@ def quick_select(nums: List[int], left: int, right: int, k: int) -> int:
     else:
         # 第k大元素恰好是j和i中间的元素
         return nums[j + 1]
+
+
+# https://docs.python.org/3.8/library/heapq.html
+def kth_largest_min_heap(nums: List[int], k: int) -> int:
+    # return heapq.nlargest(k, nums)[k-1]
+    min_heap = nums[:k]
+    heapq.heapify(min_heap)
+    for num in nums[k:]:
+        heapq.heappushpop(min_heap, num)
+    return min_heap[0]
 
 
 class Test(unittest.TestCase):

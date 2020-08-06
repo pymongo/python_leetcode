@@ -1,4 +1,5 @@
 import unittest
+import heapq
 from typing import List
 
 
@@ -97,6 +98,25 @@ class MinHeap:
                 break
             self.nums[curr], self.nums[min_index] = self.nums[min_index], self.nums[curr]
             curr = min_index
+
+
+class TopKLargestNums:
+    def __init__(self, k: int):
+        self.k = k
+        self.nums = []
+        self.size = 0
+
+    def add(self, val: int):
+        if self.size < self.k:
+            heapq.heappush(self.nums, val)
+            self.size += 1
+        else:
+            heapq.heappushpop(self.nums, val)
+
+    def topk(self) -> List[int]:
+        # 一个升序的数组是「完美小根堆」
+        self.nums.sort()
+        return self.nums[::-1]
 
 
 class Testing(unittest.TestCase):
