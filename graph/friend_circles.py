@@ -60,7 +60,7 @@ def my_dfs(m: List[List[int]], size: int, visited, node: int):
             continue
         if m[node][neighbourhood] == 0:
             continue
-        visited.add(neighbourhood)
+        visited.add_703(neighbourhood)
         my_dfs(m, size, visited, neighbourhood)
 
 

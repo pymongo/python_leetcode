@@ -24,9 +24,22 @@ class MinHeap:
                 self.len = k
 
     # leetcode.703. Kth Largest Element in a Stream
-    def add(self, val: int) -> int:
+    def add_703(self, val: int) -> int:
         self.push(val)
         return self.nums[0]
+
+    def add(self, val: int):
+        self.push(val)
+
+    def topk(self) -> List[int]:
+        old_nums = self.nums.copy()
+        old_len = self.len
+        result = []
+        for _ in range(self.k if self.is_full else self.len):
+            result.insert(0, self.pop())
+        self.nums = old_nums
+        self.len = old_len
+        return result
 
     def push(self, val: int):
         if self.is_full:
@@ -89,8 +102,16 @@ class MinHeap:
 class Testing(unittest.TestCase):
     def test_kth_largest_element_in_a_stream(self):
         h = MinHeap(1, [-2])
-        print(h.add(-3))
-        print(h.add(0))
-        print(h.add(2))
-        print(h.add(-1))
-        print(h.add(4))
+        print(h.add_703(-3))
+        print(h.add_703(0))
+        print(h.add_703(2))
+        print(h.add_703(-1))
+        print(h.add_703(4))
+
+    def test_top_k_largest_numbers(self):
+        h = MinHeap(3)
+        h.add(3)
+        h.add(10)
+        print(h.topk())
+        h.add(1000)
+        print(h.nums)
