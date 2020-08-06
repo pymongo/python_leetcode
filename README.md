@@ -148,6 +148,7 @@ LintCode
 |---| ----- | -------- | ---------- |
 |1|[A + B Problem](https://www.lintcode.com/problem/a-b-problem/)|[Python](bitwise/binary_addition.py)|binary_addition|
 |2|[Trailing Zeros](https://www.lintcode.com/problem/trailing-zeros/)|[Python](factorization/factorial_trailing_zeroes.py)|factorial|
+|3|[Digit Counts](https://www.lintcode.com/problem/digit-counts/)|[Python](unclassified/digits_count.py)||
 |4|[Ugly Number II](https://www.leetcode.com/problems/ugly-number-ii/)|[Python](unclassified/ugly_number_2_nth_ugly.py)||
 |5|[Kth Largest Element](https://www.lintcode.com/problem/kth-largest-element/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
 |6|[Merge Two Sorted Arrays](https://www.lintcode.com/problem/merge-two-sorted-arrays/)|[Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
