@@ -33,6 +33,7 @@ class MyHeap:
         self._sift_down(0)
         return output
 
+    # 平均O(n)时间复杂度
     def heapify(self):
         """
         根据堆(完全二叉树)的左儿子公式 i * 2 + 2

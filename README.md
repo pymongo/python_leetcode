@@ -111,9 +111,10 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |658|[Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)|[Python](binary_search/find_k_closest_elements.py)|binary_search|
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |702_LOCK|[Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)|[Python](binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
+|703|[Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)|[Python](collections/top_k_largest_stream_min_heap.py)|min_heap|
 |704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](binary_search/binary_search.py)|binary_search|
-|704|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](list_node/impl_hashmap.py)||
 |705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python](list_node/impl_hashmap.py)||
+|706|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](list_node/impl_hashmap.py)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |760_LOCK|[Find Anagram Mappings](https://www.leetcode.com/problems/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
@@ -259,7 +260,7 @@ LintCode
 |608|[Two Sum II - Input array is sorted](https://lintcode.com/problem/two-sum-ii-input-array-is-sorted/)|[Python](two_sum/two_sum_2_input_is_sorted.py)|two_pointers|
 |609|[Two Sum - Less than or equal to target](https://www.lintcode.com/problem/two-sum-less-than-or-equal-to-target/)|[Python](two_sum/two_sum_le_count.py)|two_pointers|
 |611_LOCK|[Knight Shortest Path](https://www.lintcode.com/problem/knight-shortest-path/)|[Python](bfs/knight_shortest_path.py)|bfs|
-|612|[K Closest Points](https://www.lintcode.com/problem/k-closest-points/)|[Python](sorting_and_query/k_closest_points_to_origin.py)|quick_select, sort_by_multi_keys|
+|612_LOCK|[K Closest Points](https://www.lintcode.com/problem/k-closest-points/)|[Python](sorting_and_query/k_closest_points_to_origin.py)|quick_select, sort_by_multi_keys|
 |616|[Course Schedule II](https://lintcode.com/problem/course-schedule-ii/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
 |627|[Longest Palindromic Combination](https://www.lintcode.com/problem/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|greedy|
 |628|[Maximum Subtree](https://www.lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|

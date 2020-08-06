@@ -92,4 +92,6 @@ Divide&Conquer和Traversal可以用递归和非递归的两种实现方法
 
 像Rust的BinaryHeap除了pop就没有直接删除的操作，只有retain也要遍历一遍才能删除
 
+堆找到要删的元素要O(n)，然后把堆的最后元素覆盖到被删节点，然后sift_down
+
 # monotone stack(单调栈)
