@@ -74,6 +74,7 @@ LeetCode
 |232|[Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)|[Python](collections/impl_stack_using_queue.py)||
 |235|[Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)|[Python](binary_tree/bst_lowest_common_ancestor.py)||
 |236|[Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)|divide_and_conquer|
+|242|[Valid Anagram](https://leetcode.com/problems/valid-anagram/)|[Python](collections/valid_anagram.py)||
 |257|[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
 |263|[Ugly Number](https://www.leetcode.com/problems/ugly-number/)|[Python](unclassified/ugly_number.py)||
 |264|[Ugly Number II](https://www.leetcode.com/problems/ugly-number-ii/)|[Python](unclassified/ugly_number_2_nth_ugly.py)||
@@ -199,6 +200,7 @@ LintCode
 |147_LOCK_TODO|[Narcissistic Number](https://www.lintcode.com/problem/narcissistic-number)|[Python](unclassified/narcissistic_number.py)||
 |148|[Sort Colors](https://lintcode.com/problem/sort-colors/)|[Python](partition_array/sort_colors.py)|three_pointers, partition_array|
 |155|[Minimum Depth of Binary Tree](https://www.lintcode.com/problem/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
+|158|[Valid Anagram](https://lintcode.com/problem/valid-anagram/)|[Python](collections/valid_anagram.py)||
 |159|[Find Minimum in Rotated Sorted Array](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |160|[Find Minimum in Rotated Sorted Array II](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_min_2_with_duplicate.py)|binary_search|
 |167|[Add Two Numbers](https://www.lintcode.com/problem/add-two-numbers/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/traverse_two_list_node.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/traverse_two_list_node_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/TraverseTwoListNode.java), [Python](list_node/add_two_numbers.py)|create/traverse_list_node|
