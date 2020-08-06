@@ -109,6 +109,7 @@ LeetCode
 |704|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](list_node/impl_hashmap.py)||
 |705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python](list_node/impl_hashmap.py)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
+|760_LOCK|[Find Anagram Mappings](https://www.leetcode.com/problems/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
 |845|[Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
@@ -258,6 +259,7 @@ LintCode
 |657|[Insert Delete GetRandom O(1)](https://www.lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |685|[First Unique Number in Data Stream](https://www.lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](list_node/first_unique_number.py)||
+|813|[Find Anagram Mappings](https://www.lintcode.com/problem/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
 |816|[Traveling Salesman Problem](https://www.lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_permutation_combination/traveling_salesman_problem.py)||
 |871|[Minimum Factorization](https://www.lintcode.com/problem/minimum-factorization/)|[Python](factorization/minimum_factorization.py)|greedy|
 |880|[Construct Binary Tree from String](https://www.lintcode.com/problem/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
