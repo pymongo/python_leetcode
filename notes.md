@@ -88,4 +88,8 @@ Divide&Conquer和Traversal可以用递归和非递归的两种实现方法
 
 所以链表内用到什么数据结构，更准确的回答是: 数组+(单/双)链表+红黑树，红黑树的扩容性能更佳
 
+所有编程语言自带的堆的删除操作都是O(n)，只有值不重复而且有HashMap索引才能删得快
+
+像Rust的BinaryHeap除了pop就没有直接删除的操作，只有retain也要遍历一遍才能删除
+
 # monotone stack(单调栈)

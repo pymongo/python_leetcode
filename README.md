@@ -47,6 +47,7 @@ LeetCode
 |125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[Python](palindrome/valid_palindrome.py)|two_pointers|
 |126|[Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
 |127|[Word Ladder](https://leetcode.com/problems/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
+|128|[Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|[Python](collections/longest_consecutive_sequence.py)|并查集|
 |133|[Clone Graph](https://leetcode.com/problems/clone-graphs/)|[Python](graph/clone_graph.py)|DFS, BFS|
 |134|[Gas Station](https://leetcode.com/problems/gas-station/)|[Python](greedy/gas_station.py)|greedy|
 |136|[Single Number](https://leetcode.com/problems/single-number/)|[Python](bitwise/xor_find_single.py)||
@@ -181,6 +182,7 @@ LintCode
 |120|[Word Ladder](https://lintcode.com/problem/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
 |121|[Word Ladder II](https://lintcode.com/problem/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
 |123|[Word Search](https://lintcode.com/problem/word-search/)|[Python](dfs_permutation_combination/word_search.py)||
+|124|[Longest Consecutive Sequence](https://lintcode.com/problem/longest-consecutive-sequence/)|[Python](collections/longest_consecutive_sequence.py)|并查集|
 |127|[Topological Sorting](https://lintcode.com/problem/topological-sorting/)|[Python](graph/topological_sorting.py)|BFS, topological_sorting|
 |128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](collections/hash_function.py)||
 |129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](collections/rehashing.py)||
