@@ -35,16 +35,45 @@ class Solution:
         """
         性能不如比较两个Counter
         """
-        xor, hash_sum = 0, 0
+        xor, ord_sum = 0, 0
         for letter in source:
             ord_letter = ord(letter)
+            ord_sum += (ord_letter % 98)
             xor ^= ord_letter
-            hash_sum += ord_letter % 98
         for letter in target:
             ord_letter = ord(letter)
+            ord_sum -= (ord_letter % 98)
+            if ord_sum < 0:
+                return False
             xor ^= ord_letter
-            hash_sum -= ord_letter % 98
-        return xor == 0 and hash_sum == 0
+        return xor == 0 and ord_sum == 0
+
+        # xor1, ord_sum1 = 0, 0
+        # for letter in source:
+        #     ord_letter = ord(letter)
+        #     xor1 ^= ord_letter
+        #     ord_sum1 += (ord_letter % 98)
+        # xor2, ord_sum2 = 0, 0
+        # for letter in target:
+        #     ord_letter = ord(letter)
+        #     xor2 ^= ord_letter
+        #     ord_sum2 += (ord_letter % 98)
+        # return xor1 == xor2 and ord_sum1 == ord_sum2
+
+    @staticmethod
+    def rolling_hash(source: str, target: str) -> bool:
+        """
+        FIXME rolling_hash的特性是字母会有序，所以这题用不了rollingHash
+        """
+        source_hash = 0
+        for letter in source:
+            ord_letter = ord(letter) - 98
+            source_hash = (source_hash * 26 + ord_letter) % 100000
+        target_hash = 0
+        for letter in target:
+            ord_letter = ord(letter) - 98
+            target_hash = (target_hash * 26 + ord_letter) % 100000
+        return source_hash == target_hash
 
 
 class Testing(unittest.TestCase):
