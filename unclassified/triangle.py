@@ -32,6 +32,25 @@ class Solution:
         return min(triangle[size - 1])
 
     @staticmethod
+    def try_dp_one_traverse(triangle: List[List[int]]) -> int:
+        size = len(triangle)
+        root_val = triangle[0][0]
+        if size < 2:
+            return root_val
+        triangle[1][0] += root_val
+        triangle[1][1] += root_val
+        # 一次遍历的解法
+        for i in range(2, size):
+            # 每层的左边界
+            triangle[i][0] += triangle[i - 1][0]
+            # 每层的右边界
+            triangle[i][i] += triangle[i - 1][i - 1]
+            # 每层的中间
+            for j in range(1, i):
+                triangle[i][j] += min(triangle[i - 1][j - 1], triangle[i - 1][j])
+        return min(triangle[size - 1])
+
+    @staticmethod
     def dp_bottom_to_top(triangle: List[List[int]]) -> int:
         # 别人的解法: 从自下而上的DP
         for i in range(len(triangle) - 2, -1, -1):
@@ -62,3 +81,7 @@ class Testing(unittest.TestCase):
         solution = Solution()
         for triangle, shortest_path in self.TEST_CASES:
             self.assertEqual(shortest_path, solution.minimumTotal(triangle))
+
+    def test_try_dp_one_traverse(self):
+        for triangle, shortest_path in self.TEST_CASES:
+            self.assertEqual(shortest_path, Solution.try_dp_one_traverse(triangle))
