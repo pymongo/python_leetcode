@@ -49,6 +49,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |110|[Balanced Binary Tree](https://www.leetcode.com/problems/balanced-binary-tree/)|[Python](binary_tree/depth_is_balance_binary_tree.py)|divide_and_conquer|
 |111|[Minimum Depth of Binary Tree](https://www.leetcode.com/problems/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)|divide_and_conquer, BFS|
 |114|[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|[Python](binary_tree/in_place_flatten_binary_tree_to_linked_list.py)||
+|120|[Triangle](https://www.leetcode.com/problems/triangle/)|[Python](unclassified/triangle.py)||
 |125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[Python](palindrome/valid_palindrome.py)|two_pointers|
 |126|[Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
 |127|[Word Ladder](https://leetcode.com/problems/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
@@ -192,6 +193,7 @@ LintCode
 |97|[Maximum Depth of Binary Tree](https://www.lintcode.com/problem/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |100|[Remove Duplicates from Sorted Array](https://lintcode.com/problem/remove-duplicates-from-sorted-array/)|[Python](partition_array/move_zeros.py)||
 |105|[Copy List with Random Pointer](https://www.lintcode.com/problem/copy-list-with-random-pointer/)|[Python](graph/clone_linked_list_with_random_ptr.py)||
+|109|[Triangle](https://www.lintcode.com/problem/triangle/)|[Python](unclassified/triangle.py)||
 |114|[Unique Paths](https://lintcode.com/problem/unique-paths/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|permutation|
 |120|[Word Ladder](https://lintcode.com/problem/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
 |121|[Word Ladder II](https://lintcode.com/problem/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
