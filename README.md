@@ -18,16 +18,16 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Python](unclassified/reverse_integer.py)||
 |9|[Palindromic Number](https://leetcode.com/problems/palindrome-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/i32_is_palindromic.rs), [Python](palindrome/longest_palindromic_substr.py)|half_traverse_i32|
 |15|[3Sum](https://leetcode.com/problems/3sum/)|[Python](two_sum/three_sum.py)|two_pointers, two_sum|
-|17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|[Python](dfs_permutation_combination/phone_9_keypad_combination.py)|product(笛卡尔积)|
+|17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|[Python](dfs_perm_comb/phone_9_keypad_combination.py)|product(笛卡尔积)|
 |18|[4Sum](https://www.lintcode.com/problem/4sum/)|[Python](two_sum/four_sum.py)|two_pointers, two_sum|
 |26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|[Python](partition_array/move_zeros.py)||
 |27|[Subarray Sum](https://www.lintcode.com/problem/remove-element/)|[Python](partition_array/move_zeros.py)||
 |28|[Implement strStr()](https://leetcode.com/problems/implement-strstr/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/contains_substr_kmp.rs), [Python](string/find_substr.py)|kmp, dfa, multi_solutions|
 |33|[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |34|[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
-|39|[Combination Sum](https://leetcode.com/problems/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
-|46|[Permutations](https://leetcode.com/problems/permutations/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
-|47|[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
+|39|[Combination Sum](https://leetcode.com/problems/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py)||
+|46|[Permutations](https://leetcode.com/problems/permutations/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
+|47|[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
 |49|[Group Anagrams](https://www.leetcode.com/problems/group-anagrams/)|[Python](collections/group_anagrams.py)||
 |50|[Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Python](math/pow.py)|binary_search, 快速幂运算|
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
@@ -36,11 +36,11 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[Python](math/sqrt.py)|牛顿连续均值求根法|
 |70|[Climb Stairs](https://leetcode.com/problems/climbing-stairs/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |75|[Sort Colors](https://leetcode.com/problems/sort-colors/)|[Python](partition_array/sort_colors.py)|three_pointers, partition_array|
-|78|[Subsets](https://leetcode.com/problems/subsets/)|[Python](dfs_permutation_combination/subsets.py)||
-|79|[Word Search](https://leetcode.com/problems/word-search/)|[Python](dfs_permutation_combination/word_search.py)||
+|78|[Subsets](https://leetcode.com/problems/subsets/)|[Python](dfs_perm_comb/subsets.py)||
+|79|[Word Search](https://leetcode.com/problems/word-search/)|[Python](dfs_perm_comb/word_search.py)||
 |81|[Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)|[Python](binary_search/rotated_sorted_array_search_2_with_duplicate.py)|binary_search|
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/merge_two_sorted_arrays.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/sorting/merge_two_sorted_arrays_test.go), [Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
-|90|[Subsets](https://leetcode.com/problems/subsets-ii/)|[Python](dfs_permutation_combination/subsets.py)||
+|90|[Subsets](https://leetcode.com/problems/subsets-ii/)|[Python](dfs_perm_comb/subsets.py)||
 |94|[Binary Tree Inorder Traversal](https://www.leetcode.com/problems/binary-tree-inorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Python](binary_tree/traversal_level_order.py)|BFS|
 |104|[Maximum Depth of Binary Tree](https://www.leetcode.com/problems/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
@@ -74,7 +74,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[Python](list_node/reverse_linked_list.py)|list_node|
 |208|[Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)|[Python](prefix_tree_tire/impl_tire_prefix_tree.py)|前缀树/字典树|
 |210|[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
-|212|[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
+|212|[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python](dfs_perm_comb/word_search_2.py)|前缀树|
 |215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
 |225|[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)|[Python](collections/impl_stack_using_queue.py)||
 |230|[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
@@ -124,7 +124,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
 |845|[Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
 |852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
-|869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python](dfs_permutation_combination/reordered_power_of_2.py)|permutation|
+|869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python](dfs_perm_comb/reordered_power_of_2.py)|permutation|
 |876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Python](list_node/middle_of_linked_list.py)|list_node, 快慢指针|
 |887_TODO|[Super Egg Drop](https://leetcode.com/problems/super-egg-drop)||dp|
 |889|[Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_post_order.py)|DFS|
@@ -139,7 +139,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |1470|[Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)|[Python](unclassified/shuffle_the_array.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/unclassified/shuffle_the_array.rs)||
 |1476|[Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries/)|[Python](unclassified/subrectangle_queries.py)||
 |1480|[Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[Python](unclassified/running_sum_of_1d_array.py)||
-|1512|[Number of Good Pairs](https://leetcode.com/problems/number-of-good-pairs/)|[Python](dfs_permutation_combination/numbers_of_good_pairs.py)||
+|1512|[Number of Good Pairs](https://leetcode.com/problems/number-of-good-pairs/)|[Python](dfs_perm_comb/numbers_of_good_pairs.py)||
 
 
 ---
@@ -158,12 +158,12 @@ LintCode
 |7|[Serialize and Deserialize Binary Tree](https://lintcode.com/problem/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |8|[Rotate String](https://lintcode.com/problem/rotate-string/)|[Python](string/rotate_string.py)|Rabin-Karp|
 |9|[Fizz Buzz](https://www.lintcode.com/problem/fizz-buzz/)|[Python](unclassified/fizz_buzz.py)||
-|10|[String Permutation II](https://lintcode.com/problem/string-permutation-ii/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
+|10|[String Permutation II](https://lintcode.com/problem/string-permutation-ii/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
 |13|[Implement strStr()](https://www.lintcode.com/problem/implement-strstr/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
-|15|[Permutations](https://lintcode.com/problem/permutations/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
-|16|[Permutations II](https://lintcode.com/problem/permutations-ii/)|[Python](dfs_permutation_combination/permutation.py)|backtracking|
-|17|[Subsets](https://lintcode.com/problem/subsets/)|[Python](dfs_permutation_combination/subsets.py)||
-|18|[Subsets II](https://lintcode.com/problem/subsets-ii/)|[Python](dfs_permutation_combination/subsets.py)||
+|15|[Permutations](https://lintcode.com/problem/permutations/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
+|16|[Permutations II](https://lintcode.com/problem/permutations-ii/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
+|17|[Subsets](https://lintcode.com/problem/subsets/)|[Python](dfs_perm_comb/subsets.py)||
+|18|[Subsets II](https://lintcode.com/problem/subsets-ii/)|[Python](dfs_perm_comb/subsets.py)||
 |14|[First Position of Target](https://www.lintcode.com/problem/first-position-of-target/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |31|[Partition Array](https://www.lintcode.com/problem/partition-array/)|[Python](partition_array/partition_array.py)|two_pointers|
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](list_node/reverse_linked_list.py)|list_node|
@@ -190,7 +190,7 @@ LintCode
 |75|[Find Peak Element](https://www.lintcode.com/problem/find-peak-element/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |86|[Binary Search Tree Iterator](https://lintcode.com/problem/binary-search-tree-iterator/)|[Python](binary_tree/bst_in_order_iterator.py)||
 |88|[Lowest Common Ancestor of a Binary Tree](https://lintcode.com/problem/lowest-common-ancestor-of-a-binary-tree/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)|divide_and_conquer|
-|90|[k Sum II](https://lintcode.com/problem/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
+|90|[k Sum II](https://lintcode.com/problem/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py)||
 |93|[Balanced Binary Tree](https://www.lintcode.com/problem/balanced-binary-tree/)|[Python](binary_tree/depth_is_balance_binary_tree.py)|divide_and_conquer|
 |97|[Maximum Depth of Binary Tree](https://www.lintcode.com/problem/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |100|[Remove Duplicates from Sorted Array](https://lintcode.com/problem/remove-duplicates-from-sorted-array/)|[Python](partition_array/move_zeros.py)||
@@ -200,14 +200,14 @@ LintCode
 |115|[Unique Paths II](https://lintcode.com/problem/unique-paths-ii/)|[Python](dp/unique_path_2.py)||
 |120|[Word Ladder](https://lintcode.com/problem/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
 |121|[Word Ladder II](https://lintcode.com/problem/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
-|123|[Word Search](https://lintcode.com/problem/word-search/)|[Python](dfs_permutation_combination/word_search.py)||
+|123|[Word Search](https://lintcode.com/problem/word-search/)|[Python](dfs_perm_comb/word_search.py)||
 |124|[Longest Consecutive Sequence](https://lintcode.com/problem/longest-consecutive-sequence/)|[Python](collections/longest_consecutive_sequence.py)|并查集|
 |127|[Topological Sorting](https://lintcode.com/problem/topological-sorting/)|[Python](graph/topological_sorting.py)|BFS, topological_sorting|
 |128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](collections/hash_function.py)||
 |129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](collections/rehashing.py)||
-|132|[Word Search II](https://lintcode.com/problem/word-search-ii/)|[Python](dfs_permutation_combination/word_search_2.py)|前缀树|
+|132|[Word Search II](https://lintcode.com/problem/word-search-ii/)|[Python](dfs_perm_comb/word_search_2.py)|前缀树|
 |134|[LRU Cache](https://lintcode.com/problem/lru-cache/)|[Python](list_node/lru_cache.py)|double_linked_list, OrderedDict|
-|135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_permutation_combination/combination_target_sum.py)||
+|135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py)||
 |137|[Clone Graph](https://lintcode.com/problem/clone-graphs/)|[Python](graph/clone_graph.py)|DFS, BFS|
 |138|[Subarray Sum](https://www.lintcode.com/problem/subarray-sum/)|[Python](unclassified/subarray_sum_zero.py)||
 |140|[Fast Power](https://lintcode.com/problem/fast-power/)|[Python](math/pow.py)|binary_search, 快速幂运算|
@@ -237,7 +237,7 @@ LintCode
 |382_LOCK|[Triangle Count](https://www.lintcode.com/problem/triangle-count/)|[Python](two_sum/triangle_count.py)|two_sum, 双指针|
 |384|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_non_repeated_substr.rs), [Python](string/longest_non_repeated_substr.py)|sliding_window|
 |415|[Valid Palindrome](https://www.lintcode.com/problem/valid-palindrome/)|[Python](palindrome/valid_palindrome.py)|two_pointers|
-|425|[Letter Combinations of a Phone Number](https://lintcode.com/problem/letter-combinations-of-a-phone-number/)|[Python](dfs_permutation_combination/phone_9_keypad_combination.py)|product(笛卡尔积)|
+|425|[Letter Combinations of a Phone Number](https://lintcode.com/problem/letter-combinations-of-a-phone-number/)|[Python](dfs_perm_comb/phone_9_keypad_combination.py)|product(笛卡尔积)|
 |428|[Pow(x, n)](https://lintcode.com/problem/powx-n/)|[Python](math/pow.py)|binary_search, 快速幂运算|
 |433|[Number of Islands](https://www.lintcode.com/problem/number-of-islands/)|[Python](graph/number_of_islands.py)|union_find, DFS, BFS|
 |442|[Implement Trie (Prefix Tree)](https://lintcode.com/problem/implement-trie-prefix-tree/)|[Python](prefix_tree_tire/impl_tire_prefix_tree.py)|前缀树/字典树|
@@ -283,7 +283,7 @@ LintCode
 |685|[First Unique Number in Data Stream](https://www.lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](list_node/first_unique_number.py)||
 |772|[Group Anagrams](https://www.lintcode.com/problem/group-anagrams/)|[Python](collections/group_anagrams.py)||
 |813|[Find Anagram Mappings](https://www.lintcode.com/problem/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
-|816|[Traveling Salesman Problem](https://www.lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_permutation_combination/traveling_salesman_problem.py)||
+|816|[Traveling Salesman Problem](https://www.lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_perm_comb/traveling_salesman_problem.py)||
 |871|[Minimum Factorization](https://www.lintcode.com/problem/minimum-factorization/)|[Python](factorization/minimum_factorization.py)|greedy|
 |880|[Construct Binary Tree from String](https://www.lintcode.com/problem/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
@@ -308,13 +308,13 @@ LintCode
 |1363|[ZigZag Conversion](https://lintcode.com/problem/zigzag-conversion/)|[Python](string/zigzag_conversion.py)||
 |1424|[Longest Mountain in Array](https://www.lintcode.com/problem/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
 |1479|[Can Reach The Endpoint](https://www.lintcode.com/problem/can-reach-the-endpoint/)|[Python](bfs/can_reach_the_end_point.py)|bfs|
-|1499|[Reordered Power of 2](https://lintcode.com/problem/reordered-power-of-2/)|[Python](dfs_permutation_combination/reordered_power_of_2.py)|permutation|
+|1499|[Reordered Power of 2](https://lintcode.com/problem/reordered-power-of-2/)|[Python](dfs_perm_comb/reordered_power_of_2.py)|permutation|
 |1535|[To Lower Case](https://www.lintcode.com/problem/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |1536|[Find First and Last Position of Element in Sorted Array](https://www.lintcode.com/problem/find-first-and-last-position-of-element-in-sorted-array/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |1593|[Construct Binary Tree from Preorder and Postorder Traversal](https://lintcode.com/problem/construct-binary-tree-from-preorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_post_order.py)|DFS|
 |1609|[Middle of the Linked List](https://lintcode.com/problem/middle-of-the-linked-list/)|[Python](list_node/middle_of_linked_list.py)|list_node, 快慢指针|
 |1790_LOCK|[Rotate String II](https://www.lintcode.com/problem/rotate-string-ii/)|[Python](rotate_reverse_circle_shift/rotate_string_2.py)|reverse, circle_shift|
-|1848_ABANDONED|[Word Search III](https://www.lintcode.com/problem/word-search-iii/)|[Python](dfs_permutation_combination/word_search_3.py)||
+|1848_ABANDONED|[Word Search III](https://www.lintcode.com/problem/word-search-iii/)|[Python](dfs_perm_comb/word_search_3.py)||
 |1876|[Alien Dictionary(easy)](https://www.lintcode.com/problem/alien-dictionaryeasy/)|[Python](unclassified/verifying_an_alien_dictionary.py)||
 
 ---
