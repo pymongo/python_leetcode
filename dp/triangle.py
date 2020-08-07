@@ -5,6 +5,14 @@ from typing import List
 class Solution:
     """
     输入一个杨辉三角形状的二维数组，从根出发，只能往左下或右下走，求从根到底层的最短路径的长度
+    假设层数为n, 除了O(n^2)的DP解,
+    还有2^n(相当于所有路径穷举一次，到n层总共2^n条路径)的DFS搜索法,
+    类似二叉树的分治法O(2^n)遍历，时间复杂度仍然是2^n，没有剪枝，所有抉择都是一分为二，所以还是跟DFS搜索全部路径一样
+    因为分治法没有避免重复计算，没有记忆之前计算的结果，如果用全局HashMap，key为数组坐标, value为最短路径值，能避免重复计算
+    记忆化搜索只是动态规划的一种实现方式，用分治法也能实现动态规划
+    O(n)时间复杂度的题不适合用记忆化搜索，栈的深度也是O(n)容易Stack Overflow
+    常用的动态规划实现方法是递推(for循环迭代填表)，二维数组dp的下标(i,j)表示一个子问题
+    动态规划能解决 求最值、问可行性、求方案总数 的问题
     """
 
     # noinspection PyMethodMayBeStatic,PyPep8Naming
@@ -52,7 +60,8 @@ class Solution:
 
     @staticmethod
     def dp_bottom_to_top(triangle: List[List[int]]) -> int:
-        # 别人的解法: 从自下而上的DP
+        # 眼前一亮的解法: 从自下而上的DP
+        # 注意面试题是否允许你修改入参的数组
         for i in range(len(triangle) - 2, -1, -1):
             for j in range(i + 1):
                 triangle[i][j] = triangle[i][j] + min(triangle[i + 1][j], triangle[i + 1][j + 1])
