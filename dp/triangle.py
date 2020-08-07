@@ -8,10 +8,10 @@ TODO 动态规划的题型:
 [ ] 背包型(i表示前i个物品, j表示价值之和是否可行):
 [ ] 区间型(i-j表示区间i-j的子数组/子串): Stone Game, Burst Balloons
 [ ] 状态压缩型: TSP、Unique Path III的非DFS解法
-[ ] 打劫类的题: 打家劫舍
+[ ] 打劫类的题: 打家劫舍(今天打劫哪一家本周的所有打劫才能最赚钱 )
 TODO 动态规划的实现方法:
 [ ] 记忆化搜索(DFS回溯): Unique Path III的简单的DFS解法
-[z] 递推迭代: Triangle
+[x] 递推迭代: Triangle
 """
 import unittest
 from typing import List
