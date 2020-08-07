@@ -1,7 +1,7 @@
 """
 # TODO 求排列组合方案总数的算法
 
-## 使用scipy.special.perm/comb
+## 使用(Python3.8+)math.perm/comb 或 scipy.special.perm/comb
 from scipy.special import comb, perm
 
 ## 排列方案总数就是阶乘，组合数计算的话看Unique Paths这题，注意溢出

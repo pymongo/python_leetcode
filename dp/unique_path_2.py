@@ -34,38 +34,37 @@ class Solution:
     def uniquePathsWithObstacles(self, grid: List[List[int]]) -> int:
         rows = len(grid)
         cols = len(grid[0])
-        if not Solution.is_possible_to_reach_end(grid, rows, cols):
-            return 0
+
+        dp = [[0] * cols for _ in range(rows)]
         # 原数组中，用负数-1表示有1个方案，以此区分障碍物1
         for row in range(rows):
             if grid[row][0] == 1:
-                continue
-            grid[row][0] = -1
+                # 因为只能向右或向下走(不存在围着障碍物绕一圈的走法)，遇到障碍物，则往右都不可能到达
+                break
+            dp[row][0] = 1
+        # 这题就不能像三角形那题一样，DP数组也是入参数组，因为初始化完第一行后，所有障碍物会变成0，再去初始化列时就丢失了障碍物的信息
         for col in range(cols):
             if grid[0][col] == 1:
-                continue
-            grid[0][col] = -1
+                break
+            dp[0][col] = 1
+
         for row in range(1, rows):
             for col in range(1, cols):
                 if grid[row][col] == 1:
                     continue
-                if grid[row - 1][col] != 1:
-                    grid[row][col] += grid[row - 1][col]
-                if grid[row][col - 1] != 1:
-                    grid[row][col] += grid[row][col - 1]
-        last = grid[rows - 1][cols - 1]
-        return -last if last != 1 else 0
+                dp[row][col] = dp[row - 1][col] + dp[row][col - 1]
+        return dp[rows - 1][cols - 1]
 
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([[1, 0], [0, 0]], 0),
-        ([[1, 0]], 0),
         ([
              [0, 0, 0],
              [0, 1, 0],
              [0, 0, 0]
          ], 2),
+        ([[1, 0], [0, 0]], 0),
+        ([[1, 0]], 0),
         ([[0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0],
           [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1],
@@ -100,39 +99,5 @@ class Testing(unittest.TestCase):
     def test_dp_solution(self):
         solution = Solution()
         for obstacle_grid, paths_count in self.TEST_CASES:
+            print(len(obstacle_grid), paths_count)
             self.assertEqual(paths_count, solution.uniquePathsWithObstacles(obstacle_grid))
-
-    def test_is_possible_to_reach_end(self):
-        # 这个图有环
-        grid = [[0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0],
-                [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1],
-                [0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0],
-                [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-                [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
-                [0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-                [0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-                [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
-                [0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0],
-                [0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1],
-                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-                [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
-                [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1],
-                [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]]
-        rows = len(grid)
-        cols = len(grid[0])
-        print(Solution.is_possible_to_reach_end(grid, rows, cols))

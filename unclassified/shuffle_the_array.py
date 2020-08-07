@@ -5,6 +5,7 @@ from typing import List
 # 没想到只是把[x1, x2, y1, y2]换成[x1, y1, x2, y2]
 # 没有特别好的In-Place算法，In-Place算法至少要遍历2n次
 class Solution:
+    # noinspection PyMethodMayBeStatic,PyPep8Naming
     def shuffle(self, nums: List[int], n: int) -> List[int]:
         res = []
         p1, p2 = 0, n

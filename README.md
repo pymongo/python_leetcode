@@ -139,6 +139,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |1470|[Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)|[Python](unclassified/shuffle_the_array.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/unclassified/shuffle_the_array.rs)||
 |1476|[Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries/)|[Python](unclassified/subrectangle_queries.py)||
 |1480|[Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[Python](unclassified/running_sum_of_1d_array.py)||
+|1512|[Number of Good Pairs](https://leetcode.com/problems/number-of-good-pairs/)|[Python](dfs_permutation_combination/numbers_of_good_pairs.py)||
 
 
 ---
@@ -229,6 +230,7 @@ LintCode
 |228_LOCK|[Middle of the Linked List](https://www.lintcode.com/problem/middle-of-linked-list/)|[Python](list_node/middle_of_linked_list.py)|list_node, 快慢指针|
 |235|[Prime Factorization](https://www.lintcode.com/problem/prime-factorization/)|[Python](factorization/prime_factorization.py)|分解质因数|
 |254|[Drop Eggs](https://www.lintcode.com/problem/drop-eggs/)|[Python](dp/drop_eggs.py)|sqrt_n|
+|272_LOCK|[Climbing Stairs II](https://www.lintcode.com/problem/climbing-stairs-ii/)|[Python](dp/climb_stairs_2.py)||
 |366|[Fibonacci](https://www.lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |373|[Partition Array by Odd and Even](https://www.lintcode.com/problem/partition-array-by-odd-and-even/)|[Python](partition_array/partition_array_by_odd_and_even.py)||
 |376|[Binary Tree Path Sum](https://www.lintcode.com/problem/binary-tree-path-sum/)|[Python](binary_tree/root_to_leaf_paths_target_sum.py)|DFS, backtracking|

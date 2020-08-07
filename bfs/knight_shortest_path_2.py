@@ -26,6 +26,8 @@ def solution(grid: List[List[int]]) -> int:
     (x - 1, y + 2)
     (x + 2, y + 1)
     (x - 2, y + 1)
+    限定的4个方向的特点是不会形成环，所以可以用动态规划解法
+    dp[i][j] = min(dp[i][j], dp[i-dx][y-dy]) dx,dy是方向
     """
     max_x = len(grid) - 1
     max_y = len(grid[0]) - 1
