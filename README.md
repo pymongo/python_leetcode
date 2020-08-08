@@ -286,6 +286,7 @@ LintCode
 |657|[Insert Delete GetRandom O(1)](https://www.lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |685|[First Unique Number in Data Stream](https://www.lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](list_node/first_unique_number.py)||
+|724|[Minimum Partition](https://www.lintcode.com/problem/minimum-partition/)|[Python](dp/backpack.py)||
 |772|[Group Anagrams](https://www.lintcode.com/problem/group-anagrams/)|[Python](collections/group_anagrams.py)||
 |813|[Find Anagram Mappings](https://www.lintcode.com/problem/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
 |816|[Traveling Salesman Problem](https://www.lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_perm_comb/traveling_salesman_problem.py)||

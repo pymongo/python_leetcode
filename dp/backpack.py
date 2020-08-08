@@ -12,7 +12,8 @@ from typing import List
 class Solution:
 
     # noinspection PyMethodMayBeStatic,PyPep8Naming
-    def backPack(self, m: int, A: List[int]) -> int:
+    @staticmethod
+    def backPack(m: int, A: List[int]) -> int:
         """
         @param m: An integer m denotes the size of a backpack
         @param A: Given n items with size A[i]
@@ -40,6 +41,20 @@ class Solution:
         return -1
 
     @staticmethod
+    def min_partition(nums: List[int]) -> int:
+        """
+        本题要求将数组任意分成两部分，要求两部分之和 的差值最小
+        实际上可以转化为01背包问题: 从数组中选任意个数，使得和尽可能接近sum(nums)//2
+        不过这题的dp状态只能用dp[i][j]表示前i个数凑出<=j的最大和是多少，不能用布尔值
+        如果用这种DP方程在lintcode上要特判`if size==209: return 1`和`if size>300: return 0`
+        这题size * half_sum的数组太大了，有另一种优化DP数组空间复杂度的思路:
+        TODO dpi表示两个集合之差为i的构造方法是否存在
+        """
+        full_sum = sum(nums)
+        half_sum = full_sum // 2
+        return abs(full_sum - 2 * Solution.dp_state_2(half_sum, nums))
+
+    @staticmethod
     def dp_state_2(m: int, nums: List[int]) -> int:
         # dp[i][j]表示前i个数凑出<=j的最大和是多少
         size = len(nums)
@@ -61,6 +76,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        solution = Solution()
         for m, nums, max_size in self.TEST_CASES:
-            self.assertEqual(max_size, solution.backPack(m, nums))
+            self.assertEqual(max_size, Solution.backPack(m, nums))
+
+    def test_min_partition(self):
+        self.assertEqual(1, Solution.min_partition([1, 6, 11, 5]))
+        self.assertEqual(0, Solution.min_partition([1, 2, 3, 4]))
