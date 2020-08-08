@@ -13,6 +13,7 @@ dp[i][j]表示从前i个物品中能否装成容量为j的组合
 通常的背包模板要求<=m的最大值，而这题要求>=m的最小值，所以这样转换一下 m=sum(nums)-X
 2.3 Google问过的 lintcode_724.Minimum Partition: 和LC416类似，只不过返回值是两部分差值的最小值
 2.4 leetcode_416.Partition Equal Subset Sum: 问你能否均分数组，使得两部分的和相等
+这题这是问能不能，如果和为奇数就可以提前返回False，然后使用布尔值DP数组即可
 
 以leetcode_416分析0-1背包问题的状态压缩
 1. 滚动数组压缩成两行
@@ -57,6 +58,20 @@ class Solution:
         return -1
 
     @staticmethod
+    def dp_state_max_capacity_from_ith_num(m: int, nums: List[int]) -> int:
+        # dp[i][j]表示前i个数凑出<=j的最大和是多少
+        size = len(nums)
+        dp = [[0] * (m + 1) for _ in range(size + 1)]
+        for i in range(1, size + 1):
+            for j in range(1, m + 1):
+                if j >= nums[i - 1]:
+                    # 这种状态表示不如布尔值之间或运算快
+                    dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - nums[i - 1]] + nums[i - 1])
+                else:
+                    dp[i][j] = dp[i - 1][j]
+        return dp[size][m]
+
+    @staticmethod
     def min_partition(nums: List[int]) -> int:
         """
         本题要求将数组任意分成两部分，要求两部分之和 的差值最小(leetcode 416问你能不能均分)
@@ -75,18 +90,38 @@ class Solution:
         # return full_sum == 2 * dp[size][half_sum]
 
     @staticmethod
-    def dp_state_max_capacity_from_ith_num(m: int, nums: List[int]) -> int:
-        # dp[i][j]表示前i个数凑出<=j的最大和是多少
-        size = len(nums)
-        dp = [[0] * (m + 1) for _ in range(size + 1)]
-        for i in range(1, size + 1):
-            for j in range(1, m + 1):
-                if j >= nums[i - 1]:
-                    # 这种状态表示不如布尔值之间或运算快
-                    dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - nums[i - 1]] + nums[i - 1])
+    def can_partition_sum_equal_rolling_array(nums: List[int]) -> bool:
+        """
+        滚动数组时间上(1632ms,38%)，比不用滚动数组的(6500ms,垫底)好很多
+        """
+        size = 0
+        total_sum = 0
+        for num in nums:
+            size += 1
+            total_sum += num
+        # 如果总和是奇数，怎么分都不相等
+        if total_sum % 2 == 1:
+            return False
+        half_sum = total_sum // 2
+
+        # 实际上dp的值只跟上一行有关，用一个两行的滚动dp数组就够了
+        # dp[i][j]表示前i个数能否凑出和为j的组合
+        dp = [[False] * (half_sum + 1) for _ in range(2)]
+
+        # 先填好第一行, 然后第二行可以先照抄第一行的值(滚动数组), 第三行抄第二行...
+        dp[0][0], dp[1][0] = True, True
+
+        # 0/1 交替出现，这样用两行的dp数组也不会越界
+        i, last_i = 0, 1
+        # 注意i和row不能弄混，row是数组的下标，i是dp数组的下标(只有0和1)
+        for row in range(1, size + 1):
+            i, last_i = last_i, i
+            for j in range(1, half_sum + 1):
+                if j >= nums[row - 1]:
+                    dp[i][j] = dp[last_i][j] or dp[last_i][j - nums[row - 1]]
                 else:
-                    dp[i][j] = dp[i - 1][j]
-        return dp[size][m]
+                    dp[i][j] = dp[last_i][j]
+        return dp[size % 2][half_sum]
 
 
 class Testing(unittest.TestCase):
@@ -102,3 +137,9 @@ class Testing(unittest.TestCase):
     def test_min_partition(self):
         self.assertEqual(1, Solution.min_partition([1, 6, 11, 5]))
         self.assertEqual(0, Solution.min_partition([1, 2, 3, 4]))
+
+    def test_can_partition_sum_equal_rolling_array(self):
+        self.assertFalse(Solution.can_partition_sum_equal_rolling_array([1, 3, 4, 4]))
+        self.assertFalse(Solution.can_partition_sum_equal_rolling_array([2, 2, 3, 5]))
+        self.assertTrue(Solution.can_partition_sum_equal_rolling_array([1, 5, 11, 5]))
+        self.assertFalse(Solution.can_partition_sum_equal_rolling_array([1, 2, 3, 5]))
