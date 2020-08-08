@@ -60,6 +60,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |134|[Gas Station](https://leetcode.com/problems/gas-station/)|[Python](greedy/gas_station.py)|greedy|
 |136|[Single Number](https://leetcode.com/problems/single-number/)|[Python](bitwise/xor_find_single.py)||
 |138|[Copy List with Random Pointer](https://www.leetcode.com/problems/copy-list-with-random-pointer/)|[Python](graph/clone_linked_list_with_random_ptr.py)||
+|139|[Word Break](https://www.leetcode.com/problems/word-break/)|[Python](dp/word_break.py)||
 |144|[Binary Tree Preorder Traversal](https://www.leetcode.com/problems/binary-tree-preorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |145|[Binary Tree Postorder Traversal](https://www.leetcode.com/problems/binary-tree-postorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |145|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Python](list_node/lru_cache.py)|double_linked_list, OrderedDict|
@@ -197,6 +198,7 @@ LintCode
 |97|[Maximum Depth of Binary Tree](https://www.lintcode.com/problem/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |100|[Remove Duplicates from Sorted Array](https://lintcode.com/problem/remove-duplicates-from-sorted-array/)|[Python](partition_array/move_zeros.py)||
 |105|[Copy List with Random Pointer](https://www.lintcode.com/problem/copy-list-with-random-pointer/)|[Python](graph/clone_linked_list_with_random_ptr.py)||
+|107|[Word Break](https://www.lintcode.com/problem/word-break/)|[Python](dp/word_break.py)||
 |109|[Triangle](https://www.lintcode.com/problem/triangle/)|[Python](dp/triangle.py)||
 |114|[Unique Paths](https://lintcode.com/problem/unique-paths/)|[Python](dfs_perm_comb/unique_paths.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|combination|
 |115|[Unique Paths II](https://lintcode.com/problem/unique-paths-ii/)|[Python](dp/unique_paths_2.py)||

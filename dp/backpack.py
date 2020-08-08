@@ -12,18 +12,19 @@ from typing import List
 class Solution:
 
     # noinspection PyMethodMayBeStatic,PyPep8Naming
-    def backPack(self, m: int, A: List[int]):
+    def backPack(self, m: int, A: List[int]) -> int:
         """
         @param m: An integer m denotes the size of a backpack
         @param A: Given n items with size A[i]
         @return: The maximum size
         """
         size = len(A)
-        # 注意前缀型动态规划，i表示前i个物品选或不选，i的长度是len(nums)+1
+        # 注意「前缀型」动态规划，i表示前i个物品选或不选，i的长度是len(nums)+1
         dp = [[False] * (m + 1) for _ in range(size + 1)]  # 注意range里面的是行，也就是i
         dp[0][0] = True
         # 开始填表
         for i in range(1, size + 1):
+            dp[i][0] = True
             for j in range(1, m + 1):
                 # A[i-1]是第i个数的下标
                 if j >= A[i - 1]:
@@ -34,11 +35,23 @@ class Solution:
                     # 既第i个数的物品太大了，放进去超过背包容量j，所以没有将第i个数选上的分支
                     dp[i][j] = dp[i - 1][j]
         for j in range(m, -1, -1):
-            print(j)
             if dp[size][j]:
                 return j
         return -1
 
+    @staticmethod
+    def dp_state_2(m: int, nums: List[int]) -> int:
+        # dp[i][j]表示前i个数凑出<=j的最大和是多少
+        size = len(nums)
+        dp = [[0] * (m + 1) for _ in range(size + 1)]
+        for i in range(1, size + 1):
+            for j in range(1, m + 1):
+                if j >= nums[i - 1]:
+                    # 这种状态表示不如布尔值之间或运算快
+                    dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - nums[i - 1]] + nums[i - 1])
+                else:
+                    dp[i][j] = dp[i - 1][j]
+        return dp[size][m]
 
 
 class Testing(unittest.TestCase):
