@@ -4,6 +4,22 @@
 dp[i][j]表示从前i个物品中能否装成容量为j的组合
 这题的状态转移方程有点像jump game
 也可以用状态压缩性DP，每个物品的选或不选刚好是一个二进制，不过时间复杂度n*2^n
+
+01背包问题的题型归纳(小于背包容量的最大值):
+1. lintcode_92.Backpack
+2.1 某厂面试题<石头碰撞>: 给N个石头，每次选两个碰撞，最后剩余小石头的大小是abs(x-y)，请问最后剩下1个石头的大小是？
+其实石头碰撞问题可以想成把数组的数尽可能均分放在两个桶内，然后求两个桶的石头体积之差
+2.2 美团最低满减金额: 假设您有一张满X元立减的满减优惠券，请问要怎么点餐才能花钱最少又能享受满减
+通常的背包模板要求<=m的最大值，而这题要求>=m的最小值，所以这样转换一下 m=sum(nums)-X
+2.3 Google问过的 lintcode_724.Minimum Partition: 和LC416类似，只不过返回值是两部分差值的最小值
+2.4 leetcode_416.Partition Equal Subset Sum: 问你能否均分数组，使得两部分的和相等
+
+以leetcode_416分析0-1背包问题的状态压缩
+1. 滚动数组压缩成两行
+由于填表时当前行的值只依赖与上一行的值，可以通过「滚动数组」的思路将dp数组压缩成2行
+2. 一行状态的压缩方法(需要倒着遍历避免填表时被覆盖掉)
+实际上连“滚动数组”都不必，在“填表格”的时候，当前行总是参考了它上面一行 “头顶上” 那个位置和“左上角”某个位置的值。
+因此，我们可以只开一个一维数组，从后向前依次填表即可
 """
 import unittest
 from typing import List
@@ -43,19 +59,23 @@ class Solution:
     @staticmethod
     def min_partition(nums: List[int]) -> int:
         """
-        本题要求将数组任意分成两部分，要求两部分之和 的差值最小
+        本题要求将数组任意分成两部分，要求两部分之和 的差值最小(leetcode 416问你能不能均分)
         实际上可以转化为01背包问题: 从数组中选任意个数，使得和尽可能接近sum(nums)//2
         不过这题的dp状态只能用dp[i][j]表示前i个数凑出<=j的最大和是多少，不能用布尔值
+
         如果用这种DP方程在lintcode上要特判`if size==209: return 1`和`if size>300: return 0`
         这题size * half_sum的数组太大了，有另一种优化DP数组空间复杂度的思路:
-        TODO dpi表示两个集合之差为i的构造方法是否存在
+        TODO dpi表示两个集合之差为i的构造方法是否存在, i的范围是0-1, j的范围是sum*2+10(为什么是这样的长度?加滚动数组)
         """
         full_sum = sum(nums)
         half_sum = full_sum // 2
-        return abs(full_sum - 2 * Solution.dp_state_2(half_sum, nums))
+        # sum_a=sum(nums)-dp[size][m], sum_b=sum(nums)-dp[size][m]
+        return abs(full_sum - 2 * Solution.dp_state_max_capacity_from_ith_num(half_sum, nums))
+        # leetcode 416. Partition Equal Subset Sum
+        # return full_sum == 2 * dp[size][half_sum]
 
     @staticmethod
-    def dp_state_2(m: int, nums: List[int]) -> int:
+    def dp_state_max_capacity_from_ith_num(m: int, nums: List[int]) -> int:
         # dp[i][j]表示前i个数凑出<=j的最大和是多少
         size = len(nums)
         dp = [[0] * (m + 1) for _ in range(size + 1)]
