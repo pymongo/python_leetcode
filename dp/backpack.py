@@ -114,6 +114,7 @@ class Solution:
         # 0/1 交替出现，这样用两行的dp数组也不会越界
         i, last_i = 0, 1
         # 注意i和row不能弄混，row是数组的下标，i是dp数组的下标(只有0和1)
+        # FIXME 一定要区分开dp数组的下标和原数组的下标
         for row in range(1, size + 1):
             i, last_i = last_i, i
             for j in range(1, half_sum + 1):
@@ -123,11 +124,78 @@ class Solution:
                     dp[i][j] = dp[last_i][j]
         return dp[size % 2][half_sum]
 
+    @staticmethod
+    def can_partition_one_row_dp(nums: List[int]) -> bool:
+        """
+        滚动数组时间上(1632ms,38%)，比不用滚动数组的(6500ms,垫底)好很多
+        """
+        size, total_sum = len(nums), sum(nums)
+        # 如果总和是奇数，怎么分都不相等
+        if total_sum % 2 == 1:
+            return False
+        half_sum = total_sum // 2
+
+        # dp[i][j]表示前i个数能否凑出和为j的组合
+        dp = [False] * (half_sum + 1)
+        dp[0] = True
+        for i in range(1, size):
+            # 「倒着遍历」的好处: 新的值依赖靠左部分老的值，不会出现覆盖现象
+            # 遍历范围: j in [half_sum..=half_sum-nums[i] for (int j = half_sum; nums[i] <= j; j--)
+            j = half_sum
+            curr_num = nums[i]
+            while j >= curr_num:
+                dp[j] = dp[j] or dp[j - curr_num]
+                if dp[half_sum]:
+                    return True
+                j -= 1
+        # return dp[half_sum]
+        return False
+
+    @staticmethod
+    def can_partition_dfs_solution(nums: List[int]) -> bool:
+        """
+        DFS思路: 数组逆序排好后，能以最少的递归次数找到 K sum = target
+        将本题变向转为k sum = target, 这是本题最快的思路，比DP一维状态还要快20多倍
+        """
+        size, full_sum = len(nums), sum(nums)
+        if full_sum % 2 == 1:
+            return False
+        half_sum = full_sum // 2
+        nums.sort(reverse=True)
+        # 如果是一头大一头小，也找不到均分方案
+        if nums[0] > half_sum:
+            return False
+
+        def dfs(start_index: int, target: int) -> bool:
+            if target == 0:
+                return True
+            if start_index == size:
+                return False
+
+            for i in range(start_index, size):
+                next_target = target - nums[i]
+                if next_target < 0:
+                    break
+                # 这里类似于DFS组合数的搜索
+                if dfs(i + 1, next_target):
+                    return True
+            return False
+        return dfs(0, half_sum)
+
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
         (10, [3, 4, 8, 5], 9),
         (12, [2, 3, 5, 7], 12),
+    ]
+
+    CAN_PARTITIONS_CASES = [
+        ([1, 3, 4, 4], False),
+        ([3, 3, 3, 4, 5], True),
+        ([1, 2, 5], False),
+        ([2, 2, 3, 5], False),
+        ([1, 5, 11, 5], True),
+        ([1, 2, 3, 5], False),
     ]
 
     def test(self):
@@ -139,7 +207,14 @@ class Testing(unittest.TestCase):
         self.assertEqual(0, Solution.min_partition([1, 2, 3, 4]))
 
     def test_can_partition_sum_equal_rolling_array(self):
-        self.assertFalse(Solution.can_partition_sum_equal_rolling_array([1, 3, 4, 4]))
-        self.assertFalse(Solution.can_partition_sum_equal_rolling_array([2, 2, 3, 5]))
-        self.assertTrue(Solution.can_partition_sum_equal_rolling_array([1, 5, 11, 5]))
-        self.assertFalse(Solution.can_partition_sum_equal_rolling_array([1, 2, 3, 5]))
+        for nums, can_partition in self.CAN_PARTITIONS_CASES:
+            self.assertEqual(can_partition, Solution.can_partition_sum_equal_rolling_array(nums))
+
+    def test_can_partition_one_row_dp(self):
+        for nums, can_partition in self.CAN_PARTITIONS_CASES:
+            self.assertEqual(can_partition, Solution.can_partition_one_row_dp(nums))
+
+    def test_dfs(self):
+        for nums, can_partition in self.CAN_PARTITIONS_CASES:
+            print(nums)
+            self.assertEqual(can_partition, Solution.can_partition_dfs_solution(nums))
