@@ -12,7 +12,7 @@ dp[i][j]表示从前i个物品中能否装成容量为j的组合
 2.2 美团最低满减金额: 假设您有一张满X元立减的满减优惠券，请问要怎么点餐才能花钱最少又能享受满减
 通常的背包模板要求<=m的最大值，而这题要求>=m的最小值，所以这样转换一下 m=sum(nums)-X
 2.3 Google问过的 lintcode_724.Minimum Partition: 和LC416类似，只不过返回值是两部分差值的最小值
-2.4 leetcode_416.Partition Equal Subset Sum: 问你能否均分数组，使得两部分的和相等
+2.4 leetcode_416/lintcode_588.Partition Equal Subset Sum: 问你能否均分数组，使得两部分的和相等
 这题这是问能不能，如果和为奇数就可以提前返回False，然后使用布尔值DP数组即可
 
 以leetcode_416分析0-1背包问题的状态压缩
@@ -56,6 +56,23 @@ class Solution:
             if dp[size][j]:
                 return j
         return -1
+
+    # noinspection PyMethodMayBeStatic,PyPep8Naming
+    @staticmethod
+    def back_pack_with_value(m: int, nums: List[int], values: List[int]) -> int:
+        size = len(nums)
+        # dp[j] 表示凑出容量<=j的物品组合中的最大价值
+        dp = [0] * (m + 1)
+        dp[0] = 0
+        for i in range(size):
+            curr_num = nums[i]
+            # 容量<=curr_num的组合中，至少
+            dp[curr_num] = values[i]
+            j = m
+            while j >= curr_num:
+                dp[j] = max(dp[j], dp[j - curr_num] + values[i])
+                j -= 1
+        return dp[m]
 
     @staticmethod
     def dp_state_max_capacity_from_ith_num(m: int, nums: List[int]) -> int:
@@ -126,9 +143,6 @@ class Solution:
 
     @staticmethod
     def can_partition_one_row_dp(nums: List[int]) -> bool:
-        """
-        滚动数组时间上(1632ms,38%)，比不用滚动数组的(6500ms,垫底)好很多
-        """
         size, total_sum = len(nums), sum(nums)
         # 如果总和是奇数，怎么分都不相等
         if total_sum % 2 == 1:
@@ -156,6 +170,7 @@ class Solution:
         """
         DFS思路: 数组逆序排好后，能以最少的递归次数找到 K sum = target
         将本题变向转为k sum = target, 这是本题最快的思路，比DP一维状态还要快20多倍
+        TODO 实在想不到DP的状态转移方程，用DFS也是一种不错的选择
         """
         size, full_sum = len(nums), sum(nums)
         if full_sum % 2 == 1:
@@ -180,6 +195,7 @@ class Solution:
                 if dfs(i + 1, next_target):
                     return True
             return False
+
         return dfs(0, half_sum)
 
 
@@ -218,3 +234,7 @@ class Testing(unittest.TestCase):
         for nums, can_partition in self.CAN_PARTITIONS_CASES:
             print(nums)
             self.assertEqual(can_partition, Solution.can_partition_dfs_solution(nums))
+
+    def test_backpack_with_value(self):
+        self.assertEqual(9, Solution.back_pack_with_value(10, [2, 3, 5, 7], [1, 5, 2, 4]))
+        self.assertEqual(10, Solution.back_pack_with_value(10, [2, 3, 8], [2, 5, 8]))

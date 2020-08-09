@@ -272,6 +272,7 @@ LintCode
 |585_LOCK|[Maximum Number in Mountain Sequence](https://www.lintcode.com/problem/maximum-number-in-mountain-sequence/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |586_LOCK|[Sqrt(x) II](https://www.lintcode.com/problem/sqrtx-ii/)|[Python](math/sqrt.py)|牛顿连续均值求根法|
 |587_LOCK|[Two Sum - Unique pairs](https://www.lintcode.com/problem/two-sum-unique-pairs/)|[Python](two_sum/two_sum_unique_pairs.py)|two_sum|
+|588|[Partition Equal Subset Sum](https://lintcode.com/problem/partition-equal-subset-sum/)|[Python](dp/backpack.py)|01背包问题|
 |594|[Implement strStr() II](https://www.lintcode.com/problem/strstr-ii/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
 |596_LOCK|[Minimum Subtree](https://www.lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |606|[Kth Largest Element II](https://www.lintcode.com/problem/kth-largest-element-ii/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
