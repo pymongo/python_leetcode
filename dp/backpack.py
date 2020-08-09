@@ -129,6 +129,7 @@ class Solution:
                     return 0
                 elif temp_sum < target:
                     addition.add(temp_sum)
+            # 有点像穷举所有加的情况，组合数的树状图扩散，例如一开始只有0+1，然后第二层是0+2和1+2等等
             candidates = candidates.union(addition)
         return int(2 * (target - max(candidates)))
 
