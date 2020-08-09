@@ -208,6 +208,7 @@ LintCode
 |121|[Word Ladder II](https://lintcode.com/problem/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
 |123|[Word Search](https://lintcode.com/problem/word-search/)|[Python](dfs_perm_comb/word_search.py)||
 |124|[Longest Consecutive Sequence](https://lintcode.com/problem/longest-consecutive-sequence/)|[Python](collections/longest_consecutive_sequence.py)|并查集|
+|125|[Backpack II](https://www.lintcode.com/problem/backpack-ii/)|[Python](dp/backpack.py)||
 |127|[Topological Sorting](https://lintcode.com/problem/topological-sorting/)|[Python](graph/topological_sorting.py)|BFS, topological_sorting|
 |128|[Hash Function](https://www.lintcode.com/problem/hash-function/)|[Python](collections/hash_function.py)||
 |129|[Rehashing](https://www.lintcode.com/problem/rehashing/)|[Python](collections/rehashing.py)||

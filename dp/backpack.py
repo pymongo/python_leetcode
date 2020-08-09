@@ -66,10 +66,12 @@ class Solution:
         dp[0] = 0
         for i in range(size):
             curr_num = nums[i]
-            # 容量<=curr_num的组合中，至少
-            dp[curr_num] = values[i]
+            # Python倒着遍历就用while循环吧，多写几行至少不容易出错
             j = m
             while j >= curr_num:
+                # 状态转移方程的唯一区别是选择第i个物品的情况要加上values[i]
+                # 所以状态是容量时选择第i个物品加上容量nums[i]，状态是价值时就加上价值values[i]
+                # TODO 展开写法是 dp[j] = max(dp[j-0*nums[i]]+0*values[i], dp[j-1*nums[i]]+1*values[i])
                 dp[j] = max(dp[j], dp[j - curr_num] + values[i])
                 j -= 1
         return dp[m]
@@ -236,5 +238,6 @@ class Testing(unittest.TestCase):
             self.assertEqual(can_partition, Solution.can_partition_dfs_solution(nums))
 
     def test_backpack_with_value(self):
+        self.assertEqual(133, Solution.back_pack_with_value(100, [77, 22, 29, 50, 99], [92, 22, 87, 46, 90]))
         self.assertEqual(9, Solution.back_pack_with_value(10, [2, 3, 5, 7], [1, 5, 2, 4]))
         self.assertEqual(10, Solution.back_pack_with_value(10, [2, 3, 8], [2, 5, 8]))
