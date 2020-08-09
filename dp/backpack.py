@@ -266,7 +266,11 @@ class Testing(unittest.TestCase):
 
     def test_min_partition(self):
         for nums, min_diff in self.MIN_PARTITION_CASES:
-            self.assertEqual(min_diff, Solution.min_partition(nums))
+            self.assertEqual(min_diff, Solution.min_partition_dp(nums))
+
+    def test_min_partition_one_row_dp(self):
+        for nums, min_diff in self.MIN_PARTITION_CASES:
+            self.assertEqual(min_diff, Solution.min_partition_best_one_row_dp(nums))
 
     def test_can_partition_sum_equal_rolling_array(self):
         for nums, can_partition in self.CAN_PARTITIONS_CASES:

@@ -105,7 +105,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|[Python](unclassified/fizz_buzz.py)||
 |413|[Reverse Integer](https://www.leetcode.com/problems/reverse-integer/)|[Python](unclassified/reverse_integer.py)||
-|416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Python](dp/backpack.py)|01背包问题|
+|416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Python](dp/backpack.py)|0-1背包问题|
 |449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |454|[4Sum II](https://www.leetcode.com/problems/4sum-ii/)|[Python](two_sum/four_sum_2.py)|two_sum|
 |507|[Perfect Number](https://www.leetcode.com/problems/perfect-number/)|[Python](factorization/perfect_number.py)||
@@ -135,6 +135,8 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |941|[Valid Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](binary_search/mountain_array_valid.py)|mountain_array|
 |953|[Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)|[Python](unclassified/verifying_an_alien_dictionary.py)||
 |973|[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Python](sorting_and_query/k_closest_points_to_origin.py)|quick_select, sort_by_multi_keys|
+|1046|[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Python](collections/last_stone_weight.py)||
+|1049|[Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii/)|[Python](dp/backpack.py)|0-1背包问题|
 |1095|[Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](binary_search/mountain_array_find.py)|binary_search, mountain_array|
 |1099_LOCK|[Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)|[Python](two_sum/two_sum_le_count.py)|two_pointers|
 |1429_LOCK|[First Unique Number](https://leetcode.com/problems/first-unique-number/)|[Python](list_node/first_unique_number.py)||
@@ -274,7 +276,7 @@ LintCode
 |585_LOCK|[Maximum Number in Mountain Sequence](https://www.lintcode.com/problem/maximum-number-in-mountain-sequence/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |586_LOCK|[Sqrt(x) II](https://www.lintcode.com/problem/sqrtx-ii/)|[Python](math/sqrt.py)|牛顿连续均值求根法|
 |587_LOCK|[Two Sum - Unique pairs](https://www.lintcode.com/problem/two-sum-unique-pairs/)|[Python](two_sum/two_sum_unique_pairs.py)|two_sum|
-|588|[Partition Equal Subset Sum](https://lintcode.com/problem/partition-equal-subset-sum/)|[Python](dp/backpack.py)|01背包问题|
+|588|[Partition Equal Subset Sum](https://lintcode.com/problem/partition-equal-subset-sum/)|[Python](dp/backpack.py)|0-1背包问题|
 |594|[Implement strStr() II](https://www.lintcode.com/problem/strstr-ii/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
 |596_LOCK|[Minimum Subtree](https://www.lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |606|[Kth Largest Element II](https://www.lintcode.com/problem/kth-largest-element-ii/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
@@ -290,7 +292,7 @@ LintCode
 |657|[Insert Delete GetRandom O(1)](https://www.lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://www.lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |685|[First Unique Number in Data Stream](https://www.lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](list_node/first_unique_number.py)||
-|724|[Minimum Partition](https://www.lintcode.com/problem/minimum-partition/)|[Python](dp/backpack.py)|01背包问题|
+|724|[Minimum Partition](https://www.lintcode.com/problem/minimum-partition/)|[Python](dp/backpack.py)|0-1背包问题|
 |772|[Group Anagrams](https://www.lintcode.com/problem/group-anagrams/)|[Python](collections/group_anagrams.py)||
 |813|[Find Anagram Mappings](https://www.lintcode.com/problem/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
 |816|[Traveling Salesman Problem](https://www.lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_perm_comb/traveling_salesman_problem.py)||
