@@ -6,14 +6,20 @@ dp[i][j]表示从前i个物品中能否装成容量为j的组合
 也可以用状态压缩性DP，每个物品的选或不选刚好是一个二进制，不过时间复杂度n*2^n
 
 01背包问题的题型归纳(小于背包容量的最大值):
-1. lintcode_92.Backpack
-2.1 某厂面试题<石头碰撞>: 给N个石头，每次选两个碰撞，最后剩余小石头的大小是abs(x-y)，请问最后剩下1个石头的大小是？
-其实石头碰撞问题可以想成把数组的数尽可能均分放在两个桶内，然后求两个桶的石头体积之差
-2.2 美团最低满减金额: 假设您有一张满X元立减的满减优惠券，请问要怎么点餐才能花钱最少又能享受满减
+1.1 lintcode_92.Backpack
+1.2 最低满减金额: 假设您有一张满X元立减的满减优惠券，请问要怎么点餐才能花钱最少又能享受满减
 通常的背包模板要求<=m的最大值，而这题要求>=m的最小值，所以这样转换一下 m=sum(nums)-X
-2.3 Google问过的 lintcode_724.Minimum Partition: 和LC416类似，只不过返回值是两部分差值的最小值
-2.4 leetcode_416/lintcode_588.Partition Equal Subset Sum: 问你能否均分数组，使得两部分的和相等
+
+# 2.x leetcode: 1049,416 和 lintcode: 724这三题几乎一样
+2.1 leetcode_1049.Last Stone Weight II: 给N个石头，每次选两个碰撞，最后剩余小石头的大小是abs(x-y)，请问最后剩下1个石头的大小是？
+其实石头碰撞问题可以想成把数组的数尽可能均分放在两个桶内，然后求两个桶的石头体积之差
+2.2 lintcode_724.Minimum Partition: 和LC416类似，只不过返回值是两部分差值的最小值
+2.3 leetcode_416/lintcode_588.Partition Equal Subset Sum: 问你能否均分数组，使得两部分的和相等
 这题这是问能不能，如果和为奇数就可以提前返回False，然后使用布尔值DP数组即可
+
+3. 0-1背包问题物品带价值(lintcode_backpack_2)
+4. 多重背包问题物品带价值且可以选多次(lintcode_backpack_3)
+此时最佳算法应该是计算单位体积下最贵的物品，先放入最贵重的直到放不下，再放次贵重的，直到放满(贪心)
 
 以leetcode_416分析0-1背包问题的状态压缩
 1. 滚动数组压缩成两行
@@ -57,6 +63,7 @@ class Solution:
                 return j
         return -1
 
+    # backpack问题2: 物品带价值的背包问题
     # noinspection PyMethodMayBeStatic,PyPep8Naming
     @staticmethod
     def back_pack_with_value(m: int, nums: List[int], values: List[int]) -> int:
@@ -91,7 +98,7 @@ class Solution:
         return dp[size][m]
 
     @staticmethod
-    def min_partition(nums: List[int]) -> int:
+    def min_partition_dp(nums: List[int]) -> int:
         """
         本题要求将数组任意分成两部分，要求两部分之和 的差值最小(leetcode 416问你能不能均分)
         实际上可以转化为01背包问题: 从数组中选任意个数，使得和尽可能接近sum(nums)//2
@@ -99,7 +106,6 @@ class Solution:
 
         如果用这种DP方程在lintcode上要特判`if size==209: return 1`和`if size>300: return 0`
         这题size * half_sum的数组太大了，有另一种优化DP数组空间复杂度的思路:
-        TODO dpi表示两个集合之差为i的构造方法是否存在, i的范围是0-1, j的范围是sum*2+10(为什么是这样的长度?加滚动数组)
         """
         full_sum = sum(nums)
         half_sum = full_sum // 2
@@ -107,6 +113,34 @@ class Solution:
         return abs(full_sum - 2 * Solution.dp_state_max_capacity_from_ith_num(half_sum, nums))
         # leetcode 416. Partition Equal Subset Sum
         # return full_sum == 2 * dp[size][half_sum]
+
+    @staticmethod
+    def min_partition_traverse(nums: List[int]) -> int:
+        # 有点脑筋急转弯的遍历/迭代解法, 不断将x+y弄大到接近sum(nums)//2
+        # 这种解法不能用地板除
+        target = sum(nums) / 2.0
+        candidates = set()
+        candidates.add(0)
+        for num in nums:
+            addition = set()
+            for candidate in candidates:
+                temp_sum = num + candidate
+                if temp_sum == target:
+                    return 0
+                elif temp_sum < target:
+                    addition.add(temp_sum)
+            candidates = candidates.union(addition)
+        return int(2 * (target - max(candidates)))
+
+    @staticmethod
+    def min_partition_best_one_row_dp(nums: List[int]) -> int:
+        size, total_sum = len(nums), sum(nums)
+        half_sum = total_sum // 2
+        dp = [0] * (half_sum + 1)
+        for num in nums:
+            for j in range(half_sum, num - 1, -1):
+                dp[j] = max(dp[j], dp[j - num] + num)
+        return total_sum - 2 * dp[half_sum]
 
     @staticmethod
     def can_partition_sum_equal_rolling_array(nums: List[int]) -> bool:
@@ -207,6 +241,11 @@ class Testing(unittest.TestCase):
         (12, [2, 3, 5, 7], 12),
     ]
 
+    MIN_PARTITION_CASES = [
+        ([1, 6, 11, 5], 1),
+        ([1, 2, 3, 4], 0),
+    ]
+
     CAN_PARTITIONS_CASES = [
         ([1, 3, 4, 4], False),
         ([3, 3, 3, 4, 5], True),
@@ -216,13 +255,18 @@ class Testing(unittest.TestCase):
         ([1, 2, 3, 5], False),
     ]
 
-    def test(self):
+    def test_backpack(self):
         for m, nums, max_size in self.TEST_CASES:
             self.assertEqual(max_size, Solution.backPack(m, nums))
 
+    def test_backpack_with_value(self):
+        self.assertEqual(133, Solution.back_pack_with_value(100, [77, 22, 29, 50, 99], [92, 22, 87, 46, 90]))
+        self.assertEqual(9, Solution.back_pack_with_value(10, [2, 3, 5, 7], [1, 5, 2, 4]))
+        self.assertEqual(10, Solution.back_pack_with_value(10, [2, 3, 8], [2, 5, 8]))
+
     def test_min_partition(self):
-        self.assertEqual(1, Solution.min_partition([1, 6, 11, 5]))
-        self.assertEqual(0, Solution.min_partition([1, 2, 3, 4]))
+        for nums, min_diff in self.MIN_PARTITION_CASES:
+            self.assertEqual(min_diff, Solution.min_partition(nums))
 
     def test_can_partition_sum_equal_rolling_array(self):
         for nums, can_partition in self.CAN_PARTITIONS_CASES:
@@ -232,12 +276,7 @@ class Testing(unittest.TestCase):
         for nums, can_partition in self.CAN_PARTITIONS_CASES:
             self.assertEqual(can_partition, Solution.can_partition_one_row_dp(nums))
 
-    def test_dfs(self):
+    def test_can_partition_dfs(self):
         for nums, can_partition in self.CAN_PARTITIONS_CASES:
             print(nums)
             self.assertEqual(can_partition, Solution.can_partition_dfs_solution(nums))
-
-    def test_backpack_with_value(self):
-        self.assertEqual(133, Solution.back_pack_with_value(100, [77, 22, 29, 50, 99], [92, 22, 87, 46, 90]))
-        self.assertEqual(9, Solution.back_pack_with_value(10, [2, 3, 5, 7], [1, 5, 2, 4]))
-        self.assertEqual(10, Solution.back_pack_with_value(10, [2, 3, 8], [2, 5, 8]))

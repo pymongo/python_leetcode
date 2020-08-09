@@ -247,6 +247,7 @@ LintCode
 |425|[Letter Combinations of a Phone Number](https://lintcode.com/problem/letter-combinations-of-a-phone-number/)|[Python](dfs_perm_comb/phone_9_keypad_combination.py)|product(笛卡尔积)|
 |428|[Pow(x, n)](https://lintcode.com/problem/powx-n/)|[Python](math/pow.py)|binary_search, 快速幂运算|
 |433|[Number of Islands](https://www.lintcode.com/problem/number-of-islands/)|[Python](graph/number_of_islands.py)|union_find, DFS, BFS|
+|440|[Backpack II](https://www.lintcode.com/problem/backpack-iii/)|[Python](dp/backpack_3_item_can_select_multi.py)||
 |442|[Implement Trie (Prefix Tree)](https://lintcode.com/problem/implement-trie-prefix-tree/)|[Python](prefix_tree_tire/impl_tire_prefix_tree.py)|前缀树/字典树|
 |443_LOCK|[Two Sum - Greater than target](https://www.lintcode.com/problem/two-sum-greater-than-target/)|[Python](two_sum/two_sum_le_count.py)|two_pointers|
 |447_LOCK|[Search in a Big Sorted Array](https://www.lintcode.com/problem/search-in-a-big-sorted-array/)|[Python](binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
