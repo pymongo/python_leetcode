@@ -64,6 +64,40 @@ def kth_largest_min_heap(nums: List[int], k: int) -> int:
         heapq.heappushpop(min_heap, num)
     return min_heap[0]
 
+# 如果元素有偶数个，则返回右中位数
+def median(nums: List[int]) -> int:
+    size = len(nums)
+    kth = size // 2
+
+    def quick_select_inner(left: int, right: int, k: int) -> int:
+        if left == right:
+            return nums[left]
+
+        start, end = left, right
+        pivot = nums[start + (end-start) // 2]
+        # 倒序快排
+        while start <= end:
+            while start <= end and nums[start] > pivot:
+                start += 1
+            while start <= end and nums[end] < pivot:
+                end -= 1
+            if start <= end:
+                nums[start], nums[end] = nums[end], nums[start]
+                start += 1
+                end -= 1
+        # 如果start=end时跳出循环，则end和start中间会有一个元素
+        # 此时从左到右分别是 left end [some] start right
+        if left + k - 1 <= end:
+            # kth在pivot的左边区域
+            return quick_select_inner(left, end, k)
+        elif right + k - 1 >= start:
+            # kth在pivot的右边区域
+            return quick_select_inner(start, right, left+k-start)
+        else:
+            # k刚好是end和start之间的元素
+            return nums[end + 1]
+
+    return quick_select_inner(0, size-1, kth)
 
 class Test(unittest.TestCase):
     TEST_CASES = [
@@ -76,3 +110,6 @@ class Test(unittest.TestCase):
         for nums, k, expected in self.TEST_CASES[:]:
             print(nums)
             self.assertEqual(expected, quick_select(nums, 0, len(nums) - 1, k))
+
+    def find_median(self):
+        pass

@@ -1,6 +1,4 @@
 import unittest
-from typing import List
-
 
 class Solution:
     @staticmethod

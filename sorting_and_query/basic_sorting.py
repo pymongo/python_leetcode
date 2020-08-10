@@ -57,6 +57,7 @@ def selection_sort(nums: List[int]):
                 min_index = j
         nums[i], nums[min_index] = nums[min_index], nums[i]
 
+
 # sift_down过程
 def heapify_iterative(nums: List[int], size: int, index: int):
     while True:
@@ -306,6 +307,38 @@ def merge_sort(numbers: List[int]) -> List[int]:
     return result
 
 
+def merge_sort_2(nums: List[int], start: int, end: int, temp: List[int]):
+    if start >= end:
+        return
+    mid = start + (end - start) // 2
+
+    merge_sort_2(nums, start, mid, temp)
+    merge_sort_2(nums, mid+1, end, temp)
+
+    left, right = start, mid+1
+    temp_index = start
+    while left <= mid and right <= end:
+        if nums[left] < nums[right]:
+            temp[temp_index] = nums[left]
+            left += 1
+        else:
+            temp[temp_index] = nums[right]
+            right += 1
+        temp_index += 1
+    while left <= mid:
+        temp[temp_index] = nums[left]
+        left += 1
+        temp_index += 1
+    while right <= end:
+        temp[temp_index] = nums[right]
+        right += 1
+        temp_index += 1
+    # 下次归并排序时，temp的值很可能被覆盖掉，此时需要将排好序的temp[start:end+1]赋给nums，使得nums局部有序
+    # 其次原因是，先让num部分有序，下次归并排序要排的个数就变少
+    # 最后不仅是nums有序，temp也是有序的
+    for i in range(start, end+1):
+        nums[i] = temp[i]
+
 def quick_sort(nums):
     """
     应对面试时手写快排的背诵版本，所以变量名都用缩写
@@ -407,15 +440,13 @@ class TestSorting(unittest.TestCase):
 
     def test_selection_sort(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
-            sorted_nums = sorted(nums)
             bubble_sort(nums)
-            self.assertListEqual(sorted_nums, nums)
+            self.assertListEqual(sorted(nums), nums)
 
     def test_heap_sort_iterative(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
-            sorted_nums = sorted(nums)
             heap_sort_iterative(nums)
-            self.assertListEqual(sorted_nums, nums)
+            self.assertListEqual(sorted(nums), nums)
 
     def test_heap_sort(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
@@ -444,6 +475,14 @@ class TestSorting(unittest.TestCase):
         for nums in deepcopy(self.NUMS_TEST_CASES):
             self.assertEqual(nums, merge_sort(nums))
 
+    def test_merge_sort_2(self):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
+            size = len(nums)
+            temp = [-1] * size
+            merge_sort_2(nums, 0, size-1, temp)
+            self.assertListEqual(sorted(nums), temp)
+            self.assertListEqual(sorted(nums), nums)
+
     @unittest.skip("修复中")
     def test_quick_sort_simple(self):
         import sys
@@ -458,12 +497,7 @@ class TestSorting(unittest.TestCase):
         for nums, expected in deepcopy(self.NUMS_TEST_CASES):
             self.assertEqual(expected, quick_sort_recipe(nums))
 
-    @unittest.skip("修复中")
     def test_quick_sort_in_place(self):
-        for nums, expected in deepcopy(self.NUMS_TEST_CASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             quick_sort_in_place(nums, 0, len(nums) - 1)
-            self.assertEqual(expected, nums)
-
-# if __name__ == '__main__':
-#     print("为什么在这里运行单元测试")
-#     unittest.main()
+            self.assertListEqual(sorted(nums), nums)
