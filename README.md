@@ -3,6 +3,11 @@ LeetCode
 
 因为leetcode-cn上我多做了2道面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了4题
 
+有意思的但是没有找到题号的问题:
+
+1. 报数出列(约瑟夫环)问题
+2. 海盗分金币问题(比较脑筋急转弯的递推)
+
 系统设计
 https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183 赠送的四大优惠~！
 https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：013923
@@ -118,6 +123,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |625_LOCK|[Minimum Factorization](https://www.leetcode.com/problems/minimum-factorization/)|[Python](factorization/minimum_factorization.py)|greedy|
 |658|[Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)|[Python](binary_search/find_k_closest_elements.py)|binary_search|
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
+|696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|[Python](unclassified/count_binary_substring.py)||
 |702_LOCK|[Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)|[Python](binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
 |703|[Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)|[Python](collections/top_k_largest_stream_min_heap.py)|min_heap|
 |704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](binary_search/binary_search.py)|binary_search|
@@ -312,6 +318,7 @@ LintCode
 |916|[Palindrome Permutation](https://www.lintcode.com/problem/palindrome-permutation/)|[Python](palindrome/palindrome_permutation.py)|greedy|
 |954|[Insert Delete GetRandom O(1) - Duplicates allowed](https://lintcode.com/problem/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |976|[4Sum II](https://www.lintcode.com/problem/4sum-ii/)|[Python](two_sum/four_sum_2.py)|two_sum|
+|1079|[Count Binary Substrings](https://lintcode.com/problem/count-binary-substrings/)|[Python](unclassified/count_binary_substring.py)||
 |1137|[Construct String from Binary Tree](https://www.lintcode.com/problem/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |1179|[Friend Circles](https://lintcode.com/problem/friend-circles/)|[Python](graph/friend_circles.py)|union_find, DFS, BFS|
 |1199|[Perfect Number](https://www.lintcode.com/problem/perfect-number/)|[Python](factorization/perfect_number.py)||
