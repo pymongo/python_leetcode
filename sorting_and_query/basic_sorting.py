@@ -313,9 +313,9 @@ def merge_sort_2(nums: List[int], start: int, end: int, temp: List[int]):
     mid = start + (end - start) // 2
 
     merge_sort_2(nums, start, mid, temp)
-    merge_sort_2(nums, mid+1, end, temp)
+    merge_sort_2(nums, mid + 1, end, temp)
 
-    left, right = start, mid+1
+    left, right = start, mid + 1
     temp_index = start
     while left <= mid and right <= end:
         if nums[left] < nums[right]:
@@ -336,8 +336,9 @@ def merge_sort_2(nums: List[int], start: int, end: int, temp: List[int]):
     # 下次归并排序时，temp的值很可能被覆盖掉，此时需要将排好序的temp[start:end+1]赋给nums，使得nums局部有序
     # 其次原因是，先让num部分有序，下次归并排序要排的个数就变少
     # 最后不仅是nums有序，temp也是有序的
-    for i in range(start, end+1):
+    for i in range(start, end + 1):
         nums[i] = temp[i]
+
 
 def quick_sort(nums):
     """
@@ -399,7 +400,7 @@ def quick_sort_in_place(nums: List[int], start, end):
     if start >= end:
         return
     left, right = start, end
-    pivot = nums[(left + right) // 2]
+    pivot = nums[start + (end - start) // 2]
     while left <= right:
         while left <= right and nums[left] < pivot:
             left += 1
@@ -409,7 +410,6 @@ def quick_sort_in_place(nums: List[int], start, end):
             nums[left], nums[right] = nums[right], nums[left]
             left += 1
             right -= 1
-    print(start, end, left, right)
     quick_sort_in_place(nums, start, right)
     quick_sort_in_place(nums, left, end)
 
@@ -470,16 +470,15 @@ class TestSorting(unittest.TestCase):
             shell_sort(nums)
             self.assertEqual(sorted_nums, nums)
 
-    @unittest.skip("修复中")
     def test_merge_sort(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
-            self.assertEqual(nums, merge_sort(nums))
+            self.assertEqual(sorted(nums), merge_sort(nums))
 
     def test_merge_sort_2(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
             size = len(nums)
             temp = [-1] * size
-            merge_sort_2(nums, 0, size-1, temp)
+            merge_sort_2(nums, 0, size - 1, temp)
             self.assertListEqual(sorted(nums), temp)
             self.assertListEqual(sorted(nums), nums)
 
@@ -492,10 +491,9 @@ class TestSorting(unittest.TestCase):
         for nums, expected in deepcopy(self.NUMS_TEST_CASES):
             self.assertEqual(expected, quick_sort_simple(nums))
 
-    @unittest.skip("修复中")
     def test_quick_sort_recipe(self):
-        for nums, expected in deepcopy(self.NUMS_TEST_CASES):
-            self.assertEqual(expected, quick_sort_recipe(nums))
+        for nums in deepcopy(self.NUMS_TEST_CASES):
+            self.assertEqual(sorted(nums), quick_sort_recipe(nums))
 
     def test_quick_sort_in_place(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):

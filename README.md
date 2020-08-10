@@ -17,6 +17,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|[Python](string/zigzag_conversion.py)||
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Python](unclassified/reverse_integer.py)||
 |9|[Palindromic Number](https://leetcode.com/problems/palindrome-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/i32_is_palindromic.rs), [Python](palindrome/longest_palindromic_substr.py)|half_traverse_i32|
+|10|[Regular Expression Matching](https://www.leetcode.coms/problem/regular-expression-matching/)|[Python](dp/regular_expression_matching.py)||
 |15|[3Sum](https://leetcode.com/problems/3sum/)|[Python](two_sum/three_sum.py)|two_pointers, two_sum|
 |17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|[Python](dfs_perm_comb/phone_9_keypad_combination.py)|product(笛卡尔积)|
 |18|[4Sum](https://www.lintcode.com/problem/4sum/)|[Python](two_sum/four_sum.py)|two_pointers, two_sum|
@@ -194,6 +195,7 @@ LintCode
 |73|[Construct Binary Tree from Preorder and Inorder Traversal](https://lintcode.com/problem/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_in_order.py)|DFS, stack|
 |74|[First Bad Version](https://lintcode.com/problem/first-bad-version/)|[Python](binary_search/first_bad_version.py)|partition_array|
 |75|[Find Peak Element](https://www.lintcode.com/problem/find-peak-element/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
+|80|[Median](https://www.lintcode.com/problem/median/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select|
 |86|[Binary Search Tree Iterator](https://lintcode.com/problem/binary-search-tree-iterator/)|[Python](binary_tree/bst_in_order_iterator.py)||
 |88|[Lowest Common Ancestor of a Binary Tree](https://lintcode.com/problem/lowest-common-ancestor-of-a-binary-tree/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)|divide_and_conquer|
 |90|[k Sum II](https://lintcode.com/problem/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py)||
@@ -227,6 +229,7 @@ LintCode
 |144|[interleaving_positive_and_negative_numbers](https://lintcode.com/problem/sort-colors-ii/)|[Python](partition_array/interleaving_positive_and_negative_numbers.py)||
 |147_LOCK_TODO|[Narcissistic Number](https://www.lintcode.com/problem/narcissistic-number)|[Python](unclassified/narcissistic_number.py)||
 |148|[Sort Colors](https://lintcode.com/problem/sort-colors/)|[Python](partition_array/sort_colors.py)|three_pointers, partition_array|
+|154|[Regular Expression Matching](https://www.lintcode.com/problem/regular-expression-matching/)|[Python](dp/regular_expression_matching.py)||
 |155|[Minimum Depth of Binary Tree](https://www.lintcode.com/problem/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |158|[Valid Anagram](https://lintcode.com/problem/valid-anagram/)|[Python](collections/valid_anagram.py)||
 |159|[Find Minimum in Rotated Sorted Array](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|

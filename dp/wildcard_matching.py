@@ -1,5 +1,6 @@
 import unittest
 
+# 这题最快解法应该是「有限状态机/自动机」
 class Solution:
     @staticmethod
     def wildcard_matching(s: str, p: str) -> bool:
