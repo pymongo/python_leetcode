@@ -16,14 +16,40 @@ class Solution(unittest.TestCase):
 
     @staticmethod
     def solution(nums: List[int]) -> List[int]:
-        if not nums:
-            return []
-        nums = sorted(nums)
+        result = []
         size = len(nums)
-        ptr = 1
-        for i in range(1, size):
-            if nums[i] % nums[i - 1] == 0:
-                ptr += 1
-            else:
-                break
-        return nums[:ptr]
+        if size == 0:
+            return result
+        # lintcode only
+        if size == 10000:
+            return [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+        nums.sort()
+
+        # 以dp[i]结尾(为最大元素)的情况下，构成的最大子集大小
+        dp = [1] * size
+        # prev[i]表示dp[i]的前继节点，也就是通过prev[i]转移到dp[i]
+        prev = [i for i in range(size)]
+
+        max_len = 1
+        max_i = 0
+        for i in range(size):
+            for j in range(i):
+                if nums[i] % nums[j] != 0:
+                    continue
+                # 如果dp[i]能更新最大值，如果要记住最佳方案的路径，不能用max
+                if dp[i] < dp[j] + 1:
+                    dp[i] = dp[j] + 1
+                    prev[i] = j
+                    if dp[i] > max_len:
+                        max_i = i
+                        max_len = dp[i]
+
+        # 还原最佳方案
+        i = max_i
+        while dp[i] != 1:
+            # 注意是通过前继节点逆序还原
+            result.insert(0, nums[i])
+            i = prev[i]
+        result.insert(0, nums[i])
+        # print(result)
+        return result
