@@ -3,6 +3,7 @@ from typing import List, Set
 
 
 # word_break_2求的是具体方案，不适合用动态规划
+# 这题可以换着问: 问你单词的「最少分词数」
 class Solution(unittest.TestCase):
     @staticmethod
     def word_break_3(s: str, words_set: Set[str]) -> int:

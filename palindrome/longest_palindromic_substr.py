@@ -66,7 +66,8 @@ def expand_center(s: str, size: int, left: int, right: int) -> (int, int):
     # 由于跳出循环时哪怕两边不相等也会额外扩散一次，所以返回值要往里收缩一次
     return left + 1, right - 1
 
-
+# 暴力穷举(brute_force)已经是多项式级别的时间复杂度的题不适合用动态规划，例如本题是O(n^3)
+# 本题 manacher > 中心扩散 > 动态规划
 def longest_palindromic_substr(s: str) -> str:
     # 非法入参处理
     if not isinstance(s, str):

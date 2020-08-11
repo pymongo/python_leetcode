@@ -7,6 +7,7 @@ LeetCode
 
 1. 报数出列(约瑟夫环)问题
 2. 海盗分金币问题(比较脑筋急转弯的递推)
+3. 最大直方图矩阵(Longest Histgram Rectangle), 单调栈O(n^3)->O(n)
 
 系统设计
 https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183 赠送的四大优惠~！
@@ -43,6 +44,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |55|[Jump Game](https://leetcode.com/problems/jump-game/)|[Python](dp/jump_game.py)|greedy, dp|
 |62|[Unique Paths](https://leetcode.com/problems/unique-paths/)|[Python](dfs_perm_comb/unique_paths.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|combination|
 |63|[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Python](dp/unique_paths_2.py)||
+|64|[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)|[Python](dp/grid_min_path_sum.py)||
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[Python](math/sqrt.py)|牛顿连续均值求根法|
 |70|[Climb Stairs](https://leetcode.com/problems/climbing-stairs/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |75|[Sort Colors](https://leetcode.com/problems/sort-colors/)|[Python](partition_array/sort_colors.py)|three_pointers, partition_array|
@@ -218,6 +220,7 @@ LintCode
 |105|[Copy List with Random Pointer](https://lintcode.com/problem/copy-list-with-random-pointer/)|[Python](graph/clone_linked_list_with_random_ptr.py)||
 |107|[Word Break](https://lintcode.com/problem/word-break/)|[Python](dp/word_break.py)||
 |109|[Triangle](https://lintcode.com/problem/triangle/)|[Python](dp/triangle.py)||
+|110|[Minimum Path Sum](https://lintcode.com/problem/minimum-path-sum/)|[Python](dp/grid_min_path_sum.py)||
 |114|[Unique Paths](https://lintcode.com/problem/unique-paths/)|[Python](dfs_perm_comb/unique_paths.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|combination|
 |115|[Unique Paths II](https://lintcode.com/problem/unique-paths-ii/)|[Python](dp/unique_paths_2.py)||
 |116|[Jump Game](https://lintcode.com/problem/jump-game/)|[Python](dp/jump_game.py)|greedy, dp|
