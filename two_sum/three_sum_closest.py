@@ -9,19 +9,22 @@ def solution(nums: List[int], target: int) -> int:
     min_diff = sys.maxsize
     closest_sum = 0
     for i in range(size - 2):
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
+        # 固定第三个数，然后简化为two_sum = target-第三个数的问题
         left, right = i + 1, size - 1
         while left < right:
             three_sum = nums[i] + nums[left] + nums[right]
-            new_diff = abs(three_sum - target)
-            if new_diff < min_diff:
-                min_diff = new_diff
-                closest_sum = nums[i] + nums[left] + nums[right]
             if three_sum > target:
                 right -= 1
             elif three_sum < target:
                 left += 1
             else:
-                return closest_sum
+                return three_sum
+            new_diff = abs(three_sum - target)
+            if new_diff < min_diff:
+                min_diff = new_diff
+                closest_sum = three_sum
     return closest_sum
 
 

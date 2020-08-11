@@ -25,6 +25,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |9|[Palindromic Number](https://leetcode.com/problems/palindrome-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/i32_is_palindromic.rs), [Python](palindrome/longest_palindromic_substr.py)|half_traverse_i32|
 |10|[Regular Expression Matching](https://leetcode.coms/problem/regular-expression-matching/)|[Python](dp/regular_expression_matching.py)||
 |15|[3Sum](https://leetcode.com/problems/3sum/)|[Python](two_sum/three_sum.py)|two_pointers, two_sum|
+|16|[3Sum Closest](https://leetcode.com/problems/3sum-closest/)|[Python](two_sum/three_sum_closest.py)|two_sum|
 |17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|[Python](dfs_perm_comb/phone_9_keypad_combination.py)|product(笛卡尔积)|
 |18|[4Sum](https://lintcode.com/problem/4sum/)|[Python](two_sum/four_sum.py)|two_pointers, two_sum|
 |26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|[Python](partition_array/move_zeros.py)||
@@ -190,7 +191,7 @@ LintCode
 |56|[Two Sum](https://lintcode.com/problem/two-sum/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/collections/btree_map_two_sum.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/two_sum_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/HashMapTwoSum.java)|btree_map, bitwise(two_s_complement)|
 |57|[3Sum](https://lintcode.com/problem/3sum/)|[Python](two_sum/three_sum.py)|two_pointers, two_sum|
 |58|[4Sum](https://lintcode.com/problem/4sum/)|[Python](two_sum/four_sum.py)|two_pointers, two_sum|
-|59|[3Sum Closest](https://lintcode.com/problem/3sum-closest/)|[Python](https://github.com/pymongo/rust_leetcode/blob/master/src/two_sum/three_sum_closest.py)|two_sum|
+|59|[3Sum Closest](https://lintcode.com/problem/3sum-closest/)|[Python](two_sum/three_sum_closest.py)|two_sum|
 |62|[Search in Rotated Sorted Array](https://lintcode.com/problem/search-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |63|[Search in Rotated Sorted Array II](https://lintcode.com/problem/search-in-rotated-sorted-array-ii/)|[Python](binary_search/rotated_sorted_array_search_2_with_duplicate.py)|binary_search|
 |64|[Merge Sorted Array](https://lintcode.com/problem/merge-sorted-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/merge_two_sorted_arrays.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/sorting/merge_two_sorted_arrays_test.go), [Python](sorting_and_query/merge_two_sorted_arrays.py)|merge_sort|
