@@ -5,6 +5,8 @@ from typing import List
 # TODO 本题最快解法是「贪心+二分插入」的nlogn时间复杂度方法
 # 接龙型动态规划经典题LIS，先找出接龙规则
 # 动态规划不适合记录所有具体方案，但是可以持续更新一个最优方案(例如最长回文子串)
+# TODO 如果本题要求返回具体的最优方案，则需要额外一个「前继节点」数组prev[j]去记录dp[i]的最优值是从哪一个dp[j]算过来的
+# TODO ...而且不能用max，要用if找到最优方案更新时的i,j，去更新prev[j]
 class Solution(unittest.TestCase):
     TEST_CASES = [
         ([5, 4, 1, 2, 3], 3),
