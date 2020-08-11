@@ -110,6 +110,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |291_LOCK|[Word Pattern II](https://leetcode.com/problems/word-pattern-ii/)|[Python](dfs_perm_comb/word_pattern_2.py)|DFS|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
+|300|[Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)|[Python](dp/longest_increase_subsequence.py)|接龙型动态规划|
 |326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python](bitwise/is_power_of_3.py)|bitwise|
 |342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
@@ -209,6 +210,7 @@ LintCode
 |73|[Construct Binary Tree from Preorder and Inorder Traversal](https://lintcode.com/problem/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_in_order.py)|DFS, stack|
 |74|[First Bad Version](https://lintcode.com/problem/first-bad-version/)|[Python](binary_search/first_bad_version.py)|partition_array|
 |75|[Find Peak Element](https://lintcode.com/problem/find-peak-element/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
+|76|[Longest Increasing Subsequence](https://lintcode.com/problem/longest-increasing-subsequence/)|[Python](dp/longest_increase_subsequence.py)|接龙型动态规划|
 |80|[Median](https://lintcode.com/problem/median/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select|
 |86|[Binary Search Tree Iterator](https://lintcode.com/problem/binary-search-tree-iterator/)|[Python](binary_tree/bst_in_order_iterator.py)||
 |88|[Lowest Common Ancestor of a Binary Tree](https://lintcode.com/problem/lowest-common-ancestor-of-a-binary-tree/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)|divide_and_conquer|
