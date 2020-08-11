@@ -104,6 +104,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Python](binary_search/first_bad_version.py)|partition_array|
 |283|[Move Zeros](https://leetcode.com/problems/move-zeroes/)|[Python](partition_array/move_zeros.py)|partition_array, 快慢双指针|
 |290|[Word Pattern](https://leetcode.com/problems/word-pattern/)|[Python](collections/word_pattern.py)||
+|291_LOCK|[Word Pattern II](https://leetcode.com/problems/word-pattern-ii/)|[Python](dfs_perm_comb/word_pattern_2.py)|DFS|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python](bitwise/is_power_of_3.py)|bitwise|
@@ -320,6 +321,7 @@ LintCode
 |813|[Find Anagram Mappings](https://lintcode.com/problem/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
 |816|[Traveling Salesman Problem](https://lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_perm_comb/traveling_salesman_problem.py)||
 |828|[Word Pattern](https://lintcode.com/problem/word-pattern/)|[Python](collections/word_pattern.py)||
+|829|[Word Pattern II](https://leetcode.com/problems/word-pattern-ii/)|[Python](dfs_perm_comb/word_pattern_2.py)|DFS|
 |871|[Minimum Factorization](https://lintcode.com/problem/minimum-factorization/)|[Python](factorization/minimum_factorization.py)|greedy|
 |880|[Construct Binary Tree from String](https://lintcode.com/problem/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
