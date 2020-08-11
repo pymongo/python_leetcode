@@ -317,6 +317,7 @@ LintCode
 |632|[Binary Tree Maximum Node](https://lintcode.com/problem/binary-tree-maximum-node/)|||
 |657|[Insert Delete GetRandom O(1)](https://lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
+|683|[Word Break III](https://lintcode.com/problem/word-break-iii/)|[Python](dp/word_break_3.py)||
 |685|[First Unique Number in Data Stream](https://lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](list_node/first_unique_number.py)||
 |724|[Minimum Partition](https://lintcode.com/problem/minimum-partition/)|[Python](dp/backpack.py)|0-1背包问题|
 |772|[Group Anagrams](https://lintcode.com/problem/group-anagrams/)|[Python](collections/group_anagrams.py)||

@@ -1,7 +1,8 @@
 import unittest
-from typing import List
+from typing import List, Set
 
 
+# word_break_2求的是具体方案，不适合用动态规划
 class Solution(unittest.TestCase):
     TEST_CASES = [
         ("lintcode", ["de", "ding", "co", "code", "lint"], ["lint code", "lint co de"])
