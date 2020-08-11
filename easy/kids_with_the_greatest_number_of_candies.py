@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # noinspection PyPep8Naming
     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
         max_val = max(candies)
         res = []
