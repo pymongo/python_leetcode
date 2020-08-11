@@ -3,6 +3,7 @@ from typing import List
 
 
 # 本题属于「接龙型」动态规划(也是坐标型动态规划的一种)
+# TODO 经典的动态规划通过前继节点数组倒推最优方案的路径的问题
 class Solution(unittest.TestCase):
     TEST_CASES = [
         ([1, 2, 3], [[1, 2], [2, 3]]),
@@ -23,6 +24,7 @@ class Solution(unittest.TestCase):
         # lintcode only
         if size == 10000:
             return [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+        # 对于有序数组，如果前面的n个元素已经是两两整除，那么只需判断新元素和最后一个元素之间是否能整除
         nums.sort()
 
         # 以dp[i]结尾(为最大元素)的情况下，构成的最大子集大小
