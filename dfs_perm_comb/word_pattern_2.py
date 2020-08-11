@@ -1,6 +1,6 @@
 import unittest
 
-
+# 这题没什么重复计算的过程，所以没法用动态规划
 def match(p: str, s: str) -> bool:
     p_len = len(p)
     if p_len == 0:
@@ -31,6 +31,7 @@ def match(p: str, s: str) -> bool:
             return dfs(pi + 1, si + word_len)
 
         # 当前pattern还未存入字典中，从小到大搜索哪个单词匹配pattern更合适
+        # 注意i的范围
         for i in range(si + 1, s_len+1):
             word = s[si:i]
             if word in used_words:

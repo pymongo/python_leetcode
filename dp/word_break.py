@@ -2,6 +2,7 @@ import unittest
 from typing import List
 
 
+# 关键词: 分词法
 class Solution:
     # noinspection PyMethodMayBeStatic,PyPep8Naming
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:

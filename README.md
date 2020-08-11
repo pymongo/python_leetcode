@@ -70,6 +70,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |136|[Single Number](https://leetcode.com/problems/single-number/)|[Python](bitwise/xor_find_single.py)||
 |138|[Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|[Python](graph/clone_linked_list_with_random_ptr.py)||
 |139|[Word Break](https://leetcode.com/problems/word-break/)|[Python](dp/word_break.py)||
+|140|[Word Break II](https://leetcode.com/problems/word-break-ii/)|[Python](dp/word_break_2.py)||
 |144|[Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |145|[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |145|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Python](list_node/lru_cache.py)|double_linked_list, OrderedDict|
@@ -295,6 +296,7 @@ LintCode
 |545|[Top k Largest Numbers II](https://lintcode.com/problem/top-k-largest-numbers-ii/)|[Python](collections/top_k_largest_stream_min_heap.py)|min_heap|
 |563|[Backpack V](https://lintcode.com/problem/backpack-v/)|[Python](dp/backpack_5_plans_count.py)||
 |578|[Lowest Common Ancestor III](https://lintcode.com/problem/lowest-common-ancestor-iii/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)||
+|582|[Word Break II](https://lintcode.com/problem/word-break-ii/)|[Python](dp/word_break_2.py)||
 |584_TODO|[Drop Eggs II](https://lintcode.com/problem/drop-eggs-ii/)|[Python](dp/drop_eggs_dp.py)|dp|
 |585_LOCK|[Maximum Number in Mountain Sequence](https://lintcode.com/problem/maximum-number-in-mountain-sequence/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |586_LOCK|[Sqrt(x) II](https://lintcode.com/problem/sqrtx-ii/)|[Python](math/sqrt.py)|牛顿连续均值求根法|
