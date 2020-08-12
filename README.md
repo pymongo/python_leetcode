@@ -100,6 +100,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |232|[Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)|[Python](collections/impl_stack_using_queue.py)||
 |235|[Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)|[Python](binary_tree/bst_lowest_common_ancestor.py)||
 |236|[Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)|divide_and_conquer|
+|240|[Search a 2D Matrix II](https://www.leetcode.com/problems/search-a-2d-matrix-ii/)|[Python](binary_search/search_a_2d_matrix_2.py)||
 |242|[Valid Anagram](https://leetcode.com/problems/valid-anagram/)|[Python](collections/valid_anagram.py)||
 |257|[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
 |263|[Ugly Number](https://leetcode.com/problems/ugly-number/)|[Python](easy/ugly_number.py)||
@@ -197,6 +198,7 @@ LintCode
 |31|[Partition Array](https://lintcode.com/problem/partition-array/)|[Python](partition_array/partition_array.py)|two_pointers|
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](list_node/reverse_linked_list.py)|list_node|
 |37|[Reverse 3-digit Integer](https://lintcode.com/problem/reverse-3-digit-integer/)|||
+|38|[Search a 2D Matrix II](https://www.lintcode.com/problem/search-a-2d-matrix-ii/)|[Python](binary_search/search_a_2d_matrix_2.py)||
 |40|[Implement Queue by Two Stacks](https://lintcode.com/problem/implement-queue-by-two-stacks/)|[Python](collections/impl_stack_using_queue.py)||
 |41|[Maximum Subarray](https://lintcode.com/problem/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
 |49|[Sort Letters by Case](https://lintcode.com/problem/sort-letters-by-case/)|[Python](partition_array/partition_array_by_odd_and_even.py)||

@@ -4,7 +4,22 @@ https://leetcode.com/problems/reverse-linked-list/
 
 from .list_node import ListNode
 import unittest
+from typing import Optional
 
+class Solution:
+    @staticmethod
+    def reverse_list_recipe_1(head: ListNode) -> Optional[ListNode]:
+        if head is None:
+            return None
+        new = None
+        old = head
+        while old:
+            temp = old.next
+            old.next = new
+            new = old
+            # print(new)
+            old = temp
+        return new
 
 def reverse_linked_list(head: ListNode) -> ListNode:
     pre = None
