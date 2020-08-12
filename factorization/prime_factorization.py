@@ -18,7 +18,7 @@ def my_solution(n: int) -> List[int]:
         while n % k == 0:
             result.append(k)
             n //= k
-    # 如果最后还有剩余，则为最后一个质因数例如10的第二个质因数5
+    # 如果最后还有剩余，则为最后一个质因数，例如10的第二个质因数5
     if n != 1:
         result.append(n)
     return result
