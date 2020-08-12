@@ -122,6 +122,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|[Python](easy/fizz_buzz.py)||
 |413|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Python](easy/reverse_integer.py)||
 |416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Python](dp/backpack.py)|0-1背包问题|
+|426|[Longest Repeating Character Replacement](https://www.leetcode.com/problems/longest-repeating-character-replacement/)|[Python](two_sum_two_pointers/longest_repeating_character_replacement.py)||
 |449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |454|[4Sum II](https://leetcode.com/problems/4sum-ii/)|[Python](two_sum_two_pointers/four_sum_2.py)|two_sum|
 |507|[Perfect Number](https://leetcode.com/problems/perfect-number/)|[Python](factorization/perfect_number.py)||
@@ -314,6 +315,7 @@ LintCode
 |594|[Implement strStr() II](https://lintcode.com/problem/strstr-ii/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
 |596_LOCK|[Minimum Subtree](https://lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |603|[Largest Divisible Subset](https://www.lintcode.com/problem/largest-divisible-subset/)|[Python](dp/largest_divisible_subset.py)||
+|604_LOCK|[Window Sum](https://lintcode.com/problem/window-sum/)|[Python](easy/window_sum.py)||
 |606|[Kth Largest Element II](https://lintcode.com/problem/kth-largest-element-ii/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
 |607|[Two Sum III - Data structure design](https://lintcode.com/problem/two-sum-iii-data-structure-design/)|[Python](two_sum_two_pointers/two_sum_3_impl.py)|two_pointers|
 |608|[Two Sum II - Input array is sorted](https://lintcode.com/problem/two-sum-ii-input-array-is-sorted/)|[Python](two_sum_two_pointers/two_sum_2_input_is_sorted.py)|two_pointers|
@@ -351,6 +353,7 @@ LintCode
 |1179|[Friend Circles](https://lintcode.com/problem/friend-circles/)|[Python](graph/friend_circles.py)|union_find, DFS, BFS|
 |1199|[Perfect Number](https://lintcode.com/problem/perfect-number/)|[Python](factorization/perfect_number.py)||
 |1235|[Serialize and Deserialize BST](https://lintcode.com/problem/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
+|1246|[Longest Repeating Character Replacement](https://www.lintcode.com/problem/longest-repeating-character-replacement/)|[Python](two_sum_two_pointers/longest_repeating_character_replacement.py)||
 |1276|[Sum of Two Integers](https://lintcode.com/problem/sum-of-two-integers/)|[Python](bitwise/binary_addition.py)|binary_addition|
 |1283|[Reverse Array](https://lintcode.com/problem/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
 |1285|[Power of Four](https://lintcode.com/problem/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
