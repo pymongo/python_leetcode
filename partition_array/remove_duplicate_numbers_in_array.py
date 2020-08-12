@@ -41,6 +41,23 @@ def move_duplicate(nums: List[int]) -> int:
     return last_non_duplicate
 
 
+def two_pointers_o1_space(nums: List[int]) -> int:
+    size = len(nums)
+    if size == 0:
+        return 0
+    nums.sort()
+
+    i, j = 0, 1
+    for i in range(size):
+        while j < size and nums[j] == nums[i]:
+            j += 1
+        if j == size:
+            break
+        nums[i + 1] = nums[j]
+
+    return i + 1
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([1, 3, 1, 4, 4, 2], 4, [1, 3, 4, 2]),
