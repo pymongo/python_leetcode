@@ -7,6 +7,59 @@ import unittest
 from typing import List
 
 
+class Solution(unittest.TestCase):
+    COUNT_TARGET_IN_NUMS = [
+        ([1, 3, 3, 4, 5], 3, 2),
+    ]
+
+    def test_count_target_in_sorted_nums(self):
+        for nums, target, count in self.COUNT_TARGET_IN_NUMS:
+            self.assertEqual(count, self.count_target_in_sorted_nums(nums, target))
+
+    @staticmethod
+    def count_target_in_sorted_nums(nums: List[int], target: int) -> int:
+        # 思路: 分别通过二分法的find_first和find_last找到target的第一次和最后一次出现位置，中间部分就是target的所有出现位置
+        size = len(nums)
+        if size == 0:
+            return 0
+
+        # find first
+        start, end = 0, size - 1
+        while start + 1 < end:
+            mid = start + (end - start) // 2
+            if nums[mid] > target:
+                end = mid - 1
+            elif nums[mid] < target:
+                start = mid + 1
+            else:
+                end = mid
+        if nums[start] == target:
+            first_idx = start
+        elif nums[end] == target:
+            first_idx = end
+        else:
+            return 0
+
+        # find last
+        start, end = 0, size - 1
+        while start + 1 < end:
+            mid = start + (end - start) // 2
+            if nums[mid] > target:
+                end = mid - 1
+            elif nums[mid] < target:
+                start = mid + 1
+            else:
+                start = mid
+        if nums[end] == target:
+            last_idx = end
+        elif nums[start] == target:
+            last_idx = start
+        else:
+            return 0
+
+        return last_idx - first_idx + 1
+
+
 # 主要有三种思路
 # 1. 写两个函数，一个二分地找第一个，一个二分地找最后一个
 # 2. 像我这样的笨方法，找到以后逐个「中心扩散」

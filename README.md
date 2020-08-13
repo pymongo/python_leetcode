@@ -300,6 +300,7 @@ LintCode
 |457|[Classical Binary Search](https://lintcode.com/problem/classical-binary-search/)|[Python](binary_search/binary_search.py)|binary_search|
 |458|[Last Position of Target](https://lintcode.com/problem/last-position-of-target/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |460|[Find K Closest Elements](https://lintcode.com/problem/find-k-closest-elements/)|[Python](binary_search/find_k_closest_elements.py)|binary_search|
+|462|[Total Occurrence of Target](https://www.lintcode.com/problem/total-occurrence-of-target/)|[Python](binary_search/binary_search_first_and_last.py)||
 |463|[Sort Integers](https://lintcode.com/problem/sort-integers/)|[Python](sorting_and_query/basic_sorting.py)|multi_solutions|
 |464|[Sort Integers II](https://lintcode.com/problem/sort-integers-ii/)|[Python](sorting_and_query/basic_sorting.py)|multi_solutions|
 |466|[Count Linked List Nodes](https://lintcode.com/problem/count-linked-list-nodes/)|||

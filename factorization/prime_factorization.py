@@ -9,7 +9,7 @@ import unittest
 from typing import List
 
 
-# Your submission beats 98.40% Submissions!
+# 根号n的算法: 分解质因数、分块检索法
 def my_solution(n: int) -> List[int]:
     # 向上取整
     upper_limit = int(n ** 0.5 + 1)

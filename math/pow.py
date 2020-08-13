@@ -34,16 +34,21 @@ def my_pow(x: float, n: int) -> float:
 
 # https://www.lintcode.com/problem/fast-power/
 # Calculate the a**n % b
+# 除了快速幂运算，辗转相除法也是一个非二分法的logn算法
+# 负数MOD问题: Python/Ruby: -1%3 = 2, Java/Rust: -1%3 = -1
 def fast_pow(a: int, b: int, n: int) -> int:
     # if n == 0:
     #     return a % b
     result = 1
     base = a
     while n != 0:
+        # 幂运算结果等于指数的二进制为1的位 的加权乘积, 例如 2^5中指数是5，二进制是101，所以2^5=2^4*2^1，只有指数中
         if n % 2 == 1:
             # 随时可以 % b 避免 overflow 其不影响结果，这是 % 运算的特性
+            # 四则运算只有除法不满足 % 运算的特性
             result = (result * base) % b
         base = (base * base) % b
+        n //= 2
     return result % b
 
 
