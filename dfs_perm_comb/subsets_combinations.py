@@ -62,28 +62,39 @@ from typing import List
 import collections
 
 
-# 32 ms, 在所有 Python3 提交中击败了 96.94%
-def cascading(nums: List[int]) -> List[List[int]]:
-    # shadowing
-    nums = sorted(nums)
-    q = collections.deque([[], None])
-    # q: List[Optional[List[int]]] = [[], None]
-    for i in range(len(nums)):
-        if i > 0 and nums[i] == nums[i - 1]:
-            # 只有当前后有重复项时才要干掉重复项后分岔
-            while True:
-                subset = q.popleft()
-                if subset is None:
-                    q.append(None)
-                    break
-                new_subset = subset.copy()
-                new_subset.append(nums[i])
-                # subsets_1的输入用例没有重复元素，但是subsets_2的输入用例有重复元素
-                if new_subset not in q:
-                    q.append(new_subset)
-                if subset not in q:
-                    q.append(subset)
-        else:
+class Solution(unittest.TestCase):
+    TEST_CASES = [
+        ([1, 3, 1], [
+            [1, 1, 3], [1, 1], [1, 3], [1], [3], []
+        ]),
+        ([1, 2, 3], [
+            [3],
+            [1],
+            [2],
+            [1, 2, 3],
+            [1, 3],
+            [2, 3],
+            [1, 2],
+            []
+        ]),
+        # 需要去重的测试用例
+        ([1, 2, 2], [
+            [2],
+            [1],
+            [1, 2, 2],
+            [2, 2],
+            [1, 2],
+            []
+        ]),
+    ]
+
+    @staticmethod
+    def bfs_binary_tree_dummy_node(nums: List[int]) -> List[List[int]]:
+        # 题目要求解集要升序
+        nums.sort()
+        # TODO 不推荐使用哨兵节点去层级遍历，刚拿出的节点又要放进去太愚蠢了
+        q = collections.deque([[], None])
+        for i in range(len(nums)):
             while True:
                 subset = q.popleft()
                 if subset is None:
@@ -92,10 +103,67 @@ def cascading(nums: List[int]) -> List[List[int]]:
                 new_subset = subset.copy()
                 new_subset.append(nums[i])
                 q.append(new_subset)
+                # FIXME 刚拿出的节点又要放进去太愚蠢了
                 q.append(subset)
-    # 去掉末尾的None
-    q.pop()
-    return list(q)
+        q.pop()  # 去掉末尾的None
+        return list(q)
+
+    @staticmethod
+    def bfs_binary_tree_best(nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        subsets = [[]]
+        subsets_len = 1
+        for num in nums:
+            for i in range(subsets_len):
+                new_subset = subsets[i].copy()
+                new_subset.append(num)
+                subsets.append(new_subset)
+            subsets_len *= 2
+        return subsets
+
+    @staticmethod
+    def cascading(nums: List[int]) -> List[List[int]]:
+        """
+        二叉树式遍历
+        """
+        size = len(nums)
+        if size == 0:
+            return []
+        nums.sort()
+        # q: List[Optional[List[int]]] = [[], None]
+        # 不太适合用哨兵节点那种BFS
+        q = collections.deque()
+        q.append([])
+        # 只遍历到倒数第二层，因为最后一层的处理会不一样
+        for i in range(size - 1):
+            if i > 0 and nums[i] == nums[i - 1]:
+                # 去重
+                continue
+            while True:
+                subset = q.popleft()
+                if subset is None:
+                    q.append(None)
+                    break
+                new_subset = subset.copy()
+                new_subset.append(nums[i])
+                if new_subset not in q:
+                    q.append(new_subset)
+                    q.append(subset)
+
+        last_num = nums[size - 1]
+        while True:
+            subset = q.popleft()
+            if subset is None:
+                q.append(None)
+                break
+            new_subset = subset.copy()
+            new_subset.append(last_num)
+            q.append(new_subset)
+            q.append(subset)
+
+        # 去掉末尾的None
+        q.pop()
+        return list(q)
 
 
 # 用递归版本(回溯的解法)
@@ -124,7 +192,7 @@ def dfs(nums: List[int], nums_start_index: int, size: int, subset: List[int], re
         subset.append(nums[i])
 
         # 下一层搜索，去寻找所有以[1,2]开头的子集
-        dfs(nums=nums, nums_start_index=i+1, size=size, subset=subset, results=results)
+        dfs(nums=nums, nums_start_index=i + 1, size=size, subset=subset, results=results)
 
         # [1,2] => [1]
         # 撤销掉上上个语句subset.append(nums[i])的影响，也就是回溯(或用subset.pop())
@@ -135,21 +203,6 @@ def dfs(nums: List[int], nums_start_index: int, size: int, subset: List[int], re
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
-        ([1, 3, 1], [
-            [1, 1, 3], [1, 1], [1, 3], [1], [3], []
-        ]),
-        ([1, 2, 3], [
-            [3],
-            [1],
-            [2],
-            [1, 2, 3],
-            [1, 3],
-            [2, 3],
-            [1, 2],
-            []
-        ]),
-    ]
 
     def test_cascading(self):
         for nums, subsets in self.TEST_CASES:
