@@ -121,93 +121,62 @@ class Solution(unittest.TestCase):
             subsets_len *= 2
         return subsets
 
-    @staticmethod
-    def cascading(nums: List[int]) -> List[List[int]]:
-        """
-        二叉树式遍历
-        """
-        size = len(nums)
-        if size == 0:
-            return []
-        nums.sort()
-        # q: List[Optional[List[int]]] = [[], None]
-        # 不太适合用哨兵节点那种BFS
-        q = collections.deque()
-        q.append([])
-        # 只遍历到倒数第二层，因为最后一层的处理会不一样
-        for i in range(size - 1):
-            if i > 0 and nums[i] == nums[i - 1]:
-                # 去重
-                continue
-            while True:
-                subset = q.popleft()
-                if subset is None:
-                    q.append(None)
-                    break
-                new_subset = subset.copy()
-                new_subset.append(nums[i])
-                if new_subset not in q:
-                    q.append(new_subset)
-                    q.append(subset)
-
-        last_num = nums[size - 1]
-        while True:
-            subset = q.popleft()
-            if subset is None:
-                q.append(None)
-                break
-            new_subset = subset.copy()
-            new_subset.append(last_num)
-            q.append(new_subset)
-            q.append(subset)
-
-        # 去掉末尾的None
-        q.pop()
-        return list(q)
-
-
-# 用递归版本(回溯的解法)
-def dfs_helper(nums: List[int]) -> List[List[int]]:
-    results = []
-    # 排序
-    nums.sort()
-    # dfs搜索
-    size = len(nums)
-    dfs(nums=nums, nums_start_index=0, size=size, subset=[], results=results)
-    return results
-
-
-def dfs(nums: List[int], nums_start_index: int, size: int, subset: List[int], results: List[List[int]]):
-    # 当前组合存入res
-    results.append(subset.copy())
-    # 为subset(当前组合)新增一位元素
-    # 当前的subset里还能往后加什么，例如[1,2]往后只能加3
-    for i in range(nums_start_index, size):
-        # TODO 另一种去重方法是将结果集的数据结构改为HashSet，不过性能差很多
-        # 剪枝(去重)
-        if i > nums_start_index and nums[i] == nums[i - 1]:
-            continue
-
-        # [1] => [1,2]
-        subset.append(nums[i])
-
-        # 下一层搜索，去寻找所有以[1,2]开头的子集
-        dfs(nums=nums, nums_start_index=i + 1, size=size, subset=subset, results=results)
-
-        # [1,2] => [1]
-        # 撤销掉上上个语句subset.append(nums[i])的影响，也就是回溯(或用subset.pop())
-        # 只有这样子，第二遍for循环时才能跟第一遍for循环的开头时的subset一样
-        # 或者用del subset[-1]
-        # TODO 注意只有引用类型传参才需要复原, primitive types基本实现了Copy Trait所以是值传递
-        subset.pop()
-
-
-class Testing(unittest.TestCase):
-
     def test_cascading(self):
         for nums, subsets in self.TEST_CASES:
-            self.assertCountEqual(subsets, cascading(nums))
+            self.assertCountEqual(subsets, self.bfs_binary_tree_with_duplicate(nums))
 
-    def test_dfs(self):
+    @staticmethod
+    def bfs_binary_tree_with_duplicate(nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        subsets = [[]]
+        subsets_last_element_index = [-1]
+        for i in range(len(nums)):
+            for j in range(len(subsets)):
+                # 去重，如果有重复数字出现，只有前上一个数字选了才能选当前数字
+                if i > 0 and nums[i] == nums[i - 1] and subsets_last_element_index[j] != i - 1:
+                    # 举个例子，假设输入是[1, 2, 2, 2, 3]，如果不加判断直接做的话，
+                    # 那么就会出现[1, 第一个2, 第二个2, 3],[1, 第一个2, 第三个2, 3]这样的重复。
+                    # 为了避免这样的重复，可以规定当有多个连续数字出现的时候，只有选了在数组中紧邻的前一个相同数字，才能够选当前数字。
+                    # 比如例子中，只有选了第一个2，才能选第二个2,只有选了二个2，才能选第三个2，
+                    # 这样一来，我们上面提到的[1, 第一个2, 第三个2, 3]这种情况就会被排除掉，从而达到去重效果。
+                    continue
+                new_subset = subsets[j].copy()
+                new_subset.append(nums[i])
+                subsets_last_element_index.append(i)
+                subsets.append(new_subset)
+        return subsets
+
+    def test_dfs_solution(self):
         for nums, subsets in self.TEST_CASES:
-            self.assertCountEqual(subsets, dfs_helper(nums))
+            self.assertCountEqual(subsets, self.dfs_solution(nums))
+
+    @staticmethod
+    def dfs_solution(nums: List[int]) -> List[List[int]]:
+        results = []
+        nums.sort()
+        size = len(nums)
+
+        def dfs(start: int, subset: List[int]):
+            # 当前组合存入res
+            results.append(subset.copy())
+
+            # 当前的subset里还能往后加什么(为subset(当前组合)新增一位元素)，例如[1,2]往后只能加3
+            for i in range(start, size):
+                # 剪枝(去重)
+                if i > start and nums[i] == nums[i - 1]:
+                    continue
+                # [1] => [1,2]
+                subset.append(nums[i])
+
+                # 下一层搜索，去寻找所有以[1,2]开头的子集
+                dfs(i + 1, subset)
+
+                # [1,2] => [1]
+                # 撤销掉上上个语句subset.append(nums[i])的影响，也就是回溯(或用subset.pop())
+                # 只有这样子，第二遍for循环时才能跟第一遍for循环的开头时的subset一样
+                # 或者用del subset[-1]
+                # TODO 注意只有引用类型传参才需要复原, primitive types是值传递，所以本层调用的start回溯时不需要复原
+                subset.pop()
+
+        dfs(0, [])
+        return results
