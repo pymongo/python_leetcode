@@ -10,10 +10,10 @@ class Point:
         self.y = y
 
 
-HORSE_DIRECTIONS = [
+HORSE_DIRECTIONS = (
     (1, 2), (1, -2), (-1, 2), (-1, -2),
     (2, 1), (2, -1), (-2, 1), (-2, -1)
-]
+)
 
 
 def my_bfs(grid: List[List[int]], source: Point, destination: Point) -> int:
@@ -59,20 +59,81 @@ queue.append((x - 2, y - 1, steps + 1))
 """
 
 
-class Testing(unittest.TestCase):
+class Solution(unittest.TestCase):
     TEST_CASES = [
-        ([
-             [0, 0, 0],
-             [0, 0, 0],
-             [0, 0, 0]
-         ], [2, 0], [2, 2], 2),
-        ([
-             [0, 1, 0],
-             [0, 0, 1],
-             [0, 0, 0]
-         ], (2, 0), (2, 2), -1),
+        ([[0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0]], [2, 0], [2, 2], 2),
+        ([[0, 1, 0],
+          [0, 0, 1],
+          [0, 0, 0]], (2, 0), (2, 2), -1),
     ]
 
-    def test(self):
+    def test_bfs(self):
         for grid, source, dest, min_steps in self.TEST_CASES:
             self.assertEqual(min_steps, my_bfs(grid, Point(source[0], source[1]), Point(dest[0], dest[1])))
+
+    def test_bfs_two_direction(self):
+        for grid, source, dest, min_steps in self.TEST_CASES:
+            self.assertEqual(min_steps, self.bfs_two_direction(grid, Point(source[0], source[1]), Point(dest[0], dest[1])))
+
+    # 双向BFS搜索的解法
+    @staticmethod
+    def bfs_two_direction(grid: List[List[int]], source: Point, destination: Point) -> int:
+        m = len(grid)
+        if m == 0:
+            return -1
+        if grid[destination.x][destination.y] == 1:
+            return -1
+        if (source.x, source.y) == (destination.x, destination.y):
+            # 双向宽度优先搜索需要特判一下起点等于终点的情况
+            return 0
+        n = len(grid[0])
+
+        # source向前搜索的队列
+        forward_queue = collections.deque()
+        forward_queue.append((source.x, source.y))
+        forward_seen = set()
+        forward_seen.add((source.x, source.y))
+        # destination向后搜索的队列
+        backward_queue = collections.deque()
+        backward_queue.append((destination.x, destination.y))
+        backward_seen = set()
+        backward_seen.add((destination.x, destination.y))
+
+        distance = 0
+        while forward_queue and backward_queue:
+            distance += 1
+            for i in range(len(forward_queue)):
+                x, y = forward_queue.popleft()
+                for dx, dy in HORSE_DIRECTIONS:
+                    next_x, next_y = x + dx, y + dy
+                    if next_x < 0 or next_x >= m or next_y < 0 or next_y >= n:
+                        continue
+                    if grid[next_x][next_y] == 1:
+                        continue
+                    if (next_x, next_y) in forward_seen:
+                        continue
+                    if (next_x, next_y) in backward_seen:
+                        return distance
+                    forward_seen.add((next_x, next_y))
+                    forward_queue.append((next_x, next_y))
+
+            distance += 1
+            for i in range(len(backward_queue)):
+                x, y = backward_queue.popleft()
+                for dx, dy in HORSE_DIRECTIONS:
+                    next_x, next_y = x + dx, y + dy
+                    if next_x < 0 or next_x >= m or next_y < 0 or next_y >= n:
+                        continue
+                    if grid[next_x][next_y] == 1:
+                        continue
+                    if (next_x, next_y) in backward_seen:
+                        continue
+                    if (next_x, next_y) in forward_seen:
+                        return distance
+                    backward_seen.add((next_x, next_y))
+                    backward_queue.append((next_x, next_y))
+
+        # 如果双向搜索中没有相遇，则其中一个队列应该会搜索到尽头
+        return -1
