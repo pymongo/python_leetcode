@@ -46,11 +46,12 @@ class Solution(unittest.TestCase):
     # noinspection PyPep8Naming
     @staticmethod
     def recursive_solution(A: List[int], B: List[int]) -> float:
-        # 第一次从A或B中排除掉k/2，第二次排除掉k/4 ...
+        # 第一次从A或B中排除掉k//2，第二次排除掉k-k//2 ...
         len_a, len_b = len(A), len(B)
         len_total = len_a + len_b
 
         def find_kth(a_start: int, b_start: int, k: int) -> int:
+            # 细节1. 递归结束条件
             if a_start >= len_a:
                 # 如果a数组为空，则返回B数组第k项，这里的异常处理比分隔线解法简单多了
                 return B[b_start + k - 1]
@@ -59,22 +60,23 @@ class Solution(unittest.TestCase):
             if k == 1:
                 return min(A[a_start], B[b_start])
 
-            # 可以理解成A和B数组后面都是无穷大的值
+            # 细节2. 可以理解成A和B数组后面都是无穷大的值
             # 这样的话如果a较短(a_start+k//2-1)在数组外，那么不能排除掉a，因为a的数量不够多「不够数」，只能去排除b，所以让a_2_k设为无穷大转而去排除b
             a_2_k = A[a_start + k // 2 - 1] if a_start + k // 2 - 1 < len_a else sys.maxsize
-            # TODO a和b有可能同时都是无穷大吗?
+            # TODO 细节3. a和b有可能同时都是无穷大吗?
             b_2_k = B[b_start + k // 2 - 1] if b_start + k // 2 - 1 < len_b else sys.maxsize
             if a_2_k > b_2_k:
                 # 排除掉较小的b前k//2个数，最后一个数的下标是k//2-1，所以下一个b_start是k//2
                 return find_kth(a_start, b_start + k // 2, k - k // 2)
             else:
+                # FIXME 细节4. 请你思考下为什么一定要写成k-k//2不能写成k//2(因为是排除了地板除k//2个数)
                 return find_kth(a_start + k // 2, b_start, k - k // 2)
 
         if len_total % 2 == 1:
-            # FIXME 注意第k个数是总长//2再加1
+            # FIXME 细节5. 注意第k个数是一位数组中位数的下标再加1
             return find_kth(0, 0, len_total // 2 + 1)
         else:
-            # 虽然递归找kth的算法在偶数情况下会有重复计算，但是代码量/可读性/理解难度/异常情况处理都优于分隔线版本
+            # 细节6. 虽然递归找kth的算法在偶数情况下会有重复计算，但是代码量/可读性/理解难度/异常情况处理都优于分隔线版本
             return (find_kth(0, 0, len_total // 2) + find_kth(0, 0, len_total // 2 + 1)) / 2
 
     def test_divider_solution(self):

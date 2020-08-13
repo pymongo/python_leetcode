@@ -16,6 +16,41 @@ import heapq
 from typing import List
 
 
+class Solution(unittest.TestCase):
+    @staticmethod
+    def kth_smallest(k_small: int, nums: List[int]) -> int:
+        size = len(nums)
+
+        def kth_biggest(start: int, end: int, k: int) -> int:
+            if start >= end:
+                return nums[start]
+
+            left, right = start, end
+            pivot = nums[left + (right - left) // 2]
+            while left <= right:
+                while left <= right and nums[left] > pivot:
+                    left += 1
+                while left <= right and nums[right] < pivot:
+                    right -= 1
+                if left <= right:
+                    nums[left], nums[right] = nums[right], nums[left]
+                    left += 1
+                    right -= 1
+            print(nums)
+            print(start, right, left, end)
+
+            # S R L E
+            if start + k - 1 <= right:
+                return kth_biggest(start, right, k)
+            elif left + k - 1 <= end:
+                return kth_biggest(left, end, k - (left - start + 1))
+            else:
+                return nums[left]
+
+        # 求第k小的数等于求第size-k+1大的数
+        return kth_biggest(0, size - 1, size - k_small + 1)
+
+
 # Runtime: 96 ms, faster than 32.09%
 def quick_select(nums: List[int], left: int, right: int, k: int) -> int:
     if left == right:
@@ -64,6 +99,7 @@ def kth_largest_min_heap(nums: List[int], k: int) -> int:
         heapq.heappushpop(min_heap, num)
     return min_heap[0]
 
+
 # 如果元素有偶数个，则返回右中位数
 def median(nums: List[int]) -> int:
     size = len(nums)
@@ -74,7 +110,7 @@ def median(nums: List[int]) -> int:
             return nums[left]
 
         start, end = left, right
-        pivot = nums[start + (end-start) // 2]
+        pivot = nums[start + (end - start) // 2]
         # 倒序快排
         while start <= end:
             while start <= end and nums[start] > pivot:
@@ -92,12 +128,13 @@ def median(nums: List[int]) -> int:
             return quick_select_inner(left, end, k)
         elif right + k - 1 >= start:
             # kth在pivot的右边区域
-            return quick_select_inner(start, right, left+k-start)
+            return quick_select_inner(start, right, left + k - start)
         else:
             # k刚好是end和start之间的元素
             return nums[end + 1]
 
-    return quick_select_inner(0, size-1, kth)
+    return quick_select_inner(0, size - 1, kth)
+
 
 class Test(unittest.TestCase):
     TEST_CASES = [
