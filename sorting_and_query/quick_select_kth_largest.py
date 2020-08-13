@@ -36,16 +36,15 @@ class Solution(unittest.TestCase):
                     nums[left], nums[right] = nums[right], nums[left]
                     left += 1
                     right -= 1
-            print(nums)
-            print(start, right, left, end)
 
             # S R L E
             if start + k - 1 <= right:
                 return kth_biggest(start, right, k)
-            elif left + k - 1 <= end:
-                return kth_biggest(left, end, k - (left - start + 1))
+            elif start + k - 1 >= left:
+                # FIXME 注意这里不是 k - (left-start+1)，因为下次是从left开始，不能排除掉left
+                return kth_biggest(left, end, k - (left - start))
             else:
-                return nums[left]
+                return nums[right+1]
 
         # 求第k小的数等于求第size-k+1大的数
         return kth_biggest(0, size - 1, size - k_small + 1)
@@ -124,10 +123,8 @@ def median(nums: List[int]) -> int:
         # 如果start=end时跳出循环，则end和start中间会有一个元素
         # 此时从左到右分别是 left end [some] start right
         if left + k - 1 <= end:
-            # kth在pivot的左边区域
             return quick_select_inner(left, end, k)
         elif right + k - 1 >= start:
-            # kth在pivot的右边区域
             return quick_select_inner(start, right, left + k - start)
         else:
             # k刚好是end和start之间的元素
