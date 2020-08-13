@@ -151,6 +151,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |760_LOCK|[Find Anagram Mappings](https://leetcode.com/problems/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](rotate_reverse_circle_shift/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
+|771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Python](easy/jewels_and_stones.py)||
 |845|[Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
 |852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python](brain_twists/reordered_power_of_2.py)|permutation|
@@ -166,6 +167,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |1095|[Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](binary_search/mountain_array_find.py)|binary_search, mountain_array|
 |1099_LOCK|[Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)|[Python](two_sum_two_pointers/two_sum_le_count.py)|two_pointers|
 |1108|[Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address/)|||
+|1342|[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[Python](easy/number_of_steps_to_reduce_a_number_to_zero.py)||
 |1429_LOCK|[First Unique Number](https://leetcode.com/problems/first-unique-number/)|[Python](list_node/first_unique_number_in_stream.py)||
 |1431|[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)|[Python](easy/kids_with_the_greatest_number_of_candies.py)||
 |1470|[Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)|[Python](easy/shuffle_the_array.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/unclassified/shuffle_the_array.rs)||
