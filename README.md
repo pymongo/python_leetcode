@@ -142,6 +142,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |674|[Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)|[Python](easy/longest_continuous_increase_subsequence.py)||
 |680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|
 |696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|[Python](unclassified/count_binary_substring.py)||
+|700|[Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)|[Python](binary_tree/bst_search.py)||
 |702_LOCK|[Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)|[Python](binary_search/binary_search_unknown_size_sorted_array.py)|binary_search_first, 倍增法|
 |703|[Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)|[Python](collections/top_k_largest_stream_min_heap.py)|min_heap|
 |704|[Binary Search](https://leetcode.com/problems/binary-search/)|[Python](binary_search/binary_search.py)|binary_search|
@@ -193,6 +194,7 @@ LintCode
 |8|[Rotate String](https://lintcode.com/problem/rotate-string/)|[Python](rotate_reverse_circle_shift/rotate_string.py)|Rabin-Karp|
 |9|[Fizz Buzz](https://lintcode.com/problem/fizz-buzz/)|[Python](easy/fizz_buzz.py)||
 |10|[String Permutation II](https://lintcode.com/problem/string-permutation-ii/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
+|11|[Search Range in Binary Search Tree](https://www.lintcode.com/problem/search-range-in-binary-search-tree/)|[Python](binary_tree/bst_search.py)||
 |13|[Implement strStr()](https://lintcode.com/problem/implement-strstr/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
 |14|[First Position of Target](https://lintcode.com/problem/first-position-of-target/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |15|[Permutations](https://lintcode.com/problem/permutations/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
@@ -392,6 +394,7 @@ LintCode
 |1424|[Longest Mountain in Array](https://lintcode.com/problem/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
 |1479|[Can Reach The Endpoint](https://lintcode.com/problem/can-reach-the-endpoint/)|[Python](bfs/can_reach_the_end_point.py)|bfs|
 |1499|[Reordered Power of 2](https://lintcode.com/problem/reordered-power-of-2/)|[Python](brain_twists/reordered_power_of_2.py)|permutation|
+|1524|[Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)|[Python](binary_tree/bst_search.py)||
 |1535|[To Lower Case](https://lintcode.com/problem/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
 |1536|[Find First and Last Position of Element in Sorted Array](https://lintcode.com/problem/find-first-and-last-position-of-element-in-sorted-array/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |1593|[Construct Binary Tree from Preorder and Postorder Traversal](https://lintcode.com/problem/construct-binary-tree-from-preorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_post_order.py)|DFS|
@@ -401,6 +404,7 @@ LintCode
 |1848_ABANDONED|[Word Search III](https://lintcode.com/problem/word-search-iii/)|[Python](dfs_perm_comb/word_search_3.py)||
 |1870|[number of substrings with all zeroes](https://www.lintcode.com/problem/number-of-substrings-with-all-zeroes/)|[Python](two_sum_two_pointers/number_of_substrings_with_all_zeroes.py)||
 |1876|[Alien Dictionary(easy)](https://lintcode.com/problem/alien-dictionaryeasy/)|[Python](unclassified/verifying_an_alien_dictionary.py)||
+
 
 ---
 
@@ -447,7 +451,7 @@ C++没有自带的项目构建工具、单元测试框架，如果想随意运�
 
 Rust性能与C++相当，大部分题都能和C++一样跑进0ms。
 
-而且Rust有类似npm但比npm更好用更工程化的cargo工具，cargo运行单元测试/性能测试很简单，无论rs文件在哪，只要方法名上加#\[test]就能TDD(测试驱动开发)。
+而且Rust有类似npm但比npm更好用更工程化的cargo工具，cargo运行单元测试/性能测试很简单，无论rs文件在哪，只要方法名上加#\[test]就能运行
 
 我习惯通过单步调试+纸笔推演去读懂别人的优秀算法，但是Rust的单步调试经常跳到汇编代码中，按半天F7/F8才能跳出来，所以需要先用Go语言去理解我不懂的算法。
 
@@ -461,11 +465,7 @@ Java的优点不用我多说，借助maven+junit让我轻松地通过TDD的方�
 
 由于牛客网、lintcode等平台支持python不支持Rust，而且python代码量少便于快速刷题
 
-为了在牛客网上用python远程面试编程题时能游刃有余，还是先用python将自己的题量刷到200+先
-
 而且Python的单元测试也简单，还支持typehint，更重要的是国内的面试官大部分都懂python代码
-
-我的刷题量太少了，先刷个100+再说
 
 ## pip和pipenv
 
@@ -486,8 +486,6 @@ def solution(nums, target): pass
 class UnitTest(unittest.TestCase):
     TEST_CASES = [
         ([-1, 0, 3, 5, 9, 12], 9, 4),
-        ([-1, 0, 3, 5, 9, 12], 2, -1),
-        ([-1, 1, 2, 2, 2, 3], 2, 2),
     ]
 
     def test(self):

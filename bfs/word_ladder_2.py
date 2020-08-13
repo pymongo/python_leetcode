@@ -24,12 +24,14 @@ def word_ladder_2(begin_word: str, end_word: str, word_list: List[str]) -> List[
     words_index = {word: i for i, word in enumerate(word_list)}
     begin_index = words_index[begin_word]
     end_index = words_index[end_word]
+
     # print(word_list)
     # print(words_index)
     # 索引值是每个单词在单词列表中的下标，邻接矩阵的值表示两个单词之间是否连通
     # 单词数量比较多，用邻接表(HashMap[node][neighbors])性能比邻接矩阵更高
     # adjacency_matrix: List[List[bool]] = [[False] * size for _ in range(size)]
     graph: Dict[int, Set[int]] = dict()
+    # 构图，实际上有些节点是没被访问的，可以通过懒加载的类似思路，用到那个点再初始化图中需要的点
     for i, word in enumerate(word_list):
         letters = list(word)
         for k in range(word_len):
@@ -50,6 +52,7 @@ def word_ladder_2(begin_word: str, end_word: str, word_list: List[str]) -> List[
     # 如果没有边连向终点
     if end_index not in graph:
         return []
+
     # if not any(adjacency_matrix[end_index]):
     #     return []
     # for row in range(size):

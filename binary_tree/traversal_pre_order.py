@@ -125,6 +125,45 @@ def post_order_iterative_2(root: TreeNode) -> List[int]:
     return result
 
 
+def post_order_iterative_3(root: TreeNode) -> List[int]:
+    """
+    1、如果根节点非空，将根节点加入到栈中。
+    2、如果栈不空，取栈顶元素（暂时不弹出），
+      a.如果（左子树已访问过或者左子树为空），且（右子树已访问过或右子树为空），则弹出栈顶节点，将其值加入数组，
+      b.如果左子树不为空，且未访问过，则将左子节点加入栈中，并标左子树已访问过。
+      c.如果右子树不为空，且未访问过，则将右子节点加入栈中，并标右子树已访问过。
+    3、重复第二步，直到栈空。
+    """
+    result = []
+    stack = []
+    prev, curr = None, root
+
+    if not root:
+        return result
+
+    # 通过维护curr前继节点的后序遍历
+    stack.append(root)
+    while len(stack) > 0:
+        curr = stack[-1]
+        if not prev or prev.left == curr or prev.right == curr:
+            # traverse down the tree
+            if curr.left:
+                stack.append(curr.left)
+            elif curr.right:
+                stack.append(curr.right)
+        elif curr.left == prev:
+            # traverse up the tree from the left
+            if curr.right:
+                stack.append(curr.right)
+        else:
+            # traverse up the tree from the right
+            result.append(curr.val)
+            stack.pop()
+        prev = curr
+
+    return result
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         {'binary_tree': "1()(2(3))", 'pre_order': [1, 2, 3], 'in_order': [1, 3, 2], 'post_order': [3, 2, 1]},
