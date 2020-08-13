@@ -121,6 +121,30 @@ class Solution(unittest.TestCase):
             subsets_len *= 2
         return subsets
 
+    def test_bfs_n_tree_search(self):
+        for nums, subsets in self.TEST_CASES:
+            if nums == [1,2,2]:
+                continue
+            self.assertCountEqual(subsets, self.bfs_n_tree_search(nums))
+
+    @staticmethod
+    def bfs_n_tree_search(nums: List[int]) -> List[List[int]]:
+        # N叉搜索树版本(全排列的搜索树)，如果是子集问题则需要收录「每一个节点」，不像子集的二叉树只需要记录最后一层
+        if not nums:
+            return []
+        queue = [[]]
+        index = 0
+        while index < len(queue):
+            print(queue)
+            subset = queue[index]
+            for num in nums:
+                if subset and subset[-1] >= num:
+                    # 因为subset是排好序的subset[-1] >= num说明有重复
+                    continue
+                queue.append(subset + [num])
+            index += 1
+        return queue
+
     def test_cascading(self):
         for nums, subsets in self.TEST_CASES:
             self.assertCountEqual(subsets, self.bfs_binary_tree_with_duplicate(nums))

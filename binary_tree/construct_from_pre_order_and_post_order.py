@@ -15,68 +15,46 @@ def my_dfs_helper(pre_order: List[int], post_order: List[int]) -> TreeNode:
     for i, val in enumerate(pre_order):
         pre_order_map[val] = i
         pre_order_len += 1
-    return my_dfs(
-        pre_order=pre_order,
-        pre_order_start=0,
-        pre_order_end=pre_order_len - 1,
-        pre_order_map=pre_order_map,
-        post_order=post_order,
-        post_order_start=0,
-        post_order_end=pre_order_len - 1
-    )
 
+    def dfs(pre_order_start: int, pre_order_end: int, post_order_start: int, post_order_end: int) -> Optional[TreeNode]:
+        # dbg((pre_order_start, pre_order_end))
+        # dbg((post_order_start, post_order_end))
+        # 实际刷题时要灵活推敲出递归结束条件
+        if pre_order_start > pre_order_end:
+            return None
+        # 比之前的模板多了这个判断，毕竟pre和post推二叉树涉及下标减1
+        if pre_order_start == pre_order_end:
+            return TreeNode(pre_order[pre_order_start])
+        # 递归结束条件: 无法在范围内找到pre_order右子树的根元素
+        # 也就是这句代码`right_subtree_root_val = post_order[pre_order_end-1]`会越界
+        # if post_order_start > post_order_end - 1:
+        #     return None
 
-def my_dfs(
-    pre_order: List[int],
-    pre_order_start: int,
-    pre_order_end: int,
-    pre_order_map: Dict[int, int],
-    post_order: List[int],
-    post_order_start: int,
-    post_order_end: int,
-) -> Optional[TreeNode]:
-    # dbg((pre_order_start, pre_order_end))
-    # dbg((post_order_start, post_order_end))
-    # 实际刷题时要灵活推敲出递归结束条件
-    if pre_order_start > pre_order_end:
-        return None
-    # 比之前的模板多了这个判断，毕竟pre和post推二叉树涉及下标减1
-    if pre_order_start == pre_order_end:
-        return TreeNode(pre_order[pre_order_start])
-    # 递归结束条件: 无法在范围内找到pre_order右子树的根元素
-    # 也就是这句代码`right_subtree_root_val = post_order[pre_order_end-1]`会越界
-    # if post_order_start > post_order_end - 1:
-    #     return None
+        # 规律: 后序遍历倒数第二个是右子树的根，也就是pre_order(根左右)的右子树的开始位置
+        right_subtree_root_val = post_order[post_order_end - 1]
+        pre_order_right_subtree_root = pre_order_map[right_subtree_root_val]
+        right_subtree_size = pre_order_end - pre_order_right_subtree_root + 1
+        # dbg(right_subtree_size)
 
-    # 规律: 后序遍历倒数第二个是右子树的根，也就是pre_order(根左右)的右子树的开始位置
-    right_subtree_root_val = post_order[post_order_end - 1]
-    pre_order_right_subtree_root = pre_order_map[right_subtree_root_val]
-    right_subtree_size = pre_order_end - pre_order_right_subtree_root + 1
-    # dbg(right_subtree_size)
+        root = TreeNode(pre_order[pre_order_start])
+        # 后序和中序的左子树索引范围一致
+        # print("left subtree")
+        root.left = dfs(
+            pre_order_start=pre_order_start + 1,  # OK(100%)
+            pre_order_end=pre_order_end - right_subtree_size,  # OK
+            post_order_start=post_order_start,  # OK(100%)
+            post_order_end=post_order_end - right_subtree_size - 1
+        )
+        # print("right subtree")
+        root.right = dfs(
+            pre_order_start=pre_order_end - right_subtree_size + 1,
+            pre_order_end=pre_order_end,  # OK(100%)
+            post_order_start=post_order_end - right_subtree_size,
+            post_order_end=post_order_end - 1  # OK(100%)
+        )
+        return root
 
-    root = TreeNode(pre_order[pre_order_start])
-    # 后序和中序的左子树索引范围一致
-    # print("left subtree")
-    root.left = my_dfs(
-        pre_order=pre_order,
-        pre_order_start=pre_order_start + 1,  # OK(100%)
-        pre_order_end=pre_order_end - right_subtree_size,  # OK
-        pre_order_map=pre_order_map,
-        post_order=post_order,
-        post_order_start=post_order_start,  # OK(100%)
-        post_order_end=post_order_end - right_subtree_size - 1
-    )
-    # print("right subtree")
-    root.right = my_dfs(
-        pre_order=pre_order,
-        pre_order_start=pre_order_end - right_subtree_size + 1,
-        pre_order_end=pre_order_end,  # OK(100%)
-        pre_order_map=pre_order_map,
-        post_order=post_order,
-        post_order_start=post_order_end - right_subtree_size,
-        post_order_end=post_order_end - 1  # OK(100%)
-    )
-    return root
+    return dfs(0, pre_order_len - 1, 0, pre_order_len - 1)
 
 
 # 优先创建左子树的版本(解决lintcode判错，leetcode期待值有多个我的代码没报错 ）
@@ -154,7 +132,7 @@ def lintcode_left_subtree_priority(
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
-        ([3], [3], "3"),
+        ([3], [3], "3()"),
         ([3, 9, 20, 15, 7], [9, 15, 7, 20, 3], "3(9)(20(15)(7))"),
         ([1, 2, 4, 5, 3, 6, 7], [4, 5, 2, 6, 7, 3, 1], "1(2(4)(5))(3(6)(7))"),
     ]

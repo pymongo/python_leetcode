@@ -23,17 +23,45 @@ def dbg(expression: ExprType) -> ExprType:
     return expression
 
 
+# 常见的序列化形式除了json/xml，还有Google/ProtoBuf,Facebook/Thrift,Alibaba/Dubbo，后面这三个除了序列化还有RPC
 class TreeNode:
     def __init__(self, val: int):
         self.val: int = val
         self.left: Optional[TreeNode] = None
         self.right: Optional[TreeNode] = None
 
-    # 为了Debug时方便看到二叉树结构，还是将杨辉三角的打印弄成另一个方法好点
+    # noinspection DuplicatedCode
+    @staticmethod
+    def from_str(s: str) -> Optional['TreeNode']:
+        stack = collections.deque()
+        val_len = 0
+        is_left_subtree_empty = False
+        for i in range(len(s)):
+            if s[i] != '(' and s[i] != ')':
+                val_len += 1
+                continue
+            if val_len:
+                node = TreeNode(int(s[i - val_len:i]))
+                if stack:
+                    stack_peek = stack[-1]
+                    if is_left_subtree_empty:
+                        stack_peek.right = node
+                        is_left_subtree_empty = False
+                    else:
+                        if stack_peek.left is None:
+                            stack_peek.left = node
+                        else:
+                            stack_peek.right = node
+                stack.append(node)
+                val_len = 0
+            if s[i] == ')':
+                if s[i - 1] == '(':
+                    is_left_subtree_empty = True
+                else:
+                    stack.pop()
+        return stack[0] if stack else None
+
     def __str__(self):
-        """
-        用于 print(TreeNode)
-        """
         s = ""
         if self is None:
             return s
@@ -55,17 +83,13 @@ class TreeNode:
             if node.left:
                 stack.append(node.left)
             visited.add(node)
-        # 去掉头尾的括号
         if len(s) == 3:
             # 如果只有根节点一个，返回值要补上一对括号，否则读取字符串时会解析成None
             return s[1:-1] + "()"
         else:
-            return s[1:-1]
+            return s[1:-1] # 去掉头尾的括号
 
     def __repr__(self):
-        """
-        用于 print(List[TreeNode])
-        """
         return self.__str__()
 
     # FIXME Bug: 二叉树为"1()(2(3))"时，最后一行是错的，所以本函数仅供参考，单元测试比较二叉树是否等于期待值还是用to_str()
@@ -138,37 +162,6 @@ class TreeNode:
 
     def to_str(self) -> str:
         return self.__str__()
-
-    # noinspection DuplicatedCode
-    @staticmethod
-    def from_str(s: str) -> Optional['TreeNode']:
-        stack = collections.deque()
-        val_len = 0
-        is_left_subtree_empty = False
-        for i in range(len(s)):
-            if s[i] != '(' and s[i] != ')':
-                val_len += 1
-                continue
-            if val_len:
-                node = TreeNode(int(s[i - val_len:i]))
-                if stack:
-                    stack_peek = stack[-1]
-                    if is_left_subtree_empty:
-                        stack_peek.right = node
-                        is_left_subtree_empty = False
-                    else:
-                        if stack_peek.left is None:
-                            stack_peek.left = node
-                        else:
-                            stack_peek.right = node
-                stack.append(node)
-                val_len = 0
-            if s[i] == ')':
-                if s[i - 1] == '(':
-                    is_left_subtree_empty = True
-                else:
-                    stack.pop()
-        return stack[0] if stack else None
 
     # binary-tree-level-order-traversal: 112ms, 95.43%
     # serialize-and-deserialize-bfs:     76ms , 99.12%

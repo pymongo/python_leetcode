@@ -9,6 +9,16 @@ import collections
 from typing import Dict, List, Optional
 
 
+def pre_order_traversal(root: TreeNode, result: Dict[str, List[Optional[int]]]):
+    if root is None:
+        return
+    result['pre_order'].append(root.val)
+    bisect.insort(result['in_order'], root.val)
+
+    pre_order_traversal(root.left, result)
+    pre_order_traversal(root.right, result)
+
+
 def pre_order_serialize(root: TreeNode) -> Dict[str, List[Optional[int]]]:
     result = {'pre_order': [], 'in_order': []}
     if root is None:
@@ -18,16 +28,6 @@ def pre_order_serialize(root: TreeNode) -> Dict[str, List[Optional[int]]]:
     pre_order_traversal(root, result)
     # print(result)
     return result
-
-
-def pre_order_traversal(root: TreeNode, result: Dict[str, List[Optional[int]]]):
-    if root is None:
-        return
-    result['pre_order'].append(root.val)
-    bisect.insort(result['in_order'], root.val)
-
-    pre_order_traversal(root.left, result)
-    pre_order_traversal(root.right, result)
 
 
 def construct_bst(data: Dict[str, List[Optional[int]]]) -> Optional[TreeNode]:
