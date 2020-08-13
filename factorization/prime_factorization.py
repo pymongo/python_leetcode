@@ -9,7 +9,8 @@ import unittest
 from typing import List
 
 
-# 根号n的算法: 分解质因数、分块检索法
+# TODO 质因数分解有一种更快的算法，叫做Pollard Rho快速因数分解
+# 根号n的算法: 分解质因数、分块检索法(drop_eggs_1)
 def my_solution(n: int) -> List[int]:
     # 向上取整
     upper_limit = int(n ** 0.5 + 1)
