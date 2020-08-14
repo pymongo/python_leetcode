@@ -3,7 +3,7 @@ import collections
 from typing import List
 import enum
 
-
+# 给你课程的依赖关系，求其中一种学完全部课程的学习顺序
 def course_order(courses_count: int, prerequisites: List[List[int]]) -> List[int]:
     """
     prerequisites可以理解成一种简单的有向图邻接表(adjacency list)

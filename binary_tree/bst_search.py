@@ -34,7 +34,7 @@ class Solution:
 
         res = []
 
-        # 其实这题就等同于中序遍历一次
+        # 其实这题就等同于中序遍历一次，然后满足条件的加到返回值里
         def search_in_order(node: TreeNode):
             if node.left:
                 # 题目要求搜索结果按小到大排序(中序遍历)，所以优先搜索左子树
