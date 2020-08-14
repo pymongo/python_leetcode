@@ -10,12 +10,13 @@ GRID_WIDTH = 60
 ROWS = 10
 FONT = ('Meiryo', 20, 'normal')
 
-# TODO 隐藏全局所有turtle路径的暂时只能放在这，不然函数里的turtle画图全都有路径
-turtle.tracer(False)
-
 
 # 用turtle.turtles()检验是否销毁了对象
 def draw_grid():
+    """
+    turtle这个库在函数内创建的turtle实例不会被销毁，所以代码容易写的变量名到处飞
+    TODO 做动画/游戏还是推荐Rust的ggez库
+    """
     t_row = turtle.clone()
     turtle.tracer(False)
     # 将光标移动到画板的左上角
@@ -23,7 +24,7 @@ def draw_grid():
     t_row.pendown()
     t_col = t_row.clone()
     t_col.right(90)
-    for i in range(ROWS):
+    for _ in range(ROWS):
         t_row.fd(GRID_WIDTH)
         t_clone = t_row.clone()
         t_clone.right(90)
@@ -45,14 +46,14 @@ def init_time():
     return t.pos()
 
 
-def update_time():
-    # 实现动态显示的三种方法：
-    # 1. undo 2. 打印一段空格 3. clear(删除该对象所有笔迹)
-    turtle.tracer(False)
-    time_writer.clear()
-    time_writer.write(strftime('%H:%M:%S'))
-    turtle.tracer(True)
-    turtle.ontimer(update_time, 1000)
+# def update_time():
+#     # 实现动态显示的三种方法：
+#     # 1. undo 2. 打印一段空格 3. clear(删除该对象所有笔迹)
+#     turtle.tracer(False)
+#     time_writer.clear()
+#     time_writer.write(strftime('%H:%M:%S'))
+#     turtle.tracer(True)
+#     turtle.ontimer(update_time, 1000)
 
 
 class Fish:
@@ -65,6 +66,7 @@ class Fish:
         self.t = turtle.Turtle()
         self.t.penup()  # 不显示鱼🐟的移动路径
         self.t.showturtle()
+        # self.t.speed('fast')
         self.x = Fish.boundary[0] + GRID_WIDTH * random.randint(0, ROWS - 1)
         self.y = Fish.boundary[0] + GRID_WIDTH * random.randint(0, ROWS - 1)
 
@@ -74,8 +76,8 @@ class Fish:
         turtle.tracer(True)
 
     def move(self):
-        # dx, dy = -1, -1
-        # next_x, next_y = -1, -1
+        # 只要if/while的每个分支都定义了的变量名，就能在外部作用域使用，例如这里的direction
+        # 虽然带来方便，但是我认为这是Python不好的地方
         while True:
             direction = random.randint(0, 3)
             dx, dy = Fish.DIRECTIONS[direction]
@@ -88,6 +90,9 @@ class Fish:
 
 
 def run_turtle_timer_event():
+    """
+    FIXME fishes变量名居然在别的地方定义，这是Python不太好的一个特点
+    """
     try:
         for fish in fishes:
             fish.move()
@@ -97,15 +102,8 @@ def run_turtle_timer_event():
 
 
 def setup():
-    pass
+    turtle.setworldcoordinates(-400, -400, 400, 400)
 
-
-def main():
-    setup()
-    run_turtle_timer_event()
-
-
-if __name__ == '__main__':
     # 设置turtle画板尺寸和窗口尺寸
     turtle.getscreen().screensize(GRID_WIDTH * 10, GRID_WIDTH * 10 + 90)  # get canvasSize: turtle.screensize()
     turtle.getscreen().setup(GRID_WIDTH * 10 + 120, GRID_WIDTH * 10 + 120)  # get windowSize: turtle.window_width()
@@ -115,15 +113,24 @@ if __name__ == '__main__':
     turtle.penup()
     turtle.hideturtle()
 
+
+# def main():
+#     setup()
+#     run_turtle_timer_event()
+
+
+if __name__ == '__main__':
+    setup()
+
     draw_grid()
-    pos = init_time()  # 传坐标 防"当前时间"被clear
+    # pos = init_time()  # 传坐标 防"当前时间"被clear
     # 清理上面函数产生的turtle对象
     del turtle.turtles()[1:]
-    time_writer = turtle.clone()
-    time_writer.setpos(pos)
+    # time_writer = turtle.clone()
+    # time_writer.setpos(pos)
 
     fishes = []
-    for i in range(6):
+    for _ in range(6):
         fishes.append(Fish())
 
     # 定时更新部分 https://zhuanlan.zhihu.com/p/32094690
