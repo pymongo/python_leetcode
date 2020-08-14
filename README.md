@@ -179,6 +179,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |1476|[Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries/)|[Python](easy/subrectangle_queries.py)||
 |1480|[Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[Python](easy/running_sum_of_1d_array.py)||
 |1512|[Number of Good Pairs](https://leetcode.com/problems/number-of-good-pairs/)|[Python](dfs_perm_comb/numbers_of_good_pairs.py)||
+|1528|[Shuffle String](https://leetcode.com/problems/shuffle-string/)|[Python](easy/shuffle_string.py)||
 
 
 ---
@@ -285,6 +286,7 @@ LintCode
 |187|[Gas Station](https://lintcode.com/problem/gas-station/)|[Python](greedy/gas_station.py)|greedy|
 |192|[Wildcard Matching](https://lintcode.com/problem/wildcard-matching/)|[Python](dp/wildcard_matching.py)||
 |200|[Longest Palindromic Substring](https://lintcode.com/problem/longest-palindromic-substring/)|[Python](palindrome/longest_palindromic_substr.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_palindromic_substr.rs)|multi_solutions, manacher, suffix_array|
+|221|[String Permutation](https://www.lintcode.com/problem/string-permutation/)|[Python](collections/valid_anagram.py)||
 |228_LOCK|[Middle of the Linked List](https://lintcode.com/problem/middle-of-linked-list/)|[Python](list_node/middle_of_linked_list.py)|list_node, 快慢指针|
 |235|[Prime Factorization](https://lintcode.com/problem/prime-factorization/)|[Python](factorization/prime_factorization.py)|分解质因数|
 |241_LOCK|[String to Integer (atoi)](https://lintcode.com/problem/string-to-integer-atoi/)|[python](easy/string_to_integer_atoi.py)||

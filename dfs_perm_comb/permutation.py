@@ -140,6 +140,11 @@ class Testing(unittest.TestCase):
             correct_answer = list(map(lambda x: list(x), itertools.permutations(nums)))
             self.assertCountEqual(correct_answer, my_permutation(nums))
 
+    def test_permute_bfs(self):
+        for nums in self.TEST_CASES:
+            correct_answer = list(map(lambda x: list(x), itertools.permutations(nums)))
+            self.assertCountEqual(correct_answer, permute_bfs(nums))
+
     def test_str_permutation_2(self):
         for s, expected in self.STR_PERMUTATION_2_CASES:
             self.assertCountEqual(expected, str_permutation(s))

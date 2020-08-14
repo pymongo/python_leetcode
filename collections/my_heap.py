@@ -49,7 +49,7 @@ class MyHeap:
         """
         只比较当前节点和父亲节点之前的最大值，如果发生挪到，则curr=parent
         之所以叫up是因为迭代过程会不断往二叉树的顶部走
-        FIXME 如果已经是max-heap, push时用sift_up比sift_down快多了，新增元素用sift_down也可以，不过用sift_up效率高
+        FIXME 只有push的时候用得到，除了push其余操作基本是用sift_down, push时用sift_up比sift_down快
         """
         while curr > 0:
             parent = (curr - 1) // 2
