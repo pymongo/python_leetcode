@@ -2,6 +2,7 @@ import unittest
 from typing import List, Tuple
 
 
+# 既然每行只能有一个皇后，皇后的位置用的是一个一位数组: 数组下标表示皇后的行号，值表示皇后的纵坐标
 class Solution(unittest.TestCase):
     PRINT_ALL_SOLUTIONS_TEST_CASES: List[Tuple[int, List[List[str]]]] = [
         (4, [[".Q..",
@@ -18,21 +19,61 @@ class Solution(unittest.TestCase):
         for n, output in self.PRINT_ALL_SOLUTIONS_TEST_CASES:
             self.assertEqual(output, self.print_all_solutions(n))
 
+    # Runtime: 52 ms, faster than 95.44%
     @staticmethod
     def print_all_solutions(n: int) -> List[List[str]]:
         """
         入口函数: N皇后问题1的入口函数
         """
-        # queens_col存储从第一行到最后一行，每行的皇后的column坐标
-        # queens_col: List[int] = []
-        pass
+        results = []
+        # TODO 优化思路: 初始化时设定Set的容量固定容量提高性能，例如Rust的: HashSet::with_capacity()
+        # 斜率为左上到右下的直线方程的常系数b(x+y=b)
+        row_col_sum_set = set()
+        # 斜率为右上到左下的直线方程的常系数b(x-y=b)
+        row_col_diff_set = set()
+        # 已使用的列号
+        used_cols = set()
 
-    @staticmethod
-    def search(queens_col):
-        pass
+        # 参数row表示下一个皇后的行号
+        def search(queen_cols: List[int], row: int):
+            if row == n:
+                results.append(Solution.render_board(queen_cols, n))
+                return
+
+            for col in range(n):
+                if col in used_cols:
+                    continue
+                row_col_sum = row + col
+                if row_col_sum in row_col_sum_set:
+                    continue
+                row_col_diff = row - col
+                if row_col_diff in row_col_diff_set:
+                    continue
+
+                queen_cols.append(col)
+                used_cols.add(col)
+                row_col_sum_set.add(row_col_sum)
+                row_col_diff_set.add(row_col_diff)
+
+                search(queen_cols, row+1)
+
+                queen_cols.pop()
+                used_cols.remove(col)
+                row_col_sum_set.remove(row_col_sum)
+                row_col_diff_set.remove(row_col_diff)
+
+        search([], 0)
+        return results
+
+    # @staticmethod
+    # def search(queens_col):
+    #     pass
 
     @staticmethod
     def count_solutions():
+        """
+        入口函数: N皇后问题2的入口函数
+        """
         pass
 
     @staticmethod
