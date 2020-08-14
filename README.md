@@ -40,6 +40,8 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |47|[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
 |49|[Group Anagrams](https://leetcode.com/problems/group-anagrams/)|[Python](collections/group_anagrams.py)||
 |50|[Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Python](math/pow.py)|binary_search, 快速幂运算|
+|51|[N Queens](https://leetcode.com/problems/n-queens)|[Python](dfs_perm_comb/n_queens.py)||
+|52|[N Queens II](https://leetcode.com/problems/n-queens-ii)|[Python](dfs_perm_comb/n_queens.py)||
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
 |55|[Jump Game](https://leetcode.com/problems/jump-game/)|[Python](dp/jump_game.py)|greedy, dp|
 |62|[Unique Paths](https://leetcode.com/problems/unique-paths/)|[Python](dfs_perm_comb/unique_paths.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/permutation/shortest_paths_on_checkerboard.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|combination|
@@ -204,6 +206,8 @@ LintCode
 |18|[Subsets II](https://lintcode.com/problem/subsets-ii/)|[Python](dfs_perm_comb/subsets_combinations.py)||
 |28|[Search a 2D Matrix](https://www.lintcode.com/problem/search-a-2d-matrix/)|[Python](binary_search/search_a_2d_matrix.py)||
 |31|[Partition Array](https://lintcode.com/problem/partition-array/)|[Python](partition_array/partition_array.py)|two_pointers|
+|33|[N Queens](https://leetcode.com/problems/n-queens)|[Python](dfs_perm_comb/n_queens.py)||
+|34|[N Queens II](https://leetcode.com/problems/n-queens-ii)|[Python](dfs_perm_comb/n_queens.py)||
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](list_node/reverse_linked_list.py)|list_node|
 |37|[Reverse 3-digit Integer](https://lintcode.com/problem/reverse-3-digit-integer/)|||
 |38|[Search a 2D Matrix II](https://www.lintcode.com/problem/search-a-2d-matrix-ii/)|[Python](binary_search/search_a_2d_matrix_2.py)||
