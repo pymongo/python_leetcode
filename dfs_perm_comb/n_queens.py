@@ -19,7 +19,8 @@ class Solution(unittest.TestCase):
         for n, output in self.PRINT_ALL_SOLUTIONS_TEST_CASES:
             self.assertEqual(output, self.print_all_solutions(n))
 
-    # Runtime: 52 ms, faster than 95.44%
+    # 52 ms, faster than 95.44% of Python3 online submissions for N-Queens.
+    # 36 ms, faster than 99.12% of Python3 online submissions for N-Queens II.
     @staticmethod
     def print_all_solutions(n: int) -> List[List[str]]:
         """
@@ -28,11 +29,13 @@ class Solution(unittest.TestCase):
         results = []
         # TODO 优化思路: 初始化时设定Set的容量固定容量提高性能，例如Rust的: HashSet::with_capacity()
         # 斜率为左上到右下的直线方程的常系数b(x+y=b)
-        row_col_sum_set = set()
+        # x+y的范围是0..2n，Java可以用一个长度为2*n-1的Boolean数组
+        row_col_sum_memo = [False] * (2*n+1)
         # 斜率为右上到左下的直线方程的常系数b(x-y=b)
+        # x-y的范围是-n..n，Java可以用一个长度为2*n-1的Boolean数组，不过坐标需要变换一下让-n..n => 0..2n
         row_col_diff_set = set()
-        # 已使用的列号
-        used_cols = set()
+        # 已使用的列号(推荐用List[bool])
+        used_cols = [False] * n
 
         # 参数row表示下一个皇后的行号
         def search(queen_cols: List[int], row: int):
@@ -41,25 +44,25 @@ class Solution(unittest.TestCase):
                 return
 
             for col in range(n):
-                if col in used_cols:
+                if used_cols[col]:
                     continue
                 row_col_sum = row + col
-                if row_col_sum in row_col_sum_set:
+                if row_col_sum_memo[row_col_sum]:
                     continue
                 row_col_diff = row - col
                 if row_col_diff in row_col_diff_set:
                     continue
 
                 queen_cols.append(col)
-                used_cols.add(col)
-                row_col_sum_set.add(row_col_sum)
+                used_cols[col] = True
+                row_col_sum_memo[row_col_sum] = True
                 row_col_diff_set.add(row_col_diff)
 
                 search(queen_cols, row+1)
 
                 queen_cols.pop()
-                used_cols.remove(col)
-                row_col_sum_set.remove(row_col_sum)
+                used_cols[col] = False
+                row_col_sum_memo[row_col_sum] = False
                 row_col_diff_set.remove(row_col_diff)
 
         search([], 0)
@@ -73,6 +76,7 @@ class Solution(unittest.TestCase):
     def count_solutions():
         """
         入口函数: N皇后问题2的入口函数
+        这题没什么变化，只不过将N皇后找到答案后render_board的函数改为自增count
         """
         pass
 
