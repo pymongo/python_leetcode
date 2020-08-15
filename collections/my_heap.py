@@ -97,14 +97,10 @@ class HeapRecipe:
     def pop(self) -> int:
         if self.n == 0:
             return -1
-        print(self.nums)
         self.nums[0], self.nums[self.n - 1] = self.nums[self.n - 1], self.nums[0]
-        print(self.nums)
         res = self.nums.pop()
-        print(self.nums)
         self.n -= 1
         self.sift_down(0)
-        print(self.nums)
         return res
 
     def heapify(self):
@@ -122,14 +118,16 @@ class HeapRecipe:
                 max_index = right
             if max_index == index:
                 break
+            # FIXME 默写时漏掉下面这行
+            self.nums[index], self.nums[max_index] = self.nums[max_index], self.nums[index]
             index = max_index
 
     def sift_up(self, index: int):
         # FIXME 这里是index>0
         while index > 0:
             parent = (index - 1) // 2
-            # FIXME 这里是parent>=0
-            if parent >= 0 and self.nums[parent] >= self.nums[index]:
+            # FIXME 这里不用判越界parent最低只能是0
+            if self.nums[parent] >= self.nums[index]:
                 break
             self.nums[parent], self.nums[index] = self.nums[index], self.nums[parent]
             index = parent
@@ -144,10 +142,12 @@ class TestMyHeap(unittest.TestCase):
         res = []
         for _ in range(heap.n):
             res.append(heap.pop())
-            print()
-
+        self.assertListEqual([7, 5, 4, 3], res)
 
     def test_heapify(self):
-        heap = MyHeap([4, 10, 3, 5, 1, 2])
+        nums = [4, 10, 3, 5, 1, 2]
+        heap = HeapRecipe(nums.copy())
+        sorted_nums = []
         for _ in range(heap.n):
-            print(heap.pop())
+            sorted_nums.append(heap.pop())
+        self.assertListEqual(sorted_nums, sorted(nums, reverse=True))
