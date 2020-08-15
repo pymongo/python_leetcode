@@ -30,3 +30,4 @@ class Solution(unittest.TestCase):
             curr.next = l2
 
         return new_ln_head.next
+
