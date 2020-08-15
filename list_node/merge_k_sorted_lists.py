@@ -1,6 +1,17 @@
 import unittest
 from typing import List, Optional
 from .list_node import ListNode
+import heapq
+
+
+# 用于优先队列比较
+class NodeWrapper:
+    def __init__(self, list_node):
+        # 参考了Rust的actix_web::web::Data<T>
+        self.inner = list_node
+
+    def __lt__(self, other):
+        return self.inner.val < other.inner.val
 
 
 class Solution(unittest.TestCase):
@@ -51,9 +62,34 @@ class Solution(unittest.TestCase):
         n = len(lists)
         if n == 0:
             return None
+        # 1<-2 3<-4
+        # 1 <- 3
         interval = 1
         while interval < n:
             for i in range(0, n - interval, interval * 2):
                 lists[i] = Solution.merge_two_lists(lists[i], lists[i + interval])
             interval *= 2
         return lists[0]
+
+    @staticmethod
+    def heapq_solution(lists: List[ListNode]) -> Optional[ListNode]:
+        k = len(lists)
+        if k == 0:
+            return None
+        # 长度固定为k的优先队列
+        heap = []
+        for i in range(k):
+            if lists[i] is None:
+                continue
+            heapq.heappush(heap, NodeWrapper(lists[i]))
+
+        dummy = ListNode(0)
+        curr = dummy
+        while heap:
+            wrapper = heapq.heappop(heap)
+            curr.next = wrapper.inner
+            curr = curr.next
+            if wrapper.inner.next is not None:
+                wrapper.inner = wrapper.inner.next
+                heapq.heappush(heap, wrapper)
+        return dummy.next
