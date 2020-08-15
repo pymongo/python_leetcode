@@ -84,3 +84,29 @@ class MyQueue:
 
     def empty(self) -> bool:
         return not self.s1 and not self.s2
+
+
+class TwoStackQueue:
+    def __init__(self):
+        # 新元素加到s1
+        self.s1 = []
+        # 出队从s2这里出
+        self.s2 = []
+
+    def _s1_to_s2(self):
+        if self.s2:
+            # 如果s2不空，说明有先入队的在栈顶
+            return
+        while self.s1:
+            self.s2.append(self.s1.pop())
+
+    def push(self, val):
+        self.s1.append(val)
+
+    def pop(self):
+        self._s1_to_s2()
+        return self.s2.pop()
+
+    def peek(self):
+        self._s1_to_s2()
+        return self.s2[-1]
