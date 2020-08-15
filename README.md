@@ -158,6 +158,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python](list_node/impl_hashmap.py)||
 |706|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](list_node/impl_hashmap.py)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/impl_api/to_lowercase.rs)||
+|716_LOCK|[Max Stack](https://leetcode.com/problems/max_stack/)|[Python](collections/max_stack.py)||
 |760_LOCK|[Find Anagram Mappings](https://leetcode.com/problems/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](rotate_reverse_circle_shift/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
 |743_TODO|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/graph_traversal/dijkstra_shortest_path_algorithm.rs)|dijkstra_shortest_path|
@@ -386,6 +387,7 @@ LintCode
 |829|[Word Pattern II](https://leetcode.com/problems/word-pattern-ii/)|[Python](dfs_perm_comb/word_pattern_2.py)|DFS|
 |841|[String Replace](https://www.lintcode.com/problem/string-replace/)|[Python](tire/string_replace.py)||
 |845|[Greatest Common Divisor](https://www.lintcode.com/problem/greatest-common-divisor/)|[Python](math/greatest_common_divisor.py)||
+|859|[Max Stack](https://lintcode.com/problem/max_stack/)|[Python](collections/max_stack.py)||
 |871|[Minimum Factorization](https://lintcode.com/problem/minimum-factorization/)|[Python](factorization/minimum_factorization.py)|greedy|
 |880|[Construct Binary Tree from String](https://lintcode.com/problem/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |891|[Valid Palindrome II](https://lintcode.com/problem/valid-palindrome-ii/)|[Python](palindrome/valid_palindrome_2.py)|two_pointers, greedy|

@@ -107,3 +107,9 @@ B+树实际上是一种多叉树，降低了树的深度
 ## 双向宽度优先搜索的优化多少时间复杂度?
 
 答案是√n而不是1/2，实际上除2除的是指数，最佳优化效果下情况下k^n -> k^(n/2)
+
+## Java的CompareTo
+
+`binary_search_by(|this| this.cmp(&other)`
+
+this在左边就升序，this在右边就降序

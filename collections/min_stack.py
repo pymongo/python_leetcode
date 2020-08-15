@@ -12,6 +12,7 @@ M: 3 7 2
 S: 3 3 2
 """
 
+
 class MinStack:
     def __init__(self):
         self.min_stack = []
@@ -38,3 +39,22 @@ class MinStack:
 
     def top(self) -> int:
         return self.stack[self.peek]
+
+
+# 节约min_stack空间的算法
+class MinStackBetter:
+    def __init__(self):
+        self.stack = []
+        self.min_stack = []
+
+    def push(self, val):
+        self.stack.append(val)
+        # 如果最小值需要更新或重复的元素出现，才push最小栈，节约空间
+        if not self.min_stack or self.min_stack[-1] >= val:
+            self.min_stack.append(val)
+
+    def pop(self):
+        val = self.stack.pop()
+        if val == self.min_stack[-1]:
+            self.min_stack.pop()
+        return val
