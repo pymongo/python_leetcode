@@ -341,6 +341,7 @@ LintCode
 |474_LOCK|[Lowest Common Ancestor II](https://lintcode.com/problem/lowest-common-ancestor-ii/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)||
 |480|[Binary Tree Paths](https://lintcode.com/problem/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
 |484|[Swap Two Integers in Array](https://lintcode.com/problem/swap-two-integers-in-array/)|||
+|486|[Merge K Sorted Arrays](https://www.lintcode.com/problem/merge-k-sorted-arrays/)|[Python](sorting_and_query/merge_two_sorted_arrays.py)||
 |491|[Palindromic Number](https://lintcode.com/problem/palindrome-number/)|[Python](palindrome/longest_palindromic_substr.py)||
 |492|[Implement Queue by Linked List](https://lintcode.com/problem/implement-queue-by-linked-list/)|[Python](collections/impl_queue_by_linked_list.py)||
 |494|[Implement Stack by Two Queues](https://lintcode.com/problem/implement-stack-by-two-queues/)|[Python](collections/impl_stack_using_queue.py)||
@@ -353,6 +354,7 @@ LintCode
 |545|[Top k Largest Numbers II](https://lintcode.com/problem/top-k-largest-numbers-ii/)|[Python](collections/top_k_largest_stream_min_heap.py)|min_heap|
 |547|[Intersection of Two Arrays](https://www.lintcode.com/problem/intersection-of-two-arrays/)|[Python](easy/intersection_of_two_arrays.py)||
 |563|[Backpack V](https://lintcode.com/problem/backpack-v/)|[Python](dp/backpack_5_plans_count.py)||
+|577|[Merge k Sorted Interval Lists](https://www.lintcode.com/problem/merge-k-sorted-interval-lists/)|[Python](unclassified/merge_two_sorted_interval_lists.py)||
 |578|[Lowest Common Ancestor III](https://lintcode.com/problem/lowest-common-ancestor-iii/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)||
 |582|[Word Break II](https://lintcode.com/problem/word-break-ii/)|[Python](dp/word_break_2.py)||
 |584_TODO|[Drop Eggs II](https://lintcode.com/problem/drop-eggs-ii/)|[Python](dp/todo_drop_eggs_dp.py)|dp|
@@ -391,6 +393,7 @@ LintCode
 |816|[Traveling Salesman Problem](https://lintcode.com/problem/traveling-salesman-problem/)|[Python](dfs_perm_comb/traveling_salesman_problem.py)||
 |828|[Word Pattern](https://lintcode.com/problem/word-pattern/)|[Python](easy/word_pattern.py)||
 |829|[Word Pattern II](https://leetcode.com/problems/word-pattern-ii/)|[Python](dfs_perm_comb/word_pattern_2.py)|DFS|
+|839|[Merge Two Sorted Interval Lists](https://www.lintcode.com/problem/merge-two-sorted-interval-lists/)|[Python](unclassified/merge_two_sorted_interval_lists.py)||
 |841|[String Replace](https://www.lintcode.com/problem/string-replace/)|[Python](tire/string_replace.py)||
 |845|[Greatest Common Divisor](https://www.lintcode.com/problem/greatest-common-divisor/)|[Python](math/greatest_common_divisor.py)||
 |859|[Max Stack](https://lintcode.com/problem/max_stack/)|[Python](collections/max_stack.py)||

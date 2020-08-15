@@ -21,8 +21,27 @@ def merge_two_sorted_arrays(nums1: List[int], nums2: List[int]) -> List[int]:
         else:
             result.append(nums2[ptr2])
             ptr2 += 1
-    result = result + nums1[ptr1:] + nums2[ptr2:]
+    while ptr1 < size1:
+        result.append(nums1[ptr1])
+        ptr1 += 1
+    while ptr2 < size2:
+        result.append(nums2[ptr2])
+        ptr2 += 1
     return result
+
+class Solution:
+    @staticmethod
+    def merge_two_sorted_arrays(arrays: List[List[int]]) -> List[int]:
+        n = len(arrays)
+        if n == 0:
+            return []
+        interval = 1
+        while interval < n:
+            for i in range(0, n-interval, interval*2):
+                merge_two_sorted_arrays(arrays[i], arrays[i+interval])
+            interval *= 2
+
+        return arrays[0]
 
 
 # https://www.lintcode.com/problem/merge-sorted-array/
