@@ -87,6 +87,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |151|[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python](rotate_reverse_circle_shift/reverse_words_in_a_string.py)||
 |153|[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |154|[Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python](binary_search/rotated_sorted_array_min_2_with_duplicate.py)|binary_search|
+|155|[Min Stack](https://www.leetcode.com/problems/min-stack/)|[Python](collections/min_stack.py)||
 |160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[Python](list_node/linked_list_cycle.py)||
 |167|[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[Python](two_sum_two_pointers/two_sum_2_input_is_sorted.py)|two_pointers|
 |170_LOCK|[Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design/)|[Python](two_sum_two_pointers/two_sum_3_impl.py)|two_pointers|
@@ -204,6 +205,7 @@ LintCode
 |9|[Fizz Buzz](https://lintcode.com/problem/fizz-buzz/)|[Python](easy/fizz_buzz.py)||
 |10|[String Permutation II](https://lintcode.com/problem/string-permutation-ii/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
 |11|[Search Range in Binary Search Tree](https://www.lintcode.com/problem/search-range-in-binary-search-tree/)|[Python](binary_tree/bst_search.py)||
+|12|[Min Stack](https://www.lintcode.com/problem/min-stack/)|[Python](collections/min_stack.py)||
 |13|[Implement strStr()](https://lintcode.com/problem/implement-strstr/)|[Python](string/find_substr.py)|kmp, Rabin-Karp(rolling_hash)|
 |14|[First Position of Target](https://lintcode.com/problem/first-position-of-target/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
 |15|[Permutations](https://lintcode.com/problem/permutations/)|[Python](dfs_perm_comb/permutation.py)|backtracking|

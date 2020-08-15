@@ -12,24 +12,24 @@ class MyHeap:
 
     def __init__(self, nums: List[int] = None):
         self.nums: List[int] = [] if nums is None else nums
-        self.len: int = len(self.nums)
-        if self.len > 0:
+        self.n: int = len(self.nums)
+        if self.n > 0:
             self.heapify()
 
     def push(self, val: int):
         # old_len = insert_element_index
-        insert_element_index = self.len
+        insert_element_index = self.n
         self.nums.append(val)
-        self.len += 1
+        self.n += 1
         self._sift_up(insert_element_index)
 
     def pop(self) -> int:
-        if self.len == 0:
+        if self.n == 0:
             return -1
-        last_index = self.len - 1
+        last_index = self.n - 1
         self.nums[0], self.nums[last_index] = self.nums[last_index], self.nums[0]
         output = self.nums.pop()
-        self.len -= 1
+        self.n -= 1
         self._sift_down(0)
         return output
 
@@ -41,7 +41,7 @@ class MyHeap:
         所以最深的左叶子节点的根的下标是len//2 - 1，就算最后一个是右儿子根据地板除的规律，也能得到最后一个最深左叶子节点的根的索引
         从最深左叶子节点的根开始往上sift_down(比较当前节点和左右儿子的最大值)调整
         """
-        for i in range(self.len // 2 - 1, -1, -1):
+        for i in range(self.n // 2 - 1, -1, -1):
             self._sift_down(i)
 
     # TODO Python的siftup是跟儿子比，Rust的siftup是跟父节点比，Rust的更加正确
@@ -65,13 +65,13 @@ class MyHeap:
         FIXME 如果是heapify一个乱序数组，那么只能用sift_down去调整，因为sift_up只比较curr和parent，不会比left和right
         FIXME 由于pop操作是顶部元素，所以只能往下调整(sift_down)
         """
-        while curr < self.len:
+        while curr < self.n:
             left_child = 2 * curr + 1
             right_child = left_child + 1
             max_index = curr
-            if left_child < self.len and self.nums[left_child] > self.nums[max_index]:
+            if left_child < self.n and self.nums[left_child] > self.nums[max_index]:
                 max_index = left_child
-            if right_child < self.len and self.nums[right_child] > self.nums[max_index]:
+            if right_child < self.n and self.nums[right_child] > self.nums[max_index]:
                 max_index = right_child
             if max_index == curr:
                 break
@@ -79,18 +79,75 @@ class MyHeap:
             curr = max_index
 
 
+class HeapRecipe:
+    def __init__(self, nums: List[int] = None):
+        if nums is not None:
+            self.n = len(nums)
+            self.nums = nums
+            self.heapify()
+        else:
+            self.n = 0
+            self.nums = []
+
+    def push(self, val: int):
+        self.nums.append(val)
+        self.n += 1
+        self.sift_up(self.n - 1)
+
+    def pop(self) -> int:
+        if self.n == 0:
+            return -1
+        print(self.nums)
+        self.nums[0], self.nums[self.n - 1] = self.nums[self.n - 1], self.nums[0]
+        print(self.nums)
+        res = self.nums.pop()
+        print(self.nums)
+        self.n -= 1
+        self.sift_down(0)
+        print(self.nums)
+        return res
+
+    def heapify(self):
+        for i in range(self.n // 2 - 1, -1, -1):
+            self.sift_down(i)
+
+    def sift_down(self, index: int):
+        while index < self.n:
+            left = 2 * index + 1
+            right = left + 1
+            max_index = index
+            if left < self.n and self.nums[left] > self.nums[max_index]:
+                max_index = left
+            if right < self.n and self.nums[right] > self.nums[max_index]:
+                max_index = right
+            if max_index == index:
+                break
+            index = max_index
+
+    def sift_up(self, index: int):
+        # FIXME 这里是index>0
+        while index > 0:
+            parent = (index - 1) // 2
+            # FIXME 这里是parent>=0
+            if parent >= 0 and self.nums[parent] >= self.nums[index]:
+                break
+            self.nums[parent], self.nums[index] = self.nums[index], self.nums[parent]
+            index = parent
+
+
 class TestMyHeap(unittest.TestCase):
     def test_push_pop(self):
-        heap = MyHeap()
-        heap.push(3)
-        heap.push(5)
-        heap.push(4)
-        heap.push(7)
-        print(heap.nums)
-        for _ in range(heap.len):
-            print(heap.pop())
+        heap = HeapRecipe()
+        for num in (3, 5, 4, 7):
+            heap.push(num)
+        self.assertListEqual([7, 5, 4, 3], heap.nums)
+        res = []
+        for _ in range(heap.n):
+            res.append(heap.pop())
+            print()
+
 
     def test_heapify(self):
         heap = MyHeap([4, 10, 3, 5, 1, 2])
-        for _ in range(heap.len):
+        for _ in range(heap.n):
             print(heap.pop())
