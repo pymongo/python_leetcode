@@ -15,6 +15,10 @@ class Solution(unittest.TestCase):
         for nums, subsets in self.TEST_CASES:
             self.assertIn(self.solution(nums), subsets)
 
+    def test_recipe(self):
+        for nums, subsets in self.TEST_CASES:
+            self.assertIn(self.recipe(nums), subsets)
+
     @staticmethod
     def solution(nums: List[int]) -> List[int]:
         result = []
@@ -55,3 +59,35 @@ class Solution(unittest.TestCase):
         result.insert(0, nums[i])
         # print(result)
         return result
+
+
+    @staticmethod
+    def recipe(nums: List[int]) -> List[int]:
+        n = len(nums)
+        if n == 0:
+            return []
+
+        dp = [1] * n
+        prev = [-1] * n
+
+        max_len = 1
+        max_i = 0
+        for i in range(n):
+            for j in range(i):
+                if nums[i] % nums[j] == 0:
+                    if dp[j] + 1 > dp[i]:
+                        dp[i] = dp[j] + 1
+                        prev[i] = j
+                        if dp[i] > max_len:
+                            max_len = dp[i]
+                            max_i = i
+
+        # 还原
+        i = max_i
+        res = []
+        # 如果没到子集长度为1的点(也就是终点)
+        while dp[i] != 1:
+            res.insert(0, nums[i])
+            i = prev[i]
+        res.insert(0, nums[i])
+        return res

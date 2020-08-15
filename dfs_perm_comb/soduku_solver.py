@@ -12,6 +12,7 @@ class SodukuUsed:
             self.boxs.append(set())
 
 
+# 除了DFS常见可行性/最优性剪枝，本题用的是一种「先填可选数字少」的九宫格，类似人脑做数独时先填满数字最多的九宫格，这样能大大减少搜索树
 class Solution(unittest.TestCase):
     TEST_CASES = [
         ([["5", "3", ".", ".", "7", ".", ".", ".", "."],
