@@ -59,3 +59,18 @@ class Solution:
                     m.pop(num)
 
         return intersection
+
+    @staticmethod
+    def intersection_k_arrays(arrs: List[List[int]]) -> int:
+        k = len(arrs)
+        m = dict()
+        for i in range(k):
+            for num in arrs[i]:
+                m[num] = m.get(num, 0) + 1
+
+        res = 0
+        for count in m.values():
+            # 由于本题入参中没有重复，所以出现k次的数字一定是在每个数组中各出现一次
+            if count == k:
+                res += 1
+        return res
