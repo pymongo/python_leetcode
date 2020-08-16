@@ -15,13 +15,14 @@ class Interval(object):
 
 
 # 类似两个小水滴💧合并成一个大水滴的感觉
+# 除了合并间隔，leetcode还要一题要求间隔交集(未做)986. Interval List Intersections
 class Solution:
     @staticmethod
     def f(list1: List[Interval], list2: List[Interval]) -> List[Interval]:
         # 用一个 last 来记录最后一个还没有被放到 merge results 里的 Interval，用于和新加入的 interval 比较看看能不能合并到一起
         i, j, res = 0, 0, []
-        len_1, len_2 = len(list1), len(list2)
-        while i < len_1 and j < len_2:
+        m, n = len(list1), len(list2)
+        while i < m and j < n:
             if list1[i].start < list2[j].start:
                 Solution.push_back(res, list1[i])
                 i += 1
@@ -29,10 +30,10 @@ class Solution:
                 Solution.push_back(res, list2[j])
                 j += 1
 
-        while i < len_1:
+        while i < m:
             Solution.push_back(res, list1[i])
             i += 1
-        while j < len_2:
+        while j < n:
             Solution.push_back(res, list2[j])
             j += 1
         return res

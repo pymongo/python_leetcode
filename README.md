@@ -1,6 +1,8 @@
 LeetCode
 ========
 
+表格中没有代码文件链接的都是过于简单30秒就能搞定的题
+
 因为leetcode-cn上我多做了2道面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了6题
 
 有意思的但是没有找到题号的问题:
@@ -125,6 +127,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |300|[Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)|[Python](dp/longest_increase_subsequence.py)|接龙型动态规划|
 |300_LOCK|[Smallest Rectangle Enclosing Black Pixels](https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels)|[Python](binary_search/smallest_rectangle_enclosing_black_pixels.py)||
+|311_LOCK|[Sparse Matrix Multiplication](https://www.leetcode.com/problems/sparse-matrix-multiplication/)|[Python](math/sparse_matrix_multiplication.py)||
 |326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python](bitwise/is_power_of_3.py)|bitwise|
 |342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
@@ -312,6 +315,7 @@ LintCode
 |254|[Drop Eggs](https://lintcode.com/problem/drop-eggs/)|[Python](dp/drop_eggs.py)|sqrt_n|
 |272_LOCK|[Climbing Stairs II](https://lintcode.com/problem/climbing-stairs-ii/)|[Python](dp/climb_stairs_2.py)||
 |283|[Max of 3 Numbers](https://lintcode.com/problem/max-of-3-numbers/)|||
+|309|[Interleaved Array](https://www.lintcode.com/problem/interleaved-array/)|||
 |366|[Fibonacci](https://lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |373|[Partition Array by Odd and Even](https://lintcode.com/problem/partition-array-by-odd-and-even/)|[Python](partition_array/partition_array_by_odd_and_even.py)||
 |376|[Binary Tree Path Sum](https://lintcode.com/problem/binary-tree-path-sum/)|[Python](binary_tree/root_to_leaf_paths_target_sum.py)|DFS, backtracking|
@@ -382,6 +386,7 @@ LintCode
 |628|[Maximum Subtree](https://lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |630_LOCK|[Knight Shortest Path II](https://lintcode.com/problem/knight-shortest-path-ii/)|[Python](bfs/knight_shortest_path_2.py)|bfs|
 |632|[Binary Tree Maximum Node](https://lintcode.com/problem/binary-tree-maximum-node/)|||
+|654|[Sparse Matrix Multiplication](https://www.lintcode.com/problem/sparse-matrix-multiplication/)|[Python](math/sparse_matrix_multiplication.py)||
 |657|[Insert Delete GetRandom O(1)](https://lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |683|[Word Break III](https://lintcode.com/problem/word-break-iii/)|[Python](dp/word_break_3.py)||
@@ -412,6 +417,7 @@ LintCode
 |954|[Insert Delete GetRandom O(1) - Duplicates allowed](https://lintcode.com/problem/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |955|[Implement Queue by Circular Array](https://lintcode.com/problem/implement-queue-by-circular-array/)|[Python](collections/impl_queue_by_circluar_array.py)||
 |976|[4Sum II](https://lintcode.com/problem/4sum-ii/)|[Python](two_sum_two_pointers/four_sum_2.py)|two_sum|
+|1038|[Jewels and Stones](https://lintcode.com/problem/jewels-and-stones/)|[Python](easy/jewels_and_stones.py)||
 |1079|[Count Binary Substrings](https://lintcode.com/problem/count-binary-substrings/)|[Python](unclassified/count_binary_substring.py)||
 |1137|[Construct String from Binary Tree](https://lintcode.com/problem/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |1162|[Merge Two Binary Trees](https://lintcode.com/problem/merge-two-binary-trees/)|[Python](binary_tree/merge_two_binary_tree.py)||
