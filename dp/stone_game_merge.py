@@ -51,4 +51,6 @@ class Solution(unittest.TestCase):
                 dp[i][j] = sys.maxsize
                 for mid in range(i, j):
                     dp[i][j] = min(dp[i][j], dp[i][mid] + dp[mid + 1][j] + sum_i_j)
+        # for i in range(n):
+        #     print(dp[i])
         return dp[0][n - 1]

@@ -3,6 +3,10 @@ from typing import List
 
 
 # max-heap
+# 优先队列/堆的常见应用:
+# 1. Dijkstra’s algorithm(单源最短路问题中需要在邻接表中找到某一点的最短邻接边，这可以将复杂度降低)
+# 2. Huffman coding(出现频率高的字符权重更高)(贪心算法的一个典型例子，采用优先队列构建最优的前缀编码树(prefixEncodeTree))
+# 3. Prim’s algorithm for minimum spanning tree
 class MyHeap:
     """
     i's parent: (i - 1) // 2

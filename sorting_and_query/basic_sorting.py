@@ -1,10 +1,4 @@
 """
-## Relative Problems
-- [冒泡/选择/插入](https://lintcode.com/problem/sort-integers)
-- https://lintcode.com/problem/sort-integers-ii
-- https://leetcode.com/problems/sort-an-array/
-- https://leetcode-cn.com/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/
-
 ## Reference:
 https://www.jianshu.com/p/bbbab7fa77a2
 
@@ -23,9 +17,6 @@ from typing import List, Tuple
 from pprint import pprint as p
 from binary_tree.binary_tree import dbg
 from copy import deepcopy
-
-
-# from pydbg import dbg as pydbg
 
 
 def bubble_sort(nums: List[int]):
@@ -58,11 +49,11 @@ def selection_sort(nums: List[int]):
         nums[i], nums[min_index] = nums[min_index], nums[i]
 
 
-# sift_down过程
-def heapify_iterative(nums: List[int], size: int, index: int):
-    while True:
+# FIXME 这不是正统的sift_down过程，正规代码请看 collections/my_heap.py
+def sift_down(nums: List[int], size: int, index: int):
+    while index < size:
         left = index * 2 + 1
-        right = index * 2 + 2
+        right = left + 1
         max_index = index
         if left < size and nums[left] > nums[max_index]:
             max_index = left
@@ -79,10 +70,6 @@ def heapify_iterative(nums: List[int], size: int, index: int):
 
 # 大根堆/小根堆的heappush/heappop操作跟「优先队列」很像，常常使用heap实现优先队列
 # 如果需要删除堆的任意节点，需要额外辅助数据结构才能知道往上或往下调整
-# 优先队列/堆的常见应用:
-# 1. Dijkstra’s algorithm(单源最短路问题中需要在邻接表中找到某一点的最短邻接边，这可以将复杂度降低)
-# 2. Huffman coding(出现频率高的字符权重更高)(贪心算法的一个典型例子，采用优先队列构建最优的前缀编码树(prefixEncodeTree))
-# 3. Prim’s algorithm for minimum spanning tree
 def heap_sort_iterative(nums: List[int]):
     """
     大根堆(max_heapify), 大根堆有两个特性:
@@ -93,10 +80,6 @@ def heap_sort_iterative(nums: List[int]):
     1的左子树节点的下标为: index * 2 + 1 = 1 * 2 + 1 = 3
     1的右子树节点的下标为: index * 2 + 2 = 1 * 2 + 2 = 4
     本题用BFS二叉树得到的数组进行堆排序，堆排序可以分为: heapify和heappop两个过程
-    用内置库heapq进行堆排序的过程:
-    heap_nums = []
-    for num in nums: heapq.heappush(heap_nums, num)
-    sorted_nums = [heapq.heappop(heap_nums) for _ in range(len(heap_nums))]
     """
     heap_size = len(nums)
     # 从倒数第一个非叶子结点开始遍历(从右到左，从下到上)，并进行heapify
@@ -104,14 +87,14 @@ def heap_sort_iterative(nums: List[int]):
     # step.1 从最后一个非叶子节点往上heapify
     for i in reversed(range(heap_size // 2)):
         # sift/bubble up
-        heapify_iterative(nums, heap_size, i)
+        sift_down(nums, heap_size, i)
     # 将heap_size减1使之与heap内最后一个元素的下标值相等，方便下标访问
     heap_size -= 1
     # step.2 heappop: 每次将堆顶(堆的根)弹出与堆最后一个值交换，然后堆的大小减1进行heapify维护堆的特性，数组就划分成两个区域前面是堆，后面是排序好的部分
     while heap_size > 0:
         nums[0], nums[heap_size] = nums[heap_size], nums[0]
         # sift/bubble down
-        heapify_iterative(nums, heap_size, 0)
+        sift_down(nums, heap_size, 0)
         heap_size -= 1
     # for i in range(heap_size - 1):
     #     nums[0], nums[heap_size - 1 - i] = nums[heap_size - 1 - i], nums[0]
@@ -125,18 +108,14 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
     - 完全二叉树: 从上到下，从左到右生成的二叉树
     - 堆的规则/特征: 1. 是个完全二叉树 2. 父节点的数值比子节点大
     - heapify: 将一个完全二叉树的某个节点按堆的规则进行重排，常用于堆的数据发生变化时(例如堆顶被扔掉)，需要对变化的节点进行重排
-
     ## 时间复杂度分析
     初始化heappush的时间复杂度为O(n*logn)，建完堆以后"排序"heapop需要n-1次，每次需要logn时间复杂度
     那么 n-1n−1 次调整即需要 O(nlog n)O(nlogn) 的时间复杂度。因此，总时间复杂度为 O(n+nlog n)=O(nlog n)O(n+nlogn)=O(nlogn)。
     平均/最好/最坏都是O(nlogn)；不稳定排序
     """
 
-    # sift_down过程
+    # sift_down过程: 调整完全二叉树，使二叉树满足堆的第二个条件(父节点的数值比子节点大)
     def heapify(nums: List[int], length: int, index: int):
-        """
-        调整完全二叉树，使二叉树满足堆的第二个条件(父节点的数值比子节点大)
-        """
         children_left: int = 2 * index + 1
         children_right: int = children_left + 1
         # children_right: int = 2 * index + 2
@@ -160,7 +139,6 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
     # 从左到右开始遍历倒数第二层(k-1)层的子节点，再把 当前节点 和 当前节点的子节点的最大值 做交换
     for i in range(last_node_not_leaf, -1, -1):
         heapify(input_numbers, size, i)
-    # p(input_numbers)
 
     # Step.2 开始真正的堆排序，过程是先将根节点(最大值)与最后的叶节点交换，
     # 然后"剔除"最后的子叶节点，重新heapify根节点(因为发生变化)
@@ -238,7 +216,6 @@ def shell_sort(numbers: List[int]):
     基本思路在于先将间距较大元素进行排序，先保证整体有序
     gap迭代的算法有很多种，这里仅介绍折半式迭代gap
     动态gap的参考代码
-    ```python
     def shell_sort(nums):
         lens = len(nums)
         gap = 1  
@@ -253,7 +230,6 @@ def shell_sort(numbers: List[int]):
                 nums[pre_index + gap] = cur_num  # 待插入的数的正确位置
             gap //= 3  # 下一个动态间隔
         return nums
-    ```
     """
     length: int = len(numbers)
     if length < 2:
@@ -275,7 +251,6 @@ def shell_sort(numbers: List[int]):
 
 def merge_sort(numbers: List[int]) -> List[int]:
     """
-    leetcode上耗时 444ms
     官方解答中有一种很巧妙的，借助额外存储空间，直接在原数组上挪位置的解法
     Meger Sort的后半部分(归并)又是leetcode上merge two sorted array这题
     """
@@ -307,13 +282,13 @@ def merge_sort(numbers: List[int]) -> List[int]:
     return result
 
 
-def merge_sort_2(nums: List[int], start: int, end: int, temp: List[int]):
+def merge_sort_best(nums: List[int], start: int, end: int, temp: List[int]):
     if start >= end:
         return
     mid = start + (end - start) // 2
 
-    merge_sort_2(nums, start, mid, temp)
-    merge_sort_2(nums, mid + 1, end, temp)
+    merge_sort_best(nums, start, mid, temp)
+    merge_sort_best(nums, mid + 1, end, temp)
 
     left, right = start, mid + 1
     temp_index = start
@@ -336,63 +311,38 @@ def merge_sort_2(nums: List[int], start: int, end: int, temp: List[int]):
     # 下次归并排序时，temp的值很可能被覆盖掉，此时需要将排好序的temp[start:end+1]赋给nums，使得nums局部有序
     # 其次原因是，先让num部分有序，下次归并排序要排的个数就变少
     # 最后不仅是nums有序，temp也是有序的
-    for i in range(start, end + 1):
-        nums[i] = temp[i]
-
-
-def quick_sort(nums):
-    """
-    应对面试时手写快排的背诵版本，所以变量名都用缩写
-    平均时间复杂度O(nlogn)，实际上比merge_sort快得多，最坏情况是数组完全逆序O(n^2)
-    """
-    size: int = len(nums)
-    if size <= 1:
-        return nums
-    pivot = nums[0]
-    left = [nums[i] for i in range(1, size) if nums[i] <= pivot]
-    # 注意分区时要考虑[1,1,1,1,1,2]这样的极端情况，左半部分一定要 <= pivot才能避免这种极端情况，避免左边分区和右边分区没有交集
-    right = [nums[i] for i in range(1, size) if nums[i] > pivot]
-    return quick_sort(left) + [pivot] + quick_sort(right)
+    nums[start:end+1] = temp[start:end+1]
+    # for i in range(start, end + 1):
+    #     nums[i] = temp[i]
 
 
 def quick_sort_simple(numbers: List[int]) -> List[int]:
     """
-    leetcode上耗时 44ms
     即便是简单版本的快排，速度也是归并排序的10倍，所以同样是nlogn的时间复杂度，差距也会很大
-    快排的优化算法(分区)看别人博客
-    https://www.jianshu.com/p/bbbab7fa77a2
+    快排的优化算法(分区)看别人博客: https://www.jianshu.com/p/bbbab7fa77a2
     ## Q: 如果面试官问代码如何进一步优化
     1. 可以在一次遍历(1次for循环)内生成left_part和right_part
     2. 基准值的取法(不懂的话不要乱回答)
+    平均时间复杂度O(nlogn)，实际上比merge_sort快得多，最坏情况是数组完全逆序O(n^2)
     """
-    length: int = len(numbers)
+    n: int = len(numbers)
     # 递归结束条件
-    if length <= 1:
+    if n <= 1:
         return numbers
     # 基准值
     pivot: int = numbers[0]
-    left_part = [numbers[i] for i in range(1, length) if numbers[i] <= pivot]
-    right_part = [numbers[i] for i in range(1, length) if numbers[i] > pivot]
+    left_part = [numbers[i] for i in range(1, n) if numbers[i] <= pivot]
+    right_part = [numbers[i] for i in range(1, n) if numbers[i] > pivot]
+
+    # 优化点的分区写法，仍是有额外空间，面试时要背In-place的算法
+    # for i in range(size):
+    #     # 注意right多会放入pivot
+    #     if nums[i] >= pivot:
+    #         right.append(nums[i])
+    #     else:
+    #         left.append(nums[i])n
+    #
     return quick_sort_simple(left_part) + [pivot] + quick_sort_simple(right_part)
-
-
-def quick_sort_recipe(nums: List[int]) -> List[int]:
-    size = len(nums)
-    # 递归结束条件
-    if size <= 1:
-        return nums
-    pivot = nums[0]
-    left = []
-    right = []
-
-    for i in range(size):
-        # 注意right多会放入pivot
-        if nums[i] >= pivot:
-            # 如果是Rust，clippy会提示这里用enumerate性能更好
-            right.append(nums[i])
-        else:
-            left.append(nums[i])
-    return quick_sort_recipe(left) + [pivot] + quick_sort_recipe(right[1:])
 
 
 # 在数组内部进行排序，不需要额外开辟存储空间
@@ -430,7 +380,6 @@ class TestSorting(unittest.TestCase):
     ]
 
     def test_bubble_sort(self):
-        print("test_bubble_sort")
         for nums in deepcopy(self.NUMS_TEST_CASES):
             dbg(nums)
             sorted_nums = sorted(nums)
@@ -456,8 +405,9 @@ class TestSorting(unittest.TestCase):
 
     @unittest.skip("跟Rust的binary_search的行为不一致")
     def test_binary_search(self):
-        for nums, target, expected in deepcopy(self.BINARY_SEARCH_TEST_CASES):
-            self.assertListEqual(expected, binary_search(nums, target))
+        pass
+        # for nums, target, expected in deepcopy(self.BINARY_SEARCH_TEST_CASES):
+        #     self.assertListEqual(expected, binary_search(nums, target))
 
     @unittest.skip("二分查找有问题，插入排序用到了二分查找的函数，等待修复")
     def test_insertion_sort(self):
@@ -474,26 +424,13 @@ class TestSorting(unittest.TestCase):
         for nums in deepcopy(self.NUMS_TEST_CASES):
             self.assertEqual(sorted(nums), merge_sort(nums))
 
-    def test_merge_sort_2(self):
+    def test_merge_sort_best(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
             size = len(nums)
             temp = [-1] * size
-            merge_sort_2(nums, 0, size - 1, temp)
+            merge_sort_best(nums, 0, size - 1, temp)
             self.assertListEqual(sorted(nums), temp)
             self.assertListEqual(sorted(nums), nums)
-
-    @unittest.skip("修复中")
-    def test_quick_sort_simple(self):
-        import sys
-        print('python import paths:')
-        for path in sys.path:
-            print(path)
-        for nums, expected in deepcopy(self.NUMS_TEST_CASES):
-            self.assertEqual(expected, quick_sort_simple(nums))
-
-    def test_quick_sort_recipe(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
-            self.assertEqual(sorted(nums), quick_sort_recipe(nums))
 
     def test_quick_sort_in_place(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
