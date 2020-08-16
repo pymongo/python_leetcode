@@ -260,6 +260,7 @@ LintCode
 |75|[Find Peak Element](https://lintcode.com/problem/find-peak-element/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |76|[Longest Increasing Subsequence](https://lintcode.com/problem/longest-increasing-subsequence/)|[Python](dp/longest_increase_subsequence.py)|接龙型动态规划|
 |77|[Longest Common Subsequence](https://lintcode.com/problem/longest-common-subsequence/)|[Python](dp/longest_common_subsequence.py)||
+|79|[Longest Common Substring](https://lintcode.com/problem/longest-common-substring/)|[Python](dp/longest_common_substring.py)||
 |80|[Median](https://lintcode.com/problem/median/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select|
 |86|[Binary Search Tree Iterator](https://lintcode.com/problem/binary-search-tree-iterator/)|[Python](binary_tree/bst_in_order_iterator.py)||
 |88|[Lowest Common Ancestor of a Binary Tree](https://lintcode.com/problem/lowest-common-ancestor-of-a-binary-tree/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)|divide_and_conquer|
