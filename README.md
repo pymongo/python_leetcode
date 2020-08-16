@@ -174,6 +174,7 @@ https://www.jiuzhang.com/course/77/?utm_source=yy-qgg-jiumei，优惠码：01392
 |852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python](brain_twists/reordered_power_of_2.py)|permutation|
 |876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Python](list_node/middle_of_linked_list.py)|list_node, 快慢指针|
+|877_TODO|[Stone Game](https://leetcode.com/problems/stone-game/)|||
 |887_TODO|[Super Egg Drop](https://leetcode.com/problems/super-egg-drop)||dp|
 |889|[Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_post_order.py)|DFS|
 |912|[Sort An Array](https://leetcode.com/problems/sort-an-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/sorting/quick_sort.rs), [Python](sorting_and_query/basic_sorting.py)|multi_solutions|
@@ -345,6 +346,7 @@ LintCode
 |464|[Sort Integers II](https://lintcode.com/problem/sort-integers-ii/)|[Python](sorting_and_query/basic_sorting.py)|multi_solutions|
 |466|[Count Linked List Nodes](https://lintcode.com/problem/count-linked-list-nodes/)|||
 |474_LOCK|[Lowest Common Ancestor II](https://lintcode.com/problem/lowest-common-ancestor-ii/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)||
+|476|[Stone Game(diff to leetcode)](https://lintcode.com/problem/stone-game/)|[Python](dp/stone_game_merge.py)||
 |480|[Binary Tree Paths](https://lintcode.com/problem/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
 |484|[Swap Two Integers in Array](https://lintcode.com/problem/swap-two-integers-in-array/)|||
 |486|[Merge K Sorted Arrays](https://www.lintcode.com/problem/merge-k-sorted-arrays/)|[Python](sorting_and_query/merge_two_sorted_arrays.py)||
