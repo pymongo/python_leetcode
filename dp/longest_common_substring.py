@@ -12,7 +12,6 @@ class Solution(unittest.TestCase):
 
     @staticmethod
     def f(A: str, B: str) -> int:
-        # 最长公共子串严格来说不算DP，DP的必要特征是大问题可以变成稍小一点的问题，而且可以用递归实现
         # 滚动数组就足以让额外空间优化到O(n)，不要研究一维DP数组，倒着遍历那种，容易写错
         m, n = len(A), len(B)
         if m == 0 or n == 0:
