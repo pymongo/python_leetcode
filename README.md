@@ -139,6 +139,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
 |349|[Intersection of Two Arrays](https://www.leetcode.com/problems/intersection-of-two-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |350|[Intersection of Two Arrays II](https://www.leetcode.com/problems/intersection-of-two-arrays-ii/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
+|354|[Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes/)|[Python](dp/russian_doll_envelopes.py)||
 |368|[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)|[Python](dp/largest_divisible_subset.py)||
 |371|[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)|[Python](bitwise/binary_addition.py)|binary_addition|
 |380|[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
@@ -407,6 +408,7 @@ LintCode
 |685|[First Unique Number in Data Stream](https://lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](list_node/first_unique_number_in_stream.py)||
 |689|[First Unique Number in Data Stream](https://lintcode.com/problem/two-sum-iv-input-is-a-bst/)|[Python](binary_tree/bst_two_sum.py)||
 |701|[Trim A Binary Search Tree](https://www.lintcode.com/problem/trim-a-binary-search-tree/)|[Python](binary_tree/bst_trim_in_range.py)||
+|702|[Russian Doll Envelopes](https://lintcode.com/problem/russian-doll-envelopes/)|[Python](dp/russian_doll_envelopes.py)||
 |719|[Calculate Maximum Value](https://www.lintcode.com/problem/calculate-maximum-value/)|[Python](dp/calculate_max_value_2.py)||
 |724|[Minimum Partition](https://lintcode.com/problem/minimum-partition/)|[Python](dp/backpack_1_2.py)|0-1背包问题|
 |741|[Calculate Maximum Value II](https://www.lintcode.com/problem/calculate-maximum-value-ii/)|[Python](dp/calculate_max_value_2.py)||
