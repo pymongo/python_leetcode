@@ -1,4 +1,5 @@
 import unittest
+import sys
 from typing import List
 
 
@@ -17,6 +18,10 @@ class Solution(unittest.TestCase):
     def test_binary_search(self):
         for nums, k, cost_time in self.TEST_CASES:
             self.assertEqual(cost_time, self.binary_search(nums, k))
+
+    def test_dp(self):
+        for nums, k, cost_time in self.TEST_CASES:
+            self.assertEqual(cost_time, self.dp_solution(nums, k))
 
     @staticmethod
     def binary_search(nums: List[int], k: int) -> int:
@@ -56,3 +61,32 @@ class Solution(unittest.TestCase):
         if get_number_of_peoples(start) <= k:
             return start
         return end
+
+    @staticmethod
+    def dp_solution(nums: List[int], k: int) -> int:
+        # TODO 用四边形不等式优化法降低时间复杂度
+        # dp[i][j]表示前i个任务分配给j个人的最少耗时，让干活最多的一个人耗时最少
+        # 划分型动态规划，这刀该切在哪？划分开 第j个人 和 前j-1个人
+        # 我们可以认为主要取决于第j个人也就是最后一个人的耗时，所以又是自顶向下的DP
+        # 初始条件: dp[0][j] 一个任务也没有所以耗时0，dp[i][j]无穷大，假设都是0个人永远做不完
+        # answer: dp[n][k]
+        # dp[i][j] = min(dp[i][j], max(dp[prev][j-1], sum(nums[prev:i]))
+        # dp[prev][j-1]表示前j-1个人完成nums[0:prev]
+        if not nums or not k:
+            return 0
+        n = len(nums)
+        # prefix_sum[0]表示前0个数的前缀和
+        prefix_sum = [0] * (n + 1)
+        for i in range(1, n + 1):
+            prefix_sum[i] = nums[i-1] + prefix_sum[i - 1]
+
+        dp = [[sys.maxsize] * (k + 1) for _ in range(n + 1)]
+        for j in range(k + 1):
+            dp[0][j] = 0
+
+        for i in range(1, n + 1):
+            for j in range(1, k + 1):
+                for prev in range(i):
+                    dp[i][j] = min(dp[i][j], max(dp[prev][j - 1], sum(nums[prev:i])))
+
+        return dp[n][k]

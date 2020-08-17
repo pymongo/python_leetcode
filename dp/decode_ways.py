@@ -35,6 +35,7 @@ class Solution(unittest.TestCase):
         if n == 0:
             return 0
         first = decode(s[0])
+        # 第0项一开始是dummy的，例如"12"实际上取的是dp[2]，而初始化时dp=[2,2,0]
         dp = [first, first, 0]
 
         if dp[0] == 0:

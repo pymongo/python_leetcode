@@ -37,3 +37,39 @@ class Solution(unittest.TestCase):
             max_len = max(max_len, dp[i])
 
         return max_len
+
+    def test_greedy(self):
+        for nums, max_len in self.TEST_CASES:
+            print(nums)
+            self.assertEqual(max_len, self.greedy(nums))
+
+    @staticmethod
+    def greedy(nums: List[int]) -> int:
+        # 同样长度为3的LIC，只记录较小的[1,2,3]，不记录[4,5,6]
+        n = len(nums)
+        # lis[i]表示长度为i的lis的末尾的数最小是多少
+        lis = [float('inf')] * (n + 1)
+        lis[0] = -float('inf')
+        # 遍历时二分查找第一个lis[i]>=x, 将这个lis[i]更新为x
+        # 例如第一个数是3，那么会将lis[1]从无穷大更新为更小的3
+        # 第二个是4，找一个>=4的位置，下标2，因为4大于3，4没法替代掉3
+        # 所以lis是一个「升序序列」
+
+        def first_ge(target: int) -> int:
+            start, end = 0, n
+            while start + 1 < end:
+                mid = start + (end- start)//2
+                if lis[mid] >= target:
+                    end = mid
+                else:
+                    start = mid
+            if lis[start] >= target:
+                return start
+            return end
+
+        longest = 0
+        for num in nums:
+            index = first_ge(num)
+            lis[index] = num
+            longest = max(longest, index)
+        return longest
