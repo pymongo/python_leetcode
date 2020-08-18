@@ -432,6 +432,7 @@ LintCode
 |719|[Calculate Maximum Value](https://www.lintcode.com/problem/calculate-maximum-value/)|[Python](dp/calculate_max_value_2.py)||
 |724|[Minimum Partition](https://lintcode.com/problem/minimum-partition/)|[Python](dp/backpack_1_2.py)|0-1背包问题|
 |741|[Calculate Maximum Value II](https://www.lintcode.com/problem/calculate-maximum-value-ii/)|[Python](dp/calculate_max_value_2.py)||
+|749|[John's backyard garden](https://www.lintcode.com/problem/johns-backyard-garden/)|[Python](dp/backpack_3_item_can_select_multi_coin_exchange.py)||
 |761|[Smallest Subset](https://www.lintcode.com/problem/smallest-subset/)|[Python](easy/smallest_subset.py)||
 |772|[Group Anagrams](https://lintcode.com/problem/group-anagrams/)|[Python](collections/group_anagrams.py)||
 |773|[Vlid Anagram](https://www.lintcode.com/problem/vlid-anagram/)|[Python](collections/valid_anagram.py)||
