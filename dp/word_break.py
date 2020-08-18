@@ -2,7 +2,7 @@ import unittest
 from typing import List
 
 
-# 关键词: 分词法、前缀型、划分型
+# 关键词: 完全背包、分词法、前缀型、划分型
 class Solution:
     # noinspection PyMethodMayBeStatic,PyPep8Naming
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:

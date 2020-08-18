@@ -2,7 +2,6 @@ LeetCode
 ========
 
 TODO List
-- [ ] 默写背包问题5
 
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
 
@@ -34,6 +33,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |16|[3Sum Closest](https://leetcode.com/problems/3sum-closest/)|[Python](two_sum_two_pointers/three_sum_closest.py)|two_sum|
 |17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|[Python](dfs_perm_comb/phone_9_keypad_combination.py)|product(笛卡尔积)|
 |18|[4Sum](https://leetcode.com/problems/4sum/)|[Python](two_sum_two_pointers/four_sum.py)|two_pointers, two_sum|
+|19|[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)|[Python](linked_list/remove_nth_node_from_end.py)|sliding_window|
 |20|[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)|[Python](collections/valid_parentheses.py)|stack|
 |21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)|[Python](divide_conquer/merge_k_sorted_lists.py)||
 |23|[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)|[Python](divide_conquer/merge_k_sorted_lists.py)||
@@ -336,6 +336,7 @@ LintCode
 |168|[Burst Balloons](https://lintcode.com/problem/burst-balloons/)|[Python](dp/burst_ballon.py)||
 |171|[Anagrams](https://lintcode.com/problem/anagrams/)|[Python](collections/group_anagrams.py)||
 |172|[Subarray Sum](https://lintcode.com/problem/remove-element/)|[Python](partition_array/move_zeros.py)||
+|174|[Remove Nth Node From End of List](https://lintcode.com/problem/remove-nth-node-from-end-of-list/)|[Python](linked_list/remove_nth_node_from_end.py)|sliding_window|
 |183|[Wood Cut](https://lintcode.com/problem/wood-cut/)|[Python](binary_search/wood_cut.py)|greedy|   
 |187|[Gas Station](https://lintcode.com/problem/gas-station/)|[Python](greedy/gas_station.py)|greedy|
 |190|[Next Permutation II](https://lintcode.com/problem/next-permutation-ii/)|[Python](dfs_perm_comb/next_permutation.py)||
