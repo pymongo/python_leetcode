@@ -152,6 +152,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |426|[Longest Repeating Character Replacement](https://www.leetcode.com/problems/longest-repeating-character-replacement/)|[Python](two_sum_two_pointers/longest_repeating_character_replacement.py)||
 |449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |454|[4Sum II](https://leetcode.com/problems/4sum-ii/)|[Python](two_sum_two_pointers/four_sum_2.py)|two_sum|
+|490|[The Maze](https://leetcode.com/problems/the-maze/)|[Python](bfs/the_maze.py)||
 |498|[Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/)|[Python](unclassified/diagonal_traverse.py)||
 |507|[Perfect Number](https://leetcode.com/problems/perfect-number/)|[Python](factorization/perfect_number.py)||
 |509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
@@ -416,6 +417,7 @@ LintCode
 |741|[Calculate Maximum Value II](https://www.lintcode.com/problem/calculate-maximum-value-ii/)|[Python](dp/calculate_max_value_2.py)||
 |761|[Smallest Subset](https://www.lintcode.com/problem/smallest-subset/)|[Python](easy/smallest_subset.py)||
 |772|[Group Anagrams](https://lintcode.com/problem/group-anagrams/)|[Python](collections/group_anagrams.py)||
+|787|[The Maze](https://lintcode.com/problem/the-maze/)|[Python](bfs/the_maze.py)||
 |793|[Intersection of Arrays](https://www.lintcode.com/problem/intersection-of-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |802|[Soduku Solver](https://lintcode.com/problem/soduku-solver/)|[Python](dfs_perm_comb/soduku_solver.py)||
 |813|[Find Anagram Mappings](https://lintcode.com/problem/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
