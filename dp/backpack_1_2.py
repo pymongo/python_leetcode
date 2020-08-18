@@ -10,12 +10,13 @@ dp[i][j]表示从前i个物品中能否装成容量为j的组合
 1.2 最低满减金额: 假设您有一张满X元立减的满减优惠券，请问要怎么点餐才能花钱最少又能享受满减
 通常的背包模板要求<=m的最大值，而这题要求>=m的最小值，所以这样转换一下 m=sum(nums)-X
 
-# 2.x leetcode: 1049,416 和 lintcode: 724这三题几乎一样
+# 2.x leetcode: 1049,416,494 和 lintcode: 724这三题几乎一样
 2.1 leetcode_1049.Last Stone Weight II: 给N个石头，每次选两个碰撞，最后剩余小石头的大小是abs(x-y)，请问最后剩下1个石头的大小是？
 其实石头碰撞问题可以想成把数组的数尽可能均分放在两个桶内，然后求两个桶的石头体积之差
 2.2 lintcode_724.Minimum Partition: 和LC416类似，只不过返回值是两部分差值的最小值
 2.3 leetcode_416/lintcode_588.Partition Equal Subset Sum: 问你能否均分数组，使得两部分的和相等
 这题这是问能不能，如果和为奇数就可以提前返回False，然后使用布尔值DP数组即可
+2.4 leetcode_496: 这题跟1049石头碰撞一样
 
 3. 0-1背包问题物品带价值(lintcode_backpack_2)
 4. 多重背包问题物品带价值且可以选多次(lintcode_backpack_3)
@@ -301,6 +302,7 @@ class Solution:
     @staticmethod
     def lintcode_backpack_6(nums: List[int], m: int) -> int:
         """
+        此题与 combination sum IV相同
         TODO 可以先背结论: dp数组下标->coins的遍历顺序能得到更多的方案数，会把[1,2]和[2,1]当作组合数的两种方案
         """
         dp = [0] * (m + 1)

@@ -65,6 +65,7 @@ class Solution(unittest.TestCase):
         for num, feasibility in test_cases:
             self.assertEqual(feasibility, self.coin_change_feasibility(num))
 
+    # 求完全背包的可行性问题的，类似的题还有word_break
     @staticmethod
     def coin_change_feasibility(num: int) -> bool:
         """
