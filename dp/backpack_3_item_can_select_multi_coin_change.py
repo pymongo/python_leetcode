@@ -4,23 +4,23 @@ from typing import List
 
 # 完全背包问题: 一个物品可以选一次或多次
 class Solution(unittest.TestCase):
-    def test_coin_exchange_min_items(self):
+    def test_coin_change_min_items(self):
         test_cases = [
             ([1, 2, 5], 11, 3),
             ([2], 3, -1),
         ]
 
-    def test_coin_exchange_2_plans_count(self):
+    def test_coin_change_2_plans_count(self):
         test_cases = [
             (5, [1, 2, 5], 4),
             (3, [2], 0),
             (10, [10], 1),
         ]
         for amount, coins, plans_count in test_cases:
-            self.assertEqual(plans_count, self.coin_exchange_2_plans_count(amount, coins))
+            self.assertEqual(plans_count, self.coin_change_2_plans_count(amount, coins))
 
     @staticmethod
-    def coin_exchange_2_plans_count(amount: int, coins: List[int]) -> int:
+    def coin_change_2_plans_count(amount: int, coins: List[int]) -> int:
         dp = [0] * (amount + 1)
         dp[0] = 1
 
@@ -29,15 +29,15 @@ class Solution(unittest.TestCase):
                 dp[i] += dp[i - coin]
         return dp[amount]
 
-    def test_coin_exchange_feasibility(self):
+    def test_coin_change_feasibility(self):
         test_cases = [
             (10, True)
         ]
         for num, feasibility in test_cases:
-            self.assertEqual(feasibility, self.coin_exchange_feasibility(num))
+            self.assertEqual(feasibility, self.coin_change_feasibility(num))
 
     @staticmethod
-    def coin_exchange_feasibility(num: int) -> bool:
+    def coin_change_feasibility(num: int) -> bool:
         """
         lintcode_749
         可以将本题理解成`零钱兑换-求可行性`问题, 可行性(feasibility)
