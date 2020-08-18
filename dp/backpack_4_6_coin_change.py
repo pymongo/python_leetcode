@@ -1,4 +1,5 @@
 import unittest
+import sys
 from typing import List
 
 
@@ -6,9 +7,21 @@ from typing import List
 class Solution(unittest.TestCase):
     def test_coin_change_min_items(self):
         test_cases = [
+            # 11=5+5+1, 用尽可能少的硬币凑出11
             ([1, 2, 5], 11, 3),
             ([2], 3, -1),
         ]
+        for coins, amount, expected in test_cases:
+            self.assertEqual(expected, self.coin_change_min_items(coins, amount))
+
+    @staticmethod
+    def coin_change_min_items(coins: List[int], amount: int) -> int:
+        dp = [sys.maxsize] * (amount + 1)
+        dp[0] = 0
+        for coin in coins:
+            for i in range(coin, amount + 1):
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+        return dp[amount] if dp[amount] != sys.maxsize else -1
 
     def test_coin_change_2_plans_count(self):
         test_cases = [
@@ -27,6 +40,22 @@ class Solution(unittest.TestCase):
         for coin in coins:
             for i in range(coin, amount + 1):
                 dp[i] += dp[i - coin]
+        return dp[amount]
+
+    @staticmethod
+    def combination_sum_4(amount: int, coins: List[int]) -> int:
+        """
+        注意面试官可能会问这个算法能不能解决nums中有负数的情况，答案是不能
+        和coin_change_2区别在于外层for循环是遍历dp数组的下标
+        TODO 可以先背结论: dp数组下标->coins的遍历顺序能得到更多的方案数，会把[1,2]和[2,1]当作组合数的两种方案
+        """
+        dp = [0] * (amount + 1)
+        dp[0] = 1
+
+        for i in range(1, amount + 1):
+            for coin in coins:
+                if i >= coin:
+                    dp[i] += dp[i - coin]
         return dp[amount]
 
     def test_coin_change_feasibility(self):

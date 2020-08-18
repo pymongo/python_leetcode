@@ -237,15 +237,21 @@ class Solution:
 
     @staticmethod
     def lintcode_backpack_1(m: int, nums: List[int]) -> int:
+        """
+        求容量为m的背包最大能装多少
+        """
         # dp[i]表示容量为i的背包最大能装多少
-        dp = [0] * (m+1)
+        dp = [0] * (m + 1)
         for num in nums:
-            for j in range(m, num-1, -1):
-                dp[j] = max(dp[j], dp[j-num]+num)
+            for j in range(m, num - 1, -1):
+                dp[j] = max(dp[j], dp[j - num] + num)
         return dp[m]
 
     @staticmethod
     def lintcode_backpack_2(m: int, nums: List[int], values: List[int]) -> int:
+        """
+        求容量为m的背包最大能装的最大物品价值
+        """
         dp = [0] * (m + 1)
         for i, num in enumerate(nums):
             for j in range(m, num - 1, -1):
@@ -254,12 +260,56 @@ class Solution:
 
     @staticmethod
     def lintcode_backpack_3(capacities: List[int], values: List[int], m: int) -> int:
+        """
+        物品可选多次，求容量为m的背包最大能装的最大物品价值
+        TODO 注意完全背包问题的滚动数组一般都可以正常顺序填表(参考零钱兑换问题)
+        """
         dp = [0] * (m + 1)
         for capacity, value in zip(capacities, values):
             # 内层第一次遍历能考虑到物品1选0-k次后最大价值的情况，依次叠加多选一个物品的影响
             for j in range(capacity, m + 1):
                 # 如果上次选了物品1的是最大值，那么这次就能选到两次物品1
                 dp[j] = max(dp[j], dp[j - capacity] + value)
+        return dp[m]
+
+    @staticmethod
+    def lintcode_backpack_4(nums: List[int], m: int) -> int:
+        """
+        物品可选多次，求装满容量为m的背包的方案总数
+        此题与零钱兑换2完全一样
+        """
+        dp = [0] * (m + 1)
+        dp[0] = 1
+        for num in nums:
+            for i in range(num, m + 1):
+                dp[i] += dp[i - num]
+        return dp[m]
+
+    @staticmethod
+    def lintcode_backpack_5(nums: List[int], m: int) -> int:
+        """
+        求装满容量为m的背包的方案总数
+        此题与backpack_4的区别在于物品最多选1次，所以只能倒着遍历
+        """
+        dp = [0] * (m + 1)
+        dp[0] = 1
+        for num in nums:
+            for j in range(m, num - 1, -1):
+                dp[j] += dp[j - num]
+        return dp[m]
+
+    @staticmethod
+    def lintcode_backpack_6(nums: List[int], m: int) -> int:
+        """
+        TODO 可以先背结论: dp数组下标->coins的遍历顺序能得到更多的方案数，会把[1,2]和[2,1]当作组合数的两种方案
+        """
+        dp = [0] * (m + 1)
+        dp[0] = 1
+
+        for i in range(1, m + 1):
+            for num in nums:
+                if i >= num:
+                    dp[i] += dp[i - num]
         return dp[m]
 
 
