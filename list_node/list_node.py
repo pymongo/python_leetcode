@@ -3,9 +3,9 @@ from typing import List, Optional
 
 
 class ListNode:
-    def __init__(self, num):
-        self.val: int = num
-        self.next: Optional[ListNode] = None
+    def __init__(self, val: int, next_node=None):
+        self.val: int = val
+        self.next: Optional[ListNode] = next_node
 
     def __str__(self) -> str:
         list_node_to_string: str = str(self.val)
