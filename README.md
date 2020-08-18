@@ -2,17 +2,16 @@ LeetCode
 ========
 
 TODO List
-- [ ] 默写背包问题1、2、3、5
+- [ ] 默写背包问题5
 
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
 
-因为leetcode-cn上我多做了一些面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了6题
+因为leetcode-cn上我多做了一些面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了10题
 
 有意思的但是没有找到题号的问题:
 
-1. 报数出列(约瑟夫环)问题
-2. 海盗分金币问题(比较脑筋急转弯的递推)
-3. 最大直方图矩阵(Longest Histgram Rectangle), 单调栈O(n^3)->O(n)
+1. 海盗分金币问题(比较脑筋急转弯的递推)
+2. 最大直方图矩阵(Longest Histgram Rectangle), 单调栈O(n^3)->O(n)
 https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183 赠送的四大优惠~！
 
 | # | Title | Solutions | Category |
@@ -154,7 +153,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |426|[Longest Repeating Character Replacement](https://www.leetcode.com/problems/longest-repeating-character-replacement/)|[Python](two_sum_two_pointers/longest_repeating_character_replacement.py)||
 |449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |454|[4Sum II](https://leetcode.com/problems/4sum-ii/)|[Python](two_sum_two_pointers/four_sum_2.py)|two_sum|
-|490|[The Maze](https://leetcode.com/problems/the-maze/)|[Python](bfs/the_maze.py)||
+|490_LOCK|[The Maze](https://leetcode.com/problems/the-maze/)|[Python](bfs/the_maze.py)||
 |498|[Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/)|[Python](unclassified/diagonal_traverse.py)||
 |507|[Perfect Number](https://leetcode.com/problems/perfect-number/)|[Python](factorization/perfect_number.py)||
 |509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
@@ -210,6 +209,16 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |1512|[Number of Good Pairs](https://leetcode.com/problems/number-of-good-pairs/)|[Python](dfs_perm_comb/numbers_of_good_pairs.py)||
 |1528|[Shuffle String](https://leetcode.com/problems/shuffle-string/)|[Python](easy/shuffle_string.py)||
 
+---
+
+剑指Offer
+========
+
+忽略LeetCode主站上重复出现的题以及过于简单的剑指Offer题
+
+| # | Title | Solutions | Category |
+|---| ----- | -------- | ---------- |
+|62|[圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)|[Python](brain_twists/josephus.py)|约瑟夫环|
 
 ---
 

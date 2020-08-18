@@ -98,7 +98,7 @@ class Solution:
         return dp[size][m]
 
     @staticmethod
-    def min_partition_dp(nums: List[int]) -> int:
+    def stone_weight_2(nums: List[int]) -> int:
         """
         本题要求将数组任意分成两部分，要求两部分之和 的差值最小(leetcode 416问你能不能均分)
         实际上可以转化为01背包问题: 从数组中选任意个数，使得和尽可能接近sum(nums)//2
@@ -235,6 +235,33 @@ class Solution:
 
         return dfs(0, half_sum)
 
+    @staticmethod
+    def lintcode_backpack_1(m: int, nums: List[int]) -> int:
+        # dp[i]表示容量为i的背包最大能装多少
+        dp = [0] * (m+1)
+        for num in nums:
+            for j in range(m, num-1, -1):
+                dp[j] = max(dp[j], dp[j-num]+num)
+        return dp[m]
+
+    @staticmethod
+    def lintcode_backpack_2(m: int, nums: List[int], values: List[int]) -> int:
+        dp = [0] * (m + 1)
+        for i, num in enumerate(nums):
+            for j in range(m, num - 1, -1):
+                dp[j] = max(dp[j], dp[j - num] + values[i])
+        return dp[m]
+
+    @staticmethod
+    def lintcode_backpack_3(capacities: List[int], values: List[int], m: int) -> int:
+        dp = [0] * (m + 1)
+        for capacity, value in zip(capacities, values):
+            # 内层第一次遍历能考虑到物品1选0-k次后最大价值的情况，依次叠加多选一个物品的影响
+            for j in range(capacity, m + 1):
+                # 如果上次选了物品1的是最大值，那么这次就能选到两次物品1
+                dp[j] = max(dp[j], dp[j - capacity] + value)
+        return dp[m]
+
 
 class Testing(unittest.TestCase):
     TEST_CASES = [
@@ -267,7 +294,7 @@ class Testing(unittest.TestCase):
 
     def test_min_partition(self):
         for nums, min_diff in self.MIN_PARTITION_CASES:
-            self.assertEqual(min_diff, Solution.min_partition_dp(nums))
+            self.assertEqual(min_diff, Solution.stone_weight_2(nums))
 
     def test_min_partition_one_row_dp(self):
         for nums, min_diff in self.MIN_PARTITION_CASES:
