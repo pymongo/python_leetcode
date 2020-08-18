@@ -2,7 +2,7 @@
 rehashing(哈希扩容)，发现哈希冲突严重容量不够用之后，基本用倍增法将capacity(容量)翻倍
 """
 import unittest
-from list_node.list_node import ListNode
+from linked_list.list_node import ListNode
 from typing import List, Optional
 
 

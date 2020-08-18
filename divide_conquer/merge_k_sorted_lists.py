@@ -1,6 +1,6 @@
 import unittest
 from typing import List, Optional
-from list_node.list_node import ListNode
+from linked_list.list_node import ListNode
 import heapq
 
 
