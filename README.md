@@ -2,7 +2,7 @@ LeetCode
 ========
 
 TODO List
-- [ ] 默写背包问题1、2、3、5和LC_1049
+- [ ] 默写背包问题1、2、3、5
 
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
 
@@ -13,7 +13,6 @@ TODO List
 1. 报数出列(约瑟夫环)问题
 2. 海盗分金币问题(比较脑筋急转弯的递推)
 3. 最大直方图矩阵(Longest Histgram Rectangle), 单调栈O(n^3)->O(n)
-
 https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183 赠送的四大优惠~！
 
 | # | Title | Solutions | Category |
@@ -44,6 +43,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |31|[Next Permutation](https://leetcode.com/problems/next-permutation/)|[Python](dfs_perm_comb/next_permutation.py)||
 |33|[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |34|[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)|[Python](binary_search/binary_search_first_and_last.py)|binary_search|
+|35|[Search Insert Position](https://leetcode.com/problems/search-insert-position/)|[Python](binary_search/search_insert_position.py)||
 |36|[Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)|[Python](dfs_perm_comb/valid_soduku.py)||
 |37|[Soduku Solver](https://leetcode.com/problems/soduku-solver/)|[Python](dfs_perm_comb/soduku_solver.py)||
 |39|[Combination Sum](https://leetcode.com/problems/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py)||
@@ -252,6 +252,7 @@ LintCode
 |57|[3Sum](https://lintcode.com/problem/3sum/)|[Python](two_sum_two_pointers/three_sum.py)|two_pointers, two_sum|
 |58|[4Sum](https://lintcode.com/problem/4sum/)|[Python](two_sum_two_pointers/four_sum.py)|two_pointers, two_sum|
 |59|[3Sum Closest](https://lintcode.com/problem/3sum-closest/)|[Python](two_sum_two_pointers/three_sum_closest.py)|two_sum|
+|60|[Search Insert Position](https://lintcode.com/problem/search-insert-position/)|[Python](binary_search/search_insert_position.py)||
 |61|[Search for a Range](https://www.lintcode.com/problem/search-for-a-range/)|[Python](binary_search/binary_search_first_and_last.py)||
 |62|[Search in Rotated Sorted Array](https://lintcode.com/problem/search-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |63|[Search in Rotated Sorted Array II](https://lintcode.com/problem/search-in-rotated-sorted-array-ii/)|[Python](binary_search/rotated_sorted_array_search_2_with_duplicate.py)|binary_search|
