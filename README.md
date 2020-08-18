@@ -107,6 +107,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |200|[Number of Islands](https://leetcode.com/problems/number-of-islands/)|[Python](graph/number_of_islands.py)|union_find, DFS, BFS|
 |206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[Python](list_node/reverse_linked_list.py)|list_node|
 |208|[Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)|[Python](tire/impl_tire_prefix_tree.py)|前缀树/字典树|
+|207|[Course Schedule](https://leetcode.com/problems/course-schedule/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
 |210|[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
 |212|[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python](dfs_perm_comb/word_search_2.py)|前缀树|
 |215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
@@ -399,6 +400,7 @@ LintCode
 |609|[Two Sum - Difference equals to target](https://www.lintcode.com/problem/two-sum-difference-equals-to-target/)|[Python](two_sum_two_pointers/two_sum_diff.py)|two_pointers|
 |611_LOCK|[Knight Shortest Path](https://lintcode.com/problem/knight-shortest-path/)|[Python](bfs/knight_shortest_path.py)|bfs|
 |612_LOCK|[K Closest Points](https://lintcode.com/problem/k-closest-points/)|[Python](sorting_and_query/k_closest_points_to_origin.py)|quick_select, sort_by_multi_keys|
+|615|[Course Schedule](https://lintcode.com/problem/course-schedule/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
 |616|[Course Schedule II](https://lintcode.com/problem/course-schedule-ii/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
 |627|[Longest Palindromic Combination](https://lintcode.com/problem/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|greedy|
 |628|[Maximum Subtree](https://lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
