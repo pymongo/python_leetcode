@@ -31,7 +31,7 @@ def merge_two_sorted_arrays(nums1: List[int], nums2: List[int]) -> List[int]:
 
 class Solution:
     @staticmethod
-    def merge_two_sorted_arrays(arrays: List[List[int]]) -> List[int]:
+    def merge_k_sorted_arrays(arrays: List[List[int]]) -> List[int]:
         n = len(arrays)
         if n == 0:
             return []

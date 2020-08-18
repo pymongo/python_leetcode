@@ -40,6 +40,8 @@ class Solution(unittest.TestCase):
         max_i = 0
         for i in range(size):
             for j in range(i):
+                # TODO 优化用因子优化找整除的过程
+                # TODO 不必从0遍历到i，只需要遍历所有nums[i]的因子，时间复杂度降低到sqrt(n)
                 if nums[i] % nums[j] != 0:
                     continue
                 # 如果dp[i]能更新最大值，如果要记住最佳方案的路径，不能用max
