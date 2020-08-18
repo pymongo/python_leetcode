@@ -1,18 +1,40 @@
 import unittest
+from typing import List
 
 
+# 完全背包问题: 一个物品可以选一次或多次
 class Solution(unittest.TestCase):
+    def test_coin_exchange_min_items(self):
+        test_cases = [
+            ([1, 2, 5], 11, 3),
+            ([2], 3, -1),
+        ]
+
+    def test_coin_exchange_2_plans_count(self):
+        test_cases = [
+            (5, [1, 2, 5], 4),
+            (3, [2], 0),
+            (10, [10], 1),
+        ]
+        for amount, coins, plans_count in test_cases:
+            self.assertEqual(plans_count, self.coin_exchange_2_plans_count(amount, coins))
 
     @staticmethod
-    def coin_exchange_2_plans_count():
-        pass
+    def coin_exchange_2_plans_count(amount: int, coins: List[int]) -> int:
+        dp = [0] * (amount + 1)
+        dp[0] = 1
+
+        for coin in coins:
+            for i in range(coin, amount + 1):
+                dp[i] += dp[i - coin]
+        return dp[amount]
 
     def test_coin_exchange_feasibility(self):
         test_cases = [
             (10, True)
         ]
-        for num, expected in test_cases:
-            self.assertEqual(expected, self.coin_exchange_feasibility(num))
+        for num, feasibility in test_cases:
+            self.assertEqual(feasibility, self.coin_exchange_feasibility(num))
 
     @staticmethod
     def coin_exchange_feasibility(num: int) -> bool:
@@ -25,11 +47,8 @@ class Solution(unittest.TestCase):
         dp = [False] * (num + 1)
         dp[0] = True
 
-        for i in range(1, num + 1):
-            for value in (3, 7):
-                if i - value < 0:
-                    # 例如不能兑换处2块
-                    continue
+        for value in (3, 7):
+            for i in range(value, num + 1):
                 dp[i] = dp[i] or dp[i - value]
         return dp[num]
 

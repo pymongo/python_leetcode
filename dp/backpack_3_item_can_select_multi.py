@@ -2,7 +2,7 @@ import unittest
 from typing import List
 
 
-# backpack_3
+# backpack_3: “完全/多重背包问题”的特点是：背包里的物品可以无限次选取
 class Solution:
     # backpack问题3: 同一个物品可以选择多次
     @staticmethod
