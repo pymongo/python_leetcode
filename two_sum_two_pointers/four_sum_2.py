@@ -3,6 +3,7 @@ from typing import List
 
 
 # 枚举k-sum(DFS)和k-sum方案总数(动态规划)是后续课程的内容了
+# 这题要求a+b=c+d，可以用特殊方法解决
 # noinspection PyPep8Naming
 def four_sum_eq_0(A: List[int], B: List[int], C: List[int], D: List[int]) -> int:
     pairs = dict()

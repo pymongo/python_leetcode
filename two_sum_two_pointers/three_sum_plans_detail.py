@@ -10,6 +10,43 @@ from typing import List
 from copy import deepcopy
 
 
+class Solution(unittest.TestCase):
+    TWO_SUM_PLANS_DETAILS_TEST_CASES = [
+        ([1, 1, 2, 3, 4, 5], 6, [[1, 5], [2, 4]])
+    ]
+
+    # 字节跳动喜欢考枚举Two Sum每个方案的详情，我看leetcode没有原题，类似的有three-sum，所以还是自己写测试用例练一练
+    def test_two_sum_plans_detail(self):
+        for nums, target, plans_detail in self.TWO_SUM_PLANS_DETAILS_TEST_CASES:
+            self.assertListEqual(plans_detail, self.two_sum_plans_detail(nums, target))
+
+    @staticmethod
+    def two_sum_plans_detail(nums: List[int], target: int) -> List[List[int]]:
+        nums.sort()
+        n = len(nums)
+        res = []
+        left, right = 0, n - 1
+        while left < right:
+            # 去重
+            if left > 0 and nums[left] == nums[left-1]:
+                left += 1
+                continue
+            if right < n-1 and nums[right] == nums[right-1]:
+                right -= 1
+                continue
+
+            two_sum = nums[left] + nums[right]
+            if two_sum > target:
+                right -= 1
+            elif two_sum < target:
+                left += 1
+            else:
+                res.append([nums[left], nums[right]])
+                left += 1
+                right -= 1
+        return res
+
+
 def three_sum_equal_zero(nums: List[int]) -> List[List[int]]:
     results = []
     # 通过shadowing重新赋值的好处是排序时不会修改掉原来的nums数组

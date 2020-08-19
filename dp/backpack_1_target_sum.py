@@ -1,6 +1,7 @@
 from typing import List
 
 
+# 给一个数组的各个数添上正负号，使得整体和等于trarget
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         """
