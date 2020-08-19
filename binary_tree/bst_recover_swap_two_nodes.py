@@ -22,11 +22,12 @@ class Solution:
             # 为什么一定是第一次的前一个节点和第二次的后一个节点？
             # 假设bst原先的中序遍历是[1,2,3,4,5]
             # 然后2和4互换，中序遍历[1,4,3,2,5]，发现第一个错误在4>3，左边的交换过的，第二个错误在3>2，取右边的交换过的
-            if self.first is None and self.prev.val > node.val:
+            # FIXME 注意判断符是大于等于，因为两个节点值相等时就不是BST了(参考98题验证BST的规则)
+            if self.first is None and self.prev.val >= node.val:
                 # FIXME 不能在找到第一个错误值时，错误的认为相邻的两个节点都是错误的
                 # self.first, self.second = self.prev, node
                 self.first = self.prev
-            if self.first and self.prev.val > node.val:
+            if self.first and self.prev.val >= node.val:
                 # 虽然初始化first时，second会设置成相邻的点，但是随着遍历
                 self.second = node
 

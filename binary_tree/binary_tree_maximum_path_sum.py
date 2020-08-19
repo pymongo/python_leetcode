@@ -24,9 +24,9 @@ class Solution(unittest.TestCase):
             left = max(find_max(node.left), 0)
             right = max(find_max(node.right), 0)
             # 先判断当前左-中-右路径是不是最长的
-            self.max_path = max(self.max_path, left + root.val + right)
+            self.max_path = max(self.max_path, left + node.val + right)
             # 由于往上的路径只能是从左往上或从右往上，所以选一个最大的
-            return root.val + max(left, right)
+            return node.val + max(left, right)
 
         find_max(root)
         # noinspection PyTypeChecker
