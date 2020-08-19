@@ -116,6 +116,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |209|[Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)|[Python](two_sum_two_pointers/minimun_size_subarray_sum.py)|sliding_window|
 |210|[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
 |212|[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python](dfs_perm_comb/word_search_2.py)|前缀树|
+|213|[House Robber II](https://leetcode.com/problems/house-robber-ii/)|[Python](dp/house_robber.py)||
 |215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
 |225|[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)|[Python](collections/impl_stack_using_queue.py)||
 |230|[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
@@ -144,6 +145,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |312|[Burst Balloons](https://leetcode.com/problems/burst-balloons/)|[Python](dp/burst_ballon.py)||
 |322|[Coin Change](https://leetcode.com/problem/coin-change/)|[Python](dp/backpack_4_6_coin_change.py)|完全背包问题|
 |326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python](bitwise/is_power_of_3.py)|bitwise|
+|337|[House Robber III](https://leetcode.com/problems/house-robber-iii/)|[Python](dp/house_robber.py)||
 |342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
 |349|[Intersection of Two Arrays](https://www.leetcode.com/problems/intersection-of-two-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
@@ -407,6 +409,8 @@ LintCode
 |517|[Ugly Number](https://lintcode.com/problem/ugly-number/)|[Python](easy/ugly_number.py)||
 |521_LOCK|[Remove Duplicate Numbers in Array](https://lintcode.com/problem/remove-duplicate-numbers-in-array/)|[Python](partition_array/remove_duplicate_numbers_in_array.py)|partition_array|
 |533_LOCK|[Two Sum - Closest to target](https://lintcode.com/problem/two-sum-closest-to-target/)|[Python](two_sum_two_pointers/two_sum_unique_pairs.py)|two_sum|
+|534|[House Robber II](https://lintcode.com/problem/house-robber-ii/)|[Python](dp/house_robber.py)||
+|535|[House Robber III](https://lintcode.com/problem/house-robber-iii/)|[Python](dp/house_robber.py)||
 |539|[Move Zeros](https://lintcode.com/problem/move-zeroes/)|[Python](partition_array/move_zeros.py)|partition_array, 快慢双指针|
 |544|[Top k Largest Numbers](https://lintcode.com/problem/top-k-largest-numbers/)|[Python](collections/top_k_largest_stream_min_heap.py)|min_heap|
 |545|[Top k Largest Numbers II](https://lintcode.com/problem/top-k-largest-numbers-ii/)|[Python](collections/top_k_largest_stream_min_heap.py)|min_heap|
