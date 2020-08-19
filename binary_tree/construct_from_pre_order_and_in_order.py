@@ -36,7 +36,7 @@ def copy_stack_solution(pre_order: List[int], in_order: List[int]) -> Optional[T
 
 
 # 自强，自己推敲递归解法
-def my_solution_helper(pre_order: List[int], in_order: List[int]) -> TreeNode:
+def pre_in_to_build_tree_entrance(pre_order: List[int], in_order: List[int]) -> TreeNode:
     # HashMap加速查找pre_order中的根节点在in_order的索引位置
     in_order_map: Dict[int, int] = {}
     in_order_len = 0
@@ -136,7 +136,7 @@ class Testing(unittest.TestCase):
 
     def test_my_solution(self):
         for pre_order, in_order, binary_tree in self.TEST_CASES:
-            root = my_solution_helper(pre_order, in_order)
+            root = pre_in_to_build_tree_entrance(pre_order, in_order)
             self.assertEqual(binary_tree, root.to_str())
 
     def test_stack(self):

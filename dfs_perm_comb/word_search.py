@@ -32,7 +32,7 @@ def dfs(
     return False
 
 
-def dfs_helper(board: List[List[str]], word: str) -> bool:
+def dfs_entrance(board: List[List[str]], word: str) -> bool:
     n_rows = len(board)
     n_cols = len(board[0])
     visited = [[False] * n_cols for _ in range(n_rows)]
@@ -118,7 +118,7 @@ class Testing(unittest.TestCase):
     def test_dfs(self):
         for board, word, is_exists_in_grid in self.TEST_CASES:
             print(word)
-            self.assertEqual(is_exists_in_grid, dfs_helper(board, word))
+            self.assertEqual(is_exists_in_grid, dfs_entrance(board, word))
 
     def test_dfs2(self):
         for board, word, is_exists_in_grid in self.TEST_CASES:

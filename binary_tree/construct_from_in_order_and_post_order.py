@@ -3,7 +3,7 @@ from .binary_tree import TreeNode
 from typing import List, Dict, Optional
 
 
-def my_dfs_helper(in_order: List[int], post_order: List[int]) -> TreeNode:
+def my_dfs_entrance(in_order: List[int], post_order: List[int]) -> TreeNode:
     # HashMap加速查找pre_order中的根节点在in_order的索引位置
     in_order_map: Dict[int, int] = {}
     in_order_len = 0
@@ -69,5 +69,5 @@ class Testing(unittest.TestCase):
 
     def test_my_solution(self):
         for in_order, post_order, binary_tree in self.TEST_CASES:
-            root = my_dfs_helper(in_order, post_order)
+            root = my_dfs_entrance(in_order, post_order)
             self.assertEqual(binary_tree, root.to_str())

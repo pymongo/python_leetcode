@@ -72,6 +72,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |90|[Subsets](https://leetcode.com/problems/subsets-ii/)|[Python](dfs_perm_comb/subsets_combinations.py)||
 |91|[Decode Ways](https://leetcode.com/problems/decode-ways/)|[Python](dp/decode_ways.py)||
 |94|[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
+|99|[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/description)|[Python](binary_tree/bst_recover_swap_two_nodes.py)||
 |102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Python](binary_tree/traversal_level_order.py)|BFS|
 |104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |105|[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_in_order.py)|DFS, stack|
@@ -448,6 +449,7 @@ LintCode
 |683|[Word Break III](https://lintcode.com/problem/word-break-iii/)|[Python](dp/word_break_3.py)||
 |685|[First Unique Number in Data Stream](https://lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](linked_list/first_unique_number_in_stream.py)||
 |689|[First Unique Number in Data Stream](https://lintcode.com/problem/two-sum-iv-input-is-a-bst/)|[Python](binary_tree/bst_two_sum.py)||
+|691|[Recover Binary Search Tree](https://www.lintcode.com/problem/recover-binary-search-tree/)|[Python](binary_tree/bst_recover_swap_two_nodes.py)||
 |701|[Trim A Binary Search Tree](https://www.lintcode.com/problem/trim-a-binary-search-tree/)|[Python](binary_tree/bst_trim_in_range.py)||
 |702|[Russian Doll Envelopes](https://lintcode.com/problem/russian-doll-envelopes/)|[Python](dp/russian_doll_envelopes.py)||
 |719|[Calculate Maximum Value](https://www.lintcode.com/problem/calculate-maximum-value/)|[Python](dp/calculate_max_value_2.py)||

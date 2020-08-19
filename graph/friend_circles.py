@@ -60,12 +60,12 @@ def my_dfs(m: List[List[int]], size: int, visited, node: int):
             continue
         if m[node][neighbourhood] == 0:
             continue
-        visited.add_703(neighbourhood)
+        visited.add(neighbourhood)
         my_dfs(m, size, visited, neighbourhood)
 
 
 # DFS解法耗时: 216ms, 而BFS解法耗时: 324ms, 在数圈圈问题上DFS更优
-def my_dfs_helper(m: List[List[int]]) -> int:
+def my_dfs_entrance(m: List[List[int]]) -> int:
     size = len(m)
     visited = set()
     circles_count = 0
@@ -93,4 +93,4 @@ class Testing(unittest.TestCase):
 
     def test_my_dfs(self):
         for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
-            self.assertEqual(friend_circles_count, my_dfs_helper(adjacency_matrix))
+            self.assertEqual(friend_circles_count, my_dfs_entrance(adjacency_matrix))

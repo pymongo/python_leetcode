@@ -30,7 +30,7 @@ def my_bfs(node: Node):
 
 # 这样做其实不太好，一边遍历一边复制，没法拆分代码
 # 参考复制链表一题，更好的思路是: 先复制所有点，再复制所有点的邻居(边的关系)
-def my_dfs_helper(node: Node) -> Node:
+def my_dfs_entrance(node: Node) -> Node:
     # key: old_node, value: new_node(same val to old_node)
     old_new_mapping = dict()
     return my_dfs(node, old_new_mapping)
@@ -65,5 +65,5 @@ def generate_test_case() -> Node:
 class Testing(unittest.TestCase):
     def test_my_dfs(self):
         node = generate_test_case()
-        new_node = my_dfs_helper(node)
+        new_node = my_dfs_entrance(node)
         self.assertNotEqual(hash(node), hash(new_node))

@@ -8,7 +8,7 @@ from typing import List, Dict, Optional
 # 我的解法是优先右子树，所以还得写一套为lintcode定制的优先左子树
 # 这题遇到小困难，两个数组都知道自己的根节点，但是怎么确定各自划分左右子树的分隔线呢？
 # 规律: 后序遍历倒数第二个是右子树的根，也就是pre_order(根左右)的右子树的开始位置
-def my_dfs_helper(pre_order: List[int], post_order: List[int]) -> TreeNode:
+def my_dfs_entrance(pre_order: List[int], post_order: List[int]) -> TreeNode:
     # HashMap加速查找pre_order中的根节点在in_order的索引位置
     pre_order_map: Dict[int, int] = {}
     pre_order_len = 0
@@ -139,7 +139,7 @@ class Testing(unittest.TestCase):
 
     def test_my_solution(self):
         for pre_order, post_order, binary_tree in self.TEST_CASES:
-            root = my_dfs_helper(pre_order, post_order)
+            root = my_dfs_entrance(pre_order, post_order)
             print(root)
             self.assertEqual(binary_tree, root.to_str())
 
