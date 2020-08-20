@@ -2,8 +2,11 @@
 # 状态表示
 先记住状态表示: dp[i][k][0/1]表示3种状态下取得的交易最大收益
 i表示第几天，也就是prices数组的下标
-k表示最多可进行几次交易，一次买+一次卖才算一次交易(transactions)
-这里定义为购买股票时k+1，当然也可以让出售股票时k+1
+
+k表示剩余的交易次数，一次买+一次卖才算一次交易(transactions)
+这里定义为购买股票时k-1，(别问为什么，记住就行，反正自己尝试改k的定义结果报错)
+但是k这样倒着遍历方便填表，不然正序遍历k时，k=0要单独处理
+
 0/1表示是否持有股票，TODO 持有股票的数量是多少?因为本题就只有一股，数量肯定是1股，至于价格就未必是昨天的价格
 0/1之间状态转移的选择操作有: buy,sell,rest(无操作)
 例如 dp[3][2][1]表示今天是第3个交易日，我还剩两次交易机会，手里持有一些股票
@@ -131,3 +134,37 @@ class Solution(unittest.TestCase):
             # dp[i][2] = max(这轮空过, 上一轮刚卖出这轮必须处于冷冻期)
             dp[i][2] = max(dp[i - 1][2], dp[i - 1][0])
         return dp[n - 1][0]
+
+    @staticmethod
+    def stock_sell_k_times(prices: List[int], k_times: int) -> int:
+        if k_times == 0:
+            return 0
+        n = len(prices)
+        if n <= 1:
+            return 0
+        dp = [[[0, 0] for _ in range(k_times + 1)] for _ in range(n)]
+        for k in range(k_times, 0, -1):
+            dp[0][k][1] = -prices[0]
+        for i in range(1, n):
+            for k in range(k_times, 0, -1):
+                dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i])
+                # 由于每当
+                dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i])
+        return dp[n - 1][k_times][0]
+
+    @staticmethod
+    def stock_1_generic_solution(prices: List[int]) -> int:
+        return Solution.stock_sell_k_times(prices, 1)
+
+    @staticmethod
+    def stock_3(prices: List[int]) -> int:
+        return Solution.stock_sell_k_times(prices, 2)
+
+    @staticmethod
+    def stock_4(prices: List[int], k: int) -> int:
+        n = len(prices)
+        if 2 * k >= n:
+            # 如果交易次数足够多，那么就等同于stock_2问题
+            return Solution.stock_2(prices)
+        return Solution.stock_sell_k_times(prices, k)
+
