@@ -5,7 +5,7 @@ TODO List
 
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
 
-因为leetcode-cn上我多做了一些面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了10题
+因为leetcode-cn上我多做了一些面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了15题
 
 有意思的但是没有找到题号的问题:
 
@@ -83,6 +83,8 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)|divide_and_conquer, BFS|
 |114|[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|[Python](binary_tree/in_place_flatten_binary_tree_to_linked_list.py)||
 |120|[Triangle](https://leetcode.com/problems/triangle/)|[Python](dp/triangle.py)||
+|121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[Python](dp/stock.py)||
+|122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[Python](dp/stock.py)||
 |124|[Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|[Python](binary_tree/binary_tree_maximum_path_sum.py)||
 |125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[Python](palindrome/valid_palindrome.py)|two_pointers|
 |126|[Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
@@ -238,6 +240,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
 |62|[圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)|[Python](brain_twists/josephus.py)|约瑟夫环|
+|66|[构建乘积数组](https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof)|[Python](easy/contruct_product_array.py)||
 
 ---
 
@@ -341,6 +344,8 @@ LintCode
 |145|[Lower case to Uppercase](https://lintcode.com/problem/lowercase-to-uppercase/)|||
 |147_LOCK|[Narcissistic Number](https://lintcode.com/problem/narcissistic-number)|[Python](easy/narcissistic_number.py)||
 |148|[Sort Colors](https://lintcode.com/problem/sort-colors/)|[Python](partition_array/sort_colors.py)|three_pointers, partition_array|
+|149|[Best Time to Buy and Sell Stock](https://lintcode.com/problem/best-time-to-buy-and-sell-stock/)|[Python](dp/stock.py)||
+|150|[Best Time to Buy and Sell Stock II](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-ii/)|[Python](dp/stock.py)||
 |154|[Regular Expression Matching](https://lintcode.com/problem/regular-expression-matching/)|[Python](dp/regular_expression_matching.py)||
 |155|[Minimum Depth of Binary Tree](https://lintcode.com/problem/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |158|[Valid Anagram](https://lintcode.com/problem/valid-anagram/)|[Python](collections/valid_anagram.py)||

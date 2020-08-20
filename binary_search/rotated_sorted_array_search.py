@@ -146,4 +146,4 @@ class Testing(unittest.TestCase):
             self.assertEqual(expected, min_index_solution(nums, target))
 
     def test_binary_search(self):
-        print(binary_search([3,1,1],0,2,3))
+        print(binary_search([3, 1, 1], 0, 2, 3))
