@@ -22,6 +22,9 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0]-prices[i])
 # 初始条件
 k=0时，不允许交易，收益为-inf
 i=0时，收益为0
+
+TODO 所有股票交易题，所谓的最优解法其实就是标准DP解法的「状态压缩版」
+所以一定还是按原本dp方程的写法就行了，面试应该OK的
 """
 import unittest
 from typing import List
@@ -57,9 +60,30 @@ class Solution(unittest.TestCase):
         for i in range(1, n):
             # 第i个交易日没有股票
             dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i])
-            # 第i个交易日持有股票，因为这题dp[i-1][0]全为0，所以购买股票的值可以简写为-prices[i]
+            # 第i个交易日持有股票，因为这题只能进行一次买操作，所以买之前的总收益必为0，所以购买股票的值可以简写为-prices[i]
             dp[i][1] = max(dp[i - 1][1], -prices[i])
         # 就看最后一天不持有股票的状态(如果持有了股票那肯定是亏的啊)
+        return dp[n - 1][0]
+
+    def test_stock_with_fee(self):
+        test_cases = [
+            ([1, 3, 2, 8, 4, 9], 2, 8),
+        ]
+        for prices, fee, max_profit in test_cases:
+            self.assertEqual(max_profit, self.stock_with_fee(prices, fee))
+
+    @staticmethod
+    def stock_with_fee(prices: List[int], fee: int) -> int:
+        # 不限交易次数，但是有手续费，所以不能像stock_2这题一样通过两两相邻的递增的多次交易对拼成价格差较大的一次交易
+        n = len(prices)
+        dp = [[0] * 2 for _ in range(n)]
+        dp[0][1] = -prices[0]
+        for i in range(1, n):
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i] - fee)
+            # FIXME 不限交易次数和仅交易一次的区别只是多了项dp[i-1][0]
+            # 因为仅交易一次的话，购买前的总收益必为0
+            # 但是如果不限交易次数，那购买前的总收益就是dp[i-1][0]
+            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i])
         return dp[n - 1][0]
 
     @staticmethod
@@ -72,3 +96,24 @@ class Solution(unittest.TestCase):
                 profit += prices[i] - prices[i - 1]
         return profit
 
+    @staticmethod
+    def stock_2_dp(prices: List[int]) -> int:
+        n = len(prices)
+        dp = [[0, 0] for _ in range(n)]
+        dp[0][1] = -prices[0]
+        for i in range(1, n):
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i])
+            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i])
+        return dp[n - 1][0]
+
+    @staticmethod
+    def stock_with_cd(prices: List[int]) -> int:
+        # 简单来说就是当日买入的股票，T+2个交易日后才可以出售，买完后的第二天只能发呆
+        n = len(prices)
+        dp = [[0, 0] for _ in range(n)]
+        dp[0][1] = -prices[0]
+        dp[1][1] = -prices[0]
+        for i in range(2, n):
+            dp[i][0] = max(dp[i - 1][0], dp[i - 2][1] + prices[i])
+            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i])
+        return dp[n - 1][0]
