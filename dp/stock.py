@@ -106,14 +106,28 @@ class Solution(unittest.TestCase):
             dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i])
         return dp[n - 1][0]
 
+    def test_stock_with_cd(self):
+        test_cases = [
+            ([1, 2, 3, 0, 2], 3),
+            ([1, 2], 1),
+        ]
+        for prices, max_profit in test_cases:
+            self.assertEqual(max_profit, self.stock_with_cd(prices))
+
     @staticmethod
     def stock_with_cd(prices: List[int]) -> int:
-        # 简单来说就是当日买入的股票，T+2个交易日后才可以出售，买完后的第二天只能发呆
+        # 不限交易次数，卖出股票后要冷却一天才能再次买入
+        # 另一种解题思路是考虑让dp[_][j]中的j新增一个状态2，表示出售完股票后的冷却状态
         n = len(prices)
-        dp = [[0, 0] for _ in range(n)]
+        if n <= 1:
+            return 0
+        # dp[i][j]中的j表示: j=0不持有股票, j=1持有股票, j=2表示不持有股票而且出于冷冻期
+        dp = [[0, 0, 0] for _ in range(n)]
         dp[0][1] = -prices[0]
-        dp[1][1] = -prices[0]
-        for i in range(2, n):
-            dp[i][0] = max(dp[i - 1][0], dp[i - 2][1] + prices[i])
-            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i])
+        for i in range(1, n):
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i])
+            # dp[i][1]不空过的情况略有改变，需要前一个状态是冷却中(j=2)
+            dp[i][1] = max(dp[i - 1][1], dp[i - 1][2] - prices[i])
+            # dp[i][2] = max(这轮空过, 上一轮刚卖出这轮必须处于冷冻期)
+            dp[i][2] = max(dp[i - 1][2], dp[i - 1][0])
         return dp[n - 1][0]
