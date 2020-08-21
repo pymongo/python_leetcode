@@ -11,7 +11,7 @@ TODO List
 
 1. 海盗分金币问题(比较脑筋急转弯的递推)
 2. 最大直方图矩阵(Longest Histgram Rectangle), 单调栈O(n^3)->O(n)
-https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183 赠送的四大优惠~！
+course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
