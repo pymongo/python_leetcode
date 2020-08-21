@@ -141,6 +141,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |272_LOCK|[Closest Binary Search Tree Value II](https://leetcode.com/problems/closest-binary-search-tree-value-ii/)|[Python](binary_tree/bst_closest_value_2.py)||
 |278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Python](binary_search/first_bad_version.py)|partition_array|
 |283|[Move Zeros](https://leetcode.com/problems/move-zeroes/)|[Python](partition_array/move_zeros.py)|partition_array, 快慢双指针|
+|287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[Python](brain_twists/find_duplicate_number.py)|快慢双指针|
 |290|[Word Pattern](https://leetcode.com/problems/word-pattern/)|[Python](easy/word_pattern.py)||
 |291_LOCK|[Word Pattern II](https://leetcode.com/problems/word-pattern-ii/)|[Python](dfs_perm_comb/word_pattern_2.py)|DFS|
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
@@ -466,6 +467,7 @@ LintCode
 |628|[Maximum Subtree](https://lintcode.com/problem/maximum-subtree/)|[Python](binary_tree/subtree_max_sum.py)|divide_and_conquer|
 |630_LOCK|[Knight Shortest Path II](https://lintcode.com/problem/knight-shortest-path-ii/)|[Python](bfs/knight_shortest_path_2.py)|bfs|
 |632|[Binary Tree Maximum Node](https://lintcode.com/problem/binary-tree-maximum-node/)|||
+|633|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[Python](brain_twists/find_duplicate_number.py)|快慢双指针|
 |654|[Sparse Matrix Multiplication](https://www.lintcode.com/problem/sparse-matrix-multiplication/)|[Python](math/sparse_matrix_multiplication.py)||
 |657|[Insert Delete GetRandom O(1)](https://lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
