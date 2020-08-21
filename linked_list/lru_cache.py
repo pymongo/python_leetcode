@@ -11,6 +11,71 @@ import collections
 from typing import Dict, Optional
 
 
+class Node:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.next = None
+        self.prev = None
+
+
+# 这是我多次修改，代码量少可读性强的LRU版本，面试时默写这个就够了
+class MyBestLRU:
+
+    def __init__(self, capacity: int):
+        self.len = 0
+        self.max_size = capacity
+        self.head = Node(0, 0)
+        self.tail = Node(0, 0)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+        self.m = dict()
+
+    def get(self, key: int) -> int:
+        if key not in self.m:
+            return -1
+        node = self.m[key]
+        self._move_back(node)
+        return node.value
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.m:
+            node = self.m[key]
+            node.value = value
+            self._move_back(node)
+            return
+        if self.len == self.max_size:
+            first_node = self.head.next
+            self.m.pop(first_node.key)
+
+            first_node.next.prev = self.head
+            self.head.next = first_node.next
+
+        node = Node(key, value)
+        self.m[key] = node
+        self._move_back(node)
+
+        if self.len < self.max_size:
+            self.len += 1
+
+    def _move_back(self, node: Node):
+        node_prev = node.prev
+        node_next = node.next
+        if node_prev and node_next:
+            # 如果不是新创建的节点，则需要将剥离节点的前后节点互连
+            node_prev.next = node_next
+            node_next.prev = node_prev
+
+        tail_prev = self.tail.prev
+
+        # 2. 将剥离出来/新生成的节点插入到末尾
+        tail_prev.next = node
+        node.prev = tail_prev
+
+        node.next = self.tail
+        self.tail.prev = node
+
+
 class ListNode:
     def __init__(self, key: int, value: int):
         # value will always be positive
