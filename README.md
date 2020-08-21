@@ -115,6 +115,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |189|[Rotate Array](http://leetcode.com/problems/rotate-array/)|[Python](rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |198|[House Robber](https://leetcode.com/problems/house-robber/)|[Python](dp/house_robber.py)||
 |200|[Number of Islands](https://leetcode.com/problems/number-of-islands/)|[Python](graph/number_of_islands.py)|union_find, DFS, BFS|
+|202|[Happy Number](https://leetcode.com/problems/happy-number/)|[Python](easy/happy_number.py)||
 |206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[Python](linked_list/reverse_linked_list.py)|list_node|
 |208|[Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)|[Python](tire/impl_tire_prefix_tree.py)|前缀树/字典树|
 |207|[Course Schedule](https://leetcode.com/problems/course-schedule/)|[Python](graph/course_schedule_2.py)|BFS, topological_sorting|
@@ -420,6 +421,7 @@ LintCode
 |480|[Binary Tree Paths](https://lintcode.com/problem/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
 |484|[Swap Two Integers in Array](https://lintcode.com/problem/swap-two-integers-in-array/)|||
 |486|[Merge K Sorted Arrays](https://www.lintcode.com/problem/merge-k-sorted-arrays/)|[Python](divide_conquer/merge_two_sorted_arrays.py)||
+|488|[Happy Number](https://leetcode.com/problems/happy-number/)|[Python](easy/happy_number.py)||
 |491|[Palindromic Number](https://lintcode.com/problem/palindrome-number/)|[Python](palindrome/longest_palindromic_substr.py)||
 |492|[Implement Queue by Linked List](https://lintcode.com/problem/implement-queue-by-linked-list/)|[Python](collections/impl_queue_by_linked_list.py)||
 |494|[Implement Stack by Two Queues](https://lintcode.com/problem/implement-stack-by-two-queues/)|[Python](collections/impl_stack_using_queue.py)||
