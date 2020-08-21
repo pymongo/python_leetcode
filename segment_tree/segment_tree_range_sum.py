@@ -31,7 +31,7 @@ from typing import List
 from binary_tree.binary_tree import TreeNode
 
 
-class SegmentTree:
+class SegmentTreeTreeNodeImpl:
     def __init__(self, nums: List[int]):
         n = len(nums)
         assert n > 0
@@ -41,23 +41,89 @@ class SegmentTree:
     def build_tree(self, nums: List[int], n: int) -> TreeNode:
         if n == 1:
             return TreeNode(nums[0])
-        node = TreeNode(sum(nums))
+        node = TreeNode(0)
         # 尽量让左子树多一点
         half_n = (n + 1) // 2
         node.left = self.build_tree(nums[:half_n], half_n)
         node.right = self.build_tree(nums[half_n:], n - half_n)
+        node.val = node.left.val + node.right.val
         return node
 
-    def update(self):
-        pass
 
-    def insert(self):
-        pass
+# 类似堆使用数组来操作，满二叉树使用数组操作的代码会很简单
+# 由于往上缺乏使用二叉树实现的线段树的例子(让我临摹)，所以还是先背熟用数组实现的线段树吧
+class SegmentTree:
+    def __init__(self, nums: List[int]):
+        self.n = len(nums)
+        self.tree = [0] * 2 * self.n
+        self.nums = nums
+        self._build_tree()
 
-    def delete(self):
-        pass
+    def _build_tree(self):
+        """
+        nums=[0,1,2,3,4,5]
+        self.tree=  index(sum)
+        1(15)
+        /   \
+            2(14)
+                /\
+        3(1)  4(5) 9(5)
+        ...
+        tree[6:]=[0,1,2,3,4,5]
+        注意偶数索引的在左子树
+        """
+        n = self.n
+        for i, j in zip(range(n, 2 * n), range(n)):
+            self.tree[i] = self.nums[j]
+        for i in range(n - 1, 0, -1):
+            # 注意这种不是完全二叉树，是空间优化过的写法，左子树的编号是2*i，不要联想到堆是2*i+1
+            # TODO 注意tree[0]是DummyNode，真正的根是tree[1]
+            left = 2 * i
+            right = left + 1
+            self.tree[i] = self.tree[left] + self.tree[right]
+
+    def update(self, i: int, val: int):
+        pos = i + self.n
+        self.tree[pos] = val
+        while pos > 0:
+            left, right = pos, pos
+            if pos % 2 == 0:
+                # 叶子节点中偶数索引的在左子树
+                right = pos + 1
+            else:
+                left = pos - 1
+            parent_pos = pos // 2
+            self.tree[parent_pos] = self.tree[left] + self.tree[right]
+            pos = parent_pos
+
+    # noinspection PyPep8Naming
+    def sumRange(self, i: int, j: int) -> int:
+        i += self.n
+        j += self.n
+        sum_range = 0
+        while i <= j:
+            if i % 2 == 1:
+                # 如果左指针指向一个右节点，就不能直接上到父节点，因为父节点是左右子节点的和
+                # 这里只有一个右节点，左节点不在范围内(越界)
+                # 于是把这个落单的右节点加上，
+                sum_range += self.tree[i]
+                # 左指针移动到右边相连的树上
+                i += 1
+            if j % 2 == 0:
+                # 如果右指针指向一个左节点，就把这个落单的左节点单独加上，
+                sum_range += self.tree[j]
+                # 右指针移动到左边相邻的那棵树上
+                j -= 1
+            # 左右指针移动到父节点，然后收缩边界(shrink)
+            i //= 2
+            j //= 2
+        return sum_range
 
 
 class TestSegmentTree(unittest.TestCase):
     def test_build_tree(self):
-        tree = SegmentTree([1, 3, 5, 7, 9, 11])
+        # tree = SegmentTreeTreeNodeImpl([0, 1, 2, 3, 4, 5])
+        # tree = SegmentTreeTreeNodeImpl([0, 1, 2, 3, 4, 5, 6])
+        tree = SegmentTree([0, 1, 2, 3, 4, 5])
+        tree.sumRange(1, 5)
+        # print(tree.tree)
