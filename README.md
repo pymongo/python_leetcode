@@ -153,6 +153,7 @@ https://www.jiuzhang.com/course/77/?utm_source=jx-wx-yfy，优惠券码：43A183
 |326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python](bitwise/is_power_of_3.py)|bitwise|
 |337|[House Robber III](https://leetcode.com/problems/house-robber-iii/)|[Python](dp/house_robber.py)||
 |342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
+|343|[Integer Break](https://leetcode.com/problems/integer-break/)|[Python](dp/integer_break.py)|划分类DP|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
 |349|[Intersection of Two Arrays](https://www.leetcode.com/problems/intersection-of-two-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |350|[Intersection of Two Arrays II](https://www.leetcode.com/problems/intersection-of-two-arrays-ii/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
@@ -376,6 +377,7 @@ LintCode
 |254|[Drop Eggs](https://lintcode.com/problem/drop-eggs/)|[Python](dp/drop_eggs.py)|sqrt_n|
 |272_LOCK|[Climbing Stairs II](https://lintcode.com/problem/climbing-stairs-ii/)|[Python](dp/climb_stairs_2.py)||
 |283|[Max of 3 Numbers](https://lintcode.com/problem/max-of-3-numbers/)|||
+|303|[Range Sum Query Immutable](https://leetcode.com/problems/range-sum-query-immutable/)|[Python](easy/range_sum_query_immutable.py)||
 |309|[Interleaved Array](https://www.lintcode.com/problem/interleaved-array/)|||
 |366|[Fibonacci](https://lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |373|[Partition Array by Odd and Even](https://lintcode.com/problem/partition-array-by-odd-and-even/)|[Python](partition_array/partition_array_by_odd_and_even.py)||
@@ -501,10 +503,12 @@ LintCode
 |902|[Kth Smallest Element in a BST](https://lintcode.com/problem/kth-smallest-element-in-a-bst/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |904|[Plus One Linked List](https://lintcode.com/problem/plus-one-linked-list/)|[Python](linked_list/bottom_up_plus_one_linked_list.py)||
 |916|[Palindrome Permutation](https://lintcode.com/problem/palindrome-permutation/)|[Python](palindrome/palindrome_permutation.py)|greedy|
+|943|[Range Sum Query Immutable](https://lintcode.com/problem/range-sum-query-immutable/)|[Python](easy/range_sum_query_immutable.py)||
 |954|[Insert Delete GetRandom O(1) - Duplicates allowed](https://lintcode.com/problem/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |955|[Implement Queue by Circular Array](https://lintcode.com/problem/implement-queue-by-circular-array/)|[Python](collections/impl_queue_by_circluar_array.py)||
 |975|[2 Keys Keyboard](https://lintcode.com/problem/2-keys-keyboard/)|[Python](brain_twists/copy_paste_times.py)||
 |976|[4Sum II](https://lintcode.com/problem/4sum-ii/)|[Python](two_sum_two_pointers/four_sum_2.py)|two_sum|
+|982|[Arithmetic Slices](https://lintcode.com/problem/arithmetic-slices/)|[Python](easy/arithmetic_slices.py)||
 |995|[Best Time to Buy and Sell Stock with Cooldown](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python](dp/stock.py)||
 |1000|[Best Time to Buy and Sell Stock with Transaction Fee](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-with-transaction-fee/)|[Python](dp/stock.py)||
 |1038|[Jewels and Stones](https://lintcode.com/problem/jewels-and-stones/)|[Python](easy/jewels_and_stones.py)||
@@ -520,6 +524,7 @@ LintCode
 |1246|[Longest Repeating Character Replacement](https://www.lintcode.com/problem/longest-repeating-character-replacement/)|[Python](two_sum_two_pointers/longest_repeating_character_replacement.py)||
 |1276|[Sum of Two Integers](https://lintcode.com/problem/sum-of-two-integers/)|[Python](bitwise/binary_addition.py)|binary_addition|
 |1283|[Reverse Array](https://lintcode.com/problem/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
+|1284|[Integer Break](https://leetcode.com/problems/integer-break/)|[Python](dp/integer_break.py)|划分类DP|
 |1285|[Power of Four](https://lintcode.com/problem/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
 |1294|[Power of Three](https://lintcode.com/problem/power-of-three/)|[Python](bitwise/is_power_of_3.py)|bitwise|
 |1300|[Bash Game(Nim Game)](https://lintcode.com/problem/bash-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
@@ -547,12 +552,25 @@ LintCode
 
 ---
 
-Project Euler
-===
-
-TODO
-
 # Category
+
+## Dynamic Programming
+
+### 划分型动态规划
+
+戳气球(dpburst_ballon)、石子归并(dp/stone_game_merge.py)
+
+### 选或不选类DP
+
+#### 打家劫舍系列
+
+#### 股票买卖系列
+
+
+
+### TODO 计数型动态规划
+
+TODO k sum
 
 ## Palindrome
 
