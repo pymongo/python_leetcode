@@ -3,7 +3,6 @@ LeetCode
 
 TODO List
 
-- [ ] 线段树
 - [ ] 并查集
 - [ ] 链表题
 - [ ] DP题
@@ -41,6 +40,7 @@ course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 |19|[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)|[Python](linked_list/remove_nth_node_from_end.py)|sliding_window|
 |20|[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)|[Python](collections/valid_parentheses.py)|stack|
 |21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)|[Python](divide_conquer/merge_k_sorted_lists.py)||
+|22|[Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)|[Python](dfs_perm_comb/generate_parentheses.py)|回溯穷举|
 |23|[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)|[Python](divide_conquer/merge_k_sorted_lists.py)||
 |26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|[Python](partition_array/move_zeros.py)||
 |27|[Subarray Sum](https://lintcode.com/problem/remove-element/)|[Python](partition_array/move_zeros.py)||
@@ -406,6 +406,7 @@ LintCode
 |419|[Roman to Integer](https://lintcode.com/problem/roman-to-integer/)|[Python](easy/int_to_roman.py)||
 |423|[Valid Parentheses](https://lintcode.com/problem/valid-parentheses/)|[Python](collections/valid_parentheses.py)|stack|
 |425|[Letter Combinations of a Phone Number](https://lintcode.com/problem/letter-combinations-of-a-phone-number/)|[Python](dfs_perm_comb/phone_9_keypad_combination.py)|product(笛卡尔积)|
+|427|[Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)|[Python](dfs_perm_comb/generate_parentheses.py)|回溯穷举|
 |428|[Pow(x, n)](https://lintcode.com/problem/powx-n/)|[Python](math/pow.py)|binary_search, 快速幂运算|
 |433|[Number of Islands](https://lintcode.com/problem/number-of-islands/)|[Python](graph/number_of_islands.py)|union_find, DFS, BFS|
 |437|[Copy Books](https://lintcode.com/problem/copy-bookes/)|[Python](binary_search/copy_books.py)|dp, binary_search|
