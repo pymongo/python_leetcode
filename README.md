@@ -3,6 +3,11 @@ LeetCode
 
 TODO List
 
+- [ ] 线段树
+- [ ] 并查集
+- [ ] 链表题
+- [ ] DP题
+
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
 
 因为leetcode-cn上我多做了一些面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了15题
@@ -147,7 +152,9 @@ course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 |292|[Nim Game](https://leetcode.com/problems/nim-game/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bitwise/nim_game.rs)||
 |297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|[Python](binary_tree/binary_tree.py)|serialize|
 |300|[Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)|[Python](dp/longest_increase_subsequence.py)|接龙型动态规划|
-|300_LOCK|[Smallest Rectangle Enclosing Black Pixels](https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels)|[Python](binary_search/smallest_rectangle_enclosing_black_pixels.py)||
+|302_LOCK|[Smallest Rectangle Enclosing Black Pixels](https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels)|[Python](binary_search/smallest_rectangle_enclosing_black_pixels.py)||
+|303|[Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/)|[Python](easy/range_sum_query_immutable.py)||
+|307|[Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/)|[Python](segment_tree/segment_tree_range_sum.py)||
 |309|[Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python](dp/stock.py)||
 |311_LOCK|[Sparse Matrix Multiplication](https://www.leetcode.com/problems/sparse-matrix-multiplication/)|[Python](math/sparse_matrix_multiplication.py)||
 |312|[Burst Balloons](https://leetcode.com/problems/burst-balloons/)|[Python](dp/burst_ballon.py)||
@@ -379,7 +386,6 @@ LintCode
 |254|[Drop Eggs](https://lintcode.com/problem/drop-eggs/)|[Python](dp/drop_eggs.py)|sqrt_n|
 |272_LOCK|[Climbing Stairs II](https://lintcode.com/problem/climbing-stairs-ii/)|[Python](dp/climb_stairs_2.py)||
 |283|[Max of 3 Numbers](https://lintcode.com/problem/max-of-3-numbers/)|||
-|303|[Range Sum Query Immutable](https://leetcode.com/problems/range-sum-query-immutable/)|[Python](easy/range_sum_query_immutable.py)||
 |309|[Interleaved Array](https://www.lintcode.com/problem/interleaved-array/)|||
 |366|[Fibonacci](https://lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |373|[Partition Array by Odd and Even](https://lintcode.com/problem/partition-array-by-odd-and-even/)|[Python](partition_array/partition_array_by_odd_and_even.py)||
@@ -495,6 +501,7 @@ LintCode
 |828|[Word Pattern](https://lintcode.com/problem/word-pattern/)|[Python](easy/word_pattern.py)||
 |829|[Word Pattern II](https://leetcode.com/problems/word-pattern-ii/)|[Python](dfs_perm_comb/word_pattern_2.py)|DFS|
 |839|[Merge Two Sorted Interval Lists](https://www.lintcode.com/problem/merge-two-sorted-interval-lists/)|[Python](divide_conquer/merge_two_sorted_interval_lists.py)||
+|840|[Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/)|[Python](segment_tree/segment_tree_range_sum.py)||
 |841|[String Replace](https://www.lintcode.com/problem/string-replace/)|[Python](tire/string_replace.py)||
 |845|[Greatest Common Divisor](https://www.lintcode.com/problem/greatest-common-divisor/)|[Python](math/greatest_common_divisor.py)||
 |859|[Max Stack](https://lintcode.com/problem/max_stack/)|[Python](collections/max_stack.py)||
@@ -507,7 +514,7 @@ LintCode
 |902|[Kth Smallest Element in a BST](https://lintcode.com/problem/kth-smallest-element-in-a-bst/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |904|[Plus One Linked List](https://lintcode.com/problem/plus-one-linked-list/)|[Python](linked_list/bottom_up_plus_one_linked_list.py)||
 |916|[Palindrome Permutation](https://lintcode.com/problem/palindrome-permutation/)|[Python](palindrome/palindrome_permutation.py)|greedy|
-|943|[Range Sum Query Immutable](https://lintcode.com/problem/range-sum-query-immutable/)|[Python](easy/range_sum_query_immutable.py)||
+|943|[Range Sum Query - Immutable](https://lintcode.com/problem/range-sum-query-immutable/)|[Python](easy/range_sum_query_immutable.py)||
 |954|[Insert Delete GetRandom O(1) - Duplicates allowed](https://lintcode.com/problem/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |955|[Implement Queue by Circular Array](https://lintcode.com/problem/implement-queue-by-circular-array/)|[Python](collections/impl_queue_by_circluar_array.py)||
 |975|[2 Keys Keyboard](https://lintcode.com/problem/2-keys-keyboard/)|[Python](brain_twists/copy_paste_times.py)||

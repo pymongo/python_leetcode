@@ -54,12 +54,6 @@ class SegmentTreeTreeNodeImpl:
 # 由于往上缺乏使用二叉树实现的线段树的例子(让我临摹)，所以还是先背熟用数组实现的线段树吧
 class SegmentTree:
     def __init__(self, nums: List[int]):
-        self.n = len(nums)
-        self.tree = [0] * 2 * self.n
-        self.nums = nums
-        self._build_tree()
-
-    def _build_tree(self):
         """
         nums=[0,1,2,3,4,5]
         self.tree=  index(sum)
@@ -72,15 +66,16 @@ class SegmentTree:
         tree[6:]=[0,1,2,3,4,5]
         注意偶数索引的在左子树
         """
-        n = self.n
+        n = len(nums)
+        tree = [0] * 2 * n
         for i, j in zip(range(n, 2 * n), range(n)):
-            self.tree[i] = self.nums[j]
+            tree[i] = nums[j]
         for i in range(n - 1, 0, -1):
             # 注意这种不是完全二叉树，是空间优化过的写法，左子树的编号是2*i，不要联想到堆是2*i+1
             # TODO 注意tree[0]是DummyNode，真正的根是tree[1]
-            left = 2 * i
-            right = left + 1
-            self.tree[i] = self.tree[left] + self.tree[right]
+            tree[i] = tree[2 * i] + tree[2 * i + 1]
+        self.n = n
+        self.tree = tree
 
     def update(self, i: int, val: int):
         pos = i + self.n
