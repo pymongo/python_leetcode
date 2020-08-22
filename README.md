@@ -145,6 +145,7 @@ course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 |270_LOCK|[Closest Binary Search Tree Value](https://leetcode.com/problems/closest-binary-search-tree-value/)|[Python](binary_tree/bst_closest_value.py)||
 |272_LOCK|[Closest Binary Search Tree Value II](https://leetcode.com/problems/closest-binary-search-tree-value-ii/)|[Python](binary_tree/bst_closest_value_2.py)||
 |278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Python](binary_search/first_bad_version.py)|partition_array|
+|279|[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |283|[Move Zeros](https://leetcode.com/problems/move-zeroes/)|[Python](partition_array/move_zeros.py)|partition_array, 快慢双指针|
 |287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[Python](brain_twists/find_duplicate_number.py)|快慢双指针|
 |290|[Word Pattern](https://leetcode.com/problems/word-pattern/)|[Python](easy/word_pattern.py)||
@@ -158,7 +159,7 @@ course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 |309|[Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python](dp/stock.py)||
 |311_LOCK|[Sparse Matrix Multiplication](https://www.leetcode.com/problems/sparse-matrix-multiplication/)|[Python](math/sparse_matrix_multiplication.py)||
 |312|[Burst Balloons](https://leetcode.com/problems/burst-balloons/)|[Python](dp/burst_ballon.py)||
-|322|[Coin Change](https://leetcode.com/problem/coin-change/)|[Python](dp/backpack_4_6_coin_change.py)|完全背包问题|
+|322|[Coin Change](https://leetcode.com/problem/coin-change/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python](bitwise/is_power_of_3.py)|bitwise|
 |337|[House Robber III](https://leetcode.com/problems/house-robber-iii/)|[Python](dp/house_robber.py)||
 |342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
@@ -167,10 +168,11 @@ course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 |349|[Intersection of Two Arrays](https://www.leetcode.com/problems/intersection-of-two-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |350|[Intersection of Two Arrays II](https://www.leetcode.com/problems/intersection-of-two-arrays-ii/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |354|[Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes/)|[Python](dp/russian_doll_envelopes.py)||
+|367|[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Python](math/sqrt.py)||
 |368|[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)|[Python](dp/largest_divisible_subset.py)||
 |369_LOCK|[Plus One Linked List](https://leetcode.com/problems/plus-one-linked-list/)|[Python](linked_list/bottom_up_plus_one_linked_list.py)||
 |371|[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)|[Python](bitwise/binary_addition.py)|binary_addition|
-|377|[Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/)|[Python](dp/backpack_4_6_coin_change.py)|完全背包问题|
+|377|[Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |380|[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |381|[Insert Delete GetRandom O(1) - Duplicates allowed](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|dp(greedy)|
@@ -186,7 +188,7 @@ course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 |498|[Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/)|[Python](unclassified/diagonal_traverse.py)||
 |507|[Perfect Number](https://leetcode.com/problems/perfect-number/)|[Python](factorization/perfect_number.py)||
 |509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/classic/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
-|518|[Coin Change 2](https://leetcode.com/problem/coin-change-2/)|[Python](dp/backpack_4_6_coin_change.py)|完全背包问题|
+|518|[Coin Change 2](https://leetcode.com/problem/coin-change-2/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |536_LOCK|[Construct Binary Tree from String](https://leetcode.com/problems/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |547|[Friend Circles](https://leetcode.com/problems/friend-circles/)|[Python](graph/friend_circles.py)|union_find, BFS, BFS|
 |606|[Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
@@ -435,6 +437,7 @@ LintCode
 |494|[Implement Stack by Two Queues](https://lintcode.com/problem/implement-stack-by-two-queues/)|[Python](collections/impl_stack_using_queue.py)||
 |495|[Implement Stack](https://lintcode.com/problem/implement-stack/)|[Python](collections/impl_stack_using_queue.py)||
 |512|[Decode Ways](https://www.lintcode.com/problem/decode-ways/)|[Python](dp/decode_ways.py)||
+|513|[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |517|[Ugly Number](https://lintcode.com/problem/ugly-number/)|[Python](easy/ugly_number.py)||
 |521_LOCK|[Remove Duplicate Numbers in Array](https://lintcode.com/problem/remove-duplicate-numbers-in-array/)|[Python](partition_array/remove_duplicate_numbers_in_array.py)|partition_array|
 |533_LOCK|[Two Sum - Closest to target](https://lintcode.com/problem/two-sum-closest-to-target/)|[Python](two_sum_two_pointers/two_sum_unique_pairs.py)|two_sum|
@@ -445,8 +448,8 @@ LintCode
 |545|[Top k Largest Numbers II](https://lintcode.com/problem/top-k-largest-numbers-ii/)|[Python](collections/top_k_largest_stream_min_heap.py)|min_heap|
 |547|[Intersection of Two Arrays](https://www.lintcode.com/problem/intersection-of-two-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |548|[Intersection of Two Arrays II](https://www.lintcode.com/problem/intersection-of-two-arrays-ii/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
-|562|[Backpack IV](https://www.lintcode.com/problem/backpack-iv/)|[Python](dp/backpack_4_6_coin_change.py)|完全背包问题|
-|564|[Combination Sum IV](https://www.lintcode.com/problem/combination-sum-iv/)|[Python](dp/backpack_4_6_coin_change.py)|完全背包问题|
+|562|[Backpack IV](https://www.lintcode.com/problem/backpack-iv/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
+|564|[Combination Sum IV](https://www.lintcode.com/problem/combination-sum-iv/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |563|[Backpack V](https://lintcode.com/problem/backpack-v/)|[Python](dp/backpack_5_plans_count.py)||
 |577|[Merge k Sorted Interval Lists](https://www.lintcode.com/problem/merge-k-sorted-interval-lists/)|[Python](divide_conquer/merge_two_sorted_interval_lists.py)||
 |578|[Lowest Common Ancestor III](https://lintcode.com/problem/lowest-common-ancestor-iii/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)||
@@ -479,7 +482,7 @@ LintCode
 |657|[Insert Delete GetRandom O(1)](https://lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |668|[Ones and Zeroes](https://lintcode.com/problem/ones-and-zeroes/)|[Python](dp/backpack_ones_and_zeros.py)|完全背包问题|
-|669|[Coin Change](https://www.lintcode.com/problem/coin-change/)|[Python](dp/backpack_4_6_coin_change.py)|完全背包问题|
+|669|[Coin Change](https://www.lintcode.com/problem/coin-change/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |683|[Word Break III](https://lintcode.com/problem/word-break-iii/)|[Python](dp/word_break_3.py)||
 |685|[First Unique Number in Data Stream](https://lintcode.com/problem/first-unique-number-in-data-stream/)|[Python](linked_list/first_unique_number_in_stream.py)||
 |689|[First Unique Number in Data Stream](https://lintcode.com/problem/two-sum-iv-input-is-a-bst/)|[Python](binary_tree/bst_two_sum.py)||
@@ -488,12 +491,13 @@ LintCode
 |702|[Russian Doll Envelopes](https://lintcode.com/problem/russian-doll-envelopes/)|[Python](dp/russian_doll_envelopes.py)||
 |719|[Calculate Maximum Value](https://www.lintcode.com/problem/calculate-maximum-value/)|[Python](dp/calculate_max_value_2.py)||
 |724|[Minimum Partition](https://lintcode.com/problem/minimum-partition/)|[Python](dp/backpack_1_2.py)|0-1背包问题|
-|740|[Coin Change 2](https://www.lintcode.com/problem/coin-change-2/)|[Python](dp/backpack_4_6_coin_change.py)|完全背包问题|
+|740|[Coin Change 2](https://www.lintcode.com/problem/coin-change-2/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |741|[Calculate Maximum Value II](https://www.lintcode.com/problem/calculate-maximum-value-ii/)|[Python](dp/calculate_max_value_2.py)||
-|749|[John's backyard garden](https://www.lintcode.com/problem/johns-backyard-garden/)|[Python](dp/backpack_4_6_coin_change.py)||
+|749|[John's backyard garden](https://www.lintcode.com/problem/johns-backyard-garden/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)||
 |761|[Smallest Subset](https://www.lintcode.com/problem/smallest-subset/)|[Python](easy/smallest_subset.py)||
 |772|[Group Anagrams](https://lintcode.com/problem/group-anagrams/)|[Python](collections/group_anagrams.py)||
 |773|[Vlid Anagram](https://www.lintcode.com/problem/vlid-anagram/)|[Python](collections/valid_anagram.py)||
+|777|[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Python](math/sqrt.py)||
 |787|[The Maze](https://lintcode.com/problem/the-maze/)|[Python](bfs/the_maze.py)||
 |793|[Intersection of Arrays](https://www.lintcode.com/problem/intersection-of-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |802|[Soduku Solver](https://lintcode.com/problem/soduku-solver/)|[Python](dfs_perm_comb/soduku_solver.py)||

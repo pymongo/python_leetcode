@@ -15,25 +15,36 @@ import random
 import math
 
 
-# 用牛顿连续均值迭代法会比二分法快得多，迭代次数少很多
-def my_sqrt(x: int) -> int:
-    if x == 0:
-        return 0
-    # 误差设为1e-5就刚好能在leetcode上AC
-    # 如果是lintcode[586. Sqrt(x) II]，把误差调低点就能AC
-    accuracy: float = 1e-5
-    guess: float = x / 2
-    while True:
-        new_guess = (guess + x / guess) / 2
-        if abs(new_guess - guess) < accuracy:
-            break
-        guess = new_guess
-    return int(guess)
+class Solution(unittest.TestCase):
 
-
-class Testing(unittest.TestCase):
     def test_my_sqrt(self):
         # print(my_sqrt(25))
         for _ in range(100):
             num = random.randint(1, 1000)
-            self.assertLessEqual(abs(int(math.sqrt(num)) - my_sqrt(num)), 1e-3)
+            self.assertLessEqual(abs(int(math.sqrt(num)) - self.sqrt_newton_iterative(num)), 1e-3)
+
+    # 用牛顿连续均值迭代法会比二分法快得多，迭代次数少很多
+    @staticmethod
+    def sqrt_newton_iterative(num: int) -> int:
+        if num == 0:
+            return 0
+        # 牛顿法的初始值是num/2
+        last_n, n = num, num / 2
+        # 由于牛顿迭代法，next_n一定会比当前的n小，所以不需要加abs
+        while last_n - n > 1e-3:
+            last_n = n
+            n = (last_n + num / last_n) / 2
+        return int(n)
+
+    def test_is_perfect_square(self):
+        self.assertTrue(self.is_perfect_square(16))
+        self.assertFalse(self.is_perfect_square(14))
+
+    @staticmethod
+    def is_perfect_square(num: int) -> bool:
+        # 牛顿法的初始值是num/2
+        last_n, n = num, num / 2
+        while last_n - n > 1e-4:
+            last_n = n
+            n = (last_n + num / last_n) / 2
+        return int(n) ** 2 == num

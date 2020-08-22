@@ -99,3 +99,22 @@ class Solution(unittest.TestCase):
                 return "YES"
             part_3 += 7
         return "NO"
+
+    @staticmethod
+    def perfect_squares(n: int) -> int:
+        # 可能使用到的平方数
+        squares = [x * x for x in range(int(n ** 0.5) + 1)]
+        # 最坏情况下是每个数的平方数全是1，例如6就有6个平方数组成
+        dp = [i for i in range(n + 1)]
+
+        for square in squares:
+            for i in range(square, n + 1):
+                dp[i] = min(dp[i], dp[i - square] + 1)
+        # 两种写法在这题上是一样的，在求最值的多重背包问题下，外层遍历i或外层遍历coin都是一样的
+        # 但是在求方案总数上，如果考虑数字前后组合就要外层遍历i
+        # for i in range(1, n+1):
+        #     for square in squares:
+        #         if i < square:
+        #             continue
+        #         dp[i] = min(dp[i], dp[i-square]+1)
+        return dp[n]
