@@ -7,15 +7,19 @@ TODO List
 - [ ] 链表题
 - [ ] DP题
 
+有兴趣但是困难级别的题:
+
+1. 推箱子
+2. 华容道
+
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
 
-因为leetcode-cn上我多做了一些面试题/剑指OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了16题
+因为leetcode-cn上我多做了一些面试题/剑指5OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了19题
 
 有意思的但是没有找到题号的问题:
 
 1. 海盗分金币问题(比较脑筋急转弯的递推)
 2. 最大直方图矩阵(Longest Histgram Rectangle), 单调栈O(n^3)->O(n)
-course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
@@ -235,6 +239,7 @@ course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 |1143|[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Python](dp/longest_common_subsequence.py)||
 |1167_LOCK|[Longest Common Subsequence](https://leetcode.com/problems/minimum-cost-to-connect-sticks/)|[Python](easy/minimum_cost_to_connect_sticks.py)||
 |1213_LOCK|[Intersection of Three Sorted Arrays](https://leetcode.com/problems/intersection-of-three-sorted-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
+|1227|[Airplane Seat Assignment Probability](https://leetcode.com/problems/airplane-seat-assignment-probability/)|[Python](brain_twists/airplane_seat_assignment_probability.py)||
 |1281|[Subtract the Product and Sum of Digits of an Integer](https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |1342|[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[Python](easy/number_of_steps_to_reduce_a_number_to_zero.py)||
 |1365|[How Many Numbers Are Smaller Than the Current Number](https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/)|[Python](easy/how_many_numbers_are_smaller_than_current.py)|前缀和(prefix_sum)|
@@ -257,6 +262,7 @@ course/77/?utm_source=jx-wx-yfy，优惠码：43A183
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
+|59|[队列的最大值](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/)|[Python](collections/max_queue.py)||
 |60|[n个骰子的点数](https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof/)|[Python](dp/dices_sum.py)||
 |61|[扑克牌中的顺子](https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof/)|[Python](easy/straight_in_playing_cards.py)||
 |62|[圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)|[Python](brain_twists/josephus.py)|约瑟夫环|
@@ -288,6 +294,7 @@ LintCode
 |17|[Subsets](https://lintcode.com/problem/subsets/)|[Python](dfs_perm_comb/subsets_combinations.py)||
 |18|[Subsets II](https://lintcode.com/problem/subsets-ii/)|[Python](dfs_perm_comb/subsets_combinations.py)||
 |20|[Dices Sum](https://lintcode.com/problem/dices-sum/)|[Python](dp/dices_sum.py)||
+|22|[Flatten List](https://lintcode.com/problem/flatten-list/)|[Python](easy/flatten_list.py)||
 |28|[Search a 2D Matrix](https://lintcode.com/problem/search-a-2d-matrix/)|[Python](binary_search/search_a_2d_matrix.py)||
 |31|[Partition Array](https://lintcode.com/problem/partition-array/)|[Python](partition_array/partition_array.py)|two_pointers|
 |33|[N Queens](https://leetcode.com/problems/n-queens)|[Python](dfs_perm_comb/n_queens.py)||
