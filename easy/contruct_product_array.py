@@ -1,6 +1,7 @@
 import operator
 from typing import List
 
+
 # 这道题不看官方解答我都不知道题目的公式是什么意思，硬是靠测试用例慢慢改对
 class Solution:
     def constructArr(self, nums: List[int]) -> List[int]:
