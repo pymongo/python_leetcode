@@ -10,7 +10,7 @@ TODO
 
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
 
-因为leetcode-cn上我多做了一些面试题/剑指5OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了23题
+因为leetcode-cn上我多做了一些面试题/剑指5OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了24题
 
 有意思的但是没有找到题号的问题:
 
@@ -89,6 +89,9 @@ TODO
 |110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[Python](binary_tree/depth_is_balance_binary_tree.py)|divide_and_conquer|
 |111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)|divide_and_conquer, BFS|
 |114|[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|[Python](binary_tree/in_place_flatten_binary_tree_to_linked_list.py)||
+|118|[Pascals Triangle](https://leetcode.com/problems/pascals-triangle/)|[Python](easy/pascals_triangle.py)||
+|119|[Pascals Triangle II](https://leetcode.com/problems/pascals-triangle-ii/)|[Python](easy/pascals_triangle.py)||
+|120|[Triangle](https://leetcode.com/problems/triangle/)|[Python](dp/triangle.py)||
 |120|[Triangle](https://leetcode.com/problems/triangle/)|[Python](dp/triangle.py)||
 |121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[Python](dp/stock.py)||
 |122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[Python](dp/stock.py)||
@@ -572,6 +575,8 @@ LintCode
 |1311|[Lowest Common Ancestor of a Binary Search Tree](https://lintcode.com/problem/lowest-common-ancestor-of-a-binary-search-tree/)|[Python](binary_tree/bst_lowest_common_ancestor.py)||
 |1334|[Rotate Array](https://lintcode.com/problem/rotate-array/)|[Python](rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |1343|[Sum of Two Strings](https://lintcode.com/problem/sum-of-two-strings/)|[Python](easy/sum_of_to_strings.py)||
+|1354|[Pascals Triangle II](https://leetcode.com/problems/pascals-triangle-ii/)|[Python](easy/pascals_triangle.py)||
+|1355|[Pascals Triangle](https://leetcode.com/problems/pascals-triangle/)|[Python](easy/pascals_triangle.py)||
 |1363|[ZigZag Conversion](https://lintcode.com/problem/zigzag-conversion/)|[Python](string/zigzag_conversion.py)||
 |1375|[Substring With At Least K Distinct Characters](https://lintcode.com/problem/substring-with-at-least-k-distinct-characters/)|[Python](two_sum_two_pointers/substring_with_at_least_k_distinct_characters.py)||
 |1424|[Longest Mountain in Array](https://lintcode.com/problem/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
