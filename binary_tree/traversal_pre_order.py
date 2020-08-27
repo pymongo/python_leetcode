@@ -44,8 +44,7 @@ def pre_order_iterative(root: TreeNode) -> List[int]:
     if root is None:
         return result
     # 因为栈有FILO的特性，所以满足前序遍历的DFS要求
-    stack = collections.deque()
-    stack.append(root)
+    stack = [root]
     while stack:
         node = stack.pop()
         if node is None:
