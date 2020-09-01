@@ -48,7 +48,7 @@ class Solution(unittest.TestCase):
         dummy.next = head
         # 从dummy开始计数，保证节点能从1开始编号，所以dummy前移m-1次的节点就是需要反转开始位置的前一个节点
         node_m_prev = dummy
-        for _ in range(m-1):
+        for _ in range(m - 1):
             node_m_prev = node_m_prev.next
         # rev_head需要反转部分的头部(会不断前移)
         # rev_prev第一次反转时的头部的前驱节点

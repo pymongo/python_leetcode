@@ -27,8 +27,9 @@ def leetcode_rotate_string(a: str, b: str) -> bool:
     for offset in range(size - 1):
         if b == rotate_string(a, size, offset):
             return True
-    # for s in xrange(len(A)):
-    #     if all(A[(s + i) % len(A)] == B[i] for i in xrange(len(A))):
+    # 旋转排序数组、循环数组的一个通用技巧是原数组翻倍，也就是后面再接上一个原数组
+    # for s in range(len(A)):
+    #     if all(A[(s + i) % len(A)] == B[i] for i in range(len(A))):
     #         return True
     return False
 
