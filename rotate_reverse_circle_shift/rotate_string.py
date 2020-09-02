@@ -11,6 +11,7 @@ def reverse(s: List[str], start, end):
 
 # lintcode上的rotate_string确实是字符串反转三次这种题
 def rotate_string(s: str, size: int, offset: int) -> str:
+    # 向左循环移位的偷懒写法: s[n:] + s[:n]
     chars = list(s)
     # 如果是lintcode上的这题，要加 offset %= size
     reverse(chars, 0, size - 1)

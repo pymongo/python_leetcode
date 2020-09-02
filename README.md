@@ -67,9 +67,11 @@ TODO:
 |63|[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Python](dp/unique_paths_2.py)||
 |64|[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)|[Python](easy/grid_min_path_sum.py)||
 |66|[Plus One](https://leetcode.com/problems/plus-one/)|[Python](easy/plus_one.py)||
+|67|[Add Binary](https://lintcode.com/problem/add-binary/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/add_bigint_string.cpp)||
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[Python](math/sqrt.py)|牛顿连续均值求根法|
 |70|[Climb Stairs](https://leetcode.com/problems/climbing-stairs/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |72|[Edit Distance](https://leetcode.com/problems/edit-distance/)|[Python](dp/edit_distance.py)||
+|73|[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/set_matrix_zeroes.rs)||
 |74|[Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)|[Python](binary_search/search_a_2d_matrix.py)||
 |75|[Sort Colors](https://leetcode.com/problems/sort-colors/)|[Python](partition_array/sort_colors.py)|three_pointers, partition_array|
 |77|[Combinations](https://leetcode.com/problems/combinartions/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combinations.rs), [C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/bfs/n_ary_tree_level_order.cpp)||
@@ -79,6 +81,7 @@ TODO:
 |82|[Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/linked_list/remove_duplicates_from_sorted_list.cpp)||
 |83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/linked_list/remove_duplicates_from_sorted_list.cpp)||
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/merge_two_sorted_arrays.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/sorting/merge_two_sorted_arrays_test.go), [Python](divide_conquer/merge_two_sorted_arrays.py)|merge_sort|
+|89|[Gray Code](https://leetcode.com/problems/gray-code/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/gray_code.rs), [Python](easy/gray_code.py)||
 |90|[Subsets](https://leetcode.com/problems/subsets-ii/)|[Python](dfs_perm_comb/subsets_combinations.py)||
 |91|[Decode Ways](https://leetcode.com/problems/decode-ways/)|[Python](dp/decode_ways.py)||
 |92|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/reverse_linked_list.rs), [Python](linked_list/reverse_linked_list.py)||
@@ -195,6 +198,7 @@ TODO:
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|[Python](easy/fizz_buzz.py)||
 |413|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Python](easy/reverse_integer.py)||
+|415|[Add String](https://leetcode.com/problems/add-strings/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/add_bigint_string.cpp)||
 |416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Python](dp/backpack_1_2.py)|0-1背包问题|
 |426|[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|[Python](two_sum_two_pointers/longest_repeating_character_replacement.py)||
 |429|[N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/bfs/n_ary_tree_level_order.cpp)||
@@ -411,6 +415,7 @@ LintCode
 |158|[Valid Anagram](https://lintcode.com/problem/valid-anagram/)|[Python](collections/valid_anagram.py)||
 |159|[Find Minimum in Rotated Sorted Array](https://lintcode.com/problem/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_search.py)|binary_search|
 |160|[Find Minimum in Rotated Sorted Array II](https://lintcode.com/problem/find-minimum-in-rotated-sorted-array/)|[Python](binary_search/rotated_sorted_array_min_2_with_duplicate.py)|binary_search|
+|162|[Set Matrix Zeroes](https://lintcode.com/problem/set-matrix-zeroes/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/set_matrix_zeroes.rs)||
 |165|[Merge Two Sorted Lists](https://lintcode.com/problem/merge-two-sorted-lists/)|[Python](divide_conquer/merge_k_sorted_lists.py)||
 |167|[Add Two Numbers](https://lintcode.com/problem/add-two-numbers/)|[Python](linked_list/add_two_numbers.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/add_two_linked_list.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/traverse_two_list_node_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/TraverseTwoListNode.java)|create/traverse_list_node|
 |168|[Burst Balloons](https://lintcode.com/problem/burst-balloons/)|[Python](dp/burst_ballon.py)||
@@ -449,6 +454,8 @@ LintCode
 |397|[Longest Continuous Increasing Subsequence](https://lintcode.com/problem/longest-continuous-increasing-subsequence/)|[Python](easy/longest_continuous_increase_subsequence.py)||
 |406|[Minimum Size Subarray Sum](https://lintcode.com/problem/minimum-size-subarray-sum/)|[Python](two_sum_two_pointers/minimun_size_subarray_sum.py)|sliding_window|
 |407|[Plus One](https://lintcode.com/problem/plus-one/)|[Python](easy/plus_one.py)||
+|408|[Add Binary](https://lintcode.com/problem/add-binary/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/add_bigint_string.cpp)||
+|411|[Gray Code](https://lintcode.com/problem/gray-code/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/gray_code.rs), [Python](easy/gray_code.py)||
 |415|[Valid Palindrome](https://lintcode.com/problem/valid-palindrome/)|[Python](palindrome/valid_palindrome.py)|two_pointers|
 |418|[Integer to Roman](https://lintcode.com/problem/integer-to-roman/)|[Python](easy/int_to_roman.py)||
 |419|[Roman to Integer](https://lintcode.com/problem/roman-to-integer/)|[Python](easy/int_to_roman.py)||
@@ -526,6 +533,7 @@ LintCode
 |632|[Binary Tree Maximum Node](https://lintcode.com/problem/binary-tree-maximum-node/)|||
 |633|[Find the Duplicate Number](https://lintcode.com/problem/find-the-duplicate-number/)|[Python](brain_twists/find_duplicate_number.py)|快慢双指针|
 |654|[Sparse Matrix Multiplication](https://lintcode.com/problem/sparse-matrix-multiplication/)|[Python](math/sparse_matrix_multiplication.py)||
+|655|[Add String](https://lintcode.com/problem/add-strings/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/add_bigint_string.cpp)||
 |657|[Insert Delete GetRandom O(1)](https://lintcode.com/problem/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |667|[Longest Palindromic Subsequence](https://lintcode.com/problem/longest-palindromic-subsequence/)|[Python](palindrome/longest_palindromic_subsequence.py)|dp(greedy)|
 |668|[Ones and Zeroes](https://lintcode.com/problem/ones-and-zeroes/)|[Python](dp/backpack_ones_and_zeros.py)|完全背包问题|
