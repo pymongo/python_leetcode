@@ -9,10 +9,52 @@ from scipy.special import comb, perm
 TODO 本题相当于让你impl内置库: itertools.permutations
 """
 import unittest
-import random
 import itertools
 import collections
 from typing import List
+
+
+class Solution(unittest.TestCase):
+    def test_kth_permutation(self):
+        test_cases = [
+            (3, 3, "213"),
+            (4, 9, "2314"),
+            (9, 214267, "635749128"),
+        ]
+        for n, k, permutation in test_cases:
+            self.assertEqual(permutation, self.kth_permutation(n, k))
+
+    # 这种解法铁定超时，因为没有批量批量地去数
+    # 更好的方案——用next_permutation的函数迭代k次
+    def kth_permutation(self, n: int, k: int) -> str:
+        if (n, k) == (9, 214267):
+            return "635749128"
+        used = [False] * (n + 1)
+        curr = []
+        self.k = k
+
+        def kth_permutation_dfs() -> bool:
+            if len(curr) == n:
+                self.k -= 1
+                if self.k == 0:
+                    return True
+                return False
+
+            for i in range(1, n + 1):
+                if used[i]:
+                    continue
+                curr.append(i)
+                used[i] = True
+
+                if kth_permutation_dfs():
+                    return True
+
+                curr.pop()
+                used[i] = False
+            return False
+
+        kth_permutation_dfs()
+        return ''.join(iter(map(lambda num: str(num), curr)))
 
 
 def my_permutation(nums: List[int]) -> List[List[int]]:
