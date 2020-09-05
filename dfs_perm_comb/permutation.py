@@ -27,31 +27,34 @@ class Solution(unittest.TestCase):
     # 这种解法铁定超时，因为没有批量批量地去数
     # 更好的方案——用next_permutation的函数迭代k次
     def kth_permutation(self, n: int, k: int) -> str:
-        if (n, k) == (9, 214267):
-            return "635749128"
         used = [False] * (n + 1)
         curr = []
+        # 构造阶乘数组，类似快速选择算法的剪枝过程，可以根据当前递归的层级推出可以剪枝叶子节点的数量
+        factorial = [1] * (n + 1)
+        for i in range(2, n + 1):
+            factorial[i] = factorial[i - 1] * i
+
         self.k = k
 
-        def kth_permutation_dfs() -> bool:
-            if len(curr) == n:
-                self.k -= 1
-                if self.k == 0:
-                    return True
-                return False
+        def kth_permutation_dfs():
+            depth = len(curr)
+            if depth == n:
+                return
 
+            # 当前递归深度中，能排除的叶子节点数量
+            leaf_cnt = factorial[n - 1 - depth]
             for i in range(1, n + 1):
                 if used[i]:
                     continue
+                if leaf_cnt < self.k:
+                    self.k -= leaf_cnt
+                    continue
                 curr.append(i)
                 used[i] = True
+                kth_permutation_dfs()
 
-                if kth_permutation_dfs():
-                    return True
-
-                curr.pop()
-                used[i] = False
-            return False
+                # 注意这里要加return，因为我们保证每次追加的数一定是正确的，不需要回溯
+                return
 
         kth_permutation_dfs()
         return ''.join(iter(map(lambda num: str(num), curr)))

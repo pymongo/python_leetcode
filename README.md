@@ -63,6 +63,7 @@ TODO:
 |52|[N Queens II](https://leetcode.com/problems/n-queens-ii)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.py)||
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
 |55|[Jump Game](https://leetcode.com/problems/jump-game/)|[Python](dp/jump_game.py)|greedy, dp|
+|60|[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/)|[Python](dfs_perm_comb/permutation.py)||
 |62|[Unique Paths](https://leetcode.com/problems/unique-paths/)|[Python](dfs_perm_comb/unique_paths.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/unique_path.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|combination|
 |63|[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Python](dp/unique_paths_2.py)||
 |64|[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)|[Python](easy/grid_min_path_sum.py)||
@@ -448,6 +449,7 @@ LintCode
 |383|[Container With Most Water](https://lintcode.com/problem/container-with-most-water/)|[Python](two_sum_two_pointers/container_with_most_water.py)||
 |384|[Longest Substring Without Repeating Characters](https://lintcode.com/problem/longest-substring-without-repeating-characters/)|[Python](string/longest_non_repeated_substr.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_non_repeated_substr.rs)|sliding_window|
 |386|[Longest Substring with At Most K Distinct Characters](https://lintcode.com/problem/longest-substring-with-at-most-k-distinct-characters/)|[Python](two_sum_two_pointers/longest_substr_with_longest_k_distinct_chars.py)||
+|388|[Permutation Sequence](https://lintcode.com/problem/permutation-sequence/)|[Python](dfs_perm_comb/permutation.py)||
 |389|[Valid Sudoku](https://lintcode.com/problem/valid-sudoku/)|[Python](dfs_perm_comb/valid_soduku.py)||
 |392|[House Robber](https://lintcode.com/problem/house-robber/)|[Python](dp/house_robber.py)||
 |393|[Best Time to Buy and Sell Stock IV](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-iv/)|[Python](dp/stock.py)||
