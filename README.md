@@ -214,6 +214,7 @@ TODO:
 |507|[Perfect Number](https://leetcode.com/problems/perfect-number/)|[Python](factorization/perfect_number.py)||
 |509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |518|[Coin Change 2](https://leetcode.com/problem/coin-change-2/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
+|535|[Encode and Decode TinyURL](https://leetcode.com/problems/encode-and-decode-tinyurl/)|||
 |536_LOCK|[Construct Binary Tree from String](https://leetcode.com/problems/construct-binary-tree-from-string/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |547|[Friend Circles](https://leetcode.com/problems/friend-circles/)|[Python](graph/friend_circles.py)|union_find, BFS, BFS|
 |559|[Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/bfs/n_ary_tree_level_order.cpp)||
@@ -272,6 +273,7 @@ TODO:
 |1281|[Subtract the Product and Sum of Digits of an Integer](https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |1342|[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[Python](easy/number_of_steps_to_reduce_a_number_to_zero.py)||
 |1365|[How Many Numbers Are Smaller Than the Current Number](https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/)|[Python](easy/how_many_numbers_are_smaller_than_current.py)|前缀和(prefix_sum)|
+|1379|[Find a Corresponding Node of a Binary Tree in a Clone of That Tree](https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/)|[Python](easy/find_a_corresponding_node_in_a_cloned_tree.py)||
 |1389|[Create Target Array in the Given Order](https://leetcode.com/problems/create-target-array-in-the-given-order/)|[Python](easy/create_target_array_in_the_given_order.py)||
 |1429_LOCK|[First Unique Number](https://leetcode.com/problems/first-unique-number/)|[Python](linked_list/first_unique_number_in_stream.py)||
 |1431|[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)|[Python](easy/kids_with_the_greatest_number_of_candies.py)||
@@ -282,6 +284,10 @@ TODO:
 |1486|[XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array/)|[Python](easy/xor_operation_in_an_array.py)||
 |1512|[Number of Good Pairs](https://leetcode.com/problems/number-of-good-pairs/)|[Python](dfs_perm_comb/numbers_of_good_pairs.py)||
 |1528|[Shuffle String](https://leetcode.com/problems/shuffle-string/)|[Python](easy/shuffle_string.py)||
+|1572/5491|[Shuffle String](https://leetcode.com/problems/matrix-diagonal-sum/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/matrix_diagonal_sum.rs)||
+|1576/5507|[Replace All ?'s to Avoid Consecutive Repeating Characters](https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/)|[Python](easy/replace_question_mark_to_avoid_consecutive_repeating_char.py)||
+|1577/5508|[Number of Ways Where Square of Number Is Equal to Product of Two Numbers](https://leetcode.com/problems/number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/number_of_ways_where_square_of_number_is_equal_to_product_of_two_numbers.rs)||
+|1578/5509|[Minimum Deletion Cost to Avoid Repeating Letters](https://leetcode.com/problems/minimum-deletion-cost-to-avoid-repeating-letters/submissions/)|[Python](easy/minimum_deletion_cost_to_avoid_repeating_letters.py)||
 
 ---
 
@@ -595,6 +601,7 @@ LintCode
 |1162|[Merge Two Binary Trees](https://lintcode.com/problem/merge-two-binary-trees/)|[Python](binary_tree/merge_two_binary_tree.py)||
 |1173|[Reverse Words in a String III](https://lintcode.com/problem/reverse-words-in-a-string-iii/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/reverse_words_in_a_string_3.cpp)||
 |1179_LOCK|[Friend Circles](https://lintcode.com/problem/friend-circles/)|[Python](graph/friend_circles.py)|union_find, DFS, BFS|
+|1186|[Encode and Decode TinyURL](https://lintcode.com/problem/encode-and-decode-tinyurl/)|||
 |1199|[Perfect Number](https://lintcode.com/problem/perfect-number/)|[Python](factorization/perfect_number.py)||
 |1080|[Max Area of Island](https://lintcode.com/problem/max-area-of-island/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/bfs/max_area_of_island.rs)||
 |1201|[Next Greater Element II](https://lintcode.com/problem/next-greater-element-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/monotonic_stack/next_greater_element_2.rs)||
