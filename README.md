@@ -245,9 +245,11 @@ TODO:
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](rotate_reverse_circle_shift/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
 |743|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Python](bfs/network_delay_time_dijkstra.py)||
 |771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Python](easy/jewels_and_stones.py)||
+|807|[Max Increase to Keep City Skyline](https://leetcode.com/problems/max-increase-to-keep-city-skyline/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/max_increase_to_keep_city_skyline.rs)||
 |841|[Keys and Rooms](https://leetcode.com/problems/keys-and-rooms/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/bfs/keys_and_rooms.cpp)||
 |845|[Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
 |852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
+|861|[Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/)|[Python](greedy/score_after_flipping_matrix.py)|greedy|
 |867|[Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/transpose.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/easy/test_transpose_matrix.go), [C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/transpose_matrix.cpp)||
 |869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python](brain_twists/reordered_power_of_2.py)|permutation|
 |875|[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)|[Python](binary_search/koko_eating_bananas.py)||
@@ -593,6 +595,7 @@ LintCode
 |982|[Arithmetic Slices](https://lintcode.com/problem/arithmetic-slices/)|[Python](easy/arithmetic_slices.py)||
 |995|[Best Time to Buy and Sell Stock with Cooldown](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python](dp/stock.py)||
 |1000|[Best Time to Buy and Sell Stock with Transaction Fee](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-with-transaction-fee/)|[Python](dp/stock.py)||
+|1010|[Max Increase to Keep City Skyline](https://lintcode.com/problem/max-increase-to-keep-city-skyline/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/max_increase_to_keep_city_skyline.rs)||
 |1038|[Jewels and Stones](https://lintcode.com/problem/jewels-and-stones/)|[Python](easy/jewels_and_stones.py)||
 |1057|[Network Delay Time](https://lintcode.com/problem/network-delay-time/)|[Python](bfs/network_delay_time_dijkstra.py)||
 |1079|[Count Binary Substrings](https://lintcode.com/problem/count-binary-substrings/)|[Python](unclassified/count_binary_substring.py)||
@@ -631,6 +634,7 @@ LintCode
 |1479|[Can Reach The Endpoint](https://lintcode.com/problem/can-reach-the-endpoint/)|[Python](bfs/can_reach_the_end_point.py)|bfs|
 |1492|[Koko Eating Bananas](https://lintcode.com/problem/koko-eating-bananas/)|[Python](binary_search/koko_eating_bananas.py)||
 |1499|[Reordered Power of 2](https://lintcode.com/problem/reordered-power-of-2/)|[Python](brain_twists/reordered_power_of_2.py)|permutation|
+|1508|[Score After Flipping Matrix](https://lintcode.com/problem/score-after-flipping-matrix/)|[Python](greedy/score_after_flipping_matrix.py)|greedy|
 |1524|[Search in a Binary Search Tree](https://lintcode.com/problem/search-in-a-binary-search-tree/)|[Python](binary_tree/bst_search.py)||
 |1525|[N-ary Tree Postorder Traversal](https://lintcode.com/problem/n-ary-tree-postorder-traversal/)|[Python](easy/n_ary_tree_preorder_postorder.py)||
 |1529|[N-ary Tree Preorder Traversal](https://lintcode.com/problem/n-ary-tree-preorder-traversal/)|[Python](easy/n_ary_tree_preorder_postorder.py)||
