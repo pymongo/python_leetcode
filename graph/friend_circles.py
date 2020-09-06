@@ -77,6 +77,43 @@ def my_dfs_entrance(m: List[List[int]]) -> int:
     return circles_count
 
 
+class UnionFind(object):
+    def __init__(self, size):
+        self.parent = [-1 for _ in range(size)]
+
+    # 查找某节点的根，每个节点的根的默认值是自己
+    def find(self, node: int):
+        if self.parent[node] == -1:
+            return node
+        # 递归的去找根
+        return self.find(self.parent[node])
+
+    # a和b表示两个相连的节点，并查集每次更新时都是通过传入一条连边信息
+    def union(self, a: int, b: int):
+        a_root, b_root = self.find(a), self.find(b)
+        if a_root != b_root:
+            # TODO 路径压缩的并查集，只有a树的深度等于b树的深度时，才能让并查集树的深度+1
+            self.parent[a_root] = b_root
+
+
+class Solution:
+    @staticmethod
+    def union_find_circle(m: List[List[int]]) -> int:
+        n = len(m)
+        uf = UnionFind(n)
+        # 遍历邻接矩阵的右上三角区域
+        for i in range(n-1):
+            for j in range(i + 1, n):
+                if m[i][j]:
+                    uf.union(i, j)
+
+        circle_count = 0
+        for parent in uf.parent:
+            if parent == -1:
+                circle_count += 1
+        return circle_count
+
+
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ([[1, 1, 0],
@@ -94,3 +131,7 @@ class Testing(unittest.TestCase):
     def test_my_dfs(self):
         for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
             self.assertEqual(friend_circles_count, my_dfs_entrance(adjacency_matrix))
+
+    def test_union_find(self):
+        for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
+            self.assertEqual(friend_circles_count, Solution.union_find_circle(adjacency_matrix))
