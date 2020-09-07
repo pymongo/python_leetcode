@@ -226,6 +226,7 @@ TODO:
 |606|[Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees/)|[Python](binary_tree/merge_two_binary_tree.py)||
 |625_LOCK|[Minimum Factorization](https://leetcode.com/problems/minimum-factorization/)|[Python](factorization/minimum_factorization.py)|greedy|
+|627|[Swap Salary](https://leetcode-cn.com/problems/swap-salary/)|[Python](database_problems/invert_sex.sql)||
 |633|[Average of Levels in Binary Tree](https://leetcode.com/problems/average-of-levels-in-binary-tree/)|[Python](binary_tree/traversal_level_order.py)||
 |650|[2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard/)|[Python](brain_twists/copy_paste_times.py)||
 |653|[First Unique Number in Data Stream](https://leetcode.com/problems/two-sum-iv-input-is-a-bst/)|[Python](binary_tree/bst_two_sum.py)||
