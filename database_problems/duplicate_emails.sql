@@ -3,4 +3,4 @@
 -- 但是「MySQL不支持MINUS」求差集的操作
 
 -- 按邮箱分组后用having语句查count(email)>1的
-select Email from Person group by Email having count(Email) > 1;
+select email from person group by email having count(email) > 1;

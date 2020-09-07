@@ -129,7 +129,11 @@ TODO:
 |170_LOCK|[Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design/)|[Python](two_sum_two_pointers/two_sum_3_impl.py)|two_pointers|
 |172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[Python](factorization/factorial_trailing_zeroes.py)|factorial|
 |173|[Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)|[Python](binary_tree/bst_in_order_iterator.py)||
-|182|[Duplicate Emails](https://leetcode.com/problems/duplicate-emails/)|[Python](database_problems/duplicate_emails.sql)||
+|175|[Combine Two Tables](https://leetcode.com/problems/combine-two-tables/)|||
+|176|[Second Highest Salary](https://leetcode.com/problems/second-highest-salary/)|[SQL](database_problems/second_highest_salary.sql)||
+|181|[Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers/)|||
+|182|[Duplicate Emails](https://leetcode.com/problems/duplicate-emails/)|[SQL](database_problems/duplicate_emails.sql)||
+|183|[Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/)|||
 |188|[Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)|[Python](dp/stock.py)||
 |189|[Rotate Array](http://leetcode.com/problems/rotate-array/)|[Python](rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |190|[Reverse Bits](https://leetcode.com/problems/reverse-bits/)|[Python](bitwise/number_of_1_bits.py)||
@@ -187,6 +191,7 @@ TODO:
 |342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
 |343|[Integer Break](https://leetcode.com/problems/integer-break/)|[Python](dp/integer_break.py)|划分类DP|
 |344|[Reverse Array](https://leetcode.com/problems/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
+|347|[Top K Frequent Elements](https://leetcode.com/problems/reverse-string/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/priority_queue/top_k_frequent_elements.rs)||
 |349|[Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |350|[Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)|[Python](two_sum_two_pointers/intersection_of_two_arrays.py)||
 |354|[Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes/)|[Python](dp/russian_doll_envelopes.py)||
@@ -225,8 +230,9 @@ TODO:
 |595|[Big Countries](https://leetcode.com/problems/big-countries/)|||
 |606|[Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/)|[Python](binary_tree/construct_from_string_with_parentheses.py)||
 |617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees/)|[Python](binary_tree/merge_two_binary_tree.py)||
+|620|[Not Boring Movies](https://leetcode.com/problems/not-boring-movies/)|||
 |625_LOCK|[Minimum Factorization](https://leetcode.com/problems/minimum-factorization/)|[Python](factorization/minimum_factorization.py)|greedy|
-|627|[Swap Salary](https://leetcode-cn.com/problems/swap-salary/)|[Python](database_problems/invert_sex.sql)||
+|627|[Swap Salary](https://leetcode-cn.com/problems/swap-salary/)|[SQL](database_problems/invert_sex.sql)||
 |633|[Average of Levels in Binary Tree](https://leetcode.com/problems/average-of-levels-in-binary-tree/)|[Python](binary_tree/traversal_level_order.py)||
 |650|[2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard/)|[Python](brain_twists/copy_paste_times.py)||
 |653|[First Unique Number in Data Stream](https://leetcode.com/problems/two-sum-iv-input-is-a-bst/)|[Python](binary_tree/bst_two_sum.py)||
@@ -624,6 +630,7 @@ LintCode
 |1235|[Serialize and Deserialize BST](https://lintcode.com/problem/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |1246|[Longest Repeating Character Replacement](https://lintcode.com/problem/longest-repeating-character-replacement/)|[Python](two_sum_two_pointers/longest_repeating_character_replacement.py)||
 |1276|[Sum of Two Integers](https://lintcode.com/problem/sum-of-two-integers/)|[Python](bitwise/binary_addition.py)|binary_addition|
+|1281|[Top K Frequent Elements](https://lintcode.com/problem/reverse-string/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/priority_queue/top_k_frequent_elements.rs)||
 |1283|[Reverse Array](https://lintcode.com/problem/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
 |1284|[Integer Break](https://lintcode.com/problem/integer-break/)|[Python](dp/integer_break.py)|划分类DP|
 |1285|[Power of Four](https://lintcode.com/problem/power-of-four/)|[Python](bitwise/is_power_of_4.py)|bitwise|
