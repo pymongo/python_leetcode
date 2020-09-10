@@ -53,7 +53,8 @@ TODO:
 |35|[Search Insert Position](https://leetcode.com/problems/search-insert-position/)|[Python](binary_search/search_insert_position.py)||
 |36|[Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)|[Python](dfs_perm_comb/valid_soduku.py)||
 |37|[Soduku Solver](https://leetcode.com/problems/soduku-solver/)|[Python](dfs_perm_comb/soduku_solver.py)||
-|39|[Combination Sum](https://leetcode.com/problems/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py)||
+|39|[Combination Sum](https://leetcode.com/problems/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_1_2.rs)||
+|40|[Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)|[Python](dfs_perm_comb/combination_target_sum.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_1_2.rs)||
 |44|[Wildcard Matching](https://leetcode.com/problems/wildcard-matching/)|[Python](dp/wildcard_matching.py)||
 |46|[Permutations](https://leetcode.com/problems/permutations/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
 |47|[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
@@ -276,6 +277,7 @@ TODO:
 |1095|[Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](binary_search/mountain_array_find.py)|binary_search, mountain_array|
 |1099_LOCK|[Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)|[Python](two_sum_two_pointers/two_sum_le_count.py)|two_pointers|
 |1108|[Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address/)|||
+|1109|[Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/corporate_flight_bookings.rs)||
 |1143|[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Python](dp/longest_common_subsequence.py)||
 |1147|[Work Plan](https://www.lintcode.com/problem/work-plan/)|[Python](dp/house_robber.py)||
 |1167_LOCK|[Longest Common Subsequence](https://leetcode.com/problems/minimum-cost-to-connect-sticks/)|[Python](easy/minimum_cost_to_connect_sticks.py)||
@@ -420,7 +422,7 @@ LintCode
 |129|[Rehashing](https://lintcode.com/problem/rehashing/)|[Python](collections/rehashing.py)||
 |132|[Word Search II](https://lintcode.com/problem/word-search-ii/)|[Python](dfs_perm_comb/word_search_2.py)|前缀树|
 |134|[LRU Cache](https://lintcode.com/problem/lru-cache/)|[Python](linked_list/lru_cache.py)|double_linked_list, OrderedDict|
-|135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py)||
+|135|[Combination Sum](https://lintcode.com/problem/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_1_2.rs)||
 |137|[Clone Graph](https://lintcode.com/problem/clone-graphs/)|[Python](graph/clone_graph.py)|DFS, BFS|
 |138|[Subarray Sum](https://lintcode.com/problem/subarray-sum/)|[Python](unclassified/subarray_sum_zero.py)||
 |140|[Fast Power](https://lintcode.com/problem/fast-power/)|[Python](math/pow.py)|binary_search, 快速幂运算|
@@ -435,6 +437,7 @@ LintCode
 |150|[Best Time to Buy and Sell Stock II](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-ii/)|[Python](dp/stock.py)||
 |151|[Best Time to Buy and Sell Stock III](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-iii/)|[Python](dp/stock.py)||
 |152|[Combinations](https://lintcode.com/problem/combinartions/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combinations.rs), [C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/bfs/n_ary_tree_level_order.cpp)||
+|153|[Combination Sum II](https://lintcode.com/problem/combination-sum-ii/)|[Python](dfs_perm_comb/combination_target_sum.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_1_2.rs)||
 |154|[Regular Expression Matching](https://lintcode.com/problem/regular-expression-matching/)|[Python](dp/regular_expression_matching.py)||
 |155|[Minimum Depth of Binary Tree](https://lintcode.com/problem/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |158|[Valid Anagram](https://lintcode.com/problem/valid-anagram/)|[Python](collections/valid_anagram.py)||
