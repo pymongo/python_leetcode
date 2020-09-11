@@ -89,7 +89,8 @@ TODO:
 |92|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/reverse_linked_list.rs), [Python](linked_list/reverse_linked_list.py)||
 |94|[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)|[Python](binary_tree/traversal_pre_order.py)|DFS, stack|
 |98|[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|[Python](binary_tree/bst_valid.py)||
-|99|[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/description)|[Python](binary_tree/bst_recover_swap_two_nodes.py)||
+|99|[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/)|[Python](binary_tree/bst_recover_swap_two_nodes.py)||
+|100|[Same Tree](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Python](binary_tree/is_same_tree.py)||
 |102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Python](binary_tree/traversal_level_order.py)|BFS|
 |104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)||
 |105|[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_in_order.py)|DFS, stack|
@@ -293,6 +294,7 @@ TODO:
 |1295|[Minimum Operations to Make Array Equal](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/)|||
 |1313|[Decompress Run-Length Encoded List](https://leetcode.com/problems/decompress-run-length-encoded-list/)|[Python](easy/decompress_run_length_encoded_list.py)||
 |1342|[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[Python](easy/number_of_steps_to_reduce_a_number_to_zero.py)||
+|1351|[Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/count_negative_numbers_in_a_sorted_matrix.rs)||
 |1365|[How Many Numbers Are Smaller Than the Current Number](https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/)|[Python](easy/how_many_numbers_are_smaller_than_current.py)|前缀和(prefix_sum)|
 |1379|[Find a Corresponding Node of a Binary Tree in a Clone of That Tree](https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/)|[Python](easy/find_a_corresponding_node_in_a_cloned_tree.py)||
 |1389|[Create Target Array in the Given Order](https://leetcode.com/problems/create-target-array-in-the-given-order/)|[Python](easy/create_target_array_in_the_given_order.py)||
@@ -515,6 +517,7 @@ LintCode
 |463|[Sort Integers](https://lintcode.com/problem/sort-integers/)|[Python](sorting_and_query/basic_sorting.py)|multi_solutions|
 |464|[Sort Integers II](https://lintcode.com/problem/sort-integers-ii/)|[Python](sorting_and_query/basic_sorting.py)|multi_solutions|
 |466|[Count Linked List Nodes](https://lintcode.com/problem/count-linked-list-nodes/)|||
+|469|[Same Tree](https://lintcode.com/problem/binary-tree-level-order-traversal/)|[Python](binary_tree/is_same_tree.py)||
 |474_LOCK|[Lowest Common Ancestor II](https://lintcode.com/problem/lowest-common-ancestor-ii/)|[Python](binary_tree/binary_tree_lowest_common_ancestor.py)||
 |476|[Stone Game(diff to leetcode)](https://lintcode.com/problem/stone-game/)|[Python](dp/stone_game_merge.py)||
 |480|[Binary Tree Paths](https://lintcode.com/problem/binary-tree-paths/)|[Python](binary_tree/root_to_leaf_paths_find_all.py)|DFS, backtracking|
