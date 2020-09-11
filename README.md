@@ -95,6 +95,8 @@ TODO:
 |105|[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_in_order.py)|DFS, stack|
 |106|[Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_in_order_and_post_order.py)|DFS|
 |107|[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Python](binary_tree/traversal_level_order.py)|BFS|
+|108|[Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[Python](divide_conquer/sorted_list_or_array_to_bst.py)|divide_and_conquer|
+|109|[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)|[Python](divide_conquer/sorted_list_or_array_to_bst.py)|divide_and_conquer|
 |110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[Python](binary_tree/depth_is_balance_binary_tree.py)|divide_and_conquer|
 |111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[Python](binary_tree/depth_max_min.py)|divide_and_conquer, BFS|
 |114|[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|[Python](binary_tree/in_place_flatten_binary_tree_to_linked_list.py)||
@@ -150,6 +152,7 @@ TODO:
 |212|[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python](dfs_perm_comb/word_search_2.py)|前缀树|
 |213|[House Robber II](https://leetcode.com/problems/house-robber-ii/)|[Python](dp/house_robber.py)||
 |215|[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python](sorting_and_query/quick_select_kth_largest.py)|quick_select, quick_sort, heap|
+|216|[Combination Sum III](https://leetcode.com/problems/combination-sum-iii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_3.rs)||
 |217|[Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)|||
 |219|[Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/contains_duplicate_2.rs)||
 |225|[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)|[Python](collections/impl_stack_by_queue.py)||
@@ -250,6 +253,7 @@ TODO:
 |705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python](linked_list/impl_hashmap.py)||
 |706|[Design HashMap](https://leetcode.com/problems/design-hashmap/)|[Python](linked_list/impl_hashmap.py)||
 |709|[To Lower Case](https://leetcode.com/problems/to-lower-case/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/to_lowercase.rs)||
+|713|[1-bit and 2-bit Characters](https://leetcode.com/problems/1-bit-and-2-bit-characters/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/one_or_two_bit_char.rs)||
 |714|[Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)|[Python](dp/stock.py)||
 |716_LOCK|[Max Stack](https://leetcode.com/problems/max_stack/)|[Python](collections/max_stack.py)||
 |760_LOCK|[Find Anagram Mappings](https://leetcode.com/problems/find-anagram-mappings/)|[Python](collections/mapping_two_anagram_list_int.py)||
@@ -268,7 +272,7 @@ TODO:
 |877_TODO|[Stone Game](https://leetcode.com/problems/stone-game/)|||
 |887_TODO|[Super Egg Drop](https://leetcode.com/problems/super-egg-drop)||dp|
 |889|[Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)|[Python](binary_tree/construct_from_pre_order_and_post_order.py)|DFS|
-|912|[Sort An Array](https://leetcode.com/problems/sort-an-array/)|[Python](sorting_and_query/basic_sorting.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/quick_sort.rs)|multi_solutions|
+|912|[Sort An Array](https://leetcode.com/problems/sort-an-array/)|[Python](sorting_and_query/basic_sorting.py)|multi_solutions|
 |941|[Valid Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](binary_search/mountain_array_valid.py)|mountain_array|
 |953|[Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)|[Python](unclassified/verifying_an_alien_dictionary.py)||
 |973|[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Python](sorting_and_query/k_closest_points_to_origin.py)|quick_select, sort_by_multi_keys|
@@ -403,6 +407,7 @@ LintCode
 |103|[Linked List Cycle II](https://lintcode.com/problem/linked-list-cycle-ii/)|[Python](linked_list/linked_list_cycle.py)||
 |104|[Merge k Sorted Lists](https://lintcode.com/problem/merge-k-sorted-lists/)|[Python](divide_conquer/merge_k_sorted_lists.py)||
 |105|[Copy List with Random Pointer](https://lintcode.com/problem/copy-list-with-random-pointer/)|[Python](graph/clone_linked_list_with_random_ptr.py)||
+|106|[Convert Sorted List to Binary Search Tree](https://lintcode.com/problem/convert-sorted-list-to-binary-search-tree/)|[Python](divide_conquer/sorted_list_or_array_to_bst.py)|divide_and_conquer|
 |107|[Word Break](https://lintcode.com/problem/word-break/)|[Python](dp/backpack_4_word_break_coin_change.py)|完全背包问题|
 |109|[Triangle](https://lintcode.com/problem/triangle/)|[Python](dp/triangle.py)||
 |110|[Minimum Path Sum](https://lintcode.com/problem/minimum-path-sum/)|[Python](easy/grid_min_path_sum.py)||
@@ -451,6 +456,7 @@ LintCode
 |172|[Subarray Sum](https://lintcode.com/problem/remove-element/)|[Python](partition_array/move_zeros.py)||
 |174|[Remove Nth Node From End of List](https://lintcode.com/problem/remove-nth-node-from-end-of-list/)|[Python](linked_list/remove_nth_node_from_end.py)|sliding_window|
 |175|[Invert Binary Tree](https://lintcode.com/problem/invert-binary-tree/)|[Python](easy/invert_binary_tree.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/reverse_linked_list.rs)||
+|177|[Convert Sorted Array to Binary Search Tree With Minimal Height](https://www.lintcode.com/problem/convert-sorted-array-to-binary-search-tree-with-minimal-height/)|[Python](divide_conquer/sorted_list_or_array_to_bst.py)|divide_and_conquer|
 |183|[Wood Cut](https://lintcode.com/problem/wood-cut/)|[Python](binary_search/wood_cut.py)|greedy|   
 |187|[Gas Station](https://lintcode.com/problem/gas-station/)|[Python](greedy/gas_station.py)|greedy|
 |190|[Next Permutation II](https://lintcode.com/problem/next-permutation-ii/)|[Python](dfs_perm_comb/next_permutation.py)||
@@ -608,6 +614,7 @@ LintCode
 |943|[Range Sum Query - Immutable](https://lintcode.com/problem/range-sum-query-immutable/)|[Python](easy/range_sum_query_immutable.py)||
 |954|[Insert Delete GetRandom O(1) - Duplicates allowed](https://lintcode.com/problem/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
 |955|[Implement Queue by Circular Array](https://lintcode.com/problem/implement-queue-by-circular-array/)|[Python](collections/impl_queue_by_circluar_array.py)||
+|973|[1-bit and 2-bit Characters](https://lintcode.com/problem/1-bit-and-2-bit-characters/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/one_or_two_bit_char.rs)||
 |975|[2 Keys Keyboard](https://lintcode.com/problem/2-keys-keyboard/)|[Python](brain_twists/copy_paste_times.py)||
 |976|[4Sum II](https://lintcode.com/problem/4sum-ii/)|[Python](two_sum_two_pointers/four_sum_2.py)|two_sum|
 |980|[Basic Calculator II](https://lintcode.com/problem/basic-calculator-ii/)|[Python](brain_twists/calculator_2.py)||
@@ -642,12 +649,14 @@ LintCode
 |1311|[Lowest Common Ancestor of a Binary Search Tree](https://lintcode.com/problem/lowest-common-ancestor-of-a-binary-search-tree/)|[Python](binary_tree/bst_lowest_common_ancestor.py)||
 |1319|[Contains Duplicate II](https://lintcode.com/problem/contains-duplicate-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/contains_duplicate_2.rs)||
 |1320|[Contains Duplicate](https://lintcode.com/problem/contains-duplicate-ii/)|||
+|1321_LOCK|[Combination Sum III](https://lintcode.com/problem/combination-sum-iii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_3.rs)||
 |1332|[Number of 1 Bits](https://lintcode.com/problem/number-of-1-bits/)|[Python](bitwise/number_of_1_bits.py)||
 |1333|[Reverse Bits](https://lintcode.com/problem/reverse-bits/)|[Python](bitwise/number_of_1_bits.py)||
 |1334|[Rotate Array](https://lintcode.com/problem/rotate-array/)|[Python](rotate_reverse_circle_shift/rotate_array_right_circle_shift_elements.py)|reverse, circle_shift|
 |1343|[Sum of Two Strings](https://lintcode.com/problem/sum-of-two-strings/)|[Python](easy/sum_of_to_strings.py)||
 |1354|[Pascals Triangle II](https://lintcode.com/problem/pascals-triangle-ii/)|[Python](easy/pascals_triangle.py)||
 |1355|[Pascals Triangle](https://lintcode.com/problem/pascals-triangle/)|[Python](easy/pascals_triangle.py)||
+|1359|[Convert Sorted Array to Binary Search Tree](https://www.lintcode.com/problem/convert-sorted-array-to-binary-search-tree/)|[Python](divide_conquer/sorted_list_or_array_to_bst.py)|divide_and_conquer|
 |1363|[ZigZag Conversion](https://lintcode.com/problem/zigzag-conversion/)|[Python](string/zigzag_conversion.py)||
 |1375|[Substring With At Least K Distinct Characters](https://lintcode.com/problem/substring-with-at-least-k-distinct-characters/)|[Python](two_sum_two_pointers/substring_with_at_least_k_distinct_characters.py)||
 |1424|[Longest Mountain in Array](https://lintcode.com/problem/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
