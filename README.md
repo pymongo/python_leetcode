@@ -18,6 +18,10 @@ TODO:
 
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
 
+Rust刷题的优势: 数组题非常快，例如1584.最小生成树模板题，Rust耗时96ms，C++耗时808ms
+
+Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉树的最大深度
+
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
 |1|[Two Sum](https://leetcode.com/problems/two-sum/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/btree_map_two_sum.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/collections/two_sum_test.go), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/HashMapTwoSum.java)|btree_map, bitwise(two_s_complement)|
@@ -314,13 +318,13 @@ TODO:
 |1576/5507|[Replace All ?'s to Avoid Consecutive Repeating Characters](https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/)|[Python](easy/replace_question_mark_to_avoid_consecutive_repeating_char.py)||
 |1577/5508|[Number of Ways Where Square of Number Is Equal to Product of Two Numbers](https://leetcode.com/problems/number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/number_of_ways_where_square_of_number_is_equal_to_product_of_two_numbers.rs)||
 |1578/5509|[Minimum Deletion Cost to Avoid Repeating Letters](https://leetcode.com/problems/minimum-deletion-cost-to-avoid-repeating-letters/submissions/)|[Python](easy/minimum_deletion_cost_to_avoid_repeating_letters.py)||
+|1582/5511|[Number of Ways Where Square of Number Is Equal to Product of Two Numbers](https://leetcode.com/problems/special-positions-in-a-binary-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/special_positions_in_a_binary_matrix.rs)||
+|1584/5513|[Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/union_find/min_cost_to_connect_all_points.rs)||
 
 ---
 
 剑指Offer
 ========
-
-忽略LeetCode主站上重复出现的题以及过于简单的剑指Offer题
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
@@ -329,6 +333,15 @@ TODO:
 |61|[扑克牌中的顺子](https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof/)|[Python](easy/straight_in_playing_cards.py)||
 |62|[圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)|[Python](brain_twists/josephus.py)|约瑟夫环|
 |66|[构建乘积数组](https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof)|[Python](easy/contruct_product_array.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/construct_product_array.rs)||
+
+---
+
+程序员面试金典
+========
+
+| # | Title | Solutions | Category |
+|---| ----- | -------- | ---------- |
+|面试题 01.07|[旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/rotate_matrix.rs)||
 
 ---
 
