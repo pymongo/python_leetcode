@@ -213,6 +213,7 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |377|[Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |380|[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |381|[Insert Delete GetRandom O(1) - Duplicates allowed](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
+|387|[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)|[Python](easy/first_unique_char_in_a_str.py)||
 |404|[Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/)|[Python](binary_tree/sum_of_left_leaves.py)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|[Python](easy/fizz_buzz.py)||
@@ -481,6 +482,7 @@ LintCode
 |192|[Wildcard Matching](https://lintcode.com/problem/wildcard-matching/)|[Python](dp/wildcard_matching.py)||
 |197|[Permutation Index](https://lintcode.com/problem/permutation-index/)|[Python](easy/permutation_index.py)||
 |200|[Longest Palindromic Substring](https://lintcode.com/problem/longest-palindromic-substring/)|[Python](palindrome/longest_palindromic_substr.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_palindromic_substr.rs)|multi_solutions, manacher, suffix_array|
+|209|[First Unique Character in a String](https://lintcode.com/problem/first-unique-character-in-a-string/)|[Python](easy/first_unique_char_in_a_str.py)||
 |221|[String Permutation](https://lintcode.com/problem/string-permutation/)|[Python](collections/valid_anagram.py)||
 |224|[String Permutation](https://lintcode.com/problem/string-permutation/)|[Python](collections/valid_anagram.py)|
 |228_LOCK|[Middle of the Linked List](https://lintcode.com/problem/middle-of-linked-list/)|[Python](linked_list/middle_of_linked_list.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/middle_of_linked_list.rs)|快慢指针|
