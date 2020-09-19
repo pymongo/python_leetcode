@@ -67,7 +67,9 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |51|[N Queens](https://leetcode.com/problems/n-queens)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.py)||
 |52|[N Queens II](https://leetcode.com/problems/n-queens-ii)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.py)||
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
+|54|[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/spiral_matrix.rs)||
 |55|[Jump Game](https://leetcode.com/problems/jump-game/)|[Python](dp/jump_game.py)|greedy, dp|
+|59|[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-2/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/spiral_matrix_2.rs)||
 |60|[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/)|[Python](dfs_perm_comb/permutation.py)||
 |62|[Unique Paths](https://leetcode.com/problems/unique-paths/)|[Python](dfs_perm_comb/unique_paths.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/unique_path.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|combination|
 |63|[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Python](dp/unique_paths_2.py)||
@@ -211,6 +213,7 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |377|[Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/)|[Python](dp/backpack_4_coin_change_combination_sum_4.py)|完全背包问题|
 |380|[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Python](collections/insert_delete_get_random_o1.py)||
 |381|[Insert Delete GetRandom O(1) - Duplicates allowed](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/)|[Python](collections/insert_delete_get_random_o1.py)||
+|404|[Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/)|[Python](binary_tree/sum_of_left_leaves.py)||
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python](palindrome/longest_palindromic_combination.py)|dp(greedy)|
 |412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|[Python](easy/fizz_buzz.py)||
 |413|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Python](easy/reverse_integer.py)||
@@ -491,8 +494,10 @@ LintCode
 |366|[Fibonacci](https://lintcode.com/problem/fibonacci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/tail_recursion_fibonacci.rs)|tail_recursion, fibonacci|
 |372|[Delete Node in a Linked List](https://lintcode.com/problem/delete-node-in-a-linked-list/)|[Python](easy/delete_node_in_a_linked_list.py)||
 |373|[Partition Array by Odd and Even](https://lintcode.com/problem/partition-array-by-odd-and-even/)|[Python](partition_array/partition_array_by_odd_and_even.py)||
+|374|[Spiral Matrix](https://lintcode.com/problem/spiral-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/spiral_matrix.rs)||
 |376|[Binary Tree Path Sum](https://lintcode.com/problem/binary-tree-path-sum/)|[Python](binary_tree/root_to_leaf_paths_target_sum.py)|DFS, backtracking|
 |380|[Intersection of Two Linked Lists](https://lintcode.com/problem/intersection-of-two-linked-lists/)|[Python](linked_list/linked_list_cycle.py)||
+|381|[Spiral Matrix II](https://lintcode.com/problem/spiral-matrix-2/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/spiral_matrix_2.rs)||
 |382_LOCK|[Triangle Count](https://lintcode.com/problem/triangle-count/)|[Python](two_sum_two_pointers/triangle_count.py)|two_sum, 双指针|
 |383|[Container With Most Water](https://lintcode.com/problem/container-with-most-water/)|[Python](two_sum_two_pointers/container_with_most_water.py)||
 |384|[Longest Substring Without Repeating Characters](https://lintcode.com/problem/longest-substring-without-repeating-characters/)|[Python](string/longest_non_repeated_substr.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/string/longest_non_repeated_substr.rs)|sliding_window|
@@ -655,6 +660,7 @@ LintCode
 |1208|[Target Sum](https://lintcode.com/problem/target-sum/)|[Python](dp/backpack_1_target_sum.py)|0-1背包问题|
 |1235|[Serialize and Deserialize BST](https://lintcode.com/problem/serialize-and-deserialize-bst/)|[Python](binary_tree/bst_serialize.py)|DFS, stack|
 |1246|[Longest Repeating Character Replacement](https://lintcode.com/problem/longest-repeating-character-replacement/)|[Python](two_sum_two_pointers/longest_repeating_character_replacement.py)||
+|1254|[Sum of Left Leaves](https://lintcode.com/problem/sum-of-left-leaves/)|[Python](binary_tree/sum_of_left_leaves.py)||
 |1276|[Sum of Two Integers](https://lintcode.com/problem/sum-of-two-integers/)|[Python](bitwise/binary_addition.py)|binary_addition|
 |1281|[Top K Frequent Elements](https://lintcode.com/problem/reverse-string/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/priority_queue/top_k_frequent_elements.rs)||
 |1283|[Reverse Array](https://lintcode.com/problem/reverse-string/)|[Python](rotate_reverse_circle_shift/reverse_string.py)||
