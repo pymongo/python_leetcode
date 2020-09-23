@@ -60,12 +60,13 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |39|[Combination Sum](https://leetcode.com/problems/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_1_2.rs)||
 |40|[Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)|[Python](dfs_perm_comb/combination_target_sum.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_1_2.rs)||
 |44|[Wildcard Matching](https://leetcode.com/problems/wildcard-matching/)|[Python](dp/wildcard_matching.py)||
+|45|[Jump Game II](https://leetcode.com/problems/jump-game-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/dp/jump_game_2.rs)|greedy|
 |46|[Permutations](https://leetcode.com/problems/permutations/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
 |47|[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
 |49|[Group Anagrams](https://leetcode.com/problems/group-anagrams/)|[Python](collections/group_anagrams.py)||
 |50|[Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Python](math/pow.py)|binary_search, 快速幂运算|
-|51|[N Queens](https://leetcode.com/problems/n-queens)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.py)||
-|52|[N Queens II](https://leetcode.com/problems/n-queens-ii)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.py)||
+|51|[N Queens](https://leetcode.com/problems/n-queens)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.rs)||
+|52|[N Queens II](https://leetcode.com/problems/n-queens-ii)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.rs)||
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
 |54|[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/spiral_matrix.rs)||
 |55|[Jump Game](https://leetcode.com/problems/jump-game/)|[Python](dp/jump_game.py)|greedy, dp|
@@ -379,8 +380,8 @@ LintCode
 |22|[Flatten List](https://lintcode.com/problem/flatten-list/)|[Python](easy/flatten_list.py)||
 |28|[Search a 2D Matrix](https://lintcode.com/problem/search-a-2d-matrix/)|[Python](binary_search/search_a_2d_matrix.py)||
 |31|[Partition Array](https://lintcode.com/problem/partition-array/)|[Python](partition_array/partition_array.py)|two_pointers|
-|33|[N Queens](https://lintcode.com/problem/n-queens)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.py)||
-|34|[N Queens II](https://lintcode.com/problem/n-queens-ii)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.py)||
+|33|[N Queens](https://lintcode.com/problem/n-queens)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.rs)||
+|34|[N Queens II](https://lintcode.com/problem/n-queens-ii)|[Python](dfs_perm_comb/n_queens.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/n_queens.rs)||
 |35|[Reverse Linked List](https://lintcode.com/problem/reverse-linked-list/)|[Python](linked_list/reverse_linked_list.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/reverse_linked_list.rs)||
 |36|[Reverse Linked List II](https://lintcode.com/problem/reverse-linked-list-ii/)|[Python](linked_list/reverse_linked_list.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/reverse_linked_list_2.rs)||
 |37|[Reverse 3-digit Integer](https://lintcode.com/problem/reverse-3-digit-integer/)|||
@@ -438,6 +439,7 @@ LintCode
 |114|[Unique Paths](https://lintcode.com/problem/unique-paths/)|[Python](dfs_perm_comb/unique_paths.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/unique_path.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/permutation/shortest_paths_on_checkerboard_test.go)|combination|
 |115|[Unique Paths II](https://lintcode.com/problem/unique-paths-ii/)|[Python](dp/unique_paths_2.py)||
 |116|[Jump Game](https://lintcode.com/problem/jump-game/)|[Python](dp/jump_game.py)|greedy, dp|
+|117|[Jump Game II](https://lintcode.com/problem/jump-game-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/dp/jump_game_2.rs)|greedy|
 |119|[Edit Distance](https://lintcode.com/problem/edit-distance/)|[Python](dp/edit_distance.py)||
 |120|[Word Ladder](https://lintcode.com/problem/word-ladder/)|[Python](bfs/word_ladder.py)|双向BFS|
 |121|[Word Ladder II](https://lintcode.com/problem/word-ladder-ii/)|[Python](bfs/word_ladder_2.py)|BFS+DFS|
