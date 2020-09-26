@@ -59,6 +59,7 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |37|[Soduku Solver](https://leetcode.com/problems/soduku-solver/)|[Python](dfs_perm_comb/soduku_solver.py)||
 |39|[Combination Sum](https://leetcode.com/problems/combination-sum/)|[Python](dfs_perm_comb/combination_target_sum.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_1_2.rs)||
 |40|[Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)|[Python](dfs_perm_comb/combination_target_sum.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/backtracking/combination_sum_1_2.rs)||
+|42|[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/dp/trapping_rain_water.rs)||
 |44|[Wildcard Matching](https://leetcode.com/problems/wildcard-matching/)|[Python](dp/wildcard_matching.py)||
 |45|[Jump Game II](https://leetcode.com/problems/jump-game-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/dp/jump_game_2.rs)|greedy|
 |46|[Permutations](https://leetcode.com/problems/permutations/)|[Python](dfs_perm_comb/permutation.py)|backtracking|
@@ -328,6 +329,7 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |1578/5509|[Minimum Deletion Cost to Avoid Repeating Letters](https://leetcode.com/problems/minimum-deletion-cost-to-avoid-repeating-letters/submissions/)|[Python](easy/minimum_deletion_cost_to_avoid_repeating_letters.py)||
 |1582/5511|[Number of Ways Where Square of Number Is Equal to Product of Two Numbers](https://leetcode.com/problems/special-positions-in-a-binary-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/special_positions_in_a_binary_matrix.rs)||
 |1584/5513|[Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/union_find/min_cost_to_connect_all_points.rs)||
+|1588|[Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/sum_of_all_odd_length_subarrays.rs)||
 
 ---
 
@@ -352,6 +354,10 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |面试题 01.07|[旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/rotate_matrix.rs)||
 
 ---
+
+从200926开始，由于精力有限暂不更新lintcode上的题解了，leetcode上做过但是lintcode未做的题有:
+
+- Trapping Rain Water
 
 LintCode
 ========
