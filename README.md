@@ -1,26 +1,7 @@
 Leetcode
 ========
 
-TODO:
-
-43/415 字符串整数相乘/相加
-
-415是经典面试题利用字符串模拟竖式加法进行大数相加
-
-有兴趣但是困难级别的题: 1. 推箱子 2. 华容道
-
-有意思的但是没有找到题号的问题:
-
-1. 海盗分金币问题(比较脑筋急转弯的递推)
-2. 最大直方图矩阵(Longest Histgram Rectangle), 单调栈O(n^3)->O(n)
-
-因为leetcode-cn上我多做了一些面试题/剑指5OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了29题
-
 表格中没有代码文件链接的都是过于简单30秒就能搞定的题
-
-Rust刷题的优势: 数组题非常快，例如1584.最小生成树模板题，Rust耗时96ms，C++耗时808ms
-
-Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉树的最大深度
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
@@ -91,7 +72,7 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |82|[Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/linked_list/remove_duplicates_from_sorted_list.cpp)||
 |83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/linked_list/remove_duplicates_from_sorted_list.cpp)||
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/merge_two_sorted_arrays.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/sorting/merge_two_sorted_arrays_test.go), [Python](divide_conquer/merge_two_sorted_arrays.py)|merge_sort|
-|89|[Gray Code](https://leetcode.com/problems/gray-code/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/gray_code.rs), [Python](easy/gray_code.py)||
+|89|[Gray Code](https://leetcode.com/problems/gray-code/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/array/gray_code.rs), [Python](easy/gray_code.py)||
 |90|[Subsets](https://leetcode.com/problems/subsets-ii/)|[Python](dfs_perm_comb/subsets_combinations.py)||
 |91|[Decode Ways](https://leetcode.com/problems/decode-ways/)|[Python](dp/decode_ways.py)||
 |92|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/reverse_linked_list.rs), [Python](linked_list/reverse_linked_list.py)||
@@ -137,7 +118,7 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |155|[Min Stack](https://leetcode.com/problems/min-stack/)|[Python](collections/min_stack.py)||
 |160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[Python](linked_list/linked_list_cycle.py)||
 |167|[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[Python](two_sum_two_pointers/two_sum_2_input_is_sorted.py)|two_pointers|
-|169|[Majority Element](https://leetcode.com/problems/majority-element/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/majority-element.rs)||
+|169|[Majority Element](https://leetcode.com/problems/majority-element/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/majority_element.rs)||
 |170_LOCK|[Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design/)|[Python](two_sum_two_pointers/two_sum_3_impl.py)|two_pointers|
 |172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[Python](factorization/factorial_trailing_zeroes.py)|factorial|
 |173|[Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)|[Python](binary_tree/bst_in_order_iterator.py)||
@@ -273,12 +254,12 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |796|[Rotate String](https://leetcode.com/problems/rotate-string/)|[Python](rotate_reverse_circle_shift/rotate_string.py)|Rabin-Karp(rolling_hash), kmp|
 |743|[Network Delay Time](https://leetcode.com/problems/network-delay-time/)|[Python](bfs/network_delay_time_dijkstra.py)||
 |771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Python](easy/jewels_and_stones.py)||
-|807|[Max Increase to Keep City Skyline](https://leetcode.com/problems/max-increase-to-keep-city-skyline/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/max_increase_to_keep_city_skyline.rs)||
+|807|[Max Increase to Keep City Skyline](https://leetcode.com/problems/max-increase-to-keep-city-skyline/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/array/max_increase_to_keep_city_skyline.rs)||
 |841|[Keys and Rooms](https://leetcode.com/problems/keys-and-rooms/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/bfs/keys_and_rooms.cpp)||
 |845|[Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)|[Python](binary_search/mountain_array_longest.py)|mountain_array|
 |852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python](binary_search/mountain_array_max.py)|mountain_array, binary_search|
 |861|[Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/)|[Python](greedy/score_after_flipping_matrix.py)|greedy|
-|867|[Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/transpose.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/easy/test_transpose_matrix.go), [C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/transpose_matrix.cpp)||
+|867|[Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/transpose_matrix.rs), [Go](https://github.com/pymongo/go_leetcode/blob/master/easy/test_transpose_matrix.go), [C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/transpose_matrix.cpp)||
 |869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python](brain_twists/reordered_power_of_2.py)|permutation|
 |875|[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)|[Python](binary_search/koko_eating_bananas.py)||
 |876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Python](linked_list/middle_of_linked_list.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/linked_list/middle_of_linked_list.rs)|快慢双指针|
@@ -289,6 +270,8 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |941|[Valid Mountain Array](https://leetcode.com/problems/find-in-mountain-array/)|[Python](binary_search/mountain_array_valid.py)|mountain_array|
 |953|[Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)|[Python](unclassified/verifying_an_alien_dictionary.py)||
 |973|[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Python](sorting_and_query/k_closest_points_to_origin.py)|quick_select, sort_by_multi_keys|
+|977|[Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/src/easy/array/squares_of_a_sorted_array.rs)||
+|1002|[Find Common Characters](https://leetcode.com/problems/find-common-characters/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/find_common_characters.rs)||
 |1038|[Binary Search Tree to Greater Sum Tree](https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/)|[Python](binary_tree/bst_to_gst.py)||
 |1046|[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Python](collections/last_stone_weight.py)||
 |1049|[Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii/)|[Python](dp/backpack_1_2.py)|0-1背包问题|
@@ -329,7 +312,7 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 |1578/5509|[Minimum Deletion Cost to Avoid Repeating Letters](https://leetcode.com/problems/minimum-deletion-cost-to-avoid-repeating-letters/submissions/)|[Python](easy/minimum_deletion_cost_to_avoid_repeating_letters.py)||
 |1582/5511|[Number of Ways Where Square of Number Is Equal to Product of Two Numbers](https://leetcode.com/problems/special-positions-in-a-binary-matrix/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/special_positions_in_a_binary_matrix.rs)||
 |1584/5513|[Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/union_find/min_cost_to_connect_all_points.rs)||
-|1588|[Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/sum_of_all_odd_length_subarrays.rs)||
+|1588|[Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/array/sum_of_all_odd_length_subarrays.rs)||
 
 ---
 
@@ -358,6 +341,28 @@ Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉�
 从200926开始，由于精力有限暂不更新lintcode上的题解了，leetcode上做过但是lintcode未做的题有:
 
 - Trapping Rain Water
+
+---
+
+TODO:
+
+43/415 字符串整数相乘/相加
+
+415是经典面试题利用字符串模拟竖式加法进行大数相加
+
+有兴趣但是困难级别的题: 1. 推箱子 2. 华容道
+
+有意思的但是没有找到题号的问题:
+
+1. 海盗分金币问题(比较脑筋急转弯的递推)
+2. 最大直方图矩阵(Longest Histogram Rectangle), 单调栈O(n^3)->O(n)
+
+因为leetcode-cn上我多做了一些面试题/剑指5OFFER题(其实是重复的题目)，所以我leetcode国服账户会比全球服账户多AC了29题
+
+Rust刷题的优势: 数组题非常快，例如1584.最小生成树模板题，Rust耗时96ms，C++耗时808ms
+Rust刷题的劣势: 部分树/链表的题不能用Rust求解，例如559.N叉树的最大深度
+
+---
 
 LintCode
 ========
@@ -394,7 +399,7 @@ LintCode
 |38|[Search a 2D Matrix II](https://lintcode.com/problem/search-a-2d-matrix-ii/)|[Python](binary_search/search_a_2d_matrix_2.py)||
 |40|[Implement Queue by Two Stacks](https://lintcode.com/problem/implement-queue-by-two-stacks/)|[Python](collections/impl_queue_by_stack.py)||
 |41|[Maximum Subarray](https://lintcode.com/problem/maximum-subarray/)|[Python](greedy/maximum_subarray.py)|greedy, dp|
-|46|[Majority Element](https://lintcode.com/problem/majority-element/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/majority-element.rs)||
+|46|[Majority Element](https://lintcode.com/problem/majority-element/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/majority_element.rs)||
 |49|[Sort Letters by Case](https://lintcode.com/problem/sort-letters-by-case/)|[Python](partition_array/partition_array_by_odd_and_even.py)||
 |50|[Product of Array Exclude Itself](https://lintcode.com/problem/product-of-array-exclude-itself/)|[Python](easy/contruct_product_array.py), [Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/construct_product_array.rs)||
 |52|[Next Permutation](https://lintcode.com/problem/next-permutation/)|[Python](dfs_perm_comb/next_permutation.py)||
@@ -523,7 +528,7 @@ LintCode
 |406|[Minimum Size Subarray Sum](https://lintcode.com/problem/minimum-size-subarray-sum/)|[Python](two_sum_two_pointers/minimun_size_subarray_sum.py)|sliding_window|
 |407|[Plus One](https://lintcode.com/problem/plus-one/)|[Python](easy/plus_one.py)||
 |408|[Add Binary](https://lintcode.com/problem/add-binary/)|[C++](https://github.com/pymongo/cpp_learn/blob/master/leetcode/easy/add_bigint_string.cpp)||
-|411|[Gray Code](https://lintcode.com/problem/gray-code/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/gray_code.rs), [Python](easy/gray_code.py)||
+|411|[Gray Code](https://lintcode.com/problem/gray-code/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/array/gray_code.rs), [Python](easy/gray_code.py)||
 |415|[Valid Palindrome](https://lintcode.com/problem/valid-palindrome/)|[Python](palindrome/valid_palindrome.py)|two_pointers|
 |418|[Integer to Roman](https://lintcode.com/problem/integer-to-roman/)|[Python](easy/int_to_roman.py)||
 |419|[Roman to Integer](https://lintcode.com/problem/roman-to-integer/)|[Python](easy/int_to_roman.py)||
@@ -657,7 +662,7 @@ LintCode
 |982|[Arithmetic Slices](https://lintcode.com/problem/arithmetic-slices/)|[Python](easy/arithmetic_slices.py)||
 |995|[Best Time to Buy and Sell Stock with Cooldown](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python](dp/stock.py)||
 |1000|[Best Time to Buy and Sell Stock with Transaction Fee](https://lintcode.com/problem/best-time-to-buy-and-sell-stock-with-transaction-fee/)|[Python](dp/stock.py)||
-|1010|[Max Increase to Keep City Skyline](https://lintcode.com/problem/max-increase-to-keep-city-skyline/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/max_increase_to_keep_city_skyline.rs)||
+|1010|[Max Increase to Keep City Skyline](https://lintcode.com/problem/max-increase-to-keep-city-skyline/)|[Rust](https://github.com/pymongo/rust_leetcode/blob/master/src/easy/array/max_increase_to_keep_city_skyline.rs)||
 |1038|[Jewels and Stones](https://lintcode.com/problem/jewels-and-stones/)|[Python](easy/jewels_and_stones.py)||
 |1057|[Network Delay Time](https://lintcode.com/problem/network-delay-time/)|[Python](bfs/network_delay_time_dijkstra.py)||
 |1079|[Count Binary Substrings](https://lintcode.com/problem/count-binary-substrings/)|[Python](unclassified/count_binary_substring.py)||
