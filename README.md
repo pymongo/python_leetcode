@@ -1,6 +1,6 @@
 ---
-description: >-
-  Leetcode
+leetcode_solutions: >-
+  Python
 ---
 
 | # | Title | Solutions | Category |
