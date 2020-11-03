@@ -3,7 +3,9 @@ from typing import List
 
 # 有点贪心的思想，相向双指针，移动较小的值，总能找到最大面积
 class Solution:
-    def maxArea(self, nums: List[int]) -> int:
+    # noinspection PyPep8Naming
+    @staticmethod
+    def maxArea(nums: List[int]) -> int:
         n = len(nums)
         left, right = 0, n - 1
         max_area = 0

@@ -3,7 +3,7 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([['a', 'a']], "aaa", False),
         ([['a']], "a", True),
         ([
@@ -24,7 +24,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test_solution_entrance(self):
-        for board, word, is_exists_in_grid in self.TEST_CASES:
+        for board, word, is_exists_in_grid in self.TESTCASES:
             print(board, word)
             self.assertEqual(is_exists_in_grid, self.solution_entrance(board, word))
 

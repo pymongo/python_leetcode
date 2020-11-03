@@ -76,16 +76,16 @@ def find_first_desc(nums: List[int]) -> int:
 
 
 class UnitTest(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([24, 69, 100, 99, 79, 78, 67, 36, 26, 19], 2),
         ([0, 1, 0], 1),
         ([0, 2, 1, 0], 1),
     ]
 
     def test_peak_index_brute(self):
-        for nums, expected in self.TEST_CASES:
+        for nums, expected in self.TESTCASES:
             self.assertEqual(expected, peak_index_brute_force(nums))
 
     def test_peak_index(self):
-        for nums, expected in self.TEST_CASES:
+        for nums, expected in self.TESTCASES:
             self.assertEqual(expected, peak_index(nums))

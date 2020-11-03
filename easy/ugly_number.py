@@ -22,11 +22,11 @@ def my_is_ugly_number(num: int) -> bool:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         (14, False), (6, True), (8, True)
     ]
 
     def test_my_is_ugly_number(self):
-        for num, is_ugly in self.TEST_CASES:
+        for num, is_ugly in self.TESTCASES:
             print(num, is_ugly)
             self.assertEqual(is_ugly, my_is_ugly_number(num))

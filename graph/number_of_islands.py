@@ -65,7 +65,7 @@ def my_bfs(grid: List[List[int]]) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([
              [1, 1, 0, 0, 0],
              [0, 1, 0, 0, 1],
@@ -76,9 +76,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test_my_dfs(self):
-        for m, expected in self.TEST_CASES:
+        for m, expected in self.TESTCASES:
             self.assertEqual(expected, my_dfs_entrance(m))
 
     def test_my_bfs(self):
-        for m, expected in self.TEST_CASES:
+        for m, expected in self.TESTCASES:
             self.assertEqual(expected, my_bfs(m))

@@ -4,14 +4,14 @@ from typing import List
 
 # 关键词: 完全背包、分词法、前缀型、划分型
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("leetcode", ["leet", "code"], True),
         ("applepenapple", ["apple", "pen"], True),
         ("catsandog", ["cats", "dog", "sand", "and", "cat"], False),
     ]
 
     def test_word_break_backpack(self):
-        for s, words, expected in self.TEST_CASES:
+        for s, words, expected in self.TESTCASES:
             self.assertEqual(expected, Solution.word_break_backpack(s, words))
 
     @staticmethod
@@ -32,7 +32,7 @@ class Solution(unittest.TestCase):
         return dp[n]
 
     def test_word_break(self):
-        for s, words, expected in self.TEST_CASES:
+        for s, words, expected in self.TESTCASES:
             self.assertEqual(expected, Solution.wordBreak(s, words))
 
     # noinspection PyPep8Naming

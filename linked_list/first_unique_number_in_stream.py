@@ -57,12 +57,12 @@ def solution(nums: List[int], end_num: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 2, 2, 1, 3, 4], 3, 3),
         ([1, 2, 2, 1, 3, 4, 4, 5, 6], 5, 3),
         ([1, 2, 2, 1, 3, 4, 4, 5, 6], 7, -1),
     ]
 
     def test_solution(self):
-        for nums, end_num, first_unique in self.TEST_CASES:
+        for nums, end_num, first_unique in self.TESTCASES:
             self.assertEqual(first_unique, solution(nums, end_num))

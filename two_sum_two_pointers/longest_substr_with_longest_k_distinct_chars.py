@@ -2,12 +2,12 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("eceba", 3, 4)
     ]
 
     def test(self):
-        for s, k, max_len in self.TEST_CASES:
+        for s, k, max_len in self.TESTCASES:
             self.assertEqual(max_len, self.f(s, k))
 
     # 返回 S 中至少包含 k 个不同字符的子串的数量

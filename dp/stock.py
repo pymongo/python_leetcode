@@ -46,10 +46,10 @@ class Solution(unittest.TestCase):
         return max_profit
 
     def test_stock_1_dp(self):
-        test_cases = [
+        TESTCASES = [
             ([7, 1, 5, 3, 6, 4], 5)
         ]
-        for prices, max_profit in test_cases:
+        for prices, max_profit in TESTCASES:
             self.assertEqual(max_profit, self.stock_1_dp(prices))
 
     @staticmethod
@@ -69,10 +69,10 @@ class Solution(unittest.TestCase):
         return dp[n - 1][0]
 
     def test_stock_with_fee(self):
-        test_cases = [
+        TESTCASES = [
             ([1, 3, 2, 8, 4, 9], 2, 8),
         ]
-        for prices, fee, max_profit in test_cases:
+        for prices, fee, max_profit in TESTCASES:
             self.assertEqual(max_profit, self.stock_with_fee(prices, fee))
 
     @staticmethod
@@ -110,11 +110,11 @@ class Solution(unittest.TestCase):
         return dp[n - 1][0]
 
     def test_stock_with_cd(self):
-        test_cases = [
+        TESTCASES = [
             ([1, 2, 3, 0, 2], 3),
             ([1, 2], 1),
         ]
-        for prices, max_profit in test_cases:
+        for prices, max_profit in TESTCASES:
             self.assertEqual(max_profit, self.stock_with_cd(prices))
 
     @staticmethod

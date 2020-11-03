@@ -46,11 +46,11 @@ class Solution(unittest.TestCase):
             in_order_end=in_order_len - 1,
         )
 
-    TEST_CASES = [
+    TESTCASES = [
         ([9, 3, 15, 20, 7], [9, 15, 7, 20, 3], "3(9)(20(15)(7))")
     ]
 
     def test_build_tree(self):
-        for in_order, post_order, binary_tree in self.TEST_CASES:
+        for in_order, post_order, binary_tree in self.TESTCASES:
             root = self.build_tree(in_order, post_order)
             self.assertEqual(binary_tree, root.to_str())

@@ -16,12 +16,12 @@ from typing import List
 
 class Solution(unittest.TestCase):
     def test_kth_permutation(self):
-        test_cases = [
+        TESTCASES = [
             (3, 3, "213"),
             (4, 9, "2314"),
             (9, 214267, "635749128"),
         ]
-        for n, k, permutation in test_cases:
+        for n, k, permutation in TESTCASES:
             self.assertEqual(permutation, self.kth_permutation(n, k))
 
     # 这种解法铁定超时，因为没有批量批量地去数
@@ -170,7 +170,7 @@ def permute_bfs(nums: List[int]) -> List[List[int]]:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         [1, 2, 3]
     ]
 
@@ -181,12 +181,12 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for nums in self.TEST_CASES:
+        for nums in self.TESTCASES:
             correct_answer = list(map(lambda x: list(x), itertools.permutations(nums)))
             self.assertCountEqual(correct_answer, my_permutation(nums))
 
     def test_permute_bfs(self):
-        for nums in self.TEST_CASES:
+        for nums in self.TESTCASES:
             correct_answer = list(map(lambda x: list(x), itertools.permutations(nums)))
             self.assertCountEqual(correct_answer, permute_bfs(nums))
 

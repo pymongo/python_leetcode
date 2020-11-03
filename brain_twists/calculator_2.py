@@ -2,12 +2,12 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("1 + 1", 2),
     ]
 
     def test(self):
-        for s, res in self.TEST_CASES:
+        for s, res in self.TESTCASES:
             self.assertEqual(res, self.calculate(s))
 
     @staticmethod

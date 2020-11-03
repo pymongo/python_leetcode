@@ -43,11 +43,11 @@ def solution(nums: List[int], k: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([232, 124, 456], 7, 114),
         ([1, 2, 3], 7, 0),
     ]
 
     def test_solution(self):
-        for nums, k, expected in self.TEST_CASES:
+        for nums, k, expected in self.TESTCASES:
             self.assertEqual(expected, solution(nums, k))

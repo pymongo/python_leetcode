@@ -21,12 +21,12 @@ def prefix_sum(nums: List[int]) -> List[int]:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([-3, 1, -4, 2, -3, 4], [1, 5]),
         ([-3, 1, 2, -3, 4], [0, 2]),
     ]
 
     def test_prefix_sum(self):
-        for nums, expected in self.TEST_CASES:
+        for nums, expected in self.TESTCASES:
             print(nums, expected)
             self.assertListEqual(expected, prefix_sum(nums))

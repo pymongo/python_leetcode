@@ -130,16 +130,16 @@ def recipe_stack(pre_order: List[int], in_order: List[int]) -> Optional[TreeNode
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([3, 9, 20, 15, 7], [9, 3, 15, 20, 7], "3(9)(20(15)(7))")
     ]
 
     def test_my_solution(self):
-        for pre_order, in_order, binary_tree in self.TEST_CASES:
+        for pre_order, in_order, binary_tree in self.TESTCASES:
             root = pre_in_to_build_tree_entrance(pre_order, in_order)
             self.assertEqual(binary_tree, root.to_str())
 
     def test_stack(self):
-        for pre_order, in_order, binary_tree in self.TEST_CASES:
+        for pre_order, in_order, binary_tree in self.TESTCASES:
             root = recipe_stack(pre_order, in_order)
             self.assertEqual(binary_tree, root.to_str())

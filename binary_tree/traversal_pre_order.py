@@ -164,7 +164,7 @@ def post_order_iterative_3(root: TreeNode) -> List[int]:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         {'binary_tree': "1()(2(3))", 'pre_order': [1, 2, 3], 'in_order': [1, 3, 2], 'post_order': [3, 2, 1]},
         {'binary_tree': "3(9)(20(15)(7))",
          'pre_order': [3, 9, 20, 15, 7],
@@ -173,19 +173,19 @@ class Testing(unittest.TestCase):
     ]
 
     def test_pre_order_iterative(self):
-        for data in self.TEST_CASES:
+        for data in self.TESTCASES:
             root = TreeNode.from_str(data['binary_tree'])
             pre_order = pre_order_iterative(root)
             self.assertEqual(data['pre_order'], pre_order)
 
     def test_in_order_iterative(self):
-        for data in self.TEST_CASES:
+        for data in self.TESTCASES:
             root = TreeNode.from_str(data['binary_tree'])
             pre_order = in_order_iterative(root)
             self.assertEqual(data['in_order'], pre_order)
 
     def test_post_order_iterative(self):
-        for data in self.TEST_CASES:
+        for data in self.TESTCASES:
             root = TreeNode.from_str(data['binary_tree'])
             self.assertEqual(data['post_order'], post_order_iterative_1(root))
             self.assertEqual(data['post_order'], post_order_iterative_2(root))

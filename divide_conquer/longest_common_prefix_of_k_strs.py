@@ -3,13 +3,13 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         (["flower", "flow", "flight"], "fl"),
         (["dog", "racecar", "car"], ""),
     ]
 
     def test(self):
-        for strs, output in self.TEST_CASES:
+        for strs, output in self.TESTCASES:
             self.assertEqual(output, self.f(strs))
 
     @staticmethod

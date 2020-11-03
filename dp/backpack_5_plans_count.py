@@ -48,14 +48,14 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 2, 3, 3, 7], 7, 2)
     ]
 
     def test_dp_solution(self):
-        for nums, target, plans_count in self.TEST_CASES:
+        for nums, target, plans_count in self.TESTCASES:
             self.assertEqual(plans_count, Solution.dp_solution(nums, target))
 
     def test_dfs_solution(self):
-        for nums, target, plans_count in self.TEST_CASES:
+        for nums, target, plans_count in self.TESTCASES:
             self.assertEqual(plans_count, Solution.dfs_solution(nums, target))

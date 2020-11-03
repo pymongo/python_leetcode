@@ -19,10 +19,10 @@ def two_sum_2(nums: List[int], target: int) -> List[int]:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([2, 7, 11, 15], 9, [1, 2])
     ]
 
     def test(self):
-        for nums, target, expected in self.TEST_CASES:
+        for nums, target, expected in self.TESTCASES:
             self.assertEqual(expected, two_sum_2(nums, target))

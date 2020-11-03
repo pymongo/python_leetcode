@@ -29,20 +29,20 @@ def find_single_3(nums: List[int]) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 3, 1, -1, 3], -1),
         ([4, 1, 2, 1, 2], 4),
         ([2, 2, 1], 1),
     ]
 
     def test_find_single_1(self):
-        for nums, single in self.TEST_CASES:
+        for nums, single in self.TESTCASES:
             self.assertEqual(single, find_single_1(nums))
 
     def test_find_single_2(self):
-        for nums, single in self.TEST_CASES:
+        for nums, single in self.TESTCASES:
             self.assertEqual(single, find_single_2(nums))
 
     def test_find_single_3(self):
-        for nums, single in self.TEST_CASES:
+        for nums, single in self.TESTCASES:
             self.assertEqual(single, find_single_3(nums))

@@ -257,7 +257,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         # 解释: cost一定是个三元组组成的List，例如[1,2,1]表示从城市1到城市2耗费1
         # 注意: 可能会有重复的路径，例如城市1到城市2有多条路，取最短的一条即可
         # 1->3: 0+2
@@ -269,9 +269,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test_dfs(self):
-        for num_cities, roads, expected in deepcopy(self.TEST_CASES):
+        for num_cities, roads, expected in deepcopy(self.TESTCASES):
             self.assertEqual(expected, dfs_helper(num_cities, roads))
 
     def test_dp(self):
-        for num_cities, roads, expected in deepcopy(self.TEST_CASES):
+        for num_cities, roads, expected in deepcopy(self.TESTCASES):
             self.assertEqual(expected, dp_solution(num_cities, roads))

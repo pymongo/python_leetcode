@@ -60,7 +60,7 @@ queue.append((x - 2, y - 1, steps + 1))
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([[0, 0, 0],
           [0, 0, 0],
           [0, 0, 0]], [2, 0], [2, 2], 2),
@@ -70,11 +70,11 @@ class Solution(unittest.TestCase):
     ]
 
     def test_bfs(self):
-        for grid, source, dest, min_steps in self.TEST_CASES:
+        for grid, source, dest, min_steps in self.TESTCASES:
             self.assertEqual(min_steps, my_bfs(grid, Point(source[0], source[1]), Point(dest[0], dest[1])))
 
     def test_bfs_two_direction(self):
-        for grid, source, dest, min_steps in self.TEST_CASES:
+        for grid, source, dest, min_steps in self.TESTCASES:
             self.assertEqual(min_steps, self.bfs_two_direction(grid, Point(source[0], source[1]), Point(dest[0], dest[1])))
 
     # 双向BFS搜索的解法

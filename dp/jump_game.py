@@ -48,16 +48,16 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 1, 1, 0], True),
         ([2, 3, 1, 1, 4], True),
         ([3, 2, 1, 0, 4], False),
     ]
 
     def test_can_jump_dp(self):
-        for nums, can_jump in self.TEST_CASES:
+        for nums, can_jump in self.TESTCASES:
             self.assertEqual(can_jump, Solution.can_jump_dp(nums))
 
     def test_can_jump_greedy(self):
-        for nums, can_jump in self.TEST_CASES:
+        for nums, can_jump in self.TESTCASES:
             self.assertEqual(can_jump, Solution.can_jump_greedy(nums))

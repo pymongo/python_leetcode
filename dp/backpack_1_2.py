@@ -316,7 +316,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         (10, [3, 4, 8, 5], 9),
         (12, [2, 3, 5, 7], 12),
     ]
@@ -336,7 +336,7 @@ class Testing(unittest.TestCase):
     ]
 
     def test_backpack(self):
-        for m, nums, max_size in self.TEST_CASES:
+        for m, nums, max_size in self.TESTCASES:
             self.assertEqual(max_size, Solution.backPack(m, nums))
 
     def test_backpack_with_value(self):

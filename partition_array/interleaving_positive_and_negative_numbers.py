@@ -47,12 +47,12 @@ def interleave(nums, size, positive_and_negative_same_len):
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         [-1, -2, -3, 4, 5, 6]
     ]
 
     def test(self):
-        for nums in self.TEST_CASES:
+        for nums in self.TESTCASES:
             partition_positive_and_negative(nums)
             is_positive = nums[0] > 0
             for num in nums:

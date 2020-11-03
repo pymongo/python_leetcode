@@ -4,14 +4,14 @@ import math
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([3, 6, 7, 11], 8, 4),
         ([30,11,23,4,20], 5, 30),
         ([30,11,23,4,20], 6, 23),
     ]
 
     def test(self):
-        for nums, time, min_speed in self.TEST_CASES:
+        for nums, time, min_speed in self.TESTCASES:
             self.assertEqual(min_speed, self.min_speed(nums, time))
 
     @staticmethod

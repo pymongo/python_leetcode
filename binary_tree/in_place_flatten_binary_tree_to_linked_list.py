@@ -68,12 +68,12 @@ def other_bfs(root: TreeNode) -> None:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("1(2(3)(4))(5()(6))", "1()(2()(3()(4()(5()(6)))))")
     ]
 
     def test_bfs(self):
-        for binary_tree, expected in self.TEST_CASES:
+        for binary_tree, expected in self.TESTCASES:
             root = TreeNode.from_str(binary_tree)
             bfs(root)
             self.assertEqual(expected, root.to_str())

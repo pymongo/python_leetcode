@@ -131,20 +131,20 @@ def lintcode_left_subtree_priority(
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([3], [3], "3()"),
         ([3, 9, 20, 15, 7], [9, 15, 7, 20, 3], "3(9)(20(15)(7))"),
         ([1, 2, 4, 5, 3, 6, 7], [4, 5, 2, 6, 7, 3, 1], "1(2(4)(5))(3(6)(7))"),
     ]
 
     def test_my_solution(self):
-        for pre_order, post_order, binary_tree in self.TEST_CASES:
+        for pre_order, post_order, binary_tree in self.TESTCASES:
             root = my_dfs_entrance(pre_order, post_order)
             print(root)
             self.assertEqual(binary_tree, root.to_str())
 
     def test_lintcode_helper(self):
-        for pre_order, post_order, binary_tree in self.TEST_CASES:
+        for pre_order, post_order, binary_tree in self.TESTCASES:
             root = lintcode_helper(pre_order, post_order)
             print(root)
             self.assertEqual(binary_tree, root.to_str())

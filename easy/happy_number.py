@@ -3,13 +3,13 @@ import unittest
 
 # 正统的解法应该使用Floyd龟兔赛跑快慢指针判环
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         (2, False),
         (19, True),
     ]
 
     def test_is_happy(self):
-        for n, is_happy in self.TEST_CASES:
+        for n, is_happy in self.TESTCASES:
             self.assertEqual(is_happy, self.is_happy(n))
 
     @staticmethod

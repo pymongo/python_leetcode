@@ -1,4 +1,4 @@
-"""
+""" https://leetcode.com/problem/regular-expression-matching/
 这题跟wildcard_matching不同的是，星号的含义不同
 c*表示可以匹配任意个c
 ".*" 表示可匹配零个或多个（'*'）任意字符（'.'）
@@ -9,7 +9,20 @@ ab可以被".*"匹配
 import unittest
 
 
-class Solution:
+class Solution(unittest.TestCase):
+    TESTCASES = [
+        ("aa", "a", False),
+        ("aa", "a*", True),
+        ("ab", ".*", True),
+        ("aab", "c*a*b", True),
+        ("mississippi", "mis*is*p*.", False),
+    ]
+
+    def test_re(self):
+        for source, pattern, is_match in self.TESTCASES:
+            print(source, pattern)
+            self.assertEqual(is_match, Solution.re(source, pattern))
+
     @staticmethod
     def re(s: str, p: str) -> bool:
         m, n = len(s), len(p)
@@ -37,18 +50,3 @@ class Solution:
                 elif p[j - 1] == '.' or p[j - 1] == s[i - 1]:
                     dp[i][j] = dp[i - 1][j - 1]
         return dp[m][n]
-
-
-class Testing(unittest.TestCase):
-    TEST_CASES = [
-        ("aa", "a", False),
-        ("aa", "a*", True),
-        ("ab", ".*", True),
-        ("aab", "c*a*b", True),
-        ("mississippi", "mis*is*p*.", False),
-    ]
-
-    def test_re(self):
-        for source, pattern, is_match in self.TEST_CASES:
-            print(source, pattern)
-            self.assertEqual(is_match, Solution.re(source, pattern))

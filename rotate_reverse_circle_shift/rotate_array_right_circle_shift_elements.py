@@ -44,12 +44,12 @@ def right_circle_shift(nums: List[int], k: int):
 
 
 class UnitTest(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 2, 3, 4, 5, 6, 7], 3, [5, 6, 7, 1, 2, 3, 4]),
         ([-1, -100, 3, 99], 2, [3, 99, -1, -100])
     ]
 
     def test(self):
-        for nums, k, expected in self.TEST_CASES:
+        for nums, k, expected in self.TESTCASES:
             right_circle_shift(nums, k)
             self.assertEqual(expected, nums)

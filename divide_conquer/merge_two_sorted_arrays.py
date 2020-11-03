@@ -70,23 +70,23 @@ def merge_nums2_to_nums1(nums1: List[int], m: int, nums2: List[int], n):
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES: List[Tuple[List[int], List[int], List[int]]] = [
+    TESTCASES: List[Tuple[List[int], List[int], List[int]]] = [
         ([], [1], [1]),
         ([2], [1], [1, 2]),
         ([1, 2, 3], [2, 5, 6], [1, 2, 2, 3, 5, 6]),
     ]
 
-    TEST_CASES_2 = [
+    TESTCASES_2 = [
         ([2, 0], 1, [1], 1, [1, 2]),
         ([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6]),
         ([0], 0, [1], 1, [1]),
     ]
 
     def test(self):
-        for nums1, nums2, expected in self.TEST_CASES[:]:
+        for nums1, nums2, expected in self.TESTCASES[:]:
             self.assertEqual(expected, merge_two_sorted_arrays(nums1, nums2))
 
     def test_2(self):
-        for nums1, m, nums2, n, expected in self.TEST_CASES_2:
+        for nums1, m, nums2, n, expected in self.TESTCASES_2:
             merge_nums2_to_nums1(nums1, m, nums2, n)
             self.assertEqual(expected, nums1)

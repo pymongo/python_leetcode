@@ -50,7 +50,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         (["eat", "tea", "tan", "ate", "nat", "bat"], [
             ["ate", "eat", "tea"],
             ["nat", "tan"],
@@ -60,5 +60,5 @@ class Testing(unittest.TestCase):
 
     def test(self):
         # FIXME 如何判断两个二维数组，值相同，但是第一层和第二层的顺序可能不同，CountEqual只能判断一层
-        for words, expected_group in self.TEST_CASES:
+        for words, expected_group in self.TESTCASES:
             self.assertCountEqual(expected_group, Solution.solution(words))

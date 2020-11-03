@@ -1,4 +1,4 @@
-"""
+""" https://leetcode.com/problems/median-of-two-sorted-arrays/
 两个排序数组的中位数，题目要求用O(logn)时间复杂度。常见的时间复杂度有：
 从时间复杂度推算法
 复杂度	可能对应的语法	备注
@@ -18,7 +18,7 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 2, 3, 4], [3, 6, 8, 9], 3.5),
         ([1, 5, 6, 7], [2, 3, 4, 8], 4.5),
         ([1, 2], [3, 4, 5, 6, 7], 4),
@@ -39,7 +39,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test_recursive_solution(self):
-        for nums_a, nums_b, expected in self.TEST_CASES[:]:
+        for nums_a, nums_b, expected in self.TESTCASES[:]:
             print(nums_a, nums_b)
             self.assertEqual(expected, self.recursive_solution(nums_a, nums_b))
 
@@ -80,7 +80,7 @@ class Solution(unittest.TestCase):
             return (find_kth(0, 0, len_total // 2) + find_kth(0, 0, len_total // 2 + 1)) / 2
 
     def test_divider_solution(self):
-        for nums1, nums2, expected in self.TEST_CASES[:]:
+        for nums1, nums2, expected in self.TESTCASES[:]:
             self.assertEqual(expected, self.divider_solution(nums1, nums2))
 
     # Runtime: 92 ms, faster than 83.80%

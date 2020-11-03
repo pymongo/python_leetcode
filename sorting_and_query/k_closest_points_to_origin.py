@@ -70,15 +70,15 @@ def lintcode_sort_by_multi_keys(points: List[Point], origin: Point, k: int) -> L
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([[1, 3], [-2, 2]], 1, [[-2, 2]]),
         ([[3, 3], [5, -1], [-2, 4]], 2, [[3, 3], [-2, 4]])
     ]
 
     def test_k_closest(self):
-        for points, k, expected in deepcopy(self.TEST_CASES):
+        for points, k, expected in deepcopy(self.TESTCASES):
             self.assertListEqual(expected, k_closest(points, k))
 
     def test_k_closest_quick_select(self):
-        for points, k, expected in deepcopy(self.TEST_CASES):
+        for points, k, expected in deepcopy(self.TESTCASES):
             self.assertListEqual(expected, k_closest_quick_select(points, k))

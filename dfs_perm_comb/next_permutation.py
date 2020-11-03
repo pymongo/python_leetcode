@@ -3,7 +3,7 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 5, 1], [5, 1, 1]),
         ([1, 3, 2], [2, 1, 3]),
         ([1, 3, 2, 3], [1, 3, 3, 2]),
@@ -11,7 +11,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for nums, next_nums in self.TEST_CASES:
+        for nums, next_nums in self.TESTCASES:
             self.assertListEqual(next_nums, self.next_permutation(nums))
 
     # 该题跟C++ STL的next_permutation函数完全一样

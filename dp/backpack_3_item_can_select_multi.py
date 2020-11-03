@@ -76,23 +76,23 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         # 先放最贵重的体积为3的物品放3个，再放1个次贵重的体积为1的物品
         ([1, 3, 5, 7], [1, 5, 2, 4], 10, 16),
     ]
 
     def test_dp_solution(self):
-        for capacities, values, max_capacity, max_value in self.TEST_CASES:
+        for capacities, values, max_capacity, max_value in self.TESTCASES:
             self.assertEqual(max_value, Solution.back_pack_can_select_multi_times(capacities, values, max_capacity))
 
     def test_dp_optimize_decision(self):
-        for capacities, values, max_capacity, max_value in self.TEST_CASES:
+        for capacities, values, max_capacity, max_value in self.TESTCASES:
             self.assertEqual(max_value, Solution.dp_optimize_decision_loop(capacities, values, max_capacity))
 
     def test_dp_one_row_2(self):
-        for capacities, values, max_capacity, max_value in self.TEST_CASES:
+        for capacities, values, max_capacity, max_value in self.TESTCASES:
             self.assertEqual(max_value, Solution.dp_one_row_2(capacities, values, max_capacity))
 
     def test_my_greedy(self):
-        for capacities, values, max_capacity, max_value in self.TEST_CASES:
+        for capacities, values, max_capacity, max_value in self.TESTCASES:
             self.assertEqual(max_value, Solution.my_greedy(capacities, values, max_capacity))

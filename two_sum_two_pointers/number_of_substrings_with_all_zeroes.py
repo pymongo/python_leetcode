@@ -2,18 +2,18 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         # 3! + 2!
         ("00010011", 9),
         ("010010", 5),
     ]
 
     def test_two_pointers(self):
-        for s, count in self.TEST_CASES:
+        for s, count in self.TESTCASES:
             self.assertEqual(count, self.batch_count(s))
 
     def test_batch_count(self):
-        for s, count in self.TEST_CASES:
+        for s, count in self.TESTCASES:
             self.assertEqual(count, self.batch_count(s))
 
     @staticmethod

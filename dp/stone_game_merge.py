@@ -8,7 +8,7 @@ from typing import List
 # 假设最后一次合并的左半区域是x，右边是y，动态规划就是在找这刀分隔线切在哪
 # dp[i][j]表示下标i一直合并到j的最小耗费
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         # 1和1先合并 => 4,2,4 => 6,4
         ([4, 1, 1, 4], 18),
         # 4和3、3和4先合并
@@ -16,7 +16,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for nums, min_cost in self.TEST_CASES:
+        for nums, min_cost in self.TESTCASES:
             self.assertEqual(min_cost, self.f(nums))
 
     @staticmethod

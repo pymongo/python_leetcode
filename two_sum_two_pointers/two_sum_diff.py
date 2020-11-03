@@ -10,13 +10,13 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([2, 7, 15, 24], 5, [2, 7]),
         ([1, 1], 0, [1, 1]),
     ]
 
     def test(self):
-        for nums, target, expected in self.TEST_CASES:
+        for nums, target, expected in self.TESTCASES:
             self.assertListEqual(expected, self.f(nums, target))
             self.assertListEqual(expected, self.hash_solution(nums, target))
 

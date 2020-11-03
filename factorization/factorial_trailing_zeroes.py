@@ -11,11 +11,11 @@ def solution(n: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         (3, 0),
         (5, 1)
     ]
 
     def test(self):
-        for n, factorial_trailing_zeroes_count in self.TEST_CASES:
+        for n, factorial_trailing_zeroes_count in self.TESTCASES:
             self.assertEqual(factorial_trailing_zeroes_count, solution(n))

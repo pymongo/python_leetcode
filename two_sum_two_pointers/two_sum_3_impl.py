@@ -35,12 +35,12 @@ class TwoSum:
 
 
 class TestTwoSum(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 3, 5], [(4, True), (7, False)]),
     ]
 
     def test(self):
-        for nums, cases in self.TEST_CASES:
+        for nums, cases in self.TESTCASES:
             two_sum = TwoSum()
             for num in nums:
                 two_sum.add(num)

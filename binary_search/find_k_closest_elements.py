@@ -94,7 +94,7 @@ def lintcode(nums: List[int], target: int, k: int) -> List[int]:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 2, 3], 2, 3, [2, 1, 3]),
         ([1, 4, 6, 8], 3, 3, [4, 1, 6]),
     ]
@@ -103,5 +103,5 @@ class Testing(unittest.TestCase):
         print(binary_search([1, 2, 4], target=3, length=3))
 
     def test(self):
-        for nums, target, k, expected in self.TEST_CASES:
+        for nums, target, k, expected in self.TESTCASES:
             self.assertEqual(expected, solution(nums, target, k))

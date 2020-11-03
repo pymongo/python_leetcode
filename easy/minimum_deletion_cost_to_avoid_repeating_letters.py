@@ -7,12 +7,12 @@ from typing import List
 
 class Solution(unittest.TestCase):
     def test(self):
-        test_casess = [
+        TESTCASESs = [
             ("aabaa", [1, 2, 3, 4, 1], 2),
             ("abaac", [1, 2, 3, 4, 5], 3),
             ("abc", [1, 2, 3], 0),
         ]
-        for s, cost, expected in test_casess:
+        for s, cost, expected in TESTCASESs:
             self.assertEqual(expected, self.f(s, cost))
 
     # 周赛第三题

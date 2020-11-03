@@ -11,13 +11,13 @@ from copy import deepcopy
 
 
 class Solution(unittest.TestCase):
-    TWO_SUM_PLANS_DETAILS_TEST_CASES = [
+    TWO_SUM_PLANS_DETAILS_TESTCASES = [
         ([1, 1, 2, 3, 4, 5], 6, [[1, 5], [2, 4]])
     ]
 
     # 字节跳动喜欢考枚举Two Sum每个方案的详情，我看leetcode没有原题，类似的有three-sum，所以还是自己写测试用例练一练
     def test_two_sum_plans_detail(self):
-        for nums, target, plans_detail in self.TWO_SUM_PLANS_DETAILS_TEST_CASES:
+        for nums, target, plans_detail in self.TWO_SUM_PLANS_DETAILS_TESTCASES:
             self.assertListEqual(plans_detail, self.two_sum_plans_detail(nums, target))
 
     @staticmethod
@@ -104,15 +104,15 @@ def three_sum_second_try(nums: List[int]) -> List[List[int]]:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([2, 7, 11, 15], []),
         ([-1, 0, 1, 2, -1, -4], [[-1, -1, 2], [-1, 0, 1]])
     ]
 
     def test(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
+        for nums, expected in deepcopy(self.TESTCASES):
             self.assertEqual(expected, three_sum_equal_zero(nums))
 
     def test_three_second_try(self):
-        for nums, expected in deepcopy(self.TEST_CASES):
+        for nums, expected in deepcopy(self.TESTCASES):
             self.assertEqual(expected, three_sum_second_try(nums))

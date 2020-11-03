@@ -6,12 +6,12 @@ import heapq
 
 # dijkstra可以理解为: BFS+优先队列+贪心
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2, 2),
     ]
 
     def test(self):
-        for times, n, k, expected in self.TEST_CASES:
+        for times, n, k, expected in self.TESTCASES:
             self.assertEqual(expected, self.dijkstra(times, n, k))
 
     @staticmethod

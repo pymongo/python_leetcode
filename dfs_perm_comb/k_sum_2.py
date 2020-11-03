@@ -37,11 +37,11 @@ def dfs(
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 2, 3, 4], 2, 5, [[1, 4], [2, 3]]),
         ([1, 3, 4, 6], 3, 8, [[1, 3, 4]]),
     ]
 
     def test(self):
-        for nums, k, target, results in self.TEST_CASES:
+        for nums, k, target, results in self.TESTCASES:
             self.assertCountEqual(results, k_sum_2(nums, k, target))

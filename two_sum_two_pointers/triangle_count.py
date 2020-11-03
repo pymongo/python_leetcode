@@ -38,12 +38,12 @@ def triangle_count(nums: List[int]) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         # (3,4,6), (3,6,7), (4,6,7)
         ([3, 4, 6, 7], 3),
         ([4, 4, 4, 4], 4),
     ]
 
     def test_triangle_count(self):
-        for nums, expected in self.TEST_CASES:
+        for nums, expected in self.TESTCASES:
             self.assertEqual(expected, triangle_count(nums))

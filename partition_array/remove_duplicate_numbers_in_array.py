@@ -59,13 +59,13 @@ def two_pointers_o1_space(nums: List[int]) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 3, 1, 4, 4, 2], 4, [1, 3, 4, 2]),
         ([1, 2, 3], 3, [1, 2, 3]),
     ]
 
     def test_move_duplicate(self):
-        for nums, unique_len, expected in self.TEST_CASES:
+        for nums, unique_len, expected in self.TESTCASES:
             output = move_duplicate(nums)
             self.assertEqual(unique_len, output)
             self.assertEqual(expected, nums[:unique_len])

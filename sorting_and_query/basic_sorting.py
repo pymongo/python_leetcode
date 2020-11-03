@@ -19,11 +19,8 @@ from binary_tree.binary_tree import dbg
 from copy import deepcopy
 
 
+# Worst Case: 输入数组是反序的。平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
 def bubble_sort(nums: List[int]):
-    """
-    平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
-    Worst Case: 入参是反序的
-    """
     length: int = len(nums)
     for i in range(length - 1):
         for j in range(i + 1, length):
@@ -152,32 +149,6 @@ def heap_sort(input_numbers: List[int]) -> List[int]:
     return input_numbers
 
 
-def binary_search(nums: List[int], target: int) -> int:
-    left: int = 0
-    right: int = len(nums) - 1
-    middle: int
-    while left < right and right > 1:
-        # 如果middle是(left+right) // 2
-        # 遇到([1, 2, 3], 4)的测试用例时会陷入死循环(left, right = 1, 2)
-        middle = (left + right) // 2
-        if nums[middle] == target:
-            print("nums[middle] == target")
-            return middle
-        elif nums[middle] > target:
-            print("nums[middle] > target")
-            right = min(middle, right - 1)
-        else:
-            print("nums[middle] < target")
-            left = max(middle, left + 1)
-    print(f"left, right = {left}, {right}")
-    # 一般的二分查找找不到是返回return -1
-    # 这里我想模仿Rust的二分查找，无论找不找得到，都返回一个应当插入位置的索引
-    if nums[left] > target:
-        return left
-    else:
-        return right
-
-
 def insertion_sort(nums: List[int]) -> List[int]:
     """
     插入排序类型斗地主发牌时，将新的牌插入到已经有序的手牌中
@@ -188,6 +159,30 @@ def insertion_sort(nums: List[int]) -> List[int]:
     Worst Case: 入参是反序的
     FIXME 我写的二分插入有点问题，还是用不加二分查找的原始插入排序更好
     """
+    def binary_search(nums: List[int], target: int) -> int:
+        left: int = 0
+        right: int = len(nums) - 1
+        middle: int
+        while left < right and right > 1:
+            # 如果middle是(left+right) // 2
+            # 遇到([1, 2, 3], 4)的测试用例时会陷入死循环(left, right = 1, 2)
+            middle = (left + right) // 2
+            if nums[middle] == target:
+                print("nums[middle] == target")
+                return middle
+            elif nums[middle] > target:
+                print("nums[middle] > target")
+                right = min(middle, right - 1)
+            else:
+                print("nums[middle] < target")
+                left = max(middle, left + 1)
+        print(f"left, right = {left}, {right}")
+        # 一般的二分查找找不到是返回return -1
+        # 这里我想模仿Rust的二分查找，无论找不找得到，都返回一个应当插入位置的索引
+        if nums[left] > target:
+            return left
+        else:
+            return right
     length: int = len(nums)
     current_num: int
     for i in range(1, length):
@@ -249,39 +244,7 @@ def shell_sort(numbers: List[int]):
         gap //= 2
 
 
-def merge_sort(numbers: List[int]) -> List[int]:
-    """
-    官方解答中有一种很巧妙的，借助额外存储空间，直接在原数组上挪位置的解法
-    Meger Sort的后半部分(归并)又是leetcode上merge two sorted array这题
-    """
-    length: int = len(numbers)
-    # 递归结束条件
-    if length <= 1:
-        return numbers
-
-    middle = length // 2
-    left_arr = merge_sort(numbers[:middle])
-    right_arr = merge_sort(numbers[middle:])
-
-    # 通过双指针合并左右两半的有序数组
-    # 合并两个有序数组的算法可以参考leetcode上merge-sorted-array这题
-    # https://leetcode.com/problems/merge-sorted-array/
-    left_ptr, right_ptr = 0, 0
-    left_len, right_len = len(left_arr), len(right_arr)
-    result: List[int] = []
-    while left_ptr < left_len and right_ptr < right_len:
-        if left_arr[left_ptr] < right_arr[right_ptr]:
-            result.append(left_arr[left_ptr])
-            left_ptr += 1
-        else:
-            result.append(right_arr[right_ptr])
-            right_ptr += 1
-    # 剩余的元素直接添加到末尾
-    result = result + left_arr[left_ptr:] + right_arr[right_ptr:]
-
-    return result
-
-
+# TODO 正统归并排序建议看我leetcode第四题的Rust解法
 def merge_sort_best(nums: List[int], start: int, end: int, temp: List[int]):
     if start >= end:
         return
@@ -365,22 +328,15 @@ def quick_sort_in_place(nums: List[int], start, end):
 
 
 class TestSorting(unittest.TestCase):
-    NUMS_TEST_CASES: List[List[int]] = [
+    NUMS_TESTCASES: List[List[int]] = [
         [5, 2, 3, 1],
         [5, 3, 4, 2],
         [3, 2, 1, 4, 5],
         [4, 10, 3, 5, 1, 2],
     ]
-    BINARY_SEARCH_TEST_CASES: List[Tuple[List[int], int, int]] = [
-        ([1, 2, 3], 0, 0),
-        ([1, 2, 3], 1, 0),
-        ([1, 2, 3], 2, 1),
-        ([1, 2, 3], 3, 2),
-        ([1, 2, 3], 4, 2),
-    ]
 
     def test_bubble_sort(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
+        for nums in deepcopy(self.NUMS_TESTCASES):
             dbg(nums)
             sorted_nums = sorted(nums)
             bubble_sort(nums)
@@ -388,44 +344,29 @@ class TestSorting(unittest.TestCase):
             self.assertListEqual(sorted_nums, nums)
 
     def test_selection_sort(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
+        for nums in deepcopy(self.NUMS_TESTCASES):
             bubble_sort(nums)
             self.assertListEqual(sorted(nums), nums)
 
     def test_heap_sort_iterative(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
+        for nums in deepcopy(self.NUMS_TESTCASES):
             heap_sort_iterative(nums)
             self.assertListEqual(sorted(nums), nums)
 
     def test_heap_sort(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
+        for nums in deepcopy(self.NUMS_TESTCASES):
             sorted_nums = sorted(nums)
             heap_sort(nums)
             self.assertListEqual(sorted_nums, nums)
 
-    @unittest.skip("跟Rust的binary_search的行为不一致")
-    def test_binary_search(self):
-        pass
-        # for nums, target, expected in deepcopy(self.BINARY_SEARCH_TEST_CASES):
-        #     self.assertListEqual(expected, binary_search(nums, target))
-
-    @unittest.skip("二分查找有问题，插入排序用到了二分查找的函数，等待修复")
-    def test_insertion_sort(self):
-        for nums, expected in deepcopy(self.NUMS_TEST_CASES):
-            self.assertEqual(expected, insertion_sort(nums))
-
     def test_shell_sort(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
+        for nums in deepcopy(self.NUMS_TESTCASES):
             sorted_nums = sorted(nums)
             shell_sort(nums)
             self.assertEqual(sorted_nums, nums)
 
-    def test_merge_sort(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
-            self.assertEqual(sorted(nums), merge_sort(nums))
-
     def test_merge_sort_best(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
+        for nums in deepcopy(self.NUMS_TESTCASES):
             size = len(nums)
             temp = [-1] * size
             merge_sort_best(nums, 0, size - 1, temp)
@@ -433,6 +374,6 @@ class TestSorting(unittest.TestCase):
             self.assertListEqual(sorted(nums), nums)
 
     def test_quick_sort_in_place(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
+        for nums in deepcopy(self.NUMS_TESTCASES):
             quick_sort_in_place(nums, 0, len(nums) - 1)
             self.assertListEqual(sorted(nums), nums)

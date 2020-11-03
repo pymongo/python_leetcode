@@ -38,14 +38,14 @@ class Tire:
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         # ababa -> cccba -> cccba
         # ^           ^         ^
         (["ab", "aba"], ["cc", "ccc"], "ababa", "cccba"),
     ]
 
     def test(self):
-        for a, b, s, after_replace in self.TEST_CASES:
+        for a, b, s, after_replace in self.TESTCASES:
             self.assertEqual(after_replace, self.f(a, b, s))
 
     @staticmethod

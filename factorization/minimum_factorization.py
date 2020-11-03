@@ -25,11 +25,11 @@ def solution(n: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         (48, 68),
         (15, 35)
     ]
 
     def test(self):
-        for n, expected in self.TEST_CASES:
+        for n, expected in self.TESTCASES:
             self.assertEqual(expected, solution(n))

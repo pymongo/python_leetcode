@@ -4,10 +4,10 @@ from .binary_tree import TreeNode
 
 class Solution(unittest.TestCase):
     def test(self):
-        test_cases = [
+        TESTCASES = [
             ("1(2)(3)", 6),
         ]
-        for tree, max_path_sum in test_cases:
+        for tree, max_path_sum in TESTCASES:
             self.assertEqual(max_path_sum, self.max_path_sum(TreeNode.from_str(tree)))
 
     def max_path_sum(self, root: TreeNode) -> int:

@@ -55,10 +55,10 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([2, 7, 4, 1, 8, 1], 1),
     ]
 
     def test_last_stone_weight_max_heap(self):
-        for nums, expected in self.TEST_CASES:
+        for nums, expected in self.TESTCASES:
             self.assertEqual(expected, Solution.last_stone_weight_max_heap(nums))

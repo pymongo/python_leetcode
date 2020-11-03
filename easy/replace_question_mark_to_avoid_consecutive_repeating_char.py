@@ -3,13 +3,13 @@ import unittest
 
 class Solution(unittest.TestCase):
     def test(self):
-        test_cases = [
+        TESTCASES = [
             ("?zs", "azs"),
             ("ubv?w", "ubvaw"),
             ("j?qg??b", "jaqgacb"),
             ("??yw?ipkj?", "abywaipkja"),
         ]
-        for s, expected in test_cases:
+        for s, expected in TESTCASES:
             self.assertEqual(expected, self.f(s))
 
     @staticmethod

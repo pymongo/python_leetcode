@@ -4,7 +4,7 @@ two_digits = {'10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', 
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("301", 0),
         ("100", 0),
         ("10", 1),
@@ -14,7 +14,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for s, expected in self.TEST_CASES:
+        for s, expected in self.TESTCASES:
             print(s)
             self.assertEqual(expected, self.f(s))
 

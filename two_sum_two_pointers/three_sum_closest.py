@@ -29,11 +29,11 @@ def solution(nums: List[int], target: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([-1, 2, 1, -4], 2, 2),
         ([2, 7, 11, 15], 3, 20),
     ]
 
     def test(self):
-        for nums, target, expected in self.TEST_CASES:
+        for nums, target, expected in self.TESTCASES:
             self.assertEqual(expected, solution(nums, target))

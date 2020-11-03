@@ -4,12 +4,12 @@ from typing import List, Set
 
 # word_break_2求的是具体方案，不适合用动态规划
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("lintcode", ["de", "ding", "co", "code", "lint"], ["lint code", "lint co de"])
     ]
 
     def test(self):
-        for s, words, results in self.TEST_CASES:
+        for s, words, results in self.TESTCASES:
             self.assertCountEqual(results, self.find(s, words))
 
     @staticmethod

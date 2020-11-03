@@ -29,7 +29,7 @@ def longest_mountain_in_array(nums: List[int]) -> int:
 
 
 class UnitTest(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([7, 4, 8], 0),
         ([5, 4, 3, 2, 1], 0),
         ([0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0], 11),
@@ -38,5 +38,5 @@ class UnitTest(unittest.TestCase):
     ]
 
     def testing(self):
-        for nums, expected in self.TEST_CASES:
+        for nums, expected in self.TESTCASES:
             self.assertEqual(expected, longest_mountain_in_array(nums))

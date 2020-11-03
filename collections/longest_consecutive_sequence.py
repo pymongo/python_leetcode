@@ -21,11 +21,11 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([100, 4, 200, 1, 3, 2], 4)
     ]
 
     def test(self):
         solution = Solution()
-        for nums, longest_consecutive_length in self.TEST_CASES:
+        for nums, longest_consecutive_length in self.TESTCASES:
             self.assertEqual(longest_consecutive_length, solution.longestConsecutive(nums))

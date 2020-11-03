@@ -1,7 +1,9 @@
+# https://leetcode.com/problems/longest-substring-without-repeating-characters/
 import unittest
 
+
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("abcabcbb", 3),
         ("bbbbb", 1),
         ("pwwkew", 3),
@@ -10,7 +12,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for s, expected in self.TEST_CASES[:]:
+        for s, expected in self.TESTCASES[:]:
             self.assertEqual(expected, self.f(s))
 
     @staticmethod
@@ -18,8 +20,6 @@ class Solution(unittest.TestCase):
         size = len(s)
         left = 0
         max_len = 0
-
-        # index: ASCII of char, value: index of char
         table = [-1 for _ in range(128)]
 
         for right in range(size):

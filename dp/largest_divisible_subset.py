@@ -5,18 +5,18 @@ from typing import List
 # 本题属于「接龙型」动态规划(也是坐标型动态规划的一种)
 # TODO 经典的动态规划通过前继节点数组倒推最优方案的路径的问题
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([1, 2, 3], [[1, 2], [2, 3]]),
         ([1, 2, 4, 8], [[1, 2, 4, 8]]),
         ([3, 6, 9, 27, 81, 22, 24, 56, 243, 486, 726, 18, 36, 72], [[3, 9, 27, 81, 243, 486]])
     ]
 
     def test(self):
-        for nums, subsets in self.TEST_CASES:
+        for nums, subsets in self.TESTCASES:
             self.assertIn(self.solution(nums), subsets)
 
     def test_recipe(self):
-        for nums, subsets in self.TEST_CASES:
+        for nums, subsets in self.TESTCASES:
             self.assertIn(self.recipe(nums), subsets)
 
     @staticmethod

@@ -1,12 +1,10 @@
+# https://leetcode.com/problems/string-to-integer-atoi/
 import unittest
 import re
 
-I32_MIN = -(2 ** 31)
-I32_MAX = 2 ** 31 - 1
-
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("   -42", -42),
         ("4193 with words", 4193),
         ("words and 987", 0),
@@ -15,7 +13,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test_re(self):
-        for s, integer in self.TEST_CASES:
+        for s, integer in self.TESTCASES:
             print(s)
             self.assertEqual(integer, self.regular_expression_solution(s))
 
@@ -33,11 +31,13 @@ class Solution(unittest.TestCase):
         return max(min(num, i32_max), i32_min)
 
     def test_atoi(self):
-        for s, integer in self.TEST_CASES:
+        for s, integer in self.TESTCASES:
             self.assertEqual(integer, self.atoi(s))
 
     @staticmethod
     def atoi(s: str) -> int:
+        I32_MIN = -(2 ** 31)
+        I32_MAX = 2 ** 31 - 1
         size = len(s)
         if size == 0:
             return 0

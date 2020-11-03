@@ -67,11 +67,11 @@ def lca2(_root: LCA2, a: LCA2, b: LCA2):
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("4(3)(7(5)(6))", 3, 5, 4)
     ]
 
     def test_lca(self):
-        for binary_tree, a, b, common_ancestor in self.TEST_CASES:
+        for binary_tree, a, b, common_ancestor in self.TESTCASES:
             root = TreeNode.from_str(binary_tree)
             self.assertEqual(common_ancestor, lca_helper(root, TreeNode(a), TreeNode(b)).val)

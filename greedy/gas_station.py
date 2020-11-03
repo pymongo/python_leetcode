@@ -99,7 +99,7 @@ class Testing(unittest.TestCase):
     因此，3 可为起始索引。
     【纠错】：遍历顺序不是4->2->5，而是4->1->5->2(简单多了)
     """
-    TEST_CASES: List[Tuple[List[int], List[int], int]] = [
+    TESTCASES: List[Tuple[List[int], List[int], int]] = [
         ([2, 3, 4], [3, 4, 3], -1),
         ([1, 2, 3, 4, 5], [3, 4, 5, 1, 2], 3),
         ([1, 1, 3, 1], [2, 2, 1, 1], 2),
@@ -107,5 +107,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test_brute_force(self):
-        for gas, cost, expected in self.TEST_CASES[:]:
+        for gas, cost, expected in self.TESTCASES[:]:
             self.assertEqual(expected, brute_force(gas, cost))

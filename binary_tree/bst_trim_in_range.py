@@ -5,14 +5,14 @@ from typing import Optional
 
 # 改定一个范围[lower,upper]，将BST超过范围的节点全都删掉
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("1(0)(2)", 1, 2, "1()(2)"),
         # 返回的结果不一定是根节点，需要手动溯源，但是leetcode会自动找到根
         # ("3(0()(2(1)))(4)", 1, 2, "3(2(1))"),
     ]
 
     def test(self):
-        for input_bst, lower, upper, output_bst in self.TEST_CASES:
+        for input_bst, lower, upper, output_bst in self.TESTCASES:
             input_bst = TreeNode.from_str(input_bst)
             output = self.f(input_bst, lower, upper)
             self.assertEqual(output_bst, output.__str__())

@@ -2,13 +2,13 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         # LCS is AC
         ("ABCD", "EACB", 2),
     ]
 
     def test(self):
-        for A, B, lcs in self.TEST_CASES:
+        for A, B, lcs in self.TESTCASES:
             self.assertEqual(lcs, self.f(A, B))
 
     @staticmethod

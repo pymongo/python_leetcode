@@ -68,12 +68,12 @@ def subtree_min_sum(root: TreeNode) -> (int, int, Optional[TreeNode]):
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ("1(-5(0)(3))(2(-4)(-5))", TreeNode(3))
     ]
 
     def test_subtree_max_sum(self):
-        for binary_tree, expected in self.TEST_CASES:
+        for binary_tree, expected in self.TESTCASES:
             root = TreeNode.from_str(binary_tree)
             subtree_node = subtree_max_sum(root)[2]
             self.assertEqual(expected.to_str(), subtree_node.to_str())

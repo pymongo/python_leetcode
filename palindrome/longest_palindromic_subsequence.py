@@ -98,7 +98,7 @@ def solution(s: str) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES: List[Tuple[str, int]] = [
+    TESTCASES: List[Tuple[str, int]] = [
         ("cbbd", 2),
         ("aba", 3),
         ("babad", 3),
@@ -108,9 +108,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test_correct_solution(self):
-        for s, expected in self.TEST_CASES[:]:
+        for s, expected in self.TESTCASES[:]:
             self.assertEqual(expected, correct_solution(s))
 
     def test_solution(self):
-        for s, expected in self.TEST_CASES[:]:
+        for s, expected in self.TESTCASES[:]:
             self.assertEqual(expected, solution(s))

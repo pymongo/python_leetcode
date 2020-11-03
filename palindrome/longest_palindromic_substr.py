@@ -1,7 +1,4 @@
-"""
-# 第二讲：最长回文子串
-本讲是互动课，互动课指的是提前录制好的若干个短视频，中间穿插单选题和编程题组成的课程
-
+""" https://leetcode.com/problems/longest-palindromic-substring/
 ## Subsequence子序列
 子序列可以是非连续的字符
 对于长度为n的字符串的子序列，每个字符都有选或不选两种可能。
@@ -35,12 +32,6 @@ suffix array(后缀数组)比较难，不太考
 只用一种O(n^2)算法，而且代码中有点Bug，也不能给面试官讲清楚算法过程
 Weak Hire相当于弃权票，三轮面试中，2次给了Weak Hire，1次No Hire就挂了，或者让加面
 
-### No Hire
-面试官给提示后，想到O(n^2)的解法，但Bug太多或者不能AC
-
-### Strong No Hire
-一种算法都想不到，或者用暴力遍历结果超时
-
 DP解法填表顺序注意事项:
 除了i和j的其中一个要倒着遍历，另一种解决思路是，本质上解决的思路是
 「先循环区间长度，再循环区间的起点」
@@ -54,22 +45,18 @@ import unittest
 from typing import List, Tuple
 
 
-# from mydbg import dbg
-
-
-def expand_center(s: str, size: int, left: int, right: int) -> (int, int):
-    while left >= 0 and right < size and s[left] == s[right]:
-        left -= 1
-        right += 1
-
-    # 如果左边和右边不相等，例如ab，它不是个回文串，应该返回1
-    # 由于跳出循环时哪怕两边不相等也会额外扩散一次，所以返回值要往里收缩一次
-    return left + 1, right - 1
-
 # 暴力穷举(brute_force)已经是多项式级别的时间复杂度的题不适合用动态规划，例如本题是O(n^3)
 # 本题 manacher > 中心扩散 > 动态规划
 def longest_palindromic_substr(s: str) -> str:
-    # 非法入参处理
+    def expand_center(s: str, size: int, left: int, right: int) -> (int, int):
+        while left >= 0 and right < size and s[left] == s[right]:
+            left -= 1
+            right += 1
+
+        # 如果左边和右边不相等，例如ab，它不是个回文串，应该返回1
+        # 由于跳出循环时哪怕两边不相等也会额外扩散一次，所以返回值要往里收缩一次
+        return left + 1, right - 1
+
     if not isinstance(s, str):
         return ""
 
@@ -125,7 +112,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES: List[Tuple[str, str, str]] = [
+    TESTCASES: List[Tuple[str, str, str]] = [
         ("cbbd", "bb", "bb"),
         ("babad", "bab", "aba"),
         ("aba", "aba", "aba"),
@@ -135,9 +122,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for input_str, expected1, expected2 in self.TEST_CASES[:]:
+        for input_str, expected1, expected2 in self.TESTCASES[:]:
             self.assertIn(longest_palindromic_substr(input_str), [expected1, expected2])
 
     def test_dp_solution(self):
-        for input_str, expected1, expected2 in self.TEST_CASES[:]:
+        for input_str, expected1, expected2 in self.TESTCASES[:]:
             self.assertIn(Solution.dp_solution(input_str), [expected1, expected2])

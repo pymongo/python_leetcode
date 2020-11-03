@@ -20,12 +20,12 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([12, 28, 46, 32, 50], [50, 12, 32, 46, 28], [1, 4, 3, 2, 0]),
         ([1, 2, 3, 4, 5], [5, 4, 3, 2, 1], [4, 3, 2, 1, 0]),
     ]
 
     def test_anagram(self):
         solution = Solution()
-        for A, B, mapping in self.TEST_CASES:
+        for A, B, mapping in self.TESTCASES:
             self.assertEqual(mapping, solution.anagramMappings(A, B))

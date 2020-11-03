@@ -39,14 +39,14 @@ def dp_solution(n: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         (10, 12), (1, 1), (9, 10)
     ]
 
     def test_factor_solution(self):
-        for n, expected in self.TEST_CASES:
+        for n, expected in self.TESTCASES:
             self.assertEqual(expected, dp_solution(n))
 
     def test_heap_nth_ugly(self):
-        for n, expected in self.TEST_CASES:
+        for n, expected in self.TESTCASES:
             self.assertEqual(expected, heap_nth_ugly(n))

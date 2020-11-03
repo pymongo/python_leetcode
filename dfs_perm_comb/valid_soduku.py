@@ -14,7 +14,7 @@ class SodukuUsed:
 
 
 class Solution(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([
              ["5", "3", ".", ".", "7", ".", ".", ".", "."],
              ["6", ".", ".", "1", "9", "5", ".", ".", "."],
@@ -40,7 +40,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for board, is_valid in self.TEST_CASES:
+        for board, is_valid in self.TESTCASES:
             self.assertEqual(is_valid, self.f(board))
 
     @staticmethod

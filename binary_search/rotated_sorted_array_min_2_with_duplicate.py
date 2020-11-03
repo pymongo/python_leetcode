@@ -33,11 +33,11 @@ def min_of_rotated_sorted(nums: List[int]) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         [1, 3, 5],
         [2, 2, 2, 0, 1],
     ]
 
     def test_min_of_rotated_sorted(self):
-        for nums in self.TEST_CASES:
+        for nums in self.TESTCASES:
             self.assertEqual(min(nums), min_of_rotated_sorted(nums))

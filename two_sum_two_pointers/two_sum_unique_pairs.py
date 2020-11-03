@@ -34,12 +34,12 @@ def solution(nums: List[int], target: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TEST_CASES = [
+    TESTCASES = [
         ([7, 11, 11, 1, 2, 3, 4], 22, 1),
         ([1, 1, 2, 45, 46, 46], 47, 2),
         ([1, 1], 2, 1)
     ]
 
     def test(self):
-        for nums, target, count in self.TEST_CASES:
+        for nums, target, count in self.TESTCASES:
             self.assertEqual(count, solution(nums, target))

@@ -45,20 +45,20 @@ def middle_of_linked_list_brute_force(list_node: ListNode) -> int:
 
 
 class UnitTest(unittest.TestCase):
-    TEST_CASES_MIDDLE_OF_THE_LINKED_LIST = [
+    TESTCASES_MIDDLE_OF_THE_LINKED_LIST = [
         ([1, 2, 3, 4, 5], [3, 4, 5]),
         ([1, 2, 3, 4, 5, 6], [4, 5, 6]),
     ]
-    TEST_CASES_MIDDLE_OF_LINKED_LIST = [
+    TESTCASES_MIDDLE_OF_LINKED_LIST = [
         ([1, 2, 3], 2)
     ]
 
     def test_middle_of_the_linked_list(self):
-        for input_ln, output_ln in self.TEST_CASES_MIDDLE_OF_THE_LINKED_LIST:
+        for input_ln, output_ln in self.TESTCASES_MIDDLE_OF_THE_LINKED_LIST:
             input_ln = ListNode.from_list(input_ln)
             self.assertEqual(output_ln, middle_of_the_linked_list(input_ln).to_list())
 
     def test_middle_of_linked_list(self):
-        for nums, expected in self.TEST_CASES_MIDDLE_OF_LINKED_LIST:
+        for nums, expected in self.TESTCASES_MIDDLE_OF_LINKED_LIST:
             list_node = ListNode.from_list(nums)
             self.assertEqual(expected, middle_of_linked_list(list_node).val)

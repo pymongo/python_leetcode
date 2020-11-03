@@ -30,20 +30,20 @@ def partition_lower_upper(chars: List[str]):
 
 
 class Testing(unittest.TestCase):
-    ODD_EVEN_TEST_CASES = [
+    ODD_EVEN_TESTCASES = [
         ([1, 2, 3, 4], [1, 3, 4, 2])
     ]
 
-    LOWER_UPPER_TEST_CASES = [
+    LOWER_UPPER_TESTCASES = [
         (['A', 'c'], 'cA')
     ]
 
     def test_partition_odd_even(self):
-        for nums, expected in self.ODD_EVEN_TEST_CASES:
+        for nums, expected in self.ODD_EVEN_TESTCASES:
             partition_odd_and_even(nums)
             self.assertEqual(expected, nums)
 
     def test_lower_upper(self):
-        for chars, expected in self.LOWER_UPPER_TEST_CASES:
+        for chars, expected in self.LOWER_UPPER_TESTCASES:
             partition_lower_upper(chars)
             self.assertEqual(expected, chars)
