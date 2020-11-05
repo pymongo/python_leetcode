@@ -52,7 +52,7 @@ def dfs(
     board[row][col] = letter
 
 
-# [LOCK]https://www.lintcode.com/problem/boggle-game/
+# [LOCK]https://lintcode.com/problem/boggle-game/
 # 与word_search_2的区别是矩阵中的每个字母只能使用一次，而且返回的是最多单词被圈中的数量
 # 一定要优先匹配前缀树中较短的单词，才能尽可能多地匹配
 # FIXME 例如第三行是\['a', 'd', 'e', 'e']的测试用例，总是匹配成adee而不是更优的da+ee，都不知道该怎么设计才能优先匹配较短的字符串，或者发现更优方案，抛弃之前的答案

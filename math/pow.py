@@ -32,7 +32,7 @@ def my_pow(x: float, n: int) -> float:
         return result
 
 
-# https://www.lintcode.com/problem/fast-power/
+# https://lintcode.com/problem/fast-power/
 # Calculate the a**n % b
 # 除了快速幂运算，辗转相除法也是一个非二分法的logn算法
 # 负数MOD问题: Python/Ruby: -1%3 = 2, Java/Rust: -1%3 = -1

@@ -1,5 +1,5 @@
 """
-https://www.lintcode.com/problem/sqrtx-ii/description?_from=ladder&&fromId=161
+https://lintcode.com/problem/sqrtx-ii/description?_from=ladder&&fromId=161
 https://en.wikipedia.org/wiki/Methods_of_computing_square_roots
 number=16
 init: guess=16/2=8

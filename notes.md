@@ -94,7 +94,7 @@ Divide&Conquer和Traversal可以用递归和非递归的两种实现方法
 1. open_hashing(开散列法): 哈希表所基于的数组中每个位置都是一个LinkedList的头结点。这样冲突的(key, value) pair都放在同一个链表中
 2. closed_hash(闭散列法): 发生冲突时，后来的元素往下一个位置去找空位
 
-[open hashing的动画演示](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html)
+[open hashing的动画演示](https://cs.usfca.edu/~galles/visualization/OpenHash.html)
 
 记录冲突链表中的元素顺序其实是没有关系的，所以新冲突的(key, value)pair都是插入到头结点后，这样就不用记录尾节点的指针
 

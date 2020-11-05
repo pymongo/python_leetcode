@@ -1,6 +1,6 @@
 """
-https://www.lintcode.com/problem/search-in-a-big-sorted-array/description?_from=ladder&&fromId=161
-https://www.jiuzhang.com/solution/search-in-a-big-sorted-array/
+https://lintcode.com/problem/search-in-a-big-sorted-array/description?_from=ladder&&fromId=161
+https://jiuzhang.com/solution/search-in-a-big-sorted-array/
 """
 
 import unittest

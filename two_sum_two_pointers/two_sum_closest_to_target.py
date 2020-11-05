@@ -1,5 +1,5 @@
 """
-https://www.lintcode.com/problem/two-sum-closest-to-target/description?_from=ladder&&fromId=161
+https://lintcode.com/problem/two-sum-closest-to-target/description?_from=ladder&&fromId=161
 类似Two Sum，附加条件是如果没找到等于target的，则找最接近的。返回最接近的数与target之间的差分
 """
 import sys

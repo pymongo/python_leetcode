@@ -1,5 +1,5 @@
 """
-https://www.lintcode.com/problem/two-sum-less-than-or-equal-to-target/
+https://lintcode.com/problem/two-sum-less-than-or-equal-to-target/
 Input: nums = [2, 7, 11, 15], target = 24.
 Output: 5.
 Explanation:
@@ -52,7 +52,7 @@ def second_two_sum_le(nums: List[int], target: int) -> int:
     return count
 
 
-# https://www.lintcode.com/problem/two-sum-greater-than-target/description?_from=ladder&&fromId=161
+# https://lintcode.com/problem/two-sum-greater-than-target/description?_from=ladder&&fromId=161
 def two_sum_gt(nums: List[int], target: int) -> int:
     nums = sorted(nums)
     left, right = 0, len(nums) - 1

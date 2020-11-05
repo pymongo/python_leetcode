@@ -1,7 +1,9 @@
+import unittest
+import collections
 from typing import List
 
 
-# https://www.lintcode.com/problem/digit-counts/description
+# https://lintcode.com/problem/digit-counts/description
 # noinspection PyPep8Naming
 def digitCounts(k: int, n: int) -> int:
     """
@@ -81,3 +83,37 @@ def window_sum(nums: List[int], k: int) -> List[int]:
         curr_sum -= nums[left]
         left += 1
     return res
+
+
+# https://lintcode.com/problem/find-the-number/
+def find_the_number(nums: int, k: int) -> bool:
+    return k in nums
+
+
+# https://leetcode.com/problems/shuffle-string/
+# 类似循环移位字符串那题(rotate_string)
+# 同样可以联想成「教室换座位的」
+def shuffle_string(s: str, indices: List[int]) -> str:
+    chars = list(s)
+    output = chars.copy()
+    for i, each in enumerate(indices):
+        output[each] = chars[i]
+    return ''.join(output)
+
+
+def first_unique_char(s: str) -> int:
+    counter = collections.Counter(s)
+    # 由于HashMap是无序的，在第一次遍历完s生成每个字符出现次数的HashMap后还要遍历一遍字符串去找到第一个出现次数为1的字符
+    for i, char in enumerate(s):
+        if counter[char] == 1:
+            return i
+    return -1
+
+
+class Unittest(unittest.TestCase):
+    def test_shuffle_string(self):
+        testcases = [
+            ("codeleet", [4, 5, 6, 7, 0, 2, 1, 3], "leetcode"),
+        ]
+        for s, indices, output in testcases:
+            self.assertEqual(output, shuffle_string(s, indices))

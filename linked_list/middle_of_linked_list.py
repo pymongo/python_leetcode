@@ -1,6 +1,6 @@
 """
 链表的中位数，有两种题型:
-1. 返回左中位数的节点，[lintcode 228. Middle of Linked List](https://www.lintcode.com/problem/middle-of-linked-list/description?_from=ladder&&fromId=161)
+1. 返回左中位数的节点，[lintcode 228. Middle of Linked List](https://lintcode.com/problem/middle-of-linked-list/description?_from=ladder&&fromId=161)
 2. 从右中位数开始截断链表，返回链表右中位数到末尾的部分(https://leetcode.com/problems/middle-of-the-linked-list/)
 TODO 链表题型的快慢双指针算法
 快指针每次两步，慢指针每次一步

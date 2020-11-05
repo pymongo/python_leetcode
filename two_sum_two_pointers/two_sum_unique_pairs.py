@@ -1,5 +1,5 @@
 """
-https://www.lintcode.com/problem/two-sum-unique-pairs/description?_from=ladder&&fromId=161
+https://lintcode.com/problem/two-sum-unique-pairs/description?_from=ladder&&fromId=161
 本题去重的部分有点像三数之和一题
 """
 

@@ -92,7 +92,7 @@ class Solution(unittest.TestCase):
     @staticmethod
     def itertools_permutations_n_queen_solution(n: int):
         """
-        https://www.zhihu.com/question/37046157/answer/70747261
+        https://zhihu.com/question/37046157/answer/70747261
         http://wordaligned.org/articles/8-queens-puzzle
         https://leetcode.com/problems/n-queens/discuss/437421/Simple-python-3-solution-with-itertools.permutations
         首先`itertools.permutations`保证了每个皇后的列号都不一样

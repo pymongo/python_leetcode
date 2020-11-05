@@ -1,5 +1,5 @@
 """
-https://www.lintcode.com/problem/longest-palindromic-subsequence
+https://lintcode.com/problem/longest-palindromic-subsequence
 最长回文子序列是「最长回文子串」一题的follow up(变形题)
 
 ## 什么是子序列

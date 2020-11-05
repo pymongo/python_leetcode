@@ -1,5 +1,5 @@
 """
-[lintcode only]https://www.lintcode.com/problem/partition-array/
+[lintcode only]https://lintcode.com/problem/partition-array/
 Input:
 [3,2,2,1],2
 Output:1

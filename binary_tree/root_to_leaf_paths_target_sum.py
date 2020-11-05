@@ -1,5 +1,5 @@
 """
-lintcode only, locked: https://www.lintcode.com/problem/binary-tree-path-sum/description?_from=ladder&&fromId=161
+lintcode only, locked: https://lintcode.com/problem/binary-tree-path-sum/description?_from=ladder&&fromId=161
 枚举所有方案: 二叉树的根到叶子节点所有路径元素之和等于target
 这题很显然，与[Binary Tree Paths]一题用同一个模板
 """

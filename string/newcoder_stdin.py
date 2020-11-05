@@ -26,7 +26,7 @@ import sys
 
 def int_array_split_whitespace():
     """
-    [2019 PayPal实习生招聘编程卷 - [编程题]飞机最低可俯冲高度](https://www.nowcoder.com/test/16723511/summary)
+    [2019 PayPal实习生招聘编程卷 - [编程题]飞机最低可俯冲高度](https://nowcoder.com/test/16723511/summary)
     输入样例:
     1 1000
     """
@@ -37,7 +37,7 @@ def int_array_split_whitespace():
 
 def int_array_split_newline_1():
     """
-    [牛客网-在线编程-连续子数组最大和](https://www.nowcoder.com/practice/03d341fb6c9d42debcdd38d82a0a545c)
+    [牛客网-在线编程-连续子数组最大和](https://nowcoder.com/practice/03d341fb6c9d42debcdd38d82a0a545c)
     提示: 在IDEA的运行窗口，要通过cmd+D发送EOF，因为Ctrl+D是Debug的快捷键。在Terminal上Ctrl+D就能发送EOF了
     输入样例:
     1
@@ -61,7 +61,7 @@ def int_array_split_newline_2():
 
 def multi_lines_multi_value():
     """
-    [牛客网-在线编程-连续子数组最大和](https://www.nowcoder.com/practice/03d341fb6c9d42debcdd38d82a0a545c)
+    [牛客网-在线编程-连续子数组最大和](https://nowcoder.com/practice/03d341fb6c9d42debcdd38d82a0a545c)
 
     输入描述:
     d:欧式距离

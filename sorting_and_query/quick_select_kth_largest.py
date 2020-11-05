@@ -1,5 +1,5 @@
 """
-https://www.lintcode.com/problem/kth-largest-element/
+https://lintcode.com/problem/kth-largest-element/
 https://leetcode.com/problems/kth-largest-element-in-an-array/
 quick select算法
 找到n个无序元素中的第K大元素

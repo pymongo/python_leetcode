@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-https://www.lintcode.com/problem/first-position-of-target/description
+https://lintcode.com/problem/first-position-of-target/description
 """
 
 import unittest

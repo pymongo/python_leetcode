@@ -1,6 +1,6 @@
 """
-[lintcode only](https://www.lintcode.com/problem/remove-duplicate-numbers-in-array/description?_from=ladder&&fromId=161)
-https://www.jiuzhang.com/solution/remove-duplicate-numbers-in-array/
+[lintcode only](https://lintcode.com/problem/remove-duplicate-numbers-in-array/description?_from=ladder&&fromId=161)
+https://jiuzhang.com/solution/remove-duplicate-numbers-in-array/
 
 Example 1:
 Input:

@@ -1,5 +1,5 @@
 """
-[lintcode only]https://www.lintcode.com/problem/sort-colors-ii/
+[lintcode only]https://lintcode.com/problem/sort-colors-ii/
 1. 快速排序(空间复杂度最优)
 传入两个区间，一个是颜色区间 color_from, color_to；另外一个是待排序的数组区间 index_from, index_to
 找到颜色区间的中点，将数组范围内进行 partition，<= color 的去左边，>color 的去右边。 然后继续递归

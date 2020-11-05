@@ -10,7 +10,7 @@ PriorityQueue是多线程安全的，PriorityQueue is synchronized and provides 
 在理解本题前需要先理解verifying_an_alien_dictionary一题
 verifying_an_alien_dictionary给出某种语言的字母排序以及单词列表，判断单词列表是否有序
 而这题给出的是有序的单词列表，然后推出该语言的字母排序
-https://www.geeksforgeeks.org/given-sorted-dictionary-find-precedence-characters/
+https://geeksforgeeks.org/given-sorted-dictionary-find-precedence-characters/
 """
 import unittest
 from binary_tree.binary_tree import dbg

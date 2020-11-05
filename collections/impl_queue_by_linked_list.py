@@ -1,5 +1,5 @@
 """
-[lintcode only](https://www.lintcode.com/problem/implement-queue-by-linked-list/)
+[lintcode only](https://lintcode.com/problem/implement-queue-by-linked-list/)
 两种主要的队列
 1. TODO PriorityQueue: 基于堆实现，非FIFO(最先出队的是优先级高的元素)
 2. 普通Queue: 基于链表或数组(循环队列)实现

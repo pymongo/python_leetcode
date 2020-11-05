@@ -6,7 +6,7 @@ import unittest
 from typing import List, Tuple
 
 
-# https://www.lintcode.com/problem/merge-two-sorted-arrays/
+# https://lintcode.com/problem/merge-two-sorted-arrays/
 # lintcode特有题，跟leetcode原版的区别是开辟一个新数组去返回
 def merge_two_sorted_arrays(nums1: List[int], nums2: List[int]) -> List[int]:
     size1, size2 = len(nums1), len(nums2)
@@ -44,7 +44,7 @@ class Solution:
         return arrays[0]
 
 
-# https://www.lintcode.com/problem/merge-sorted-array/
+# https://lintcode.com/problem/merge-sorted-array/
 # 与leetcode的merge-two-sorted-arrays一题基本一样，为了保证In-place还是要从后往前填值
 # 参考内存从地址[0,2]复制到地址[1,3]也是从后往前复制避免正序复制时指针遍历[1,2]时刚写入的新数据会被覆盖掉
 def merge_nums2_to_nums1(nums1: List[int], m: int, nums2: List[int], n):

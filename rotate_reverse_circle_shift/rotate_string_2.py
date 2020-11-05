@@ -1,6 +1,6 @@
 """
-https://www.lintcode.com/problem/rotate-string-ii/description?_from=ladder&&fromId=161
-https://www.jiuzhang.com/solution/rotate-string-ii/
+https://lintcode.com/problem/rotate-string-ii/description?_from=ladder&&fromId=161
+https://jiuzhang.com/solution/rotate-string-ii/
 给定left、right的循环移位量
 如果left>right则将字符串循环向左移left-right位
 

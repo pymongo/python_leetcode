@@ -1,6 +1,6 @@
 """
 ## Reference:
-https://www.jianshu.com/p/bbbab7fa77a2
+https://jianshu.com/p/bbbab7fa77a2
 
 ## 算法的稳定性概念
 稳定排序，如果a原本在b前面，而a=b，排序之后a仍然在b的前面；而不稳定排序可能出现在b之后
@@ -100,7 +100,7 @@ def heap_sort_iterative(nums: List[int]):
 
 def heap_sort(input_numbers: List[int]) -> List[int]:
     """
-    https://www.youtube.com/watch?v=j-DqQcNPGbE
+    https://youtube.com/watch?v=j-DqQcNPGbE
     ## 堆排序的几个概念
     - 完全二叉树: 从上到下，从左到右生成的二叉树
     - 堆的规则/特征: 1. 是个完全二叉树 2. 父节点的数值比子节点大
@@ -207,7 +207,7 @@ def insertion_sort(nums: List[int]) -> List[int]:
 def shell_sort(numbers: List[int]):
     """
     理解希尔排序的话看图
-    https://www.cnblogs.com/chengxiao/p/6104371.html
+    https://cnblogs.com/chengxiao/p/6104371.html
     基本思路在于先将间距较大元素进行排序，先保证整体有序
     gap迭代的算法有很多种，这里仅介绍折半式迭代gap
     动态gap的参考代码
@@ -282,7 +282,7 @@ def merge_sort_best(nums: List[int], start: int, end: int, temp: List[int]):
 def quick_sort_simple(numbers: List[int]) -> List[int]:
     """
     即便是简单版本的快排，速度也是归并排序的10倍，所以同样是nlogn的时间复杂度，差距也会很大
-    快排的优化算法(分区)看别人博客: https://www.jianshu.com/p/bbbab7fa77a2
+    快排的优化算法(分区)看别人博客: https://jianshu.com/p/bbbab7fa77a2
     ## Q: 如果面试官问代码如何进一步优化
     1. 可以在一次遍历(1次for循环)内生成left_part和right_part
     2. 基准值的取法(不懂的话不要乱回答)
