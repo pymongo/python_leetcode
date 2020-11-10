@@ -119,7 +119,7 @@ def find_in_mountain_array(nums: List[int], target: int) -> int:
 
 
 class UnitTest(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 5, 2], 2, 2),
         ([1, 5, 2], 5, 1),
         ([1, 2, 3, 4, 5, 3, 1], 3, 2),
@@ -127,11 +127,11 @@ class UnitTest(unittest.TestCase):
     ]
 
     def test_find(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             mountain_array: 'MountainArray' = MountainArray(nums)
             self.assertEqual(expected, find(target, mountain_array))
 
     def test_find_in_mountain_array(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             print(nums, target)
             self.assertEqual(expected, find_in_mountain_array(nums, target))

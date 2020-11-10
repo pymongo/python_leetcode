@@ -4,13 +4,13 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([2, 4, 3], [5, 6, 4], [7, 0, 8]),
         ([5], [5], [0, 1])
     ]
 
     def test_add_two_numbers(self):
-        for ln1, ln2, expected in self.TESTCASES:
+        for ln1, ln2, expected in self.TEST_CASES:
             ln1 = ListNode.from_list(ln1)
             ln2 = ListNode.from_list(ln2)
             self.assertEqual(expected, self.add_two_numbers(ln1, ln2).to_list())

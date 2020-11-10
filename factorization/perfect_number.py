@@ -46,12 +46,12 @@ def is_perfect_number_2(num: int) -> bool:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (28, True),
         # 会超时的测试用例
         (99999992, False)
     ]
 
     def test_is_perfect_number(self):
-        for num, expected in self.TESTCASES:
+        for num, expected in self.TEST_CASES:
             self.assertEqual(expected, is_perfect_number(num))

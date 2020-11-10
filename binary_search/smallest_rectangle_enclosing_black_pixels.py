@@ -3,13 +3,13 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (["0010", "0110", "0100"], 0, 2, 6),
         (["1110", "1100", "0000", "0000"], 0, 1, 6),
     ]
 
     def test(self):
-        for image, x, y, area in self.TESTCASES:
+        for image, x, y, area in self.TEST_CASES:
             self.assertEqual(area, self.f(image, x, y))
 
     @staticmethod

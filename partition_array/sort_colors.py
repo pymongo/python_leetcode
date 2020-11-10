@@ -25,14 +25,14 @@ def partition(nums: List[int]):
 
 
 class UnitTest(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         [1, 2, 0],
         [1, 0, 1, 2],
         [2, 0, 2, 1, 1, 0]
     ]
 
     def test(self):
-        for nums in deepcopy(self.TESTCASES):
+        for nums in deepcopy(self.TEST_CASES):
             input_nums = deepcopy(nums)
             partition(input_nums)
             self.assertEqual(sorted(nums), input_nums)

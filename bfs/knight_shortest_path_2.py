@@ -75,7 +75,7 @@ def solution(grid: List[List[int]]) -> int:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         # Memory Limit Exceeded的测试用例
         ([[0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
            0],
@@ -168,5 +168,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for matrix, expected in self.TESTCASES:
+        for matrix, expected in self.TEST_CASES:
             self.assertEqual(expected, solution(matrix))

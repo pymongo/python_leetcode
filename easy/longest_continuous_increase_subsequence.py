@@ -4,12 +4,12 @@ from typing import List
 
 # 和longest_consecutive_sequence这题不同的是，这题只判断连续递增，而且不要求数字之间只差1
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 3, 5, 7], 4)
     ]
 
     def test(self):
-        for nums, expected in self.TESTCASES:
+        for nums, expected in self.TEST_CASES:
             self.assertEqual(expected, self.solution(nums))
 
     @staticmethod

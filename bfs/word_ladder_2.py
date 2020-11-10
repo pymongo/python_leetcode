@@ -105,7 +105,7 @@ def word_ladder_2(begin_word: str, end_word: str, word_list: List[str]) -> List[
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("hot", "dog", ["hot", "dog"], []),
         ("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"], [
             ["hit", "hot", "dot", "dog", "cog"],
@@ -115,5 +115,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test_bfs_dfs(self):
-        for begin_word, end_word, word_list, shortest_path in self.TESTCASES:
+        for begin_word, end_word, word_list, shortest_path in self.TEST_CASES:
             self.assertCountEqual(shortest_path, word_ladder_2(begin_word, end_word, word_list))

@@ -4,13 +4,13 @@ from typing import List
 
 # 终点倒推的区间型动态规划: 一定存在一个气球🎈是最后被戳爆的
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         # 可以想象数组左右两边各有一个隐藏的1，吹爆1得分3*1*5=15，吹爆3得分(1*)3*5，所以总分是15+15+5
         ([3, 1, 5], 35),
     ]
 
     def test(self):
-        for nums, expected in self.TESTCASES:
+        for nums, expected in self.TEST_CASES:
             self.assertEqual(expected, self.f(nums))
 
     # TODO functools.lru_cache

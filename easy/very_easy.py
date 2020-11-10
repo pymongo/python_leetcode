@@ -61,7 +61,7 @@ def running_sum_of_1d_array(nums: List[int]) -> List[int]:
 # 这种简单题用Rust的window API一行就能搞定，可惜lintcode不支持Rust
 def window_sum(nums: List[int], k: int) -> List[int]:
     """
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 2, 7, 8, 5], 3, [10, 17, 20]),
         ([1, 2, 7, 7, 2], 3, [10, 16, 16]),
     ]
@@ -110,10 +110,28 @@ def first_unique_char(s: str) -> int:
     return -1
 
 
+# https://leetcode.com/problems/first-bad-version/
+# noinspection PyPep8Naming
+def firstBadVersion(n: int):
+    # noinspection PyPep8Naming
+    def isBadVersion(n: int) -> bool:
+        pass
+
+    start, end = 0, n
+    while start < end:
+        mid = start + (end - start) // 2
+        if isBadVersion(mid):
+            # 如果出错了，不能排除掉mid，错误可能在[mid,end]
+            end = mid
+        else:
+            start = mid + 1
+    return start
+
+
 class Unittest(unittest.TestCase):
     def test_shuffle_string(self):
-        testcases = [
+        test_cases = [
             ("codeleet", [4, 5, 6, 7, 0, 2, 1, 3], "leetcode"),
         ]
-        for s, indices, output in testcases:
+        for s, indices, output in test_cases:
             self.assertEqual(output, shuffle_string(s, indices))

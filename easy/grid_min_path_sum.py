@@ -5,7 +5,7 @@ from typing import List
 # 从左上到右下的最短路径，只能向右或向下走(Unique Path既视感)
 # 和Unique Path的主要区别是, 求最值不是求方案总数，次要区别是本题的边都有「权重」
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([
              [1, 3, 1],
              [1, 5, 1],
@@ -14,7 +14,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test_min_path(self):
-        for grid, min_path in self.TESTCASES:
+        for grid, min_path in self.TEST_CASES:
             self.assertEqual(min_path, self.min_path(grid))
             self.assertEqual(min_path, self.min_path_o1_space(grid))
 

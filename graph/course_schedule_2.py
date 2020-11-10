@@ -130,17 +130,17 @@ def dfs_entrance(courses_count: int, prerequisites: List[List[int]]) -> List[int
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (2, [[1, 0]], [0, 1]),
         (4, [[1, 0], [2, 0], [3, 1], [3, 2]], [0, 1, 2, 3])
     ]
 
     def test_course_order(self):
-        for courses_count, prerequisites, learn_order in self.TESTCASES:
+        for courses_count, prerequisites, learn_order in self.TEST_CASES:
             self.assertCountEqual(learn_order, course_order(courses_count, prerequisites))
 
     def test_dfs(self):
-        for courses_count, prerequisites, learn_order in self.TESTCASES:
+        for courses_count, prerequisites, learn_order in self.TEST_CASES:
             # two list contain the same elements but order is different
             # a and b have the same elements in the same number, regardless of their order
             # https://stackoverflow.com/questions/12813633/how-to-assert-two-list-contain-the-same-elements-in-python

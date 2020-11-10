@@ -4,13 +4,13 @@ from functools import lru_cache
 
 # 编辑距离算法被数据科学家广泛应用，是用作机器翻译和语音识别评价标准的基本算法
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("horse", "ros", 3),
         ("pneumonoultramicroscopicsilicovolcanoconiosis", "ultramicroscopically", 27),
     ]
 
     def test(self):
-        for word1, word2, expected in self.TESTCASES:
+        for word1, word2, expected in self.TEST_CASES:
             # self.assertEqual(expected, self.f(word1, word2))
             self.assertEqual(expected, self.best_solution_tail_recursive(word1, word2))
 

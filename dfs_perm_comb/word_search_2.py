@@ -65,7 +65,7 @@ def boggle(board: List[List[str]], words: List[str]) -> List[str]:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (["oath", "pea", "eat", "rain"],
          [
              ['o', 'a', 'a', 'n'],
@@ -87,5 +87,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for words, board, matched_words in self.TESTCASES:
+        for words, board, matched_words in self.TEST_CASES:
             self.assertCountEqual(matched_words, boggle(board, words))

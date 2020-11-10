@@ -41,13 +41,13 @@ class MyQueue:
 
 
 class TestMyQueue(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 2, 3], [1, 2]),
         ([10], [10])
     ]
 
     def test_my_queue(self):
-        for enqueues, dequeues in self.TESTCASES:
+        for enqueues, dequeues in self.TEST_CASES:
             queue = MyQueue()
             for number in enqueues:
                 queue.enqueue(number)

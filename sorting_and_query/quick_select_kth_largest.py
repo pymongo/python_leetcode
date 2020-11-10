@@ -134,14 +134,14 @@ def median(nums: List[int]) -> int:
 
 
 class Test(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 3, 4, 2], 1, 4),
         ([3, 2, 1, 5, 6, 4], 2, 5),
         ([3, 2, 3, 1, 2, 4, 5, 5, 6], 4, 4),
     ]
 
     def test_quick_select(self):
-        for nums, k, expected in self.TESTCASES[:]:
+        for nums, k, expected in self.TEST_CASES[:]:
             print(nums)
             self.assertEqual(expected, quick_select(nums, 0, len(nums) - 1, k))
 

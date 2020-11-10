@@ -3,12 +3,12 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (["10", "0001", "111001", "1", "0"], 5, 3, 4),
     ]
 
     def test(self):
-        for strs, m, n, expected in self.TESTCASES:
+        for strs, m, n, expected in self.TEST_CASES:
             self.assertEqual(expected, self.f(strs, m, n))
 
     @staticmethod

@@ -57,7 +57,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([
              [0, 0, 0],
              [0, 1, 0],
@@ -98,6 +98,6 @@ class Testing(unittest.TestCase):
 
     def test_dp_solution(self):
         solution = Solution()
-        for obstacle_grid, paths_count in self.TESTCASES:
+        for obstacle_grid, paths_count in self.TEST_CASES:
             print(len(obstacle_grid), paths_count)
             self.assertEqual(paths_count, solution.uniquePathsWithObstacles(obstacle_grid))

@@ -109,13 +109,13 @@ def binary_search_last(nums: List[int], target: int) -> int:
 
 
 class UnitTest(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([5, 7, 7, 8, 8, 10], 8, [3, 4]),
         ([5, 7, 7, 8, 8, 10], 6, [-1, -1]),
         ([2, 2, 2], 2, [0, 2]),
     ]
 
     def test(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             print(nums, target)
             self.assertEqual(expected, binary_search_first_and_last(nums, target))

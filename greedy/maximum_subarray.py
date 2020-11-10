@@ -56,7 +56,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES: List[Tuple[List[int], int]] = [
+    TEST_CASES: List[Tuple[List[int], int]] = [
         ([-2, 1, -3, 4, -1, 2, 1, -5, 4], 6),
         ([-1, 0, -2], 0),
         ([-2, 1], 1),
@@ -64,13 +64,13 @@ class Testing(unittest.TestCase):
     ]
 
     def test_brute_force(self):
-        for input_array, expected in self.TESTCASES[:]:
+        for input_array, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, Solution.brute_force(input_array))
 
     def test_greedy(self):
-        for input_array, expected in self.TESTCASES[:]:
+        for input_array, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, Solution.greedy(input_array))
 
     def test_dp(self):
-        for input_array, expected in self.TESTCASES[:]:
+        for input_array, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, Solution.dp(input_array))

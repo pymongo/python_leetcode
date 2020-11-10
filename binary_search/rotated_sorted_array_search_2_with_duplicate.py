@@ -44,11 +44,11 @@ def leetcode_best(nums: List[int], target: int) -> bool:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([2, 5, 6, 0, 0, 1, 2], 0, True),
         ([2, 5, 6, 0, 0, 1, 2], 3, False),
     ]
 
     def test_best_solution(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, leetcode_best(nums, target))

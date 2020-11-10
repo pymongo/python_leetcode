@@ -25,13 +25,13 @@ def counting_sort(nums: List[int], k: int):
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([3, 2, 2, 1, 4], 4, [1, 2, 2, 3, 4]),
         ([2, 1, 1, 2, 2], 2, [1, 1, 2, 2, 2]),
     ]
 
     def test(self):
-        for nums, k, expected in self.TESTCASES:
+        for nums, k, expected in self.TEST_CASES:
             counting_sort(nums, k)
             print(nums)
             self.assertListEqual(expected, nums)

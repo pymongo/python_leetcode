@@ -67,14 +67,14 @@ def two_sum_gt(nums: List[int], target: int) -> int:
 
 
 class Test(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([2, 7, 11, 15], 24, 5)
     ]
 
     def test(self):
-        for nums, target, expected in deepcopy(self.TESTCASES):
+        for nums, target, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, solution(nums, target))
 
     def test_second_two_sum_le(self):
-        for nums, target, expected in deepcopy(self.TESTCASES):
+        for nums, target, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, second_two_sum_le(nums, target))

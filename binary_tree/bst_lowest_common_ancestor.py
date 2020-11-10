@@ -26,11 +26,11 @@ def bst_lca_iterative(root: TreeNode, a: TreeNode, b: TreeNode) -> TreeNode:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("4(3)(5)", 3, 5, 4)
     ]
 
     def test_lca(self):
-        for binary_tree, a, b, common_ancestor in self.TESTCASES:
+        for binary_tree, a, b, common_ancestor in self.TEST_CASES:
             root = TreeNode.from_str(binary_tree)
             self.assertEqual(common_ancestor, bst_lca_iterative(root, TreeNode(a), TreeNode(b)).val)

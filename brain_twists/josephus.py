@@ -22,13 +22,13 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (3, 5, 3),
         (17, 10, 2),
     ]
 
     def test(self):
-        for m, n, expected in self.TESTCASES:
+        for m, n, expected in self.TEST_CASES:
             self.assertEqual(expected, self.f(m, n))
 
     @staticmethod

@@ -86,7 +86,7 @@ def word_search_3(board: List[List[str]], words: List[str]) -> int:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([
              ['a', 'b', 'c', 'e'],
              ['s', 'f', 'c', 's'],
@@ -114,5 +114,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for board, words, expected in self.TESTCASES:
+        for board, words, expected in self.TEST_CASES:
             self.assertEqual(expected, word_search_3(board, words))

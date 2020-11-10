@@ -2,7 +2,7 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("abba", "dog cat cat fish", False),
         ("abba", "dog cat cat dog", True),
         ("abba", "dog dog dog dog", False),
@@ -28,6 +28,6 @@ class Solution(unittest.TestCase):
         return True
 
     def test_is_match(self):
-        for s, p, is_match in self.TESTCASES:
+        for s, p, is_match in self.TEST_CASES:
             print(s, p)
             self.assertEqual(is_match, self.is_match(s, p))

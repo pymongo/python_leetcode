@@ -87,14 +87,14 @@ def leetcode_best(nums: List[int], target: int, k: int) -> List[int]:
 
 
 # 先二分找到target在数组中的位置，然后左右双指针往外扩散
-# 上述方法太难背诵了，所以还是用排序搞定吧
+# 上述方法太难背诵了(也不难，先二分法找到first_clost_index，然后双指针三种情况(left越界，right越界，正常)左右扩散)，所以还是用排序搞定吧
 def lintcode(nums: List[int], target: int, k: int) -> List[int]:
     nums.sort(key=lambda x: abs(x - target))
     return nums[:k]
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 2, 3], 2, 3, [2, 1, 3]),
         ([1, 4, 6, 8], 3, 3, [4, 1, 6]),
     ]
@@ -103,5 +103,5 @@ class Testing(unittest.TestCase):
         print(binary_search([1, 2, 4], target=3, length=3))
 
     def test(self):
-        for nums, target, k, expected in self.TESTCASES:
+        for nums, target, k, expected in self.TEST_CASES:
             self.assertEqual(expected, solution(nums, target, k))

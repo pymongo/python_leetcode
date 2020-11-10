@@ -7,7 +7,7 @@ from typing import List
 # FIXME 如果面试官问优化方案，可以答GPU运算，GPU有对矩阵运算的硬件加速，而CPU只能逐行逐列的扫
 # noinspection PyPep8Naming
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([[1, 0, 0],
           [-1, 0, 3]],
          [[7, 0, 0],
@@ -18,7 +18,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for A, B, expected in self.TESTCASES:
+        for A, B, expected in self.TEST_CASES:
             self.assertEqual(expected, self.brute_force(A, B))
 
     @staticmethod

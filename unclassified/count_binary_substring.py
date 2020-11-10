@@ -2,7 +2,7 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         # 其实就数0和1分界处，左右两侧0和1个数的最小值
         ("100111", 3),
         # ("00110011", 6),
@@ -44,5 +44,5 @@ class Solution(unittest.TestCase):
         return ans
 
     def test(self):
-        for s, substr_count in self.TESTCASES:
+        for s, substr_count in self.TEST_CASES:
             self.assertEqual(substr_count, self.count_zero_one_equal_substr(s))

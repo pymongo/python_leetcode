@@ -10,7 +10,7 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("aa", "a", False),
         ("aa", "a*", True),
         ("ab", ".*", True),
@@ -19,7 +19,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test_re(self):
-        for source, pattern, is_match in self.TESTCASES:
+        for source, pattern, is_match in self.TEST_CASES:
             print(source, pattern)
             self.assertEqual(is_match, Solution.re(source, pattern))
 

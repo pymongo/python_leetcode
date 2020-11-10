@@ -3,7 +3,7 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([
              [1, 3, 5, 7],
              [10, 11, 16, 20],
@@ -17,7 +17,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for matrix, target, is_in_matrix in self.TESTCASES:
+        for matrix, target, is_in_matrix in self.TEST_CASES:
             self.assertEqual(is_in_matrix, self.is_in_matrix(matrix, target))
 
     @staticmethod

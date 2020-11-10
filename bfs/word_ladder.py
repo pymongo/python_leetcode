@@ -57,7 +57,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("a", "c", ["b"], 5),
         ("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"], 5),
         ("hit", "cog", ["hot", "dot", "dog", "lot", "log"], 0),
@@ -65,5 +65,5 @@ class Testing(unittest.TestCase):
 
     def test_bfs_1(self):
         solution = Solution()
-        for begin_word, end_word, word_list, shortest_length in self.TESTCASES:
+        for begin_word, end_word, word_list, shortest_length in self.TEST_CASES:
             self.assertEqual(shortest_length, solution.bfs_1(begin_word, end_word, word_list))

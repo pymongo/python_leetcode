@@ -8,13 +8,13 @@ from typing import List
 # TODO 如果本题要求返回具体的最优方案，则需要额外一个「前继节点」数组prev[j]去记录dp[i]的最优值是从哪一个dp[j]算过来的
 # TODO ...而且不能用max，要用if找到最优方案更新时的i,j，去更新prev[j]
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([5, 4, 1, 2, 3], 3),
         ([4, 2, 4, 5, 3, 7], 4),
     ]
 
     def test_dp_solution(self):
-        for nums, max_len in self.TESTCASES:
+        for nums, max_len in self.TEST_CASES:
             self.assertEqual(max_len, self.dp_solution(nums))
 
     @staticmethod
@@ -39,7 +39,7 @@ class Solution(unittest.TestCase):
         return max_len
 
     def test_greedy(self):
-        for nums, max_len in self.TESTCASES:
+        for nums, max_len in self.TEST_CASES:
             print(nums)
             self.assertEqual(max_len, self.greedy(nums))
 

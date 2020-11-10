@@ -89,12 +89,12 @@ def bfs(words: List[str]) -> str:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (["z", "x"], "zx"),
         (["wrt", "wrf", "er", "ett", "rftt"], "wertf"),
     ]
 
     def test(self):
-        for words, order in self.TESTCASES:
+        for words, order in self.TEST_CASES:
             print("words", words)
             self.assertEqual(order, bfs(words))

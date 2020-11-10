@@ -4,12 +4,12 @@ import unittest
 
 
 class Testing(unittest.TestCase):
-    TESTCASES: List[Tuple[str, int, str]] = [
+    TEST_CASES: List[Tuple[str, int, str]] = [
         ("LEETCODEISHIRING", 3, "LCIRETOESIIGEDHN")
     ]
 
     def test_solution(self):
-        for s, rows, expected in self.TESTCASES[:]:
+        for s, rows, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, self.solution(s, rows))
 
     @staticmethod
@@ -42,7 +42,7 @@ class Testing(unittest.TestCase):
         return result
 
     def test_best_solution(self):
-        for s, rows, expected in self.TESTCASES[:]:
+        for s, rows, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, self.best_solution(s, rows))
 
     @staticmethod

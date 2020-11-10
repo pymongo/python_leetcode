@@ -3,7 +3,7 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("abcabcbb", 3),
         ("bbbbb", 1),
         ("pwwkew", 3),
@@ -12,7 +12,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for s, expected in self.TESTCASES[:]:
+        for s, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, self.f(s))
 
     @staticmethod

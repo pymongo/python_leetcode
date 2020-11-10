@@ -125,7 +125,7 @@ def min_index_solution(nums: List[int], target: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1], 1, 0),
         ([1, 3], 0, -1),
         ([4, 5, 1, 2, 3], 1, 2),
@@ -134,15 +134,15 @@ class Testing(unittest.TestCase):
     ]
 
     def test_best_solution(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, search_in_rotated_sorted_array(nums, target))
 
     def test_peak_index_solution(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, peak_index_solution(nums, target))
 
     def test_min_index_solution(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, min_index_solution(nums, target))
 
     def test_binary_search(self):

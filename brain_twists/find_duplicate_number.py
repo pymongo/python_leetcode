@@ -10,13 +10,13 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 3, 4, 2, 2], 2),
         ([3, 1, 3, 4, 2], 3),
     ]
 
     def test(self):
-        for nums, duplicate in self.TESTCASES:
+        for nums, duplicate in self.TEST_CASES:
             self.assertEqual(duplicate, self.f(nums))
 
     @staticmethod

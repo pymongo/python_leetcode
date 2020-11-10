@@ -13,11 +13,11 @@ def hash_function(key: str, HASH_SIZE: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("abcd", 1000, 978),
         ("abcd", 100, 78),
     ]
 
     def test(self):
-        for key, hash_size, index in self.TESTCASES:
+        for key, hash_size, index in self.TEST_CASES:
             self.assertEqual(index, hash_function(key, hash_size))

@@ -84,7 +84,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([
              [2],
              [3, 4],
@@ -103,9 +103,9 @@ class Testing(unittest.TestCase):
 
     def test(self):
         solution = Solution()
-        for triangle, shortest_path in self.TESTCASES:
+        for triangle, shortest_path in self.TEST_CASES:
             self.assertEqual(shortest_path, solution.minimumTotal(triangle))
 
     def test_try_dp_one_traverse(self):
-        for triangle, shortest_path in self.TESTCASES:
+        for triangle, shortest_path in self.TEST_CASES:
             self.assertEqual(shortest_path, Solution.try_dp_one_traverse(triangle))

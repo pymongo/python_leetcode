@@ -32,12 +32,12 @@ def divide_conquer(root: TreeNode) -> (bool, int):
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("1(2)(3)", True),
         ("1()(2(3)(4))", False),
     ]
 
     def test_list_all_root_to_leaf_paths(self):
-        for binary_tree, is_balanced in self.TESTCASES:
+        for binary_tree, is_balanced in self.TEST_CASES:
             root = TreeNode.from_str(binary_tree)
             self.assertEqual(is_balanced, helper(root))

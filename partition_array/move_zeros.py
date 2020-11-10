@@ -76,17 +76,17 @@ def remove_duplicates_from_sorted_array_2(nums: List[int]) -> int:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([0, 1, 0, 3, 12], [1, 3, 12, 0, 0]),
         ([0, 0, 0, 3, 1], [3, 1, 0, 0, 0])
     ]
 
     def test_move_zeros_slow_fast_two_pointers(self):
-        for nums, expected in self.TESTCASES:
+        for nums, expected in self.TEST_CASES:
             move_zeros_slow_fast_two_pointers(nums)
             self.assertEqual(expected, nums)
 
     def test_move_zeros_quick_sort_partition(self):
-        for nums, expected in self.TESTCASES:
+        for nums, expected in self.TEST_CASES:
             move_zeros_quick_sort_partition(nums)
             self.assertEqual(expected, nums)

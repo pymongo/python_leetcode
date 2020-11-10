@@ -2,12 +2,12 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("ABCE", "CBCE", 2),
     ]
 
     def test(self):
-        for A, B, max_len in self.TESTCASES:
+        for A, B, max_len in self.TEST_CASES:
             self.assertEqual(max_len, self.f(A, B))
 
     @staticmethod

@@ -40,12 +40,12 @@ def cycle_shift(s: str, left: int, right: int) -> str:
 
 
 class UnitTest(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("abcdefg", 3, 1, "cdefgab"),
         ("abcdefg", 0, 0, "abcdefg"),
         ("abcdefg", 1, 2, "gabcdef"),
     ]
 
     def test(self):
-        for s, left, right, expected in self.TESTCASES:
+        for s, left, right, expected in self.TEST_CASES:
             self.assertEqual(expected, cycle_shift(s, left, right))

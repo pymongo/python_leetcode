@@ -1,15 +1,36 @@
+"""
+例如2，不是快乐数，但是也会陷入循环
+2
+4
+16
+37
+58
+89
+145
+42
+20
+4
+16
+37
+58
+89
+145
+42
+20
+4
+"""
 import unittest
 
 
 # 正统的解法应该使用Floyd龟兔赛跑快慢指针判环
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (2, False),
         (19, True),
     ]
 
     def test_is_happy(self):
-        for n, is_happy in self.TESTCASES:
+        for n, is_happy in self.TEST_CASES:
             self.assertEqual(is_happy, self.is_happy(n))
 
     @staticmethod
@@ -59,25 +80,3 @@ class Solution(unittest.TestCase):
             fast_runner = Solution.get_next(Solution.get_next(fast_runner))
         return fast_runner == 1
 
-
-"""
-例如2，不是快乐数，但是也会陷入循环
-2
-4
-16
-37
-58
-89
-145
-42
-20
-4
-16
-37
-58
-89
-145
-42
-20
-4
-"""

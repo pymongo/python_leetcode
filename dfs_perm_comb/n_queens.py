@@ -4,7 +4,7 @@ from typing import List, Tuple
 
 # 既然每行只能有一个皇后，皇后的位置用的是一个一位数组: 数组下标表示皇后的行号，值表示皇后的纵坐标
 class Solution(unittest.TestCase):
-    TESTCASES: List[Tuple[int, List[List[str]]]] = [
+    TEST_CASES: List[Tuple[int, List[List[str]]]] = [
         (4, [[".Q..",
               "...Q",
               "Q...",
@@ -16,7 +16,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test_print_all_solutions(self):
-        for n, output in self.TESTCASES:
+        for n, output in self.TEST_CASES:
             self.assertEqual(output, self.print_all_solutions(n))
 
     # 52 ms, faster than 95.44% of Python3 online submissions for N-Queens.

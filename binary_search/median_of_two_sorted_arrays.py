@@ -18,7 +18,7 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 2, 3, 4], [3, 6, 8, 9], 3.5),
         ([1, 5, 6, 7], [2, 3, 4, 8], 4.5),
         ([1, 2], [3, 4, 5, 6, 7], 4),
@@ -39,7 +39,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test_recursive_solution(self):
-        for nums_a, nums_b, expected in self.TESTCASES[:]:
+        for nums_a, nums_b, expected in self.TEST_CASES[:]:
             print(nums_a, nums_b)
             self.assertEqual(expected, self.recursive_solution(nums_a, nums_b))
 
@@ -80,7 +80,7 @@ class Solution(unittest.TestCase):
             return (find_kth(0, 0, len_total // 2) + find_kth(0, 0, len_total // 2 + 1)) / 2
 
     def test_divider_solution(self):
-        for nums1, nums2, expected in self.TESTCASES[:]:
+        for nums1, nums2, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, self.divider_solution(nums1, nums2))
 
     # Runtime: 92 ms, faster than 83.80%

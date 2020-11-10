@@ -7,7 +7,7 @@ class Solution(unittest.TestCase):
     首先有明确需要遍历几次，由于每次遍历都会经过一次「第一行+最后一列」
     所以总共遍历次数等于`↴`的长度，也就是m+n-1
     """
-    TESTCASES = [
+    TEST_CASES = [
         ([
              [2, 5, 8],
              [4, 0, -1]
@@ -21,7 +21,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for matrix, output in self.TESTCASES:
+        for matrix, output in self.TEST_CASES:
             self.assertListEqual(output, self.f(matrix))
 
     @staticmethod

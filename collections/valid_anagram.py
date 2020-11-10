@@ -77,7 +77,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("aacc", "ccac", False),
         ("rat", "car", False),
         ("eat", "tea", True),
@@ -85,5 +85,5 @@ class Testing(unittest.TestCase):
 
     def test_is_anagram(self):
         solution = Solution()
-        for source, target, is_anagram in self.TESTCASES:
+        for source, target, is_anagram in self.TEST_CASES:
             self.assertEqual(is_anagram, solution.isAnagram(source, target))

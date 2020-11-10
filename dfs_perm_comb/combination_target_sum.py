@@ -3,14 +3,14 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([2, 3, 6, 7], 7, [[7], [2, 2, 3]]),
         ([1], 3, [[1, 1, 1]]),
         ([2, 3, 5], 8, [[2, 2, 2, 2], [2, 3, 3], [3, 5]]),
     ]
 
     def test_dfs(self):
-        for nums, target, combination in self.TESTCASES:
+        for nums, target, combination in self.TEST_CASES:
             self.assertCountEqual(combination, self.f(nums, target))
 
     @staticmethod

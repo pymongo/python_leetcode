@@ -5,7 +5,7 @@ from typing import List
 # lintcode only: 398. Longest Continuous Increasing Subsequence II
 # 为什么棋盘行走类型的题也能用DP？因为棋盘行走按升序去走，数值会越走越大，不可能出现循环依赖
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([
              [1, 2],
              [5, 3]
@@ -13,7 +13,7 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for grid, max_len in self.TESTCASES:
+        for grid, max_len in self.TEST_CASES:
             self.assertEqual(max_len, self.f(grid))
 
     @staticmethod

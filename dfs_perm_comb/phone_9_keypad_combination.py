@@ -105,11 +105,11 @@ def def_helper(digits: str) -> List[str]:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("23", ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]),
         ("5", ["j", "k", "l"]),
     ]
 
     def test_keypad(self):
-        for digits, combinations in self.TESTCASES:
+        for digits, combinations in self.TEST_CASES:
             self.assertCountEqual(combinations, keypad(digits))

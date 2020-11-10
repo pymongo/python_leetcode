@@ -57,20 +57,20 @@ def partition_template_2(nums: List[int], k: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([], 9, 0, []),
         ([3, 2, 2, 1], 2, 1, [1, 2, 2, 3]),
         ([7, 7, 9, 8, 6, 6, 8, 7, 9, 8, 6, 6], 10, 12, [7, 7, 9, 8, 6, 6, 8, 7, 9, 8, 6, 6]),
     ]
 
     def test(self):
-        for nums, k, output, nums_after_partition in self.TESTCASES:
+        for nums, k, output, nums_after_partition in self.TEST_CASES:
             partition_output = partition(nums, k)
             self.assertEqual(output, partition_output)
             self.assertEqual(nums_after_partition, nums)
 
     # def test_partition_template_2(self):
-    #     for nums, k, output, nums_after_partition in self.TESTCASES:
+    #     for nums, k, output, nums_after_partition in self.TEST_CASES:
     #         partition_output = partition_template_2(nums, k)
     #         self.assertEqual(output, partition_output)
     #         self.assertEqual(nums_after_partition, nums)

@@ -27,12 +27,12 @@ def solution(s: str) -> bool:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("code", False),
         ("aab", True),
         ("carerac", True)
     ]
 
     def test(self):
-        for input, expected in self.TESTCASES[:]:
+        for input, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, solution(input))

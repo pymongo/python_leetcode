@@ -328,7 +328,7 @@ def quick_sort_in_place(nums: List[int], start, end):
 
 
 class TestSorting(unittest.TestCase):
-    NUMS_TESTCASES: List[List[int]] = [
+    NUMS_TEST_CASES: List[List[int]] = [
         [5, 2, 3, 1],
         [5, 3, 4, 2],
         [3, 2, 1, 4, 5],
@@ -336,7 +336,7 @@ class TestSorting(unittest.TestCase):
     ]
 
     def test_bubble_sort(self):
-        for nums in deepcopy(self.NUMS_TESTCASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             dbg(nums)
             sorted_nums = sorted(nums)
             bubble_sort(nums)
@@ -344,29 +344,29 @@ class TestSorting(unittest.TestCase):
             self.assertListEqual(sorted_nums, nums)
 
     def test_selection_sort(self):
-        for nums in deepcopy(self.NUMS_TESTCASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             bubble_sort(nums)
             self.assertListEqual(sorted(nums), nums)
 
     def test_heap_sort_iterative(self):
-        for nums in deepcopy(self.NUMS_TESTCASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             heap_sort_iterative(nums)
             self.assertListEqual(sorted(nums), nums)
 
     def test_heap_sort(self):
-        for nums in deepcopy(self.NUMS_TESTCASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             sorted_nums = sorted(nums)
             heap_sort(nums)
             self.assertListEqual(sorted_nums, nums)
 
     def test_shell_sort(self):
-        for nums in deepcopy(self.NUMS_TESTCASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             sorted_nums = sorted(nums)
             shell_sort(nums)
             self.assertEqual(sorted_nums, nums)
 
     def test_merge_sort_best(self):
-        for nums in deepcopy(self.NUMS_TESTCASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             size = len(nums)
             temp = [-1] * size
             merge_sort_best(nums, 0, size - 1, temp)
@@ -374,6 +374,6 @@ class TestSorting(unittest.TestCase):
             self.assertListEqual(sorted(nums), nums)
 
     def test_quick_sort_in_place(self):
-        for nums in deepcopy(self.NUMS_TESTCASES):
+        for nums in deepcopy(self.NUMS_TEST_CASES):
             quick_sort_in_place(nums, 0, len(nums) - 1)
             self.assertListEqual(sorted(nums), nums)

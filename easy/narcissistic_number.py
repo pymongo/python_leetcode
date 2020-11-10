@@ -9,7 +9,7 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         # 1位数里有10个水仙花数
         (1, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
         # 没有二位数的水仙花数
@@ -18,7 +18,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for n, narcissistic_nums in self.TESTCASES:
+        for n, narcissistic_nums in self.TEST_CASES:
             self.assertEqual(narcissistic_nums, self.get_narcissistic_numbers(n))
 
     @staticmethod

@@ -15,11 +15,11 @@ def reverse_string(s: List[str]):
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (["h", "e", "l", "l", "o"], ["o", "l", "l", "e", "h"])
     ]
 
     def test(self):
-        for string, expected in self.TESTCASES:
+        for string, expected in self.TEST_CASES:
             reverse_string(string)
             self.assertEqual(expected, string)

@@ -44,13 +44,13 @@ def min_depth_bfs(root: TreeNode) -> int:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         {'binary_tree': "1(2)(3(4)(5))", 'min_depth': 2, 'max_depth': 3},
         {'binary_tree': "1()(2(3))", 'min_depth': 3, 'max_depth': 3},
     ]
 
     def test_min_depth(self):
-        for data in self.TESTCASES:
+        for data in self.TEST_CASES:
             root = TreeNode.from_str(data['binary_tree'])
             self.assertEqual(data['min_depth'], min_depth(root))
             self.assertEqual(data['min_depth'], min_depth_bfs(root))

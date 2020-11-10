@@ -47,12 +47,12 @@ def four_sum(nums: List[int], target: int) -> List[List[int]]:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 0, -1, -1, -1, -1, 0, 1, 1, 1, 2], 2, [[-1, 0, 1, 2], [-1, 1, 1, 1], [0, 0, 1, 1]]),
         ([2, 7, 11, 15], 3, []),
         ([1, 0, -1, 0, -2, 2], 0, [[-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2]])
     ]
 
     def test_four_sum(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, four_sum(nums, target))

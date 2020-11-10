@@ -44,12 +44,12 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("tebbem", False),
         ("aba", True),
         ("abca", True),
     ]
 
     def test(self):
-        for s, expected in self.TESTCASES[:]:
+        for s, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, Solution.valid_palindrome(s))

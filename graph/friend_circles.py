@@ -115,7 +115,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([[1, 1, 0],
           [1, 1, 0],
           [0, 0, 1]], 2),
@@ -125,13 +125,13 @@ class Testing(unittest.TestCase):
     ]
 
     def test_my_bfs(self):
-        for adjacency_matrix, friend_circles_count in deepcopy(self.TESTCASES):
+        for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
             self.assertEqual(friend_circles_count, my_bfs(adjacency_matrix))
 
     def test_my_dfs(self):
-        for adjacency_matrix, friend_circles_count in deepcopy(self.TESTCASES):
+        for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
             self.assertEqual(friend_circles_count, my_dfs_entrance(adjacency_matrix))
 
     def test_union_find(self):
-        for adjacency_matrix, friend_circles_count in deepcopy(self.TESTCASES):
+        for adjacency_matrix, friend_circles_count in deepcopy(self.TEST_CASES):
             self.assertEqual(friend_circles_count, Solution.union_find_circle(adjacency_matrix))

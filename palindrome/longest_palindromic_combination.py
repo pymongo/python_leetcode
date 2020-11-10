@@ -66,12 +66,12 @@ def other_solution(s):
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("abccccdd", 7),  # dccaccd
         ("cbbd", 3),  # bcb/bdb
         ("NTrQdQGgwtxqRTSBOitAXUkwGLgUHtQOmYMwZlUxqZysKpZxRoehgirdMUgy", 39)
     ]
 
     def test(self):
-        for s, expected in self.TESTCASES[:]:
+        for s, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, solution(s))

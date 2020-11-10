@@ -20,11 +20,11 @@ def solution(s: str) -> bool:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("A man, a plan, a canal: Panama", True),
         ("race a car", False)
     ]
 
     def test(self):
-        for input, expected in self.TESTCASES[:]:
+        for input, expected in self.TEST_CASES[:]:
             self.assertEqual(expected, solution(input))

@@ -3,14 +3,14 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         # 从数组中找一个长度最小的子集, 使得子集的和大于数组其余部分的和
         # 思路: 逆序排序数组，遍历直到已访问的数字和大于half_sum，返回已遍历的元素个数
         ([2, 1, 2], 2)
     ]
 
     def test(self):
-        for nums, n in self.TESTCASES:
+        for nums, n in self.TEST_CASES:
             self.assertEqual(n, self.f(nums))
 
     @staticmethod

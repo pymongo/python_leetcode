@@ -2,12 +2,12 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("99", "111", "11010")
     ]
 
     def test(self):
-        for A, B, expected in self.TESTCASES:
+        for A, B, expected in self.TEST_CASES:
             self.assertEqual(expected, self.SumofTwoStrings(A, B))
 
     @staticmethod

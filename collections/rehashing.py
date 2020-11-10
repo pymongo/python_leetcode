@@ -41,13 +41,13 @@ def rehashing(hash_table: List[Optional[ListNode]]) -> List[Optional[ListNode]]:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (['', '', '29->5'], ['', '', '', '', '', '29->5']),
         (['', '21->9', '14', ''], ['', '9', '', '', '', '21', '14', '']),
     ]
 
     def test_rehashing(self):
-        for input_list_str, expected_list_str in self.TESTCASES:
+        for input_list_str, expected_list_str in self.TEST_CASES:
             input_hash_table = [ListNode.from_str(s) for s in input_list_str]
             output_hash_table = rehashing(input_hash_table)
             output_list_str = ["" if node is None else str(node) for node in output_hash_table]

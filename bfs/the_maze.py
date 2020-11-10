@@ -5,7 +5,7 @@ import collections
 
 # maze就是迷宫的意思
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([[0, 0, 1, 0, 0],
           [0, 0, 0, 0, 0],
           [0, 0, 0, 1, 0],
@@ -15,7 +15,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for grid, start, dest, can_reach in self.TESTCASES:
+        for grid, start, dest, can_reach in self.TEST_CASES:
             self.assertEqual(can_reach, self.f(grid, start, dest))
 
     @staticmethod

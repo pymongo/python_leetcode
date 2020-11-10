@@ -6,13 +6,13 @@ from typing import List
 # 由于题目限定数字范围是0..=100，所以推荐使用前缀和(也就是cnt[i]=nums[0]+nums[1]+...+nums[i])
 # 前缀和的典型应用就是股票OrderBook的深度列(例如从卖单的最低价一直累加到当前价格的股票数量)
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([8, 1, 2, 2, 3], [4, 0, 1, 1, 3]),
         ([5, 0, 10, 0, 10, 6], [2, 0, 4, 0, 4, 3])
     ]
 
     def test(self):
-        for nums, output in self.TESTCASES:
+        for nums, output in self.TEST_CASES:
             self.assertEqual(output, self.f(nums))
 
     @staticmethod

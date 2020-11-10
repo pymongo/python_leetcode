@@ -26,11 +26,11 @@ def my_solution(n: int) -> List[int]:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (660, [2, 2, 3, 5, 11]),
         (10, [2, 5]),
     ]
 
     def test(self):
-        for n, prime_factors in self.TESTCASES:
+        for n, prime_factors in self.TEST_CASES:
             self.assertEqual(prime_factors, my_solution(n))

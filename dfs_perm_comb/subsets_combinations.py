@@ -63,7 +63,7 @@ import collections
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 3, 1], [
             [1, 1, 3], [1, 1], [1, 3], [1], [3], []
         ]),
@@ -122,7 +122,7 @@ class Solution(unittest.TestCase):
         return subsets
 
     def test_bfs_n_tree_search(self):
-        for nums, subsets in self.TESTCASES:
+        for nums, subsets in self.TEST_CASES:
             if nums == [1,2,2]:
                 continue
             self.assertCountEqual(subsets, self.bfs_n_tree_search(nums))
@@ -146,7 +146,7 @@ class Solution(unittest.TestCase):
         return queue
 
     def test_cascading(self):
-        for nums, subsets in self.TESTCASES:
+        for nums, subsets in self.TEST_CASES:
             self.assertCountEqual(subsets, self.bfs_binary_tree_with_duplicate(nums))
 
     @staticmethod
@@ -171,7 +171,7 @@ class Solution(unittest.TestCase):
         return subsets
 
     def test_dfs_solution(self):
-        for nums, subsets in self.TESTCASES:
+        for nums, subsets in self.TEST_CASES:
             self.assertCountEqual(subsets, self.dfs_solution(nums))
 
     @staticmethod

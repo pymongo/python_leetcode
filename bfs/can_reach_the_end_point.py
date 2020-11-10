@@ -71,7 +71,7 @@ def backtrace_solution(grid: List[List[int]]) -> bool:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([
              [1, 0, 1, 1, 0, 0],
              [1, 1, 0, 0, 0, 0],
@@ -99,5 +99,5 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for labyrinth, expected in deepcopy(self.TESTCASES):
+        for labyrinth, expected in deepcopy(self.TEST_CASES):
             self.assertEqual(expected, backtrace_solution(labyrinth))

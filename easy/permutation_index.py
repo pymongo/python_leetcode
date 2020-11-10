@@ -2,12 +2,12 @@ import unittest
 
 # 判断某个排列的前面有几个排列
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([3,2,1],6)
     ]
 
     def test(self):
-        for nums, output in self.TESTCASES:
+        for nums, output in self.TEST_CASES:
             self.assertEqual(output, self.permutation_index(nums))
 
     @staticmethod

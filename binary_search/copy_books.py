@@ -10,17 +10,17 @@ from typing import List
 # 为什么能用缩短答案集的规律?
 # 假设最短完成耗时是x，人数是y，随着x不断减小，y会有一个临界值刚好等于人数k，往后x再增大的时候人数会大于k，答案集二分的题例如woods-cut都有类似的感觉
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([3, 2, 4], 2, 5),
         ([3, 2, 4], 3, 4),
     ]
 
     def test_binary_search(self):
-        for nums, k, cost_time in self.TESTCASES:
+        for nums, k, cost_time in self.TEST_CASES:
             self.assertEqual(cost_time, self.binary_search(nums, k))
 
     def test_dp(self):
-        for nums, k, cost_time in self.TESTCASES:
+        for nums, k, cost_time in self.TEST_CASES:
             self.assertEqual(cost_time, self.dp_solution(nums, k))
 
     @staticmethod

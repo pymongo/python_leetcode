@@ -112,7 +112,7 @@ class Solution:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES: List[Tuple[str, str, str]] = [
+    TEST_CASES: List[Tuple[str, str, str]] = [
         ("cbbd", "bb", "bb"),
         ("babad", "bab", "aba"),
         ("aba", "aba", "aba"),
@@ -122,9 +122,9 @@ class Testing(unittest.TestCase):
     ]
 
     def test(self):
-        for input_str, expected1, expected2 in self.TESTCASES[:]:
+        for input_str, expected1, expected2 in self.TEST_CASES[:]:
             self.assertIn(longest_palindromic_substr(input_str), [expected1, expected2])
 
     def test_dp_solution(self):
-        for input_str, expected1, expected2 in self.TESTCASES[:]:
+        for input_str, expected1, expected2 in self.TEST_CASES[:]:
             self.assertIn(Solution.dp_solution(input_str), [expected1, expected2])

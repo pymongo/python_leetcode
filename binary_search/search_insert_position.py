@@ -4,7 +4,7 @@ from typing import List
 
 # 二分查找target在有序数组中应该插入到哪个下标位置，数组无重复元素
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([1, 3, 5, 6], 2, 1),
         ([1, 3, 5, 6], 5, 2),
         ([1, 3, 5, 6], 7, 4),
@@ -12,7 +12,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for nums, target, expected in self.TESTCASES:
+        for nums, target, expected in self.TEST_CASES:
             self.assertEqual(expected, self.search(nums, target))
 
     @staticmethod

@@ -4,12 +4,12 @@ from .binary_tree import TreeNode
 
 # 这题不建议用BFS或迭代法，因为还得在队列中额外存储每个节点的nums信息(从根节点到当前节点的数字)
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("1(2()(5))(3)", ["1->2->5", "1->3"]),
     ]
 
     def test_list_all_root_to_leaf_paths(self):
-        for binary_tree, expected_paths in self.TESTCASES:
+        for binary_tree, expected_paths in self.TEST_CASES:
             root = TreeNode.from_str(binary_tree)
             print(root)
             paths = self.binary_tree_paths(root)

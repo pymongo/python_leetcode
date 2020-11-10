@@ -4,12 +4,12 @@ import sys
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([2, 3, 1, 2, 4, 3], 7, 2),
     ]
 
     def test(self):
-        for nums, target, min_len in self.TESTCASES:
+        for nums, target, min_len in self.TEST_CASES:
             self.assertEqual(min_len, self.sliding_window(target, nums))
 
     # 返回连续子数组和>=target的最小区间长度

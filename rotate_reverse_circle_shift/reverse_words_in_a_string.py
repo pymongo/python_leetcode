@@ -43,13 +43,13 @@ def reverse_words(s: str) -> str:
     return ''.join(output)
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         "the sky is blue",
         "  hello    world!  ",
     ]
 
     def test_reverse_words(self):
-        for s in self.TESTCASES:
+        for s in self.TEST_CASES:
             # 其它语言中strip也叫trim，用于去掉头尾的多余空格
             # expected: str = ' '.join(reversed(s.strip().split()))
             # 如果有多个空格, split也会当成一个

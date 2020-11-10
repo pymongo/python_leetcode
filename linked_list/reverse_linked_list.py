@@ -9,10 +9,10 @@ from typing import Optional
 
 class Solution(unittest.TestCase):
     def test_reverse_list_1(self):
-        TESTCASES = [
+        TEST_CASES = [
             ([1, 2, 3], [3, 2, 1]),
         ]
-        for nums, expected in TESTCASES:
+        for nums, expected in TEST_CASES:
             list_node = ListNode.from_list(nums)
             self.assertEqual(expected, self.reverse_list_1(list_node).to_list())
 
@@ -34,10 +34,10 @@ class Solution(unittest.TestCase):
         return new
 
     def test_reverse_list_2(self):
-        TESTCASES = [
+        TEST_CASES = [
             ([1, 2, 3, 4, 5], 2, 4, [1, 4, 3, 2, 5]),
         ]
-        for nums, m, n, expected in TESTCASES:
+        for nums, m, n, expected in TEST_CASES:
             list_node = ListNode.from_list(nums)
             self.assertEqual(expected, self.reverse_range(list_node, m, n).to_list())
 

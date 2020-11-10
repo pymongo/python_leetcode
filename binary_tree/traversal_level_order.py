@@ -99,12 +99,12 @@ def level_order_2_leaf_to_root(root: TreeNode) -> List[List[int]]:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("1(2)(3)", [[1], [2, 3]]),
         ("1()(2(3))", [[1], [2], [3]]),
     ]
 
     def test_level_order_dummy_head_queue(self):
-        for binary_tree, expected in self.TESTCASES:
+        for binary_tree, expected in self.TEST_CASES:
             root = TreeNode.from_str(binary_tree)
             self.assertEqual(expected, level_order_dummy_head_queue(root))

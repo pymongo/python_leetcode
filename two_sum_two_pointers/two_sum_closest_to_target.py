@@ -26,11 +26,11 @@ def my_solution(nums: List[int], target: int) -> int:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ([-1, 2, 1, -4], 4, 1),
         ([-1, -1, -1, -4], 4, 6),
     ]
 
     def test(self):
-        for nums, target, diff in self.TESTCASES:
+        for nums, target, diff in self.TEST_CASES:
             self.assertEqual(diff, my_solution(nums, target))

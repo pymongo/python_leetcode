@@ -3,7 +3,7 @@ from typing import List
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         (3, [
             "((()))",
             "(()())",
@@ -14,7 +14,7 @@ class Solution(unittest.TestCase):
     ]
 
     def test(self):
-        for n, expected in self.TESTCASES:
+        for n, expected in self.TEST_CASES:
             self.assertEqual(expected, self.generate_parenthesis(n))
 
     @staticmethod

@@ -4,13 +4,13 @@ import bisect
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         # ([2,3] => [5,4] => [6,7])
         ([[5, 4], [6, 4], [6, 7], [2, 3]], 3),
     ]
 
     def test(self):
-        for arr, longest in self.TESTCASES:
+        for arr, longest in self.TEST_CASES:
             self.assertEqual(longest, self.f(arr))
 
     @staticmethod

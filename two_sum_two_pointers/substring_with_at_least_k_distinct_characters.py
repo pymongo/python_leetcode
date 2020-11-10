@@ -2,14 +2,14 @@ import unittest
 
 
 class Solution(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         # s字符串内没有长度为4的无重复子串
         ("abcabcabca", 4, 0),
         ("abcabcabcabc", 3, 55),
     ]
 
     def test(self):
-        for s, k, expected in self.TESTCASES:
+        for s, k, expected in self.TEST_CASES:
             self.assertEqual(expected, self.f(s, k))
 
     # 求至少包含k个不同字符的子串

@@ -27,8 +27,8 @@ def addition(a: int, b: int) -> int:
 
 
 class Test(unittest.TestCase):
-    TESTCASES = [(-100, 100, 0)]
+    TEST_CASES = [(-100, 100, 0)]
 
     def test(self):
-        for a, b, expected in self.TESTCASES[:]:
+        for a, b, expected in self.TEST_CASES[:]:
             self.assertEqual(addition(a, b), expected)

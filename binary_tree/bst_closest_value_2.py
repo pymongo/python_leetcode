@@ -113,18 +113,18 @@ def bst_closest_2(root: TreeNode, target: float, k: int) -> List[int]:
 
 
 class Testing(unittest.TestCase):
-    TESTCASES = [
+    TEST_CASES = [
         ("3(1()(2))(4)", 0.275000, 2, [1, 2]),
         # ("2(1)(3)", 5.571429, 2, [2, 3]),
     ]
 
     def test_bst_closest_1(self):
-        for binary_tree, target, k, expected in self.TESTCASES:
+        for binary_tree, target, k, expected in self.TEST_CASES:
             root = TreeNode.from_str(binary_tree)
             print(root)
             self.assertEqual(expected, bst_closest_1(root, target, k))
 
     def test_bst_closest_2(self):
-        for binary_tree, target, k, expected in self.TESTCASES:
+        for binary_tree, target, k, expected in self.TEST_CASES:
             root = TreeNode.from_str(binary_tree)
             self.assertEqual(expected, bst_closest_2(root, target, k))
