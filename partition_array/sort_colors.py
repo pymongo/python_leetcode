@@ -3,6 +3,20 @@ from copy import deepcopy
 from typing import List
 
 
+# https://lintcode.com/problem/sort-letters-by-case/
+# 和sort_color用的是完全一样的算法，只不过更简单，只有2个值区分，而sort_color有三个
+def partition_lower_upper(chars: List[str]):
+    lower, upper = 0, len(chars) - 1
+    curr = 0
+    while lower < upper:
+        if chars[curr].islower():
+            lower += 1
+            curr += 1
+        else:
+            chars[curr], chars[upper] = chars[upper], chars[curr]
+            upper -= 1
+
+
 # 思路，把所有2挪到右边，把所有0挪到左边，那么剩余的1就刚好在中间了
 # 需要三根指针，左右以及curr
 # 若nums[curr] = 0 则将其与 nums[p0]互换；

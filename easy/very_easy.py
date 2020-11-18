@@ -128,6 +128,11 @@ def firstBadVersion(n: int):
     return start
 
 
+def delete_node_in_a_linked_list(node):
+    node.val = node.next.val
+    node.next = node.next.nex
+
+
 class Unittest(unittest.TestCase):
     def test_shuffle_string(self):
         test_cases = [
