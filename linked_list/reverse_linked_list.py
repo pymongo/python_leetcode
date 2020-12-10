@@ -63,6 +63,7 @@ class Solution(unittest.TestCase):
          ^
         """
         for _ in range(m, n):
+            print(rev_head)
             # 备份rev_head.next
             rev_head_next = rev_head.next
             # rev_head的next指针越过rev_head_next，做好将rev_head_next扔掉的准备
@@ -70,4 +71,5 @@ class Solution(unittest.TestCase):
             # rev_head_next插入到node_m_prev和node_m_prev.next之间
             rev_head_next.next = node_m_prev.next
             node_m_prev.next = rev_head_next
+            print(rev_head)
         return dummy.next
