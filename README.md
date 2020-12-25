@@ -7,12 +7,12 @@ leetcode_solutions: >-
 
 | # | Title | Solutions | Category |
 |---| ----- | -------- | ---------- |
-|1|[Two Sum](https://leetcode.com/problems/two-sum/)|[Rust](src/easy/two_sum.rs), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/HashMapTwoSum.java), [Go](https://github.com/pymongo/go_leetcode/blob/master/two_sum_test.go)|bitwise|
-|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|[Rust](src/linked_list/add_two_linked_list.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/linked_list/add_two_numbers.py), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/TraverseTwoListNode.java), [Go](https://github.com/pymongo/go_leetcode/blob/master/traverse_two_list_node_test.go)|linked_list|
-|...|[Full Solutions List Visit My Repo: rust_leetcode](https://github.coms/pymongo/rust_leetcode/)|
+|1|[Two Sum](https://leetcode.com/problems/two-sum/)|[Rust](https://github.coms/pymongo/leetcode-rust/blob/master/src/easy/two_sum.rs), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/HashMapTwoSum.java), [Go](https://github.com/pymongo/go_leetcode/blob/master/two_sum_test.go)|bitwise|
+|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|[Rust](https://github.coms/pymongo/leetcode-rust/blob/master/src/linked_list/add_two_linked_list.rs), [Python](https://github.com/pymongo/python_leetcode/blob/master/linked_list/add_two_numbers.py), [Java](https://github.com/pymongo/java_leetcode/blob/master/src/test/java/com/leetcode/collections/TraverseTwoListNode.java), [Go](https://github.com/pymongo/go_leetcode/blob/master/traverse_two_list_node_test.go)|linked_list|
+|...|[Full Solutions List Visit My Repo: rust_leetcode](https://github.coms/pymongo/leetcode-rust/)|
 
 ---
 
 ## Python的单元测试与typehint
 
-python自带的pip没有类似`pom.xml`或`package.json`之类管理项目第三方依赖的清单文件，所以推荐用pyenv管理python版本，pipenv管理第三方依赖(Pipfile + Pipfile.lock)，或者用poetry做包管理
+python自带的pip没有类似maven的`pom.xml`或npm的`package.json`之类管理项目第三方依赖的清单文件，所以推荐用pyenv管理python版本，pipenv管理第三方依赖(Pipfile + Pipfile.lock)，或者用poetry做包管理
