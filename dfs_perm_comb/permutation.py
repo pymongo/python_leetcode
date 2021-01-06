@@ -106,6 +106,7 @@ def dfs(
         used[i] = False
 
 
+# https://lintcode.com/problem/string-permutation/
 def str_permutation(s: str) -> List[str]:
     results = []
     chars = sorted(list(s))

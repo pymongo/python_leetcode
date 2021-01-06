@@ -13,6 +13,7 @@ class Solution(unittest.TestCase):
 
     @staticmethod
     def gcd(a: int, b: int) -> int:
+        # __gcd(6, 20), #include <algorithm>
         while a % b != 0:
             a, b = b, a % b
         return b

@@ -62,12 +62,6 @@ def int_array_split_newline_2():
 def multi_lines_multi_value():
     """
     [牛客网-在线编程-连续子数组最大和](https://nowcoder.com/practice/03d341fb6c9d42debcdd38d82a0a545c)
-
-    输入描述:
-    d:欧式距离
-    N:用户数
-    之后的N行表示第0个用户到第N-1个用户的地理位置坐标
-
     输入样例:
     2.0
     5

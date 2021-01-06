@@ -4,6 +4,16 @@ from typing import List, Tuple
 
 
 class Solution(unittest):
+    # https://www.lintcode.com/problem/work-plan/
+    def workPlan(self, low, high):
+        n = len(low)
+        dp = [0] * (n)
+        dp[0] = low[0]
+        dp[1] = max(low[0]+low[1], high[1])
+        for i in range(2, n):
+            dp[i] = max(dp[i-2]+high[i], dp[i-1]+low[i])
+        return dp[n-1]
+
     # 如果当前这家被打劫，临近的两家都会收到报警信号锁上大门，所以相当于需要在i+1家休息再去打劫i+2
     # 搜素树的决策: 是否当前这家
     @staticmethod
