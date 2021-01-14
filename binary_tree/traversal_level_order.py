@@ -52,7 +52,7 @@ def level_order(root: TreeNode):
     return result
 
 
-def level_order_dummy_head_queue(root: TreeNode) -> List[List[int]]:
+def level_order_sentry_node_queue(root: TreeNode) -> List[List[int]]:
     if not root:
         return []
     result = []
@@ -76,29 +76,6 @@ def level_order_dummy_head_queue(root: TreeNode) -> List[List[int]]:
     return result
 
 
-# 自下而上的层级遍历，跟普通层级遍历一样，只是逆序插入insert(0)即可
-def level_order_2_leaf_to_root(root: TreeNode) -> List[List[int]]:
-    if not root:
-        return []
-    result = []
-    curr_level = []
-    q = collections.deque([root, None])
-    while q:
-        node = q.popleft()
-        if node is None:
-            result.insert(0, curr_level.copy())
-            curr_level.clear()
-            if q:
-                q.append(None)
-            continue
-        curr_level.append(node.val)
-        if node.left:
-            q.append(node.left)
-        if node.right:
-            q.append(node.right)
-    return result
-
-
 class Testing(unittest.TestCase):
     TEST_CASES = [
         ("1(2)(3)", [[1], [2, 3]]),
@@ -108,4 +85,4 @@ class Testing(unittest.TestCase):
     def test_level_order_dummy_head_queue(self):
         for binary_tree, expected in self.TEST_CASES:
             root = TreeNode.from_str(binary_tree)
-            self.assertEqual(expected, level_order_dummy_head_queue(root))
+            self.assertEqual(expected, level_order_sentry_node_queue(root))
