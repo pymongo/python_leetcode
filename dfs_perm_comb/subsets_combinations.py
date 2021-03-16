@@ -11,8 +11,6 @@ Substring、Subsequence、Subsets
 既然决策总数是2^n，我们可以抽象成一个深度为n的二叉树，那么二叉树的最后一层就是我们想要的
 DFS的过程出发点是空集，然后是否选1可以分岔为2个决策，第二层的每个决策根据是否选2又可以分岔为4个 ...
 
-TODO 组合数的遍历树状图
-
 TODO 左边的分支表示选择加上待选数字、右分支表示「不加」待选数字
 待选数字                   []
 1              [1]                 []
@@ -43,19 +41,6 @@ TODO 排列数的遍历树状图(排列数需要used/visited变量存储用过�
 干掉重复项之后再分岔
 [1,1] [1] []
 [1,1,3] [1,1] [1,3] [1] [3] []
-
-如果没有重复元素，三行就搞定:
-output = [[]]
-for num in nums:
-    output += [curr + [num] for curr in output]
-return output
-
-TODO 本题相当于impl了哪些内置库
-相当于让你求:
-results = []
-for i in range(len(nums)+1):
-    results.append(itertools.combinations(nums, i))
-return results
 """
 import unittest
 from typing import List
@@ -66,16 +51,6 @@ class Solution(unittest.TestCase):
     TEST_CASES = [
         ([1, 3, 1], [
             [1, 1, 3], [1, 1], [1, 3], [1], [3], []
-        ]),
-        ([1, 2, 3], [
-            [3],
-            [1],
-            [2],
-            [1, 2, 3],
-            [1, 3],
-            [2, 3],
-            [1, 2],
-            []
         ]),
         # 需要去重的测试用例
         ([1, 2, 2], [
@@ -88,43 +63,8 @@ class Solution(unittest.TestCase):
         ]),
     ]
 
-    @staticmethod
-    def bfs_binary_tree_dummy_node(nums: List[int]) -> List[List[int]]:
-        # 题目要求解集要升序
-        nums.sort()
-        # TODO 不推荐使用哨兵节点去层级遍历，刚拿出的节点又要放进去太愚蠢了
-        q = collections.deque([[], None])
-        for i in range(len(nums)):
-            while True:
-                subset = q.popleft()
-                if subset is None:
-                    q.append(None)
-                    break
-                new_subset = subset.copy()
-                new_subset.append(nums[i])
-                q.append(new_subset)
-                # FIXME 刚拿出的节点又要放进去太愚蠢了
-                q.append(subset)
-        q.pop()  # 去掉末尾的None
-        return list(q)
-
-    @staticmethod
-    def bfs_binary_tree_best(nums: List[int]) -> List[List[int]]:
-        nums.sort()
-        subsets = [[]]
-        subsets_len = 1
-        for num in nums:
-            for i in range(subsets_len):
-                new_subset = subsets[i].copy()
-                new_subset.append(num)
-                subsets.append(new_subset)
-            subsets_len *= 2
-        return subsets
-
     def test_bfs_n_tree_search(self):
         for nums, subsets in self.TEST_CASES:
-            if nums == [1,2,2]:
-                continue
             self.assertCountEqual(subsets, self.bfs_n_tree_search(nums))
 
     @staticmethod
