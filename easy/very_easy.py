@@ -1,3 +1,5 @@
+import unittest
+
 # https://lintcode.com/problem/digit-counts/description
 # noinspection PyPep8Naming
 def digitCounts(k: int, n: int) -> int:
@@ -12,3 +14,21 @@ def digitCounts(k: int, n: int) -> int:
     最终还是直接把0..n+1拼成字符串，再去数更好
     """
     return str(list(range(n + 1))).count(str(k))
+
+
+# 辗转相除法求最大公约数(greatest_common_divisor)
+class Solution(unittest.TestCase):
+    TEST_CASES = [
+        (10, 15, 5),
+    ]
+
+    def test(self):
+        for a, b, gcd in self.TEST_CASES:
+            self.assertEqual(gcd, self.gcd(a, b))
+
+    @staticmethod
+    def gcd(a: int, b: int) -> int:
+        # __gcd(6, 20), #include <algorithm>
+        while a % b != 0:
+            a, b = b, a % b
+        return b
