@@ -1,7 +1,4 @@
 """
-## Reference:
-https://jianshu.com/p/bbbab7fa77a2
-
 ## 算法的稳定性概念
 稳定排序，如果a原本在b前面，而a=b，排序之后a仍然在b的前面；而不稳定排序可能出现在b之后
 
@@ -11,39 +8,16 @@ https://jianshu.com/p/bbbab7fa77a2
 ## 为什么不看桶排序
 桶排序平均时间复杂度O(n+k)看似很美，在leetcode上桶排序的速度不如快速排序
 计数排序和基数排序的思想跟桶排序类似，可以归为桶排序一类
+
+## Reference:
+- https://www.geeksforgeeks.org/selection-sort-vs-bubble-sort/
+- https://jianshu.com/p/bbbab7fa77a2
 """
 import unittest
 from typing import List, Tuple
 from pprint import pprint as p
 from binary_tree.binary_tree import dbg
 from copy import deepcopy
-
-
-# Worst Case: 输入数组是反序的。平均O(n^2)，最好O(n)，最坏O(n^2)；稳定排序
-def bubble_sort(nums: List[int]):
-    length: int = len(nums)
-    for i in range(length - 1):
-        for j in range(i + 1, length):
-            if nums[i] > nums[j]:
-                nums[i], nums[j] = nums[j], nums[i]
-
-
-def selection_sort(nums: List[int]):
-    """
-    遍历n-1次，第一次遍历找到最小值与索引0进行互换，第二次遍历找到次小值......
-    选择排序比冒泡蠢在，当前遍历没有利用上次遍历的结果，而冒泡排序遍历时不断将更大的数换到后面，所以冒泡排序最后的几次遍历耗时很短
-    平均/最好/最坏都是O(n^2)；不稳定排序
-    小o表示最好时间复杂度，大O表示最坏时间复杂度
-    「堆排序」是选择排序的更高效算法
-    """
-    length: int = len(nums)
-    min_index: int
-    for i in range(length - 1):
-        min_index = i
-        for j in range(i + 1, length):
-            if nums[j] < nums[min_index]:
-                min_index = j
-        nums[i], nums[min_index] = nums[min_index], nums[i]
 
 
 # FIXME 这不是正统的sift_down过程，正规代码请看 collections/my_heap.py
@@ -334,19 +308,6 @@ class TestSorting(unittest.TestCase):
         [3, 2, 1, 4, 5],
         [4, 10, 3, 5, 1, 2],
     ]
-
-    def test_bubble_sort(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
-            dbg(nums)
-            sorted_nums = sorted(nums)
-            bubble_sort(nums)
-            dbg(nums)
-            self.assertListEqual(sorted_nums, nums)
-
-    def test_selection_sort(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
-            bubble_sort(nums)
-            self.assertListEqual(sorted(nums), nums)
 
     def test_heap_sort_iterative(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):

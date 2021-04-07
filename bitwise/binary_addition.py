@@ -1,11 +1,5 @@
-"""
-https://leetcode.com/problems/sum-of-two-integers/
-"""
-import unittest
-
-
+# https://leetcode.com/problems/sum-of-two-integers/
 # https://leetcode-cn.com/problems/sum-of-two-integers/solution/wei-yun-suan-xiang-jie-yi-ji-zai-python-zhong-xu-y/
-# noinspection PyPep8Naming
 def addition(a: int, b: int) -> int:
     """
     可以将加法拆分为两部分:
@@ -24,11 +18,3 @@ def addition(a: int, b: int) -> int:
         a = (a ^ b) % MASK
         b = carry % MASK
     return a if a <= MAX_INT else ~((a % MIN_INT) ^ MAX_INT)
-
-
-class Test(unittest.TestCase):
-    TEST_CASES = [(-100, 100, 0)]
-
-    def test(self):
-        for a, b, expected in self.TEST_CASES[:]:
-            self.assertEqual(addition(a, b), expected)
