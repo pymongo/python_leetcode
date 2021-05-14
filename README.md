@@ -1,14 +1,6 @@
----
-leetcode_solutions: >-
-  Python
----
+leetcode problems solutions: <https://github.coms/pymongo/leetcode-rust/>
 
-> %w(Python Rust Go Java C++).sort().reverse() = \["Rust", "Python", "Java", "Go", "C++"]
-
-| # | Title | Solutions | Category |
-|---| ----- | -------- | ---------- |
-|7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[Rust](https://github.coms/pymongo/leetcode-rust/blob/master/src/easy/reverse_integer_checked_mul_overflow.rs)|
-|...|[Full Solutions List Visit My Repo: rust_leetcode](https://github.coms/pymongo/leetcode-rust/)|
+codeforces problems solutions: <https://github.coms/pymongo/leetcode-rust/>
 
 ---
 

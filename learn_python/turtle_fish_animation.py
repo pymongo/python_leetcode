@@ -15,7 +15,6 @@ FONT = ('Meiryo', 20, 'normal')
 def draw_grid():
     """
     turtle这个库在函数内创建的turtle实例不会被销毁，所以代码容易写的变量名到处飞
-    TODO 做动画/游戏还是推荐Rust的ggez库
     """
     t_row = turtle.clone()
     turtle.tracer(False)

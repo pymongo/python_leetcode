@@ -44,18 +44,7 @@ def int_array_split_newline_1():
     2
     """
     import fileinput
-    nums = [int(line) for line in fileinput.input()]
-    print(nums)
-
-
-def int_array_split_newline_2():
-    """
-    input()和sys.stdin.readline()一样只能从stdin读一行，遇到'\n'就结束，不能处理多行输入的测试用例
-    输入样例:
-    1
-    2
-    """
-    nums = [int(line) for line in sys.stdin.readlines()]
+    nums = [int(line) for line in fileinput.input()] # or for line in sys.stdin.readlines()
     print(nums)
 
 

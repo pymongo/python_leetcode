@@ -92,52 +92,6 @@ class TreeNode:
     def __repr__(self):
         return self.__str__()
 
-    # FIXME Bug: 二叉树为"1()(2(3))"时，最后一行是错的，所以本函数仅供参考，单元测试比较二叉树是否等于期待值还是用to_str()
-    def pretty(self):
-        """
-        功能: 将二叉树打印成一个漂亮的「杨辉三角」
-        实现思路: 将二叉树序列化为一维数组，数组第2-3项表示第二层，数组第3-6项表示第三层，以此类推
-        level index     explain
-        0     0         None
-        1     [1,2]     [2**1-1, 2**2-2]
-        2     [3,4,5,6] [2**2-1, 2**3-2]
-        """
-        # arr = pickle.loads(self.serialize())
-        binary_tree_arr = self.to_list()
-        size = len(binary_tree_arr)
-        arr: List[str] = []
-        for i in range(size):
-            if binary_tree_arr[i] is None:
-                arr.append('N')
-            else:
-                arr.append(str(binary_tree_arr[i]))
-        # 例如[1,2,3,N,N,N,N]只有两层，但是长度+1取2的对数得到的是3
-        log2_result = math.log2(size + 1)
-        # level = 0
-        if log2_result.is_integer():
-            level = int(log2_result) - 1
-        else:
-            # 如果对数不能被整除(一般是根节点没有左子树的情况)，去掉尾巴的一对None
-            # 例如: [3, 9, 20, None, None, 15, 7] 转为二叉树后再转为list，尾巴会多4个None
-            new_len = size + 1 - 2
-            while not math.log2(new_len).is_integer():
-                new_len -= 2
-            level = int(math.log2(new_len)) - 1
-        output = " " * (level + 1) + arr[0] + '\n'
-        for i in range(1, level + 1):
-            padding_left = " " * (level - i)
-
-            margin_between_num = ' ' * (2 * (level - i) + 1)
-            curr_level_start_idx = 2 ** i - 1
-            curr_level_end_idx = 2 ** (i + 1) - 2 + 1
-            nums_str = margin_between_num.join(arr[curr_level_start_idx:curr_level_end_idx])
-            # 如果根节点没有左子树，需要反转显示出来的最后一行，否则最后两个元素会错误地显示在根节点的左子树上
-            if i == level and size > 1 and binary_tree_arr[1] is None:
-                nums_str = nums_str[::-1]
-
-            output += (padding_left + nums_str + '\n')
-        return output
-
     # noinspection DuplicatedCode
     # 为了方便单元测试，我就不序列化成二进制了
     # def serialize(self) -> bytes:

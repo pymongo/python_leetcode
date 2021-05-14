@@ -22,21 +22,6 @@ def in_order_iterative(root: TreeNode) -> List[int]:
     return result
 
 
-def pre_order_recursive_helper(root: TreeNode) -> List[int]:
-    result = []
-    pre_order_recursive(root, result)
-    return result
-
-
-def pre_order_recursive(root: TreeNode, result: List[int]):
-    if root is None:
-        return
-    # pre-order、in-order、post-order的唯一区别就是改变下面三行的顺序
-    result.append(root.val)
-    pre_order_recursive(root.left, result)
-    pre_order_recursive(root.right, result)
-
-
 # 230. Kth Smallest Element in a BST
 def bst_kth_smallest(root: TreeNode, k: int) -> int:
     """
@@ -56,24 +41,6 @@ def bst_kth_smallest(root: TreeNode, k: int) -> int:
         if k == 0:
             return curr_node.val
         curr_node = curr_node.right
-
-
-# Reverse-Pre-Order' s output = reverse(Post-Order)
-def post_order_iterative_1(root: TreeNode) -> List[int]:
-    result = []
-    if root is None:
-        return result
-    stack = collections.deque()
-    stack.append(root)
-    while stack:
-        node = stack.pop()
-        if node is None:
-            continue
-        # "逆"前序遍历(根右左)再逆序等于后续遍历，每次将结果往前追加等于逆序
-        result.insert(0, node.val)
-        stack.append(node.left)
-        stack.append(node.right)
-    return result
 
 
 # 正统的后续遍历思维的迭代法，基于中序遍历版本稍作修改

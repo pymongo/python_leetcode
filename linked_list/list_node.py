@@ -7,16 +7,17 @@ class ListNode:
         self.val: int = val
         self.next: Optional[ListNode] = next_node
 
+    # ListNode{val: 4, next: ListNode{val: 2, next: ListNode{val: 1, next: ListNode{val: 3, next: None}}}}
     def __str__(self) -> str:
+        return f'ListNode{{val: {self.val}, next: {"None" if self.next is None else self.next.__str__()}}}'
+
+    def __repr__(self) -> str:
         list_node_to_string: str = str(self.val)
         curr_node = self
         while curr_node.next is not None:
             curr_node = curr_node.next
             list_node_to_string += f"->{curr_node.val}"
         return list_node_to_string
-
-    def __repr__(self) -> str:
-        return self.__str__()
 
     def to_list(self) -> List[int]:
         nums = [self.val]
@@ -62,3 +63,8 @@ class _TestListNode(unittest.TestCase):
     def test_to_string(self):
         list_node = ListNode.from_list([1, 2, 3])
         self.assertEqual("1->2->3", str(list_node))
+
+if __name__ == '__main__':
+    node = ListNode.from_list([4,2,1,3])
+    print(node)
+    assert node.__str__() == r"ListNode{val: 4, next: ListNode{val: 2, next: ListNode{val: 1, next: ListNode{val: 3, next: None}}}}"
