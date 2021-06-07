@@ -1,4 +1,5 @@
 def test():
+    # both a and b aree on global HashMap<String, Any>
     print(a)
 
 
