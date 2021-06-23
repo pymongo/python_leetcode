@@ -5,7 +5,6 @@ import unittest
 def digitCounts(k: int, n: int) -> int:
     """
     计算数字 k 在 0 到 n 中的出现的次数，k 可能是 0~9 的一个值
-
     k = 1, n = 12
     输出：5
     解释：在 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] 中，我们发现 1 出现了 5 次 (1, 10, 11, 12)(注意11中有两个1)。
@@ -17,18 +16,8 @@ def digitCounts(k: int, n: int) -> int:
 
 
 # 辗转相除法求最大公约数(greatest_common_divisor)
-class Solution(unittest.TestCase):
-    TEST_CASES = [
-        (10, 15, 5),
-    ]
-
-    def test(self):
-        for a, b, gcd in self.TEST_CASES:
-            self.assertEqual(gcd, self.gcd(a, b))
-
-    @staticmethod
-    def gcd(a: int, b: int) -> int:
-        # __gcd(6, 20), #include <algorithm>
-        while a % b != 0:
-            a, b = b, a % b
-        return b
+def gcd(a: int, b: int) -> int:
+    # __gcd(6, 20), #include <algorithm>
+    while a % b != 0:
+        a, b = b, a % b
+    return b

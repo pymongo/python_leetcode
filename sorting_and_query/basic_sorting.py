@@ -314,12 +314,6 @@ class TestSorting(unittest.TestCase):
             heap_sort_iterative(nums)
             self.assertListEqual(sorted(nums), nums)
 
-    def test_heap_sort(self):
-        for nums in deepcopy(self.NUMS_TEST_CASES):
-            sorted_nums = sorted(nums)
-            heap_sort(nums)
-            self.assertListEqual(sorted_nums, nums)
-
     def test_shell_sort(self):
         for nums in deepcopy(self.NUMS_TEST_CASES):
             sorted_nums = sorted(nums)
