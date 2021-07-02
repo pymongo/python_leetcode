@@ -5,18 +5,14 @@ Union find和Trie肯定是要会的，binary index tree和segment tree正常情�
 不过segment tree比binary index tree适用范围更广，但是真用到的地方并不那么多。
 suffix array和k-d tree知道有这么个玩意大概能干啥也就够了吧。真考到就只能认了，这个太难掌握了
 sparse table的话知道是binary lifting这种办法，可以实现range minimum query就差不多了，其实不难。
-从难易程度来看的话，binary index tree/ segment tree/ sparse table都属于已有知识掌握比较好的情况下学习难度不是特别大的数据结构（当然不包括什么进阶用法的情况下）。
+从难易程度来看的话，binary index tree/ segment tree/ sparse table都属于已有知识掌握比较好的情况下学习难度不是特别大的数据结构（当然不包括什么进阶用法的情况下）
 segment tree比binary index tree适用范围更广，面试中能用到的主要就是可以求任意区间极值，而binary index tree只能算prefix的极值。
 像动态插入删除节点，通过懒标记实现区间查询更改这种操作真考到只能认了（我也只是知道有这么个操作，并不会实现）。
 kd-tree和suffix array难度就要进阶一些了。而且细节又多。
-个人建议，如果基础的数据结构和算法没有掌握好的话，先把基础打牢。
-然后不会union find和 Trie的话一定花时间先把这两个数据结构掌握。
 再之后可以线段树和Fenwick（binary index tree）选一个去掌握。Fenwick代码量短，运行速度快，线段树更好理解，但是代码长。
 再之后sparse table可以尝试去掌握一下RMQ和倍增（binary lifting）的思路，力扣的kth ancestor这个题目和RMQ思路很接近。而且之前G家考过binary lifting优化的dp。
 suffix array和kd-tree个人感觉除非是闲得难受，学有余力，否则就不管了吧
 ```
-
-# BFS
 
 ## BFS的使用场景
 
@@ -53,7 +49,7 @@ suffix array和kd-tree个人感觉除非是闲得难受，学有余力，否则�
 
 # HashMap
 
-所谓O(1)时间复杂度其实是有先决条件的，更准确说是O(size of key)的时间复杂度
+所谓O(1)查询时间复杂度其实是有先决条件的，更准确说是O(size of key)的时间复杂度
 
 输入key经过Hash Function后得到一个正整数的下标，通过下标找到内部的bucket数组的索引位置
 
@@ -93,8 +89,6 @@ suffix array和kd-tree个人感觉除非是闲得难受，学有余力，否则�
 ## 为什么(非内存)数据库索引要用B+树
 
 B+树实际上是一种多叉树，降低了树的深度
-
-## Skip List(跳跃表)有序链表?
 
 ## 双向宽度优先搜索的优化多少时间复杂度?
 

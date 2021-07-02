@@ -1,7 +1,6 @@
 import unittest
 from typing import List
 
-
 # 前缀和的大致思想
 # 如果nums[0:2]的和为2，如果nums[0:4]的和也为2，说明 nums[0:2] - (nums[0:2] + nums[3:4]) = 0
 # 也就是nums[3:4]=0
