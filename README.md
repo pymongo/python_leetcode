@@ -1,6 +1,6 @@
-leetcode problems solutions: <https://github.coms/pymongo/leetcode-rust/>
+leetcode problems solutions: <https://github.com/pymongo/leetcode-rust/>
 
-codeforces problems solutions: <https://github.coms/pymongo/leetcode-rust/>
+codeforces problems solutions: <https://github.com/pymongo/leetcode-rust/>
 
 ---
 
