@@ -1,24 +1,25 @@
 # dis函数查看某函数的底层指令执行过程
 from dis import dis
+from typing import Tuple
 import timeit
 # from inspect import getsource
 # 自带的更安全的eval(ast.literal_eval)
 # import ast
 
 
-def swap1(a: int, b: int) -> (int, int):
+def swap1(a: int, b: int) -> Tuple[int, int]:
     temp = a
     a = b
     b = temp
     return a, b
 
 
-def swap2(a: int, b: int) -> (int, int):
+def swap2(a: int, b: int) -> Tuple[int, int]:
     a, b = b, a
     return a, b
 
 
-def swap_xor(a: int, b: int) -> (int, int):
+def swap_xor(a: int, b: int) -> Tuple[int, int]:
     a = a ^ b
     b = a ^ b
     a = a ^ a
